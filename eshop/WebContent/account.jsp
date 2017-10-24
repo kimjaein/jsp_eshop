@@ -37,50 +37,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<jsp:include page="top.jsp"></jsp:include>
 	<!-- content-section-starts -->
 	<div class="content">
-		<div class="container">
-			<div class="login-page">
-				<div class="dreamcrub">
-					<ul class="breadcrumbs">
-						<li class="home"><a href="index.html" title="Go to Home Page">Home</a>&nbsp;
-							<span>&gt;</span></li>
-						<li class="women">Login</li>
-					</ul>
-					<ul class="previous">
-						<li><a href="index.jsp">Back to Previous Page</a></li>
-					</ul>
-					<div class="clearfix"></div>
-				</div>
-				<div class="account_grid">
-					<div class="col-md-6 login-left wow fadeInLeft"
-						data-wow-delay="0.4s">
-						<h2>NEW CUSTOMERS</h2>
-						<p>Join</p>
-						<a class="acount-btn" href="register.jsp">Create an Account</a>
-					</div>
-					<div class="col-md-6 login-right wow fadeInRight"
-						data-wow-delay="0.4s">
-						<h3>REGISTERED CUSTOMERS</h3>
-						<p>Login</p>
-						<form>
-							<div>
-								<span>
-									ID<label>*</label>
-								</span>
-								<input type="text">
-							</div>
-							<div>
-								<span>
-									Password<label>*</label>
-								</span>
-								<input type="password">
-							</div>
-							<a class="forgot" href="#">Forgot Your Password?</a>
-							<input type="submit" value="Login">
-						</form>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
 	<div class="container">
 		<div class="login-page">
 			    <div class="dreamcrub">
@@ -98,12 +54,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
+			   
 			   <div class="account_grid">
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <h2>신규 회원</h2>
 				 <p>Join</p>
 				 <a class="acount-btn" href="register.jsp">새 계정 만들기</a>
 			   </div>
+			   
 			   <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
 			  	<h3>기존 회원</h3>
 				<p>Login</p>
@@ -112,14 +70,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span>아이디<label>*</label></span>
 					<input type="text"> 
 				  </div>
+				  
 				  <div>
 					<span>비밀번호<label>*</label></span>
 					<input type="password"> 
 				  </div>
+				  
 				  <a class="forgot" href="#">비밀번호를 잊으셨나요?</a>
 				  <input type="submit" value="로그인">
 			    </form>
 			   </div>	
+			   
 			   <div class="clearfix"> </div>
 			 </div>
 		   </div>
