@@ -59,8 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a class="acount-btn" href="register.jsp">새 계정 만들기</a>
 					</div>
 
-					<div class="col-md-6 login-right wow fadeInRight"
-						data-wow-delay="0.4s">
+					<div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
 						<h3>기존 회원</h3>
 						<p>Login</p>
 						<form>

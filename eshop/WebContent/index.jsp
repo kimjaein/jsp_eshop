@@ -111,60 +111,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<header>
 					<h3 class="head text-center">N e w  &nbsp; &nbsp; P r o d u c t s</h3>
 				</header>
+			
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
-<<<<<<< HEAD
-						<a href="single.jsp"><img src="images/p1.jpg" alt="" /></a>
-						<div class="mask">
-							<a href="single.jsp">Quick View</a>
-						</div>
-						<a class="product_name" href="single.jsp">Sed ut perspiciatis</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$9999</span></a></p>
-					</div>
-					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/p2.jpg" alt="" /></a>
-						<div class="mask">
-							<a href="single.jsp">Quick View</a>
-						</div>
-						<a class="product_name" href="single.jsp">great explorer</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$599.8</span></a></p>
-					</div>
-					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/p3.jpg" alt="" /></a>
-						<div class="mask">
-							<a href="single.jsp">Quick View</a>
-						</div>
-						<a class="product_name" href="single.jsp">similique sunt</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$359.6</span></a></p>
-					</div>
-					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/p4.jpg" alt="" /></a>
-						<div class="mask">
-							<a href="single.jsp">Quick View</a>
-						</div>
-						<a class="product_name" href="single.jsp">shrinking </a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$649.99</span></a></p>
-					</div>
-					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/p5.jpg" alt="" /></a>
-						<div class="mask">
-							<a href="single.jsp">Quick View</a>
-						</div>
-						<a class="product_name" href="single.jsp">perfectly simple</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$750</span></a></p>
-					</div>
-					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/p6.jpg" alt="" /></a>
-						<div class="mask">
-							<a href="single.jsp">Quick View</a>
-						</div>
-						<a class="product_name" href="single.jsp">equal blame</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$295.59</span></a></p>
-					</div>
-					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/p7.jpg" alt="" /></a>
-=======
 						<a href="single.jsp"><img src="images/padding/padding1-1.jpg" alt="" /></a>
->>>>>>> 79a1101645e9ed5f651de6afecb54301f9a87098
 						<div class="mask">
 							<a href="single.jsp">Quick View</a>
 						</div>
@@ -198,26 +147,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				     <ul id="flexiselDemo3">
 						<li><a href="single.jsp"><img src="images/padding/padding4-1.jpg" class="img-responsive" alt="" /></a>
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.jsp">perfectly simple</a>
-							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$759</span></a></p>
+							<a class="like_name" href="single.jsp">패딩123123</a>
+							<p><a class="item_add" href="#"><i></i> <span class=" item_price">70,000</span></a></p>
 							</div>
 						</li>
 						<li><a href="single.jsp"><img src="images/padding/padding5-1.jpg" class="img-responsive" alt="" /></a>						
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.jsp">praising pain</a>
-							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$699</span></a></p>
+							<a class="like_name" href="single.jsp">패딩3422342</a>
+							<p><a class="item_add" href="#"><i></i> <span class=" item_price">69,000</span></a></p>
 							</div>
 						</li>
 						<li><a href="single.jsp"><img src="images/padding/padding6-1.jpg" class="img-responsive" alt="" /></a>
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.jsp">Neque porro</a>
-							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
+							<a class="like_name" href="single.jsp">패딩1929328298</a>
+							<p><a class="item_add" href="#"><i></i> <span class=" item_price">90,000</span></a></p>
 							</div>
 						</li>
 						<li><a href="single.jsp"><img src="images/padding/padding1-1.jpg" class="img-responsive" alt="" /></a>
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.jsp">equal blame</a>
-							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$499</span></a></p>
+							<a class="like_name" href="single.jsp">패딩987967</a>
+							<p><a class="item_add" href="#"><i></i> <span class=" item_price">50000</span></a></p>
 							</div>
 						</li>
 				     </ul>
