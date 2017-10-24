@@ -8,8 +8,7 @@ import java.sql.SQLException;
  
 public class DBUtil {
     private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-   // private static final String DB_URL = "jdbc:mysql://70.12.115.72:3306/project";
-    private static final String DB_URL = "jdbc:mysql://70.12.115.71:3306/project";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/project5";
     private static final String DB_ID = "root";
     private static final String DB_PW = "sds1501";
      

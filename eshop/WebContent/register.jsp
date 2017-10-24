@@ -36,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<jsp:include page="top.jsp"></jsp:include>
 	<c:set var="myContextPath" value="${pageContext.request.contextPath}"/>
 	<form action="${myContextPath}/member" method="post">
-	<input type = "hidden" name = "task" value="join">
+	<input type="hidden" name="task" value="join">
 		<!-- registration-form -->
 <div class="registration-form">
 	<div class="container">
