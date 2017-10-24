@@ -289,13 +289,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="col-md-6">
 				  <nav>
 				  <ul class="pagination pagination-lg">
-					<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+					<li><a href="#" aria-label="Previous"><span aria-hidden="true"> << </span></a></li>
 					<li><a href="#">1</a></li>
 					<li><a href="#">2</a></li>
 					<li><a href="#">3</a></li>
 					<li><a href="#">4</a></li>
 					<li><a href="#">5</a></li>
-					<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+					<li><a href="#" aria-label="Next"><span aria-hidden="true">>></span></a></li>
 				  </ul>
 				  </nav>
 				  <nav>
@@ -323,7 +323,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </div>
 			 <div class="col-md-6">
 					<ul class="pagination pagination-lg">
-									<li class="disabled"><a href="#"><span aria-hidden="true">«</span></a></li>
+									<li class="disabled"><a href="#"><span aria-hidden="true"></span></a></li>
 									<li class="active"><a href="#">1</a></li>
 									<li><a href="#">2</a></li>
 									<li><a href="#">3</a></li>
@@ -339,7 +339,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="#">3</a></li>
 					<li><a href="#">4</a></li>
 					<li><a href="#">5</a></li>
-					<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+					<li><a href="#" aria-label="Next"><span aria-hidden="true"></span></a></li>
 				 </ul>
 			   </nav>
 				 <ul class="pagination pagination-sm">
