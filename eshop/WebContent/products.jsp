@@ -1,3 +1,5 @@
+<%@page import="vo.Product"%>
+<%@page import="vo.ProductList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!--
@@ -9,7 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Eshop a Flat E-Commerce Bootstrap Responsive Website Template | Products :: w3layouts</title>
+<title>Products</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -31,6 +33,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 </head>
+<%
+	ProductList productList = (ProductList) request.getAttribute("productList");
+%>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
 		
@@ -63,8 +68,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			            <label>Sort By</label>
 			            <select>
 			                            <option value="">
-			                    Position                </option>
-			                            <option value="">
 			                    Name                </option>
 			                            <option value="">
 			                    Price                </option>
@@ -85,18 +88,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list" title="list">List View</a>
 					</div>
 					<div class="pages">   
-        	 <div class="limiter visible-desktop">
-               <label>Show</label>
-                  <select>
-                            <option value="" selected="selected">
-                    9                </option>
-                            <option value="">
-                    15                </option>
-                            <option value="">
-                    30                </option>
-                  </select> per page        
-               </div>
        	   </div>
+       	   
+       	   <%for(Product product: ProductList){ %>
 					<div class="clearfix"></div>
 					<ul>
 					  <li>
@@ -120,147 +114,132 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			                     </div>
 		                      </div>
 		                    </a>
-							<div class="cbp-vm-details">
-								Silver beet shallot wakame tomatillo salsify mung bean beetroot groundnut.
-							</div>
 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
 							</div>
 						</li>
-						<li>
-							<a class="cbp-vm-image" href="single.jsp">
-								<div class="simpleCart_shelfItem">
-							  <div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p2.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Great Explorer</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$189.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							 </a>
-							<div class="cbp-vm-details">
-								Wattle seed bunya nuts spring onion okra garlic bitterleaf zucchini.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
-						<li>
-							<a class="cbp-vm-image" href="single.jsp">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p3.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Similique Sunt</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$699.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
-						<li>
-							<a class="cbp-vm-image" href="single.jsp">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p4.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Shrinking</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$599.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
-						<li>
-							<a class="cbp-vm-image" href="single.jsp">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p5.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Perfectly Simple</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$459.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
-						<li>
-							<a class="cbp-vm-image" href="single.jsp">
-								<div class="simpleCart_shelfItem">
-								<div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-									<img src="images/p6.jpg" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">Equal Blame</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">$119.00</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-			                     </div>
-		                      </div>
-							</a>
-							<div class="cbp-vm-details">
-								Kohlrabi bok choy broccoli rabe welsh onion spring onion tatsoi ricebean kombu chard.
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
-							</div>
-						</li>
+						<%}%>
+<!-- 						여기서부터 똑같은 상품목록 -->
+						
+<!-- 						<li> -->
+<!-- 							<a class="cbp-vm-image" href="single.jsp"> -->
+<!-- 								<div class="simpleCart_shelfItem"> -->
+<!-- 							  <div class="view view-first"> -->
+<!-- 					   		  <div class="inner_content clearfix"> -->
+<!-- 								<div class="product_image"> -->
+<!-- 									<img src="images/p2.jpg" class="img-responsive" alt=""/> -->
+<!-- 									<div class="mask"> -->
+<!-- 			                       		<div class="info">Quick View</div> -->
+<!-- 					                  </div> -->
+<!-- 									<div class="product_container"> -->
+<!-- 									   <div class="cart-left"> -->
+<!-- 										 <p class="title">Great Explorer</p> -->
+<!-- 									   </div> -->
+<!-- 									   <div class="pricey"><span class="item_price">$189.00</span></div> -->
+<!-- 									   <div class="clearfix"></div> -->
+<!-- 								     </div>		 -->
+<!-- 								  </div> -->
+<!-- 			                     </div> -->
+<!-- 		                      </div> -->
+<!-- 							 </a> -->
+<!-- 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<a class="cbp-vm-image" href="single.jsp"> -->
+<!-- 								<div class="simpleCart_shelfItem"> -->
+<!-- 								<div class="view view-first"> -->
+<!-- 					   		  <div class="inner_content clearfix"> -->
+<!-- 								<div class="product_image"> -->
+<!-- 									<img src="images/p3.jpg" class="img-responsive" alt=""/> -->
+<!-- 									<div class="mask"> -->
+<!-- 			                       		<div class="info">Quick View</div> -->
+<!-- 					                  </div> -->
+<!-- 									<div class="product_container"> -->
+<!-- 									   <div class="cart-left"> -->
+<!-- 										 <p class="title">Similique Sunt</p> -->
+<!-- 									   </div> -->
+<!-- 									   <div class="pricey"><span class="item_price">$699.00</span></div> -->
+<!-- 									   <div class="clearfix"></div> -->
+<!-- 								     </div>		 -->
+<!-- 								  </div> -->
+<!-- 			                     </div> -->
+<!-- 		                      </div> -->
+<!-- 							</a> -->
+<!-- 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<a class="cbp-vm-image" href="single.jsp"> -->
+<!-- 								<div class="simpleCart_shelfItem"> -->
+<!-- 								<div class="view view-first"> -->
+<!-- 					   		  <div class="inner_content clearfix"> -->
+<!-- 								<div class="product_image"> -->
+<!-- 									<img src="images/p4.jpg" class="img-responsive" alt=""/> -->
+<!-- 									<div class="mask"> -->
+<!-- 			                       		<div class="info">Quick View</div> -->
+<!-- 					                  </div> -->
+<!-- 									<div class="product_container"> -->
+<!-- 									   <div class="cart-left"> -->
+<!-- 										 <p class="title">Shrinking</p> -->
+<!-- 									   </div> -->
+<!-- 									   <div class="pricey"><span class="item_price">$599.00</span></div> -->
+<!-- 									   <div class="clearfix"></div> -->
+<!-- 								     </div>		 -->
+<!-- 								  </div> -->
+<!-- 			                     </div> -->
+<!-- 		                      </div> -->
+<!-- 							</a> -->
+<!-- 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<a class="cbp-vm-image" href="single.jsp"> -->
+<!-- 								<div class="simpleCart_shelfItem"> -->
+<!-- 								<div class="view view-first"> -->
+<!-- 					   		  <div class="inner_content clearfix"> -->
+<!-- 								<div class="product_image"> -->
+<!-- 									<img src="images/p5.jpg" class="img-responsive" alt=""/> -->
+<!-- 									<div class="mask"> -->
+<!-- 			                       		<div class="info">Quick View</div> -->
+<!-- 					                  </div> -->
+<!-- 									<div class="product_container"> -->
+<!-- 									   <div class="cart-left"> -->
+<!-- 										 <p class="title">Perfectly Simple</p> -->
+<!-- 									   </div> -->
+<!-- 									   <div class="pricey"><span class="item_price">$459.00</span></div> -->
+<!-- 									   <div class="clearfix"></div> -->
+<!-- 								     </div>		 -->
+<!-- 								  </div> -->
+<!-- 			                     </div> -->
+<!-- 		                      </div> -->
+<!-- 							</a> -->
+<!-- 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
+<!-- 						<li> -->
+<!-- 							<a class="cbp-vm-image" href="single.jsp"> -->
+<!-- 								<div class="simpleCart_shelfItem"> -->
+<!-- 								<div class="view view-first"> -->
+<!-- 					   		  <div class="inner_content clearfix"> -->
+<!-- 								<div class="product_image"> -->
+<!-- 									<img src="images/p6.jpg" class="img-responsive" alt=""/> -->
+<!-- 									<div class="mask"> -->
+<!-- 			                       		<div class="info">Quick View</div> -->
+<!-- 					                  </div> -->
+<!-- 									<div class="product_container"> -->
+<!-- 									   <div class="cart-left"> -->
+<!-- 										 <p class="title">Equal Blame</p> -->
+<!-- 									   </div> -->
+<!-- 									   <div class="pricey"><span class="item_price">$119.00</span></div> -->
+<!-- 									   <div class="clearfix"></div> -->
+<!-- 								     </div>		 -->
+<!-- 								  </div> -->
+<!-- 			                     </div> -->
+<!-- 		                      </div> -->
+<!-- 							</a> -->
+<!-- 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a> -->
+<!-- 							</div> -->
+<!-- 						</li> -->
 					</ul>
 				</div>
 				<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
