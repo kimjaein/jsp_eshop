@@ -49,11 +49,10 @@
 			            <div>
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
-									<h6>CLOTHING</h6>
-						            <li><a href="products.jsp">패딩</a></li>
-						            <li><a href="products.jsp">코트</a></li>
-						            <li><a href="products.jsp">자켓</a></li>
-						            <li><a href="products.jsp">등</a></li>
+									<h6>OUTER</h6>
+						            <li><a href="products.jsp">PADDING</a></li>
+						            <li><a href="products.jsp">COAT</a></li>
+						            <li><a href="products.jsp">JACKET</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
@@ -66,12 +65,10 @@
 			            <div >
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
-									<h6>뭘써야하지..</h6>
-						            <li><a href="products.jsp">니트</a></li>
-						            <li><a href="products.jsp">면티</a></li>
-						            <li><a href="products.jsp">반팔</a></li>
-						            <li><a href="products.jsp">셔츠</a></li>
-						            <li><a href="products.jsp">블라우스</a></li>
+									<h6>TOP</h6>
+						            <li><a href="products.jsp">LONG SLEEVE</a></li>
+						            <li><a href="products.jsp">SHORT SLEEVE</a></li>
+						            <li><a href="products.jsp">SLEEVELESS</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
@@ -84,19 +81,17 @@
 			            <div >
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
-									<h6>what..?</h6>
-						            <li><a href="products.jsp">청바지</a></li>
-						            <li><a href="products.jsp">면바지</a></li>
-						            <li><a href="products.jsp">반바지</a></li>
-						            <li><a href="products.jsp">바지바지</a></li>
+									<h6>BOTTOM</h6>
+						            <li><a href="products.jsp">SLACKS</a></li>
+						            <li><a href="products.jsp">JEANS</a></li>
+						            <li><a href="products.jsp">SHORTS</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
 			            </div>
 		            </ul>
 		        </li>
-					<li><a href="typography.jsp">TYPO</a></li>
-					<li><a href="contact.jsp">CONTACT</a></li>
+					<li><a href="typography.jsp">Q & A</a></li>
 	        </ul>
 	    </div>
 	    <!--/.navbar-collapse-->
