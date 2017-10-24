@@ -42,19 +42,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="rslides" id="slider4">
 					<li>
 								<div class="banner-info">
-									<h3>Smart But Casual</h3>
+									<h3>첫번째 배너</h3>
 									<p>Start your shopping here...</p>
 								</div>
 							</li>
 							<li>
 								<div class="banner-info">
-								   <h3>Shop Online</h3>
+								   <h3>두번째 배너</h3>
 									<p>Start your shopping here...</p>
 								</div>
 							</li>
 							<li>
 								<div class="banner-info">
-								  <h3>Pack your Bag</h3>
+								  <h3>세번째 배너</h3>
 									<p>Start your shopping here...</p>
 								</div>								
 							</li>
