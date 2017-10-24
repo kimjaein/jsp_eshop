@@ -96,51 +96,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="main-content">
 				<div class="online-strip">
 					<div class="col-md-4 follow-us">
-						<h3>follow us : <a class="twitter" href="#"></a><a class="facebook" href="#"></a></h3>
+						<h3>Facebook : <a class="facebook" href="#"></a></h3>
 					</div>
 					<div class="col-md-4 shipping-grid">
 						<div class="shipping">
 							<img src="images/shipping.png" alt="" />
 						</div>
 						<div class="shipping-text">
-							<h3>Free Shipping</h3>
-							<p>on orders over $ 199</p>
+							<h3>무료배송</h3>
+							<p>50,000원 이상 구입시</p>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="col-md-4 online-order">
-						<p>Order online</p>
-						<h3>Tel:999 4567 8902</h3>
+						<p>Phone Num</p>
+						<h3>Tel : 000 0000 0000</h3>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="products-grid">
 				<header>
-					<h3 class="head text-center">N e w &nbsp; &nbsp; &nbsp; P r o d u c t s</h3>
+					<h3 class="head text-center">N e w  &nbsp; &nbsp; P r o d u c t s</h3>
 				</header>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
 						<a href="single.jsp"><img src="images/padding/padding1-1.jpg" alt="" /></a>
 						<div class="mask">
 							<a href="single.jsp">Quick View</a>
 						</div>
-						<a class="product_name" href="single.jsp">Sed ut perspiciatis</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$329</span></a></p>
+						<a class="product_name" href="single.jsp">패딩1</a>
+						<p><a class="item_add" href="#"><i></i> <span class="item_price">30,000</span></a></p>
 					</div>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
 						<a href="single.jsp"><img src="images/padding/padding2-1.jpg" alt="" /></a>
 						<div class="mask">
 							<a href="single.jsp">Quick View</a>
 						</div>
-						<a class="product_name" href="single.jsp">great explorer</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$599.8</span></a></p>
+						<a class="product_name" href="single.jsp">패딩2</a>
+						<p><a class="item_add" href="#"><i></i> <span class="item_price">50,000</span></a></p>
 					</div>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
 						<a href="single.jsp"><img src="images/padding/padding3-1.jpg" alt="" /></a>
 						<div class="mask">
 							<a href="single.jsp">Quick View</a>
 						</div>
-						<a class="product_name" href="single.jsp">similique sunt</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$359.6</span></a></p>
+						<a class="product_name" href="single.jsp">패딩3</a>
+						<p><a class="item_add" href="#"><i></i> <span class="item_price">60,000</span></a></p>
 					</div>
 					<div class="clearfix"></div>
 				</div>
