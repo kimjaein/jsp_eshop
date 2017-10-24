@@ -52,14 +52,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-5 zoom-grid">
 					<div class="flexslider">
 						<ul class="slides">
-							<li data-thumb="images/padding/padding6-1.jpg">
-								<div class="thumb-image"> <img src="images/padding/padding6-1.jpg" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+							<li data-thumb="images/coat/coat6-1.JPG">
+								<div class="thumb-image"> <img src="images/coat/coat6-1.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
 							</li>
-							<li data-thumb="images/padding/padding6-2.jpg">
-								<div class="thumb-image"> <img src="images/padding/padding6-2.jpg" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+							<li data-thumb="images/coat/coat6-2.JPG">
+								<div class="thumb-image"> <img src="images/coat/coat6-2.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
 							</li>
-							<li data-thumb="images/padding/padding6-3.jpg">
-							<div class="thumb-image"> <img src="images/padding/padding6-3.jpg" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+							<li data-thumb="images/coat/coat6-3.JPG">
+							<div class="thumb-image"> <img src="images/coat/coat6-3.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
 							</li> 
 						</ul>
 					</div>
