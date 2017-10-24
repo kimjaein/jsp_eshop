@@ -17,7 +17,7 @@ public class TestServlet extends HttpServlet {
 		String id = req.getParameter("id");
 		String path = "";
 		if(id.equals("AA")) {
-			//dao에서 AA로 되어있는 정보 가져온 뒤 Setattribute함[멤버 객체 하나]
+			//dao에서 id가 AA인 정보 가져온 뒤 Setattribute함[멤버 객체 하나]
 			
 			path ="editaccount.jsp";
 		}
@@ -31,9 +31,9 @@ public class TestServlet extends HttpServlet {
 		String path ="";
 		if(action.equals("edit")) {
 			//MemberVo 객체 생성 후 set으로 값 넣어주고
-			req.getParameter("userid");
-			req.getParameter("userpw");
-			req.getParameter("username");
+			System.out.println("ID : " +req.getParameter("userid"));
+			System.out.println("PW : " +req.getParameter("userpw"));
+			System.out.println("NAME : " +req.getParameter("username"));
 			req.getParameter("userphone");
 			req.getParameter("useraddress");
 			req.getParameter("useremail");

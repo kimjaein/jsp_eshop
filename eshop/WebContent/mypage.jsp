@@ -27,7 +27,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <!-- cart -->
 <script src="js/simpleCart.min.js">
-	
 </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
@@ -49,22 +48,14 @@ var memberId = "AA";
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
-	<div class="container">
-
-		<div class="dreamcrub">
-			<ul class="breadcrumbs">
-				<li class="home"><a href="index.jsp" title="Go to Home Page">Home</a>&nbsp;
-					<span>&gt;</span></li>
-				<li class="women">MyPage</li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="col-md-4 product text-center">
-
-			<h2 class="heading text-center">MY PAGE</h2>
-			<div class="col-md-6 login-left wow fadeInLeft">
-
-				<h2>(name value)님 반갑습니다.</h2>
+<center>
+		<div class="clearfix"></div>
+		<p><br></p>
+		<h2>정보 수정</h2>
+		<div class="registration-grids">
+			<div class="reg-form">
+				<div class="reg">
+					<h2>(name value)님 반갑습니다.</h2>
 				고객님만의 페이지 / 다양한 쇼핑정보를 한눈에 볼 수 있는 공간입니다.
 
 				<hr>
@@ -81,9 +72,11 @@ var memberId = "AA";
 				<a class="acount-btn" href="account.jsp">로그인</a>
 				<%-- 				</c:if> --%>
 
+				</div>
 			</div>
 		</div>
-	</div>
+	</center>
+	<div class="clearfix"></div>
 	<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>
