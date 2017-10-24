@@ -86,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			    <div class="dreamcrub">
 			   	 <ul class="breadcrumbs">
                     <li class="home">
-                       <a href="index.html" title="Go to Home Page">Ȩ</a>&nbsp;
+                       <a href="index.jsp" title="Go to Home Page">Ȩ</a>&nbsp;
                        <span>&gt;</span>
                     </li>
                     <li class="women">

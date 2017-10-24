@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -33,13 +34,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
+	<c:set var="myContextPath" value="${pageContext.request.contextPath}"/>
+	<form action="${myContextPath}/member" method="post">
+	<input type = "hidden" name = "task" value="join">
 		<!-- registration-form -->
 <div class="registration-form">
 	<div class="container">
 	<div class="dreamcrub">
 			   	 <ul class="breadcrumbs">
                     <li class="home">
-                       <a href="index.jsp" title="Go to Home Page">Home</a>&nbsp;
+                       <a href="index.jsp" title="Go to Home Page">홈</a>&nbsp;
                        <span>&gt;</span>
                     </li>
                    
@@ -60,34 +64,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					 <p>아래 항목에 해당되는 내용을 적어주십시오.</p>
 					 <p>이미 가입이 되어있다면, <a href="account.jsp">여기를 누르세요!!</a></p>
-					 <form>
+<!-- 					 <form> -->
 						 <ul>
 							 <li class="text-info">아이디: </li>
-							 <li><input type="text" placeholder="아이디를 입력하세요."></li>
+							 <li><input type="text" id="id" name="id" placeholder="아이디를 입력하세요."></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">비밀번호: </li>
-							 <li><input type="password" placeholder="비밀번호를 입력하세요."></li>
+							 <li><input type="password" name="pw" placeholder="비밀번호를 입력하세요."></li>
 						 </ul>				 
 						<ul>
 							 <li class="text-info">이름: </li>
-							 <li><input type="text" placeholder="이름을 입력하세요."></li>
+							 <li><input type="text" name="name" placeholder="이름을 입력하세요."></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">전화번호: </li>
-							 <li><input type="text" placeholder="전화번호를 입력하세요."></li>
+							 <li><input type="text" name="phone" placeholder="전화번호를 입력하세요."></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">주소:</li>
-							 <li><input type="text" placeholder="주소를 입력하세요."></li>
+							 <li><input type="text" name="address" placeholder="주소를 입력하세요."></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">이메일:</li>
-							 <li><input type="text" placeholder="메일 주소를 입력하세요."></li>
+							 <li><input type="text" name="email" placeholder="메일 주소를 입력하세요."></li>
 						 </ul>						
 						 <input type="submit" value="지금 가입하기">
 <!-- 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>  -->
-					 </form>
+<!-- 					 </form> -->
 				 </div>
 			</div>
 <!-- 			<div class="reg-right"> -->
@@ -101,7 +105,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 			</div> -->
 			<div class="clearfix"></div>
 		</div>
-		</center>
 	</div>
 </div>
 <!-- registration-form -->
@@ -120,6 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 				</div> -->
 <!-- 			</div> -->
 <!-- 		</div> -->
-		<jsp:include page="bottom.jsp"></jsp:include>
+	</form>
+		<jsp:include page="bottom.jsp"></jsp:include>	
 </body>
 </html>
