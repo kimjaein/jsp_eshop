@@ -1540,6 +1540,12 @@ ul.breadcrumbs li.women{
     font-size: 14px;
     padding: 3px;
 }
+ul.breadcrumbs li.mypage{
+	    background: yellow;
+    font-size: 14px;
+    padding: 3px;
+}
+
 ul.previous{
 	padding:0;
 	list-style:none;
@@ -2804,6 +2810,10 @@ p.right {
 		margin-top:20px;
 	}
 	.acount-btn {
+		font-size: 13px;
+		padding: 0.7em 1em;
+	}
+	.member-btn {
 		font-size: 13px;
 		padding: 0.7em 1em;
 	}

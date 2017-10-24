@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -124,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="single.jsp">Quick View</a>
 						</div>
 						<a class="product_name" href="single.jsp">Sed ut perspiciatis</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">$329</span></a></p>
+						<p><a class="item_add" href="#"><i></i> <span class="item_price">$9999</span></a></p>
 					</div>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
 						<a href="single.jsp"><img src="images/p2.jpg" alt="" /></a>
