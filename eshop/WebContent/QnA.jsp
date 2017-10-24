@@ -32,9 +32,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="content">
 	<div class="container">	
            <section id="tables">
-          <div class="page-header">
-            <h1>QnA</h1>
-          </div>
+           <br>
+            <h1 id="h1.-bootstrap-heading">QnA</h1>
+			<br>
           
           <div class="bs-docs-example">
             <table class="table table-striped">
