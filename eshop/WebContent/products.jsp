@@ -58,29 +58,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<small>Top Offer</small>
 					</div>
 				</div> 	
-				<div class="tags">
-				    	<h4 class="tag_head">Tags Widget</h4>
-				         <ul class="tags_links">
-							<li><a href="#">Kitesurf</a></li>
-							<li><a href="#">Super</a></li>
-							<li><a href="#">Duper</a></li>
-							<li><a href="#">Theme</a></li>
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Women</a></li>
-							<li><a href="#">Equipment</a></li>
-							<li><a href="#">Best</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Apparel</a></li>
-							<li><a href="#">Super</a></li>
-							<li><a href="#">Duper</a></li>
-							<li><a href="#">Theme</a></li>
-							<li><a href="#">Responsive</a></li>
-					        <li><a href="#">Women</a></li>
-							<li><a href="#">Equipment</a></li>
-						</ul>
-					
-				     </div>
 
 			</div>
 			<div class="new-product">
@@ -372,20 +349,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				   </div>
 				   </div>
 		<!-- content-section-ends-here -->
-		<div class="news-letter">
-			<div class="container">
-				<div class="join">
-					<h6>JOIN OUR MAILING LIST</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
 		<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>
