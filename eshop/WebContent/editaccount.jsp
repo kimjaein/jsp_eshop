@@ -48,8 +48,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					<form action="보낼 서블릿으로 정보전송">
-					<!-- List에서 값 받아오고 text value에 넣어줌 -->
+					<form action="보낼 서블릿으로 정보전송" method="post">
+					<input type="hidden" name="action" value="edit">
+					<!-- List에서 값 받아오고 text value에 넣고 수정완료 클릭시 값 넘어감 -->
 						<ul>
 							<li class="text-info">ID:</li>
 							<li><input type="text" value="" name="userid"></li>
