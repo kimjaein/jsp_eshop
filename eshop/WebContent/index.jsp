@@ -135,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p><a class="item_add" href="#"><i></i> <span class="item_price">$599.8</span></a></p>
 					</div>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/p3.jpg" alt="" /></a>
+						<a href="single.jsp"><img src="images/padding/padding3-1.jpg" alt="" /></a>
 						<div class="mask">
 							<a href="single.jsp">Quick View</a>
 						</div>
@@ -151,25 +151,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<h3 class="like text-center">B e s t &nbsp; &nbsp; P r o d u c t s</h3>        			
 				     <ul id="flexiselDemo3">
-						<li><a href="single.jsp"><img src="images/l1.jpg" class="img-responsive" alt="" /></a>
+						<li><a href="single.jsp"><img src="images/padding/padding4-1.jpg" class="img-responsive" alt="" /></a>
 							<div class="product liked-product simpleCart_shelfItem">
 							<a class="like_name" href="single.jsp">perfectly simple</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$759</span></a></p>
 							</div>
 						</li>
-						<li><a href="single.jsp"><img src="images/l2.jpg" class="img-responsive" alt="" /></a>						
+						<li><a href="single.jsp"><img src="images/padding/padding5-1.jpg" class="img-responsive" alt="" /></a>						
 							<div class="product liked-product simpleCart_shelfItem">
 							<a class="like_name" href="single.jsp">praising pain</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$699</span></a></p>
 							</div>
 						</li>
-						<li><a href="single.jsp"><img src="images/l3.jpg" class="img-responsive" alt="" /></a>
+						<li><a href="single.jsp"><img src="images/padding/padding6-1.jpg" class="img-responsive" alt="" /></a>
 							<div class="product liked-product simpleCart_shelfItem">
 							<a class="like_name" href="single.jsp">Neque porro</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
 							</div>
 						</li>
-						<li><a href="single.jsp"><img src="images/l4.jpg" class="img-responsive" alt="" /></a>
+						<li><a href="single.jsp"><img src="images/padding/padding1-1.jpg" class="img-responsive" alt="" /></a>
 							<div class="product liked-product simpleCart_shelfItem">
 							<a class="like_name" href="single.jsp">equal blame</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$499</span></a></p>
@@ -207,20 +207,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				   </div>
 				   </div>
 		<!-- content-section-ends-here -->
-		<div class="news-letter">
-			<div class="container">
-				<div class="join">
-					<h6>JOIN OUR MAILING LIST</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
 		<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>
