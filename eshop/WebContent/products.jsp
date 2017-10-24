@@ -90,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="pages">   
        	   </div>
        	   
-       	   <%for(Product product: ProductList){ %>
+       	   <%for(Product product: productList.getProductList()){ %>
 					<div class="clearfix"></div>
 					<ul>
 					  <li>
@@ -99,15 +99,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/p1.jpg" class="img-responsive" alt=""/>
+								<% String title = product.getTitle()+".jpg"; %>
+									<img src="images/"<%=title%> class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>
 									<div class="product_container">
 									   <div class="cart-left">
-										 <p class="title">perspiciatis</p>
+										 <p class="title"><%=product.getTitle()%></p>
 									   </div>
-									   <div class="pricey"><span class="item_price">$259.00</span></div>
+									   <div class="pricey"><span class="item_price"><%=product.getPrice() %></span></div>
 									   <div class="clearfix"></div>
 								     </div>		
 								  </div>
@@ -117,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
 							</div>
 						</li>
-						<%}%>
+						
 <!-- 						여기서부터 똑같은 상품목록 -->
 						
 <!-- 						<li> -->
@@ -242,6 +243,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 						</li> -->
 					</ul>
 				</div>
+				
+				<%}%>
 				<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
                 <script src="js/classie.js" type="text/javascript"></script>
 			</div>
