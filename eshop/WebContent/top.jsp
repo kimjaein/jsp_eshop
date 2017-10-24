@@ -44,41 +44,16 @@
 	        <ul class="nav navbar-nav">
 			<li><a href="index.jsp">Home</a></li>
 		        <li class="dropdown">
-		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
-		            <ul class="dropdown-menu multi-column columns-3">
-			            <div class="row">
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>NEW IN</h6>
-						            <li><a href="products.jsp">New In Clothing</a></li>
-						            <li><a href="products.jsp">New In Bags</a></li>
-						            <li><a href="products.jsp">New In Shoes</a></li>
-						            <li><a href="products.jsp">New In Watches</a></li>
-						            <li><a href="products.jsp">New In Grooming</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-4">
+		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Outer<b class="caret"></b></a>
+		            <ul class="dropdown-menu multi-column columns-1">
+			            <div>
+				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
 									<h6>CLOTHING</h6>
-						            <li><a href="products.jsp">Polos & Tees</a></li>
-						            <li><a href="products.jsp">Casual Shirts</a></li>
-						            <li><a href="products.jsp">Casual Trousers</a></li>
-						            <li><a href="products.jsp">Jeans</a></li>
-						            <li><a href="products.jsp">Shorts & 3/4th</a></li>
-						            <li><a href="products.jsp">Formal Shirts</a></li>
-						            <li><a href="products.jsp">Formal Trousers</a></li>
-						            <li><a href="products.jsp">Suits & Blazers</a></li>
-						            <li><a href="products.jsp">Track Wear</a></li>
-						            <li><a href="products.jsp">Inner Wear</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>WATCHES</h6>
-						            <li><a href="products.jsp">Analog</a></li>
-						            <li><a href="products.jsp">Chronograph</a></li>
-						            <li><a href="products.jsp">Digital</a></li>
-						            <li><a href="products.jsp">Watch Cases</a></li>
+						            <li><a href="products.jsp">패딩</a></li>
+						            <li><a href="products.jsp">코트</a></li>
+						            <li><a href="products.jsp">자켓</a></li>
+						            <li><a href="products.jsp">등</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
@@ -86,41 +61,17 @@
 		            </ul>
 		        </li>
 		        <li class="dropdown">
-		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">women <b class="caret"></b></a>
-		            <ul class="dropdown-menu multi-column columns-3">
-			            <div class="row">
-				            <div class="col-sm-4">
+		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Top <b class="caret"></b></a>
+		            <ul class="dropdown-menu multi-column columns-1">
+			            <div >
+				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
-									<h6>NEW IN</h6>
-						            <li><a href="products.jsp">New In Clothing</a></li>
-						            <li><a href="products.jsp">New In Bags</a></li>
-						            <li><a href="products.jsp">New In Shoes</a></li>
-						            <li><a href="products.jsp">New In Watches</a></li>
-						            <li><a href="products.jsp">New In Beauty</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>CLOTHING</h6>
-						            <li><a href="products.jsp">Polos & Tees</a></li>
-						            <li><a href="products.jsp">Casual Shirts</a></li>
-						            <li><a href="products.jsp">Casual Trousers</a></li>
-						            <li><a href="products.jsp">Jeans</a></li>
-						            <li><a href="products.jsp">Shorts & 3/4th</a></li>
-						            <li><a href="products.jsp">Formal Shirts</a></li>
-						            <li><a href="products.jsp">Formal Trousers</a></li>
-						            <li><a href="products.jsp">Suits & Blazers</a></li>
-						            <li><a href="products.jsp">Track Wear</a></li>
-						            <li><a href="products.jsp">Inner Wear</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>WATCHES</h6>
-						            <li><a href="products.jsp">Analog</a></li>
-						            <li><a href="products.jsp">Chronograph</a></li>
-						            <li><a href="products.jsp">Digital</a></li>
-						            <li><a href="products.jsp">Watch Cases</a></li>
+									<h6>뭘써야하지..</h6>
+						            <li><a href="products.jsp">니트</a></li>
+						            <li><a href="products.jsp">면티</a></li>
+						            <li><a href="products.jsp">반팔</a></li>
+						            <li><a href="products.jsp">셔츠</a></li>
+						            <li><a href="products.jsp">블라우스</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
@@ -128,25 +79,16 @@
 		            </ul>
 		        </li>
 		        <li class="dropdown">
-		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">kids <b class="caret"></b></a>
-		            <ul class="dropdown-menu multi-column columns-2">
-			            <div class="row">
-				            <div class="col-sm-6">
+		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">bottom<b class="caret"></b></a>
+		            <ul class="dropdown-menu multi-column columns-1">
+			            <div >
+				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
-									<h6>NEW IN</h6>
-						            <li><a href="products.jsp">New In Boys Clothing</a></li>
-						            <li><a href="products.jsp">New In Girls Clothing</a></li>
-						            <li><a href="products.jsp">New In Boys Shoes</a></li>
-						            <li><a href="products.jsp">New In Girls Shoes</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-6">
-					             <ul class="multi-column-dropdown">
-									<h6>ACCESSORIES</h6>
-						            <li><a href="products.jsp">Bags</a></li>
-						            <li><a href="products.jsp">Watches</a></li>
-						            <li><a href="products.jsp">Sun Glasses</a></li>
-						            <li><a href="products.jsp">Jewellery</a></li>
+									<h6>what..?</h6>
+						            <li><a href="products.jsp">청바지</a></li>
+						            <li><a href="products.jsp">면바지</a></li>
+						            <li><a href="products.jsp">반바지</a></li>
+						            <li><a href="products.jsp">바지바지</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
