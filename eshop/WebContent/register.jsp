@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Eshop a Flat E-Commerce Bootstrap Responsive Website Template | Register :: w3layouts</title>
+<title>Register</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -54,67 +54,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					 <p>Welcome, please enter the following details to continue.</p>
-					 <p>If you have previously registered with us, <a href="#">click here</a></p>
+					 <p>Please enter the following details.</p>
+					 <p>If you have previously registered with us, <a href="#">Click here!!!</a></p>
 					 <form>
 						 <ul>
-							 <li class="text-info">First Name: </li>
-							 <li><input type="text" value=""></li>
-						 </ul>
-						 <ul>
-							 <li class="text-info">Last Name: </li>
-							 <li><input type="text" value=""></li>
-						 </ul>				 
-						<ul>
-							 <li class="text-info">Email: </li>
+							 <li class="text-info">ID: </li>
 							 <li><input type="text" value=""></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">Password: </li>
+							 <li><input type="text" value=""></li>
+						 </ul>				 
+						<ul>
+							 <li class="text-info">Name: </li>
+							 <li><input type="text" value=""></li>
+						 </ul>
+						 <ul>
+							 <li class="text-info">Phone Number: </li>
 							 <li><input type="password" value=""></li>
 						 </ul>
 						 <ul>
-							 <li class="text-info">Re-enter Password:</li>
+							 <li class="text-info">Address:</li>
 							 <li><input type="password" value=""></li>
 						 </ul>
 						 <ul>
-							 <li class="text-info">Mobile Number:</li>
+							 <li class="text-info">E-mail:</li>
 							 <li><input type="text" value=""></li>
 						 </ul>						
 						 <input type="submit" value="REGISTER NOW">
-						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p> 
+<!-- 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>  -->
 					 </form>
 				 </div>
 			</div>
-			<div class="reg-right">
-				 <h3>Completely Free Account</h3>
-				 <div class="strip"></div>
-				 <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio 
-				 libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
-				 <h3 class="lorem">Lorem ipsum dolor.</h3>
-				 <div class="strip"></div>
-				 <p>Tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
-			</div>
+<!-- 			<div class="reg-right"> -->
+<!-- 				 <h3>Completely Free Account</h3> -->
+<!-- 				 <div class="strip"></div> -->
+<!-- 				 <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio  -->
+<!-- 				 libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p> -->
+<!-- 				 <h3 class="lorem">Lorem ipsum dolor.</h3> -->
+<!-- 				 <div class="strip"></div> -->
+<!-- 				 <p>Tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p> -->
+<!-- 			</div> -->
 			<div class="clearfix"></div>
 		</div>
 	</div>
 </div>
 <!-- registration-form -->
 
-		<div class="news-letter">
-			<div class="container">
-				<div class="join">
-					<h6>JOIN OUR MAILING LIST</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
+<!-- 		<div class="news-letter"> -->
+<!-- 			<div class="container"> -->
+<!-- 				<div class="join"> -->
+<!-- 					<h6>JOIN OUR MAILING LIST</h6> -->
+<!-- 					<div class="sub-left-right"> -->
+<!-- 						<form> -->
+<!-- 							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" /> -->
+<!-- 							<input type="submit" value="SUBSCRIBE" /> -->
+<!-- 						</form> -->
+<!-- 					</div> -->
+<!-- 					<div class="clearfix"> </div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 		<jsp:include page="top.jsp"></jsp:include>
 </body>
 </html>
