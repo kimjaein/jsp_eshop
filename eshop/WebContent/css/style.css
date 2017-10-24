@@ -221,6 +221,7 @@ ul.multi-column-dropdown h6 {
 .banner-bottom-right{
 	float:right;
 	width: 50%;
+	margin: 220px 0px 0px 30px;
 }
 .banner-bottom-left h2 {
     font-size: 90px;
@@ -428,7 +429,9 @@ ul.multi-column-dropdown h6 {
   margin: 20px 0;
 }
 .shop {
-    float: right;
+    float:right;
+	width: 50%;
+	margin: 180px 0px 0px 30px;
 }
 .shop a {
 	text-decoration:none;
@@ -2571,7 +2574,7 @@ p.right {
 	.banner-bottom-left h2 {
 		font-size: 35px;
 		line-height: 50px;
-		margin: 0 0 0 100px;
+		margin: 100px 0 0 100px;
 	}
 	.shop a {
 		padding: 8px 12px;

@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register</title>
+<title>회원 가입</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -30,6 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 </head>
+
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
 		<!-- registration-form -->
@@ -43,48 +44,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                    
                     <li class="women">
-                       Registration
+						회원가입
                     </li>
                 </ul>
                 <ul class="previous">
-                	<li><a href="index.jsp">Back to Previous Page</a></li>
+                	<li><a href="index.jsp">메인 화면으로</a></li>
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
-			<center>
-		<h2>Registration</h2>
+
+		<h2>회원가입</h2>
 		
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					 <p>Please enter the following details.</p>
-					 <p>If you have previously registered with us, <a href="#">Click here!!!</a></p>
+					 <p>아래 항목에 해당되는 내용을 적어주십시오.</p>
+					 <p>이미 가입이 되어있다면, <a href="account.jsp">여기를 누르세요!!</a></p>
 					 <form>
 						 <ul>
-							 <li class="text-info">ID: </li>
-							 <li><input type="text" value=""></li>
+							 <li class="text-info">아이디: </li>
+							 <li><input type="text" placeholder="아이디를 입력하세요."></li>
 						 </ul>
 						 <ul>
-							 <li class="text-info">Password: </li>
-							 <li><input type="text" value=""></li>
+							 <li class="text-info">비밀번호: </li>
+							 <li><input type="password" placeholder="비밀번호를 입력하세요."></li>
 						 </ul>				 
 						<ul>
-							 <li class="text-info">Name: </li>
-							 <li><input type="text" value=""></li>
+							 <li class="text-info">이름: </li>
+							 <li><input type="text" placeholder="이름을 입력하세요."></li>
 						 </ul>
 						 <ul>
-							 <li class="text-info">Phone Number: </li>
-							 <li><input type="password" value=""></li>
+							 <li class="text-info">전화번호: </li>
+							 <li><input type="text" placeholder="전화번호를 입력하세요."></li>
 						 </ul>
 						 <ul>
-							 <li class="text-info">Address:</li>
-							 <li><input type="password" value=""></li>
+							 <li class="text-info">주소:</li>
+							 <li><input type="text" placeholder="주소를 입력하세요."></li>
 						 </ul>
 						 <ul>
-							 <li class="text-info">E-mail:</li>
-							 <li><input type="text" value=""></li>
+							 <li class="text-info">이메일:</li>
+							 <li><input type="text" placeholder="메일 주소를 입력하세요."></li>
 						 </ul>						
-						 <input type="submit" value="REGISTER NOW">
+						 <input type="submit" value="지금 가입하기">
 <!-- 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>  -->
 					 </form>
 				 </div>
@@ -119,6 +120,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 				</div> -->
 <!-- 			</div> -->
 <!-- 		</div> -->
-		<jsp:include page="top.jsp"></jsp:include>
+		<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

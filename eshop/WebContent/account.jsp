@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Eshop a Flat E-Commerce Bootstrap Responsive Website Template | Account :: w3layouts</title>
+<title>Eshop 로그인 페이지</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -40,38 +40,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			    <div class="dreamcrub">
 			   	 <ul class="breadcrumbs">
                     <li class="home">
-                       <a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+                       <a href="index.html" title="Go to Home Page">홈</a>&nbsp;
                        <span>&gt;</span>
                     </li>
                     <li class="women">
-                       Login
+                       	로그인
                     </li>
                 </ul>
                 <ul class="previous">
-                	<li><a href="index.jsp">Back to Previous Page</a></li>
+                	<li><a href="index.jsp">메인 화면으로</a></li>
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
 			   <div class="account_grid">
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
-			  	 <h2>NEW CUSTOMERS</h2>
+			  	 <h2>신규 회원</h2>
 				 <p>Join</p>
-				 <a class="acount-btn" href="register.jsp">Create an Account</a>
+				 <a class="acount-btn" href="register.jsp">새 계정 만들기</a>
 			   </div>
 			   <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
-			  	<h3>REGISTERED CUSTOMERS</h3>
+			  	<h3>기존 회원</h3>
 				<p>Login</p>
 				<form>
 				  <div>
-					<span>ID<label>*</label></span>
+					<span>아이디<label>*</label></span>
 					<input type="text"> 
 				  </div>
 				  <div>
-					<span>Password<label>*</label></span>
+					<span>비밀번호<label>*</label></span>
 					<input type="password"> 
 				  </div>
-				  <a class="forgot" href="#">Forgot Your Password?</a>
-				  <input type="submit" value="Login">
+				  <a class="forgot" href="#">비밀번호를 잊으셨나요?</a>
+				  <input type="submit" value="로그인">
 			    </form>
 			   </div>	
 			   <div class="clearfix"> </div>
