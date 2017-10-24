@@ -41,46 +41,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="product-listy">
 					<h2>our Products</h2>
 					<ul class="product-list">
-						<li><a href="">New Products</a></li>
-						<li><a href="">Old Products</a></li>
-						<li><a href="">T-shirts</a></li>
-						<li><a href="">pants</a></li>
-						<li><a href="">Dress</a></li>
-						<li><a href="">Shorts</a></li>
-						<li><a href="#">Shirts</a></li>
-						<li><a href="register.jsp">Register</a></li>
+						<li><a href="">OUTER</a></li>
+						<li><a href="">TOP</a></li>
+						<li><a href="">BOTTOM</a></li>
 					</ul>
 				</div>
-				<div class="latest-bis">
-					<img src="images/l4.jpg" class="img-responsive" alt="" />
-					<div class="offer">
-						<p>40%</p>
-						<small>Top Offer</small>
-					</div>
-				</div> 	
-				<div class="tags">
-				    	<h4 class="tag_head">Tags Widget</h4>
-				         <ul class="tags_links">
-							<li><a href="#">Kitesurf</a></li>
-							<li><a href="#">Super</a></li>
-							<li><a href="#">Duper</a></li>
-							<li><a href="#">Theme</a></li>
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Women</a></li>
-							<li><a href="#">Equipment</a></li>
-							<li><a href="#">Best</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li><a href="#">Men</a></li>
-							<li><a href="#">Apparel</a></li>
-							<li><a href="#">Super</a></li>
-							<li><a href="#">Duper</a></li>
-							<li><a href="#">Theme</a></li>
-							<li><a href="#">Responsive</a></li>
-					        <li><a href="#">Women</a></li>
-							<li><a href="#">Equipment</a></li>
-						</ul>
-					
-				     </div>
+<!-- 				<div class="latest-bis"> -->
+<!-- 					<img src="images/l4.jpg" class="img-responsive" alt="" /> -->
+<!-- 					<div class="offer"> -->
+<!-- 						<p>40%</p> -->
+<!-- 						<small>Top Offer</small> -->
+<!-- 					</div> -->
+<!-- 				</div> 	 -->
 
 			</div>
 			<div class="new-product">
@@ -372,20 +344,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				   </div>
 				   </div>
 		<!-- content-section-ends-here -->
-		<div class="news-letter">
-			<div class="container">
-				<div class="join">
-					<h6>JOIN OUR MAILING LIST</h6>
-					<div class="sub-left-right">
-						<form>
-							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" />
-							<input type="submit" value="SUBSCRIBE" />
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
 		<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

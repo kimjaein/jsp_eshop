@@ -8,8 +8,7 @@ import java.sql.SQLException;
  
 public class DBUtil {
     private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-   // private static final String DB_URL = "jdbc:mysql://70.12.115.72:3306/project";
-    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/project";
+    private static final String DB_URL = "jdbc:mysql://70.12.115.78:3306/project5";
     private static final String DB_ID = "root";
     private static final String DB_PW = "sds1501";
      
@@ -25,8 +24,7 @@ public class DBUtil {
     public static Connection makeConnection() {
         Connection con = null;
         try {
-            con = DriverManager.getConnection
-                                (DB_URL, DB_ID, DB_PW);
+            con = DriverManager.getConnection(DB_URL, DB_ID, DB_PW);
         } catch (SQLException e) {
             System.out.println("目池记 积己 坷幅");
             e.printStackTrace();

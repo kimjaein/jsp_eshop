@@ -22,15 +22,15 @@ public class MemberServlet extends HttpServlet{
 		String task = request.getParameter("task");
 		String path = "";		
 		
-		if(task.equals("joinForm")) {
-			path = "join_form.jsp";
-		}
-		else if(task.equals("loginForm")) {
-			path = "login_form.jsp";
-		}
-		else if(task.equals("logoutForm")) {
-			path = "logout_form.jsp";
-		}
+//		if(task.equals("joinForm")) {
+//			path = "join_form.jsp";
+//		}
+//		else if(task.equals("loginForm")) {
+//			path = "login_form.jsp";
+//		}
+//		else if(task.equals("logoutForm")) {
+//			path = "logout_form.jsp";
+//		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}

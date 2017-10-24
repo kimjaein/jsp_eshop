@@ -19,13 +19,7 @@
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -39,17 +33,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
 <script type="text/javascript">
-// 	function memberCheck(sessionId, memberId){
-// 		if(sessionId.equals(memberId)){
-// 			alert('정보가 일치');
-// 			//정보수정 폼으로 이동 location.href (?)
-// 		}else{
-// 			alert('정보가 일치하지 않음');
-// 			return;
-// 		}
-// 	}
+var sessionId = "AA";
+var memberId = "AA";
+
 	function memberCheck(){
+		if(sessionId ==memberId){
 			alert('정보가 일치');
+			location.href = "/eshop/test?id="+sessionId;
+		}else{
+			alert('정보가 일치하지 않음');
+			return;
+		}
 	}
 </script>
 </head>
@@ -78,10 +72,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- setattribute 된 회원의 값을 가져와서 아이디와 일치하면 정보출력 -->
 				<%--<c:if test="${SessionScope.loginId != null}"> --%>
 				<%--<a class="acount-btn" onclick="memberCheck(${loginId},${SessionScope.loginId});">정보수정</a> <a --%>
-				<a class="acount-btn" href="editaccount.jsp" onclick="memberCheck();">정보수정</a>
+				<button class="acount-btn" onclick="memberCheck();">정보수정</button>
 				<a class="acount-btn" href="buylist.jsp">구매내역</a>
 				<a class="acount-btn" href="checkout.jsp">장바구니</a>
-				<a class="acount-btn" href="register.jsp">회원탈퇴</a>
+				<a class="acount-btn" href="deleteaccount.jsp">회원탈퇴</a>
 				<%-- 				</c:if> --%>
 				<%-- 				<c:if test="${SessionScope.loginId == null}"> --%>
 				<a class="acount-btn" href="account.jsp">로그인</a>

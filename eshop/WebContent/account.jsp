@@ -41,103 +41,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="login-page">
 				<div class="dreamcrub">
 					<ul class="breadcrumbs">
-						<li class="home"><a href="index.html" title="Go to Home Page">Home</a>&nbsp;
+						<li class="home"><a href="index.jsp" title="Go to Home Page">홈</a>&nbsp;
 							<span>&gt;</span></li>
-						<li class="women">Login</li>
+						<li class="women">로그인</li>
 					</ul>
 					<ul class="previous">
-						<li><a href="index.jsp">Back to Previous Page</a></li>
+						<li><a href="index.jsp">메인 화면으로</a></li>
 					</ul>
 					<div class="clearfix"></div>
 				</div>
+
 				<div class="account_grid">
 					<div class="col-md-6 login-left wow fadeInLeft"
 						data-wow-delay="0.4s">
-						<h2>NEW CUSTOMERS</h2>
+						<h2>신규 회원</h2>
 						<p>Join</p>
-						<a class="acount-btn" href="register.jsp">Create an Account</a>
+						<a class="acount-btn" href="register.jsp">새 계정 만들기</a>
 					</div>
+
 					<div class="col-md-6 login-right wow fadeInRight"
 						data-wow-delay="0.4s">
-						<h3>REGISTERED CUSTOMERS</h3>
+						<h3>기존 회원</h3>
 						<p>Login</p>
 						<form>
 							<div>
-								<span>
-									ID<label>*</label>
-								</span>
-								<input type="text">
+								<span>아이디<label>*</label></span> <input type="text">
 							</div>
+
 							<div>
-								<span>
-									Password<label>*</label>
-								</span>
-								<input type="password">
+								<span>비밀번호<label>*</label></span> <input type="password">
 							</div>
-							<a class="forgot" href="#">Forgot Your Password?</a>
-							<input type="submit" value="Login">
+
+							<a class="forgot" href="#">비밀번호를 잊으셨나요?</a> 
+							<input type="submit" value="로그인">
 						</form>
 					</div>
+
 					<div class="clearfix"></div>
 				</div>
 			</div>
-	<div class="container">
-		<div class="login-page">
-			    <div class="dreamcrub">
-			   	 <ul class="breadcrumbs">
-                    <li class="home">
-                       <a href="index.jsp" title="Go to Home Page">홈</a>&nbsp;
-                       <span>&gt;</span>
-                    </li>
-                    <li class="women">
-                       	로그인
-                    </li>
-                </ul>
-                <ul class="previous">
-                	<li><a href="index.jsp">메인 화면으로</a></li>
-                </ul>
-                <div class="clearfix"></div>
-			   </div>
-			   <div class="account_grid">
-			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
-			  	 <h2>신규 회원</h2>
-				 <p>Join</p>
-				 <a class="acount-btn" href="register.jsp">새 계정 만들기</a>
-			   </div>
-			   <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
-			  	<h3>기존 회원</h3>
-				<p>Login</p>
-				<form>
-				  <div>
-					<span>아이디<label>*</label></span>
-					<input type="text"> 
-				  </div>
-				  <div>
-					<span>비밀번호<label>*</label></span>
-					<input type="password"> 
-				  </div>
-				  <a class="forgot" href="#">비밀번호를 잊으셨나요?</a>
-				  <input type="submit" value="로그인">
-			    </form>
-			   </div>	
-			   <div class="clearfix"> </div>
-			 </div>
-		   </div>
-</div>
-<!-- 		<div class="news-letter"> -->
-<!-- 			<div class="container"> -->
-<!-- 				<div class="join"> -->
-<!-- 					<h6>JOIN OUR MAILING LIST</h6> -->
-<!-- 					<div class="sub-left-right"> -->
-<!-- 						<form> -->
-<!-- 							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" /> -->
-<!-- 							<input type="submit" value="SUBSCRIBE" /> -->
-<!-- 						</form> -->
-<!-- 					</div> -->
-<!-- 					<div class="clearfix"> </div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
 		</div>
 		<!-- 		<div class="news-letter"> -->
 		<!-- 			<div class="container"> -->
@@ -154,6 +96,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- 			</div> -->
 		<!-- 		</div> -->
 	</div>
+	<!-- 		<div class="news-letter"> -->
+	<!-- 			<div class="container"> -->
+	<!-- 				<div class="join"> -->
+	<!-- 					<h6>JOIN OUR MAILING LIST</h6> -->
+	<!-- 					<div class="sub-left-right"> -->
+	<!-- 						<form> -->
+	<!-- 							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" /> -->
+	<!-- 							<input type="submit" value="SUBSCRIBE" /> -->
+	<!-- 						</form> -->
+	<!-- 					</div> -->
+	<!-- 					<div class="clearfix"> </div> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
 	<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>
