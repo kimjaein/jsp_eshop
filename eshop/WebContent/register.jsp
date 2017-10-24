@@ -41,6 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                        <a href="index.jsp" title="Go to Home Page">Home</a>&nbsp;
                        <span>&gt;</span>
                     </li>
+                   
                     <li class="women">
                        Registration
                     </li>
@@ -50,7 +51,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
+			<center>
 		<h2>Registration</h2>
+		
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
