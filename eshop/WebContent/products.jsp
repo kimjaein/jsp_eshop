@@ -41,23 +41,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="product-listy">
 					<h2>our Products</h2>
 					<ul class="product-list">
-						<li><a href="">New Products</a></li>
-						<li><a href="">Old Products</a></li>
-						<li><a href="">T-shirts</a></li>
-						<li><a href="">pants</a></li>
-						<li><a href="">Dress</a></li>
-						<li><a href="">Shorts</a></li>
-						<li><a href="#">Shirts</a></li>
-						<li><a href="register.jsp">Register</a></li>
+						<li><a href="">OUTER</a></li>
+						<li><a href="">TOP</a></li>
+						<li><a href="">BOTTOM</a></li>
 					</ul>
 				</div>
-				<div class="latest-bis">
-					<img src="images/l4.jpg" class="img-responsive" alt="" />
-					<div class="offer">
-						<p>40%</p>
-						<small>Top Offer</small>
-					</div>
-				</div> 	
+<!-- 				<div class="latest-bis"> -->
+<!-- 					<img src="images/l4.jpg" class="img-responsive" alt="" /> -->
+<!-- 					<div class="offer"> -->
+<!-- 						<p>40%</p> -->
+<!-- 						<small>Top Offer</small> -->
+<!-- 					</div> -->
+<!-- 				</div> 	 -->
 
 			</div>
 			<div class="new-product">
