@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <thead>
                 <tr>
                   <th>번호</th>
-                  <th>상품번호</th>
+                  <th>제목</th>
                   <th>작성자</th>
                   <th>작성일</th>
                   <th>조회</th>
@@ -74,8 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 					</td>
 					<td>${article.writer}</td>
-					<td><fmt:formatDate 
-							value="${article.writeDate}" type="both"
+					<td><fmt:formatDate 	value="${article.writeDate}" type="both"
 								dateStyle="short" timeStyle="short"/></td>
 					<td>${article.readCount}</td>
 				</tr>
