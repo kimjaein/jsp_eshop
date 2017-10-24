@@ -12,7 +12,10 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.44-bin.jar"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/db2jcc4.jar"/>
+=======
+>>>>>>> 711a5bc71094847a2701bb8f30670120f82f5413
 =======
 >>>>>>> 711a5bc71094847a2701bb8f30670120f82f5413
 =======
