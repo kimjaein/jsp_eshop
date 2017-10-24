@@ -93,6 +93,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		</div>
-<jsp:include page="bootom.jsp"></jsp:include>
+<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>
