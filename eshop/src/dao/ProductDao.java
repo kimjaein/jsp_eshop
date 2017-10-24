@@ -64,65 +64,35 @@ public class ProductDao {
 	}
 
 	///////////////////////////////////////////////////////////////////////
-	// 상품 선택
-	public String selectIdCheck(String product_num) {
+	// Single페이지 상품 선택
+	public List<Product> selectProductList(String title) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT ID FROM MEMBER WHERE ID=?";
-		String result = null;
+		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT WHERE TITLE=?";
+		List<Product> productList = new ArrayList<>();
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, product_num);
+			pstmt.setString(1, title);
+			rs = pstmt.executeQuery(); // SQL 실행
 
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				result = rs.getString(1);
+			while (rs.next()) {
+				Product product = new Product();
+				product.setTitle(rs.getString(1));
+				product.setPrice(rs.getInt(2));
+				product.setColor(rs.getString(3));
+				product.setSize(rs.getString(4));
+				
+				productList.add(product);
 			}
 		} catch (SQLException e) {
-			System.out.println("member dao idCheck 에러");
+			System.out.println("dao selectArticleList 에러");
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
-		return result;
-	}
-
-	//////////////////////////////////
-
-	public List<Product> selectProductList(int startRow, int count) {
-		con = DBUtil.makeConnection();
-		String sql = "SELECT ARTICLE_NUM, TITLE, WRITER, CONTENTS, READ_COUNT, WRITE_DATE, PASSWORD FROM BOARD_SIMPLE ORDER BY ARTICLE_NUM DESC LIMIT ?,?";
-		List<Article> productList = new ArrayList<>();
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, count);
-			rs = pstmt.executeQuery(); // SQL 실행
-
-			while (rs.next()) {
-				Article article = new Article();
-				article.setAritlcleNum(rs.getInt(1));
-				article.setTitle(rs.getString(2));
-				article.setWriter(rs.getString(3));
-				article.setContents(rs.getString(4));
-				article.setReadCount(rs.getInt(5));
-				article.setWriteDate(rs.getTimestamp(6));
-				article.setPassword(rs.getString(7));
-
-				articleList.add(article);
-			}
-		} catch (SQLException e) {
-			System.out.println("dao selectArticleList 에러");
-			e.printStackTrace();
-		} finally {
-			closeRs();
-			closePstmt();
-			closeCon();
-		}
-		return articleList;
+		return productList;
 	}
 
 }
