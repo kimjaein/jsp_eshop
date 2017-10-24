@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>MyPage</title>
+<title>정보수정</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
@@ -38,58 +38,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
-<script type="text/javascript">
-// 	function memberCheck(sessionId, memberId){
-// 		if(sessionId.equals(memberId)){
-// 			alert('정보가 일치');
-// 			//정보수정 폼으로 이동 location.href (?)
-// 		}else{
-// 			alert('정보가 일치하지 않음');
-// 			return;
-// 		}
-// 	}
-	function memberCheck(){
-			alert('정보가 일치');
-	}
-</script>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
-	<div class="container">
-
-		<div class="dreamcrub">
-			<ul class="breadcrumbs">
-				<li class="home"><a href="index.jsp" title="Go to Home Page">Home</a>&nbsp;
-					<span>&gt;</span></li>
-				<li class="women">MyPage</li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="col-md-4 product text-center">
-
-			<h2 class="heading text-center">MY PAGE</h2>
-			<div class="col-md-6 login-left wow fadeInLeft">
-
-				<h2>(name value)님 반갑습니다.</h2>
-				고객님만의 페이지 / 다양한 쇼핑정보를 한눈에 볼 수 있는 공간입니다.
-
-				<hr>
-				<!-- 로그인 될때 session attribute한 값이 loginId -->
-				<!-- setattribute 된 회원의 값을 가져와서 아이디와 일치하면 정보출력 -->
-				<%--<c:if test="${SessionScope.loginId != null}"> --%>
-				<%--<a class="acount-btn" onclick="memberCheck(${loginId},${SessionScope.loginId});">정보수정</a> <a --%>
-				<a class="acount-btn" href="editaccount.jsp" onclick="memberCheck();">정보수정</a>
-				<a class="acount-btn" href="buylist.jsp">구매내역</a>
-				<a class="acount-btn" href="checkout.jsp">장바구니</a>
-				<a class="acount-btn" href="register.jsp">회원탈퇴</a>
-				<%-- 				</c:if> --%>
-				<%-- 				<c:if test="${SessionScope.loginId == null}"> --%>
-				<a class="acount-btn" href="account.jsp">로그인</a>
-				<%-- 				</c:if> --%>
-
+	<center>
+		<div class="clearfix"></div>
+		<p><br></p>
+		<h2>정보 수정</h2>
+		<div class="registration-grids">
+			<div class="reg-form">
+				<div class="reg">
+					<form action="보낼 서블릿으로 정보전송">
+					<!-- List에서 값 받아오고 text value에 넣어줌 -->
+						<ul>
+							<li class="text-info">ID:</li>
+							<li><input type="text" value="" name="userid"></li>
+						</ul>
+						<ul>
+							<li class="text-info">Password:</li>
+							<li><input type="text" value="" name="userpw"></li>
+						</ul>
+						<ul>
+							<li class="text-info">Name:</li>
+							<li><input type="text" value="" name="username"></li>
+						</ul>
+						<ul>
+							<li class="text-info">Phone Number:</li>
+							<li><input type="password" value="" name="userphone"></li>
+						</ul>
+						<ul>
+							<li class="text-info">Address:</li>
+							<li><input type="password" value="" name="useraddress"></li>
+						</ul>
+						<ul>
+							<li class="text-info">E-mail:</li>
+							<li><input type="text" value="" name="useremail"></li>
+						</ul>
+						<input type="submit" value="수정 완료">
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
+	</center>
+	<div class="clearfix"></div>
 	<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

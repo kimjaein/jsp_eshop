@@ -1476,6 +1476,8 @@ li.home a {
 	display: inline-block;
 	text-transform: uppercase;
 }
+
+
 .acount-btn:hover, .login-right input[type="submit"]:hover{
 	background:#000;
 	text-decoration:none;

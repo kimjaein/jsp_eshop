@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>정보수정</title>
+<title>계정 삭제</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
@@ -19,11 +19,7 @@
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -40,44 +36,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
 	<center>
-	                <div class="clearfix"></div>
-	
-		<h2>Registration</h2>
+		<div class="clearfix"></div>
+		<p><br></p>
+		<h2>계정 삭제</h2>
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					<p>Please enter the following details.</p>
-					<p>
-						If you have previously registered with us, <a href="#">Click
-							here!!!</a>
-					</p>
-					<form>
-						<ul>
-							<li class="text-info">ID:</li>
-							<li><input type="text" value=""></li>
-						</ul>
+					<form action="보낼 서블릿으로 정보전송">
+					<!-- 입력한 패스워드가 DB에 있는 패스워드와 일치시에 삭제 -->
+					<!-- SessionScope.loginId 값도 같이 보낸다. -->
+					<input type="hidden" name="userid" value="${SessionScope.loginId}">
 						<ul>
 							<li class="text-info">Password:</li>
-							<li><input type="text" value=""></li>
+							<li><input type="text" value="" name="userpw"></li>
+							<li></li>
 						</ul>
-						<ul>
-							<li class="text-info">Name:</li>
-							<li><input type="text" value=""></li>
-						</ul>
-						<ul>
-							<li class="text-info">Phone Number:</li>
-							<li><input type="password" value=""></li>
-						</ul>
-						<ul>
-							<li class="text-info">Address:</li>
-							<li><input type="password" value=""></li>
-						</ul>
-						<ul>
-							<li class="text-info">E-mail:</li>
-							<li><input type="text" value=""></li>
-						</ul>
-						<input type="submit" value="REGISTER NOW">
-						<!-- 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>  -->
+						<input type="submit" value="삭제 하기">
 					</form>
 				</div>
 			</div>
