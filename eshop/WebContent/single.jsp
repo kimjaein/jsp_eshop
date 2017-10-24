@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="">Dress</a></li>
 						<li><a href="">Shorts</a></li>
 						<li><a href="#">Shirts</a></li>
-						<li><a href="register.html">Register</a></li>
+						<li><a href="register.jsp">Register</a></li>
 					</ul>
 				</div>
 				<div class="latest-bis">
@@ -188,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								<ul>
 									<li>MARCH 21, 2015</li>
-									<li><a href="single.html">Reply</a></li>
+									<li><a href="single.jsp">Reply</a></li>
 								</ul>
 							</div>
 							<div class="clearfix"> </div>
@@ -205,7 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								<ul>
 									<li>MARCH 26, 2054</li>
-									<li><a href="single.html">Reply</a></li>
+									<li><a href="single.jsp">Reply</a></li>
 								</ul>		
 							</div>
 							<div class="clearfix"> </div>
@@ -222,7 +222,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								<ul>
 									<li>MAY 25, 2015</li>
-									<li><a href="single.html">Reply</a></li>
+									<li><a href="single.jsp">Reply</a></li>
 								</ul>		
 							</div>
 							<div class="clearfix"> </div>
@@ -239,7 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								<ul>
 									<li>FEB 13, 2015</li>
-									<li><a href="single.html">Reply</a></li>
+									<li><a href="single.jsp">Reply</a></li>
 								</ul>		
 							</div>
 							<div class="clearfix"> </div>
@@ -256,7 +256,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								<ul>
 									<li>JAN 28, 2015</li>
-									<li><a href="single.html">Reply</a></li>
+									<li><a href="single.jsp">Reply</a></li>
 								</ul>		
 							</div>
 							<div class="clearfix"> </div>
@@ -273,7 +273,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								<ul>
 									<li>APR 18, 2015</li>
-									<li><a href="single.html">Reply</a></li>
+									<li><a href="single.jsp">Reply</a></li>
 								</ul>		
 							</div>
 							<div class="clearfix"> </div>
@@ -290,7 +290,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								<ul>
 									<li>DEC 25, 2014</li>
-									<li><a href="single.html">Reply</a></li>
+									<li><a href="single.jsp">Reply</a></li>
 								</ul>		
 							</div>
 							<div class="clearfix"> </div>
@@ -310,27 +310,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h3 class="like text-center">Related Products</h3>   
 			</header>			
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.html"><img src="images/p1.jpg" alt="" /></a>
+						<a href="single.jsp"><img src="images/p1.jpg" alt="" /></a>
 						<div class="mask">
-							<a href="single.html">Quick View</a>
+							<a href="single.jsp">Quick View</a>
 						</div>
-						<a class="product_name" href="single.html">Sed ut perspiciatis</a>
+						<a class="product_name" href="single.jsp">Sed ut perspiciatis</a>
 						<p><a class="item_add" href="#"><i></i> <span class="item_price">$329</span></a></p>
 					</div>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.html"><img src="images/p2.jpg" alt="" /></a>
+						<a href="single.jsp"><img src="images/p2.jpg" alt="" /></a>
 						<div class="mask">
-							<a href="single.html">Quick View</a>
+							<a href="single.jsp">Quick View</a>
 						</div>
-						<a class="product_name" href="single.html">great explorer</a>
+						<a class="product_name" href="single.jsp">great explorer</a>
 						<p><a class="item_add" href="#"><i></i> <span class="item_price">$599.8</span></a></p>
 					</div>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.html"><img src="images/p3.jpg" alt="" /></a>
+						<a href="single.jsp"><img src="images/p3.jpg" alt="" /></a>
 						<div class="mask">
-							<a href="single.html">Quick View</a>
+							<a href="single.jsp">Quick View</a>
 						</div>
-						<a class="product_name" href="single.html">similique sunt</a>
+						<a class="product_name" href="single.jsp">similique sunt</a>
 						<p><a class="item_add" href="#"><i></i> <span class="item_price">$359.6</span></a></p>
 					</div>
 					<div class="clearfix"></div>

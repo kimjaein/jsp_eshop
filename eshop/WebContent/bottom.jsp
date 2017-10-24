@@ -32,10 +32,10 @@
 				<div class="col-md-3 span1_of_4">
 					<h4>account</h4>
 					<ul class="f_nav">
-						<li><a href="account.html">login</a></li>
-						<li><a href="register.html">create an account</a></li>
+						<li><a href="account.jsp">login</a></li>
+						<li><a href="register.jsp">create an account</a></li>
 						<li><a href="#">create wishlist</a></li>
-						<li><a href="checkout.html">my shopping bag</a></li>
+						<li><a href="checkout.jsp">my shopping bag</a></li>
 						<li><a href="#">brands</a></li>
 						<li><a href="#">create wishlist</a></li>
 					</ul>				

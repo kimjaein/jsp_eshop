@@ -1,3 +1,4 @@
+
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -468,13 +469,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</ol>
 <h3 class="bars">Forms</h3>
 <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">@</span>
+  <span class="input-group-addon" id="basic-addon1"></span>
   <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
 </div>
 
 <div class="input-group">
   <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
-  <span class="input-group-addon" id="basic-addon2">@example.com</span>
+  <span class="input-group-addon" id="basic-addon2">example.com</span>
 </div>
 
 <div class="input-group">
@@ -483,17 +484,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <span class="input-group-addon">.00</span>
 </div>
 <div class="input-group input-group-lg">
-  <span class="input-group-addon" id="sizing-addon1">@</span>
+  <span class="input-group-addon" id="sizing-addon1"></span>
   <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
 </div>
 
 <div class="input-group">
-  <span class="input-group-addon" id="sizing-addon2">@</span>
+  <span class="input-group-addon" id="sizing-addon2"></span>
   <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
 </div>
 
 <div class="input-group input-group-sm">
-  <span class="input-group-addon" id="sizing-addon3">@</span>
+  <span class="input-group-addon" id="sizing-addon3"></span>
   <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
 </div>
 
@@ -588,19 +589,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>1</td>
                   <td>Mark</td>
                   <td>Otto</td>
-                  <td>@mdo</td>
+                  <td>mdo</td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Jacob</td>
                   <td>Thornton</td>
-                  <td>@fat</td>
+                  <td>fat</td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Larry</td>
                   <td>the Bird</td>
-                  <td>@twitter</td>
+                  <td>twitter</td>
                 </tr>
               </tbody>
             </table>
@@ -623,19 +624,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>1</td>
                   <td>Mark</td>
                   <td>Otto</td>
-                  <td>@mdo</td>
+                  <td>mdo</td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Jacob</td>
                   <td>Thornton</td>
-                  <td>@fat</td>
+                  <td>fat</td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Larry</td>
                   <td>the Bird</td>
-                  <td>@twitter</td>
+                  <td>twitter</td>
                 </tr>
               </tbody>
             </table>
@@ -656,23 +657,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td rowspan="2">1</td>
                   <td>Mark</td>
                   <td>Otto</td>
-                  <td>@mdo</td>
+                  <td>mdo</td>
                 </tr>
                 <tr>
                   <td>Mark</td>
                   <td>Otto</td>
-                  <td>@getbootstrap</td>
+                  <td>getbootstrap</td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Jacob</td>
                   <td>Thornton</td>
-                  <td>@fat</td>
+                  <td>fat</td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
+                  <td>twitter</td>
                 </tr>
               </tbody>
             </table>
@@ -693,18 +694,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <td>1</td>
                   <td>Mark</td>
                   <td>Otto</td>
-                  <td>@mdo</td>
+                  <td>mdo</td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Jacob</td>
                   <td>Thornton</td>
-                  <td>@fat</td>
+                  <td>fat</td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
+                  <td>twitter</td>
                 </tr>
               </tbody>
             </table>
@@ -791,7 +792,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img src="images/cards.jpg" alt="" />
 		  </div>
 		  <div class="copyright text-center">
-				<p>© 2015 Eshop. All Rights Reserved | Design by   <a href="http://w3layouts.com">  W3layouts</a></p>
 		  </div>
 		</div>
 		</div>

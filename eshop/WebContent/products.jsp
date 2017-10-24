@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="">Dress</a></li>
 						<li><a href="">Shorts</a></li>
 						<li><a href="#">Shirts</a></li>
-						<li><a href="register.html">Register</a></li>
+						<li><a href="register.jsp">Register</a></li>
 					</ul>
 				</div>
 				<div class="latest-bis">
@@ -86,10 +86,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="new-product">
 				<div class="new-product-top">
 					<ul class="product-top-list">
-						<li><a href="index.html">Home</a>&nbsp;<span>&gt;</span></li>
+						<li><a href="index.jsp">Home</a>&nbsp;<span>&gt;</span></li>
 						<li><span class="act">Best Sales</span>&nbsp;</li>
 					</ul>
-					<p class="back"><a href="index.html">Back to Previous</a></p>
+					<p class="back"><a href="index.jsp">Back to Previous</a></p>
 					<div class="clearfix"></div>
 				</div>
 				<div class="mens-toolbar">
@@ -135,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="clearfix"></div>
 					<ul>
 					  <li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -162,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</li>
 						<li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 							  <div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</li>
 						<li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -216,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</li>
 						<li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -243,7 +243,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</li>
 						<li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -270,7 +270,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</li>
 						<li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -297,7 +297,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</li>
 						<li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -324,7 +324,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</li>
 						<li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -351,7 +351,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</li>
 						<li>
-							<a class="cbp-vm-image" href="single.html">
+							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 								<div class="view view-first">
 					   		  <div class="inner_content clearfix">
@@ -391,33 +391,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<h3 class="like text-center">Featured Collection</h3>        			
 				     <ul id="flexiselDemo3">
-						<li><a href="single.html"><img src="images/l1.jpg" class="img-responsive"/></a>
+						<li><a href="single.jsp"><img src="images/l1.jpg" class="img-responsive"/></a>
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.html">Perfectly simple</a>
+							<a class="like_name" href="single.jsp">Perfectly simple</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$759</span></a></p>
 							</div>
 						</li>
-						<li><a href="single.html"><img src="images/l2.jpg" class="img-responsive"/></a>						
+						<li><a href="single.jsp"><img src="images/l2.jpg" class="img-responsive"/></a>						
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.html">Praising pain</a>
+							<a class="like_name" href="single.jsp">Praising pain</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$699</span></a></p>
 							</div>
 						</li>
-						<li><a href="single.html"><img src="images/l3.jpg" class="img-responsive"/></a>
+						<li><a href="single.jsp"><img src="images/l3.jpg" class="img-responsive"/></a>
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.html">Neque porro</a>
+							<a class="like_name" href="single.jsp">Neque porro</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
 							</div>
 						</li>
-						<li><a href="single.html"><img src="images/l4.jpg" class="img-responsive"/></a>
+						<li><a href="single.jsp"><img src="images/l4.jpg" class="img-responsive"/></a>
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.html">Equal blame</a>
+							<a class="like_name" href="single.jsp">Equal blame</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$499</span></a></p>
 							</div>
 						</li>
-						<li><a href="single.html"><img src="images/l5.jpg" class="img-responsive"/></a>
+						<li><a href="single.jsp"><img src="images/l5.jpg" class="img-responsive"/></a>
 							<div class="product liked-product simpleCart_shelfItem">
-							<a class="like_name" href="single.html">Perfectly simple</a>
+							<a class="like_name" href="single.jsp">Perfectly simple</a>
 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">$649</span></a></p>
 							</div>
 						</li>
