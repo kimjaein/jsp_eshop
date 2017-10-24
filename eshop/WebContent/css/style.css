@@ -1678,11 +1678,12 @@ ul.women_pagenation li a:hover{
 	color: #000;
 }
 .reg-form{
-	float:left;
-	width:50%
+
+	width:60%
 }
 .reg-right{
 	float:right;
+	
 	width:47%
 }
 p.click a{
