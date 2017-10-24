@@ -55,15 +55,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   <div class="account_grid">
 			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
 			  	 <h2>NEW CUSTOMERS</h2>
-				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+				 <p></p>
 				 <a class="acount-btn" href="register.jsp">Create an Account</a>
 			   </div>
 			   <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
 			  	<h3>REGISTERED CUSTOMERS</h3>
-				<p>If you have an account with us, please log in.</p>
+				<p>Login</p>
 				<form>
 				  <div>
-					<span>Email Address<label>*</label></span>
+					<span>ID<label>*</label></span>
 					<input type="text"> 
 				  </div>
 				  <div>
@@ -78,6 +78,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 </div>
 		   </div>
 </div>
+<<<<<<< HEAD
+<!-- 		<div class="news-letter"> -->
+<!-- 			<div class="container"> -->
+<!-- 				<div class="join"> -->
+<!-- 					<h6>JOIN OUR MAILING LIST</h6> -->
+<!-- 					<div class="sub-left-right"> -->
+<!-- 						<form> -->
+<!-- 							<input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your Email Here';}" /> -->
+<!-- 							<input type="submit" value="SUBSCRIBE" /> -->
+<!-- 						</form> -->
+<!-- 					</div> -->
+<!-- 					<div class="clearfix"> </div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		</div> -->
+=======
 		<div class="news-letter">
 			<div class="container">
 				<div class="join">
@@ -93,6 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		</div>
+>>>>>>> 272dbec3b4408ea53409e46e6854c53007020d94
 <jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>
