@@ -58,9 +58,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-5 zoom-grid">
 					<div class="flexslider">
 						<ul class="slides">
-							<li data-thumb="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG">
+							<script>
+							var title = ${product.title};
+							title =title.subString(0,title.length()-1);
+							</script>
+							<c:forEach var="i" begin="1" end="3">
+							
+							<li data-thumb="images/${product.large_Category}/${product.middle_Category}/${title}+${i}.JPG">
 								<div class="thumb-image"> <img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
-							</li>						
+							</li>		
+							</c:forEach>				
 						</ul>
 					</div>
 				</div>
