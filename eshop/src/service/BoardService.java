@@ -26,6 +26,7 @@ public class BoardService {
 		article.setDepth("A");
 		
 		int result = dao.insert(article);
+		result=dao.insertBList(dao.selectLastId());
 		if(result==1)
 			return true;
 		else 
@@ -86,7 +87,7 @@ public class BoardService {
 		String level = dao.ExistNextLevel(article.getList(), article.getDepth()+"_");
 		if(level != null) {
 			char c=level.charAt(level.length()-1);
-			c=(char) (c+1);
+			c=(char)(c+1);
 			level=level.substring(0, level.length()-1)+c;
 		}else {
 			level=article.getDepth()+"A";
