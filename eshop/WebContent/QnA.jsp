@@ -64,8 +64,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<td>${article.articleNum}</td>
 					<td>
 						<a href="${myContextPath}/board?task=read&articleNum=${article.articleNum}">
-						<c:if test="${article.b_level.length() >1}">
-							<c:forEach var="i" begin="1" end="${article.b_level.length()-1}">
+						<c:if test="${article.depth.length() >1}">
+							<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
 							&nbsp;
 							</c:forEach>
 							->
@@ -74,8 +74,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 					</td>
 					<td>${article.writer}</td>
-					<td><fmt:formatDate 	value="${article.writeDate}" type="both"
-								dateStyle="short" timeStyle="short"/></td>
+					<td>${article.writeDate}</td>
+								
 					<td>${article.readCount}</td>
 				</tr>
 			</c:forEach>
