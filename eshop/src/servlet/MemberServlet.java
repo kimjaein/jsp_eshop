@@ -51,7 +51,7 @@ public class MemberServlet extends HttpServlet{
 			member.setEmail(request.getParameter("email"));
 			
 			if(service.joinMember(member)) {
-				path = "join_success.jsp";
+				path = "index.jsp";
 			} else {
 				path = "join_fail.jsp";
 			}
