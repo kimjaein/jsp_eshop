@@ -142,25 +142,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- 							메인 상품 new -->
 				<c:choose>
-					<c:when test="${empty ProductList}">
+					<c:when test="${empty recentProductList}">
 						<div class="banner-info">
 							<h3>상품이 존재하지 않습니다.</h3>
 						</div>
 					</c:when>
 					<c:otherwise>
 									
-						<c:forEach var="product" items="${ProductList}">
+						<c:forEach var="recentProduct" items="${recentProductList}">
 							<div class="col-md-4 product simpleCart_shelfItem text-center">
-								<a href="product?task=detail&title=${product.title}"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" alt="" /></a>
+								<a href="product?task=detail&title=${recentProduct.title}"><img src="images/${recentProduct.large_Category}/${recentProduct.middle_Category}/${recentProduct.title}.JPG" alt="" /></a>
 				
 								<div class="mask">
-									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
-									<a href="product?task=detail&title=${product.title}">Quick View</a>
+									<a href="product?task=detail&title=${recentProduct.title}">Quick View</a>
 								</div>
-								<a class="product_name" href="product?task=detail&title=${product.title}">${product.title}</a>
+								<a class="product_name" href="product?task=detail&title=${recentProduct.title}">${recentProduct.title}</a>
 								<p>
 									<a class="item_add" href="#"><i></i> <span
-										class="item_price">${product.price}</span></a>
+										class="item_price">${recentProduct.price}</span></a>
 								</p>
 							</div>
 						</c:forEach>
@@ -173,61 +172,97 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!-- 	best상품 -->
-						<h3 class="like text-center">B e s t &nbsp; &nbsp; P r o d u c t s</h3>
-	<c:choose>
-		<c:when test="${empty ProductList}">
-			<div class="banner-info">
-				<h3>상품이 존재하지 않습니다.</h3>
-			</div>
-		</c:when>
-		<c:otherwise>
-				<div class="other-products">
-			<c:forEach var="product" items="${ProductList}">
-					<div class="container">
-						<ul id="flexiselDemo3">
-							<li><a href="product?task=detail&title=${product.title}"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" class="img-responsive" alt="" /></a>
-								<div class="product liked-product simpleCart_shelfItem">
-									<a class="like_name" href="product?task=detail&title=${product.title}">${product.title}</a>
-									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
-									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p>
-									
-								</div>								
-							</li>
-					</div>
-				</div>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
-	<script type="text/javascript">
-		$(window).load(function() {
-			$("#flexiselDemo3").flexisel({
-				visibleItems : 4,
-				animationSpeed : 1000,
-				autoPlay : true,
-				autoPlaySpeed : 3000,
-				pauseOnHover : true,
-				enableResponsiveBreakpoints : true,
-				responsiveBreakpoints : {
-					portrait : {
-						changePoint : 480,
-						visibleItems : 1
-					},
-					landscape : {
-						changePoint : 640,
-						visibleItems : 2
-					},
-					tablet : {
-						changePoint : 768,
-						visibleItems : 3
-					}
-				}
-			});
+			<div class="products-grid">
+				<header>
+					<h3 class="head text-center">B e s t &nbsp; &nbsp; P r o d u c t
+						s</h3>
+				</header>
 
-		});
-	</script>
-	</ul>
-	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
-	</div>
+
+<!-- 							메인 상품 new -->
+				<c:choose>
+					<c:when test="${empty bestProductList}">
+						<div class="banner-info">
+							<h3>상품이 존재하지 않습니다.</h3>
+						</div>
+					</c:when>
+					<c:otherwise>
+									
+						<c:forEach var="bestProduct" items="${bestProductList}">
+							<div class="col-md-4 product simpleCart_shelfItem text-center">
+								<a href="product?task=detail&title=${bestProduct.title}"><img src="images/${bestProduct.large_Category}/${bestProduct.middle_Category}/${bestProduct.title}.JPG" alt="" /></a>
+				
+								<div class="mask">
+									<a href="product?task=detail&title=${bestProduct.title}">Quick View</a>
+								</div>
+								<a class="product_name" href="product?task=detail&title=${bestProduct.title}">${bestProduct.title}</a>
+								<p>
+									<a class="item_add" href="#"><i></i> <span
+										class="item_price">${bestProduct.price}</span></a>
+								</p>
+							</div>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+
+				<div class="clearfix"></div>
+			</div>
+
+				<div class="clearfix"></div>
+<!-- 						<h3 class="like text-center">B e s t &nbsp; &nbsp; P r o d u c t s</h3> -->
+<%-- 	<c:choose> --%>
+<%-- 		<c:when test="${empty ProductList}"> --%>
+<!-- 			<div class="banner-info"> -->
+<!-- 				<h3>상품이 존재하지 않습니다.</h3> -->
+<!-- 			</div> -->
+<%-- 		</c:when> --%>
+<%-- 		<c:otherwise> --%>
+<!-- 				<div class="other-products"> -->
+<%-- 			<c:forEach var="product" items="${ProductList}"> --%>
+<!-- 					<div class="container"> -->
+<!-- 						<ul id="flexiselDemo3"> -->
+<%-- 							<li><a href="product?task=detail&title=${product.title}"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" class="img-responsive" alt="" /></a> --%>
+<!-- 								<div class="product liked-product simpleCart_shelfItem"> -->
+<%-- 									<a class="like_name" href="product?task=detail&title=${product.title}">${product.title}</a> --%>
+<%-- 									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b> --%>
+<%-- 									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p> --%>
+									
+<!-- 								</div>								 -->
+<!-- 							</li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
+<%-- 			</c:forEach> --%>
+<!-- 				</div> -->
+<%-- 		</c:otherwise> --%>
+<%-- 	</c:choose> --%>
+<!-- 	<script type="text/javascript"> -->
+<!-- // 		$(window).load(function() { -->
+<!-- // 			$("#flexiselDemo3").flexisel({ -->
+<!-- // 				visibleItems : 4, -->
+<!-- // 				animationSpeed : 1000, -->
+<!-- // 				autoPlay : true, -->
+<!-- // 				autoPlaySpeed : 3000, -->
+<!-- // 				pauseOnHover : true, -->
+<!-- // 				enableResponsiveBreakpoints : true, -->
+<!-- // 				responsiveBreakpoints : { -->
+<!-- // 					portrait : { -->
+<!-- // 						changePoint : 480, -->
+<!-- // 						visibleItems : 1 -->
+<!-- // 					}, -->
+<!-- // 					landscape : { -->
+<!-- // 						changePoint : 640, -->
+<!-- // 						visibleItems : 2 -->
+<!-- // 					}, -->
+<!-- // 					tablet : { -->
+<!-- // 						changePoint : 768, -->
+<!-- // 						visibleItems : 3 -->
+<!-- // 					} -->
+<!-- // 				} -->
+<!-- // 			}); -->
+
+<!-- // 		}); -->
+<!-- 	</script> -->
+<!-- 	<script type="text/javascript" src="js/jquery.flexisel.js"></script> -->
 	<!-- content-section-ends-here -->
 	<jsp:include page="bottom.jsp"></jsp:include>
 </body>

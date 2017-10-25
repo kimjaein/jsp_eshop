@@ -58,35 +58,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-5 zoom-grid">
 					<div class="flexslider">
 						<ul class="slides">
-							
 							<c:forEach var="i" begin="1" end="3">
 							
-							<li data-thumb="images/${singleProduct.large_Category}/${singleProduct.middle_Category}/${singleProduct.title}.JPG">
-								<div class="thumb-image"> <img src="images/${singleProduct.large_Category}/${singleProduct.middle_Category}/${singleProduct.title}.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+							
+							<li data-thumb="images/${singleProduct.large_Category}/${singleProduct.middle_Category}/${singleProduct.title}-${i}.JPG">
+								<div class="thumb-image"> <img src="images/${singleProduct.large_Category}/${singleProduct.middle_Category}/${singleProduct.title}-${i}.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
 							</li>		
-							</c:forEach>				
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-7 dress-info">
 					<div class="dress-name">
-						<h3>상품이름</h3>
-						<span>$가격</span>
+						<h3>${singleProduct.title}</h3>
+						<span>${singleProduct.price}원</span>
 						<div class="clearfix"></div>
 					</div>
 					<div class="span span3">
 						<p class="left">COLOR</p>
-						<p class="right">White</p>
+						<p class="right">${singleProduct.color}</p>
 						<div class="clearfix"></div>
 					</div>
 					<div class="span span4">
 						<p class="left">SIZE</p>
-						<p class="right"><span class="selection-box"><select class="domains valid" name="domains">
+						<p class="right">
+						<span class="selection-box">
+						<select class="domains valid" name="domains">
 										   <option>S</option>
 										   <option>M</option>
 										   <option>L</option>
 										   <option>XL</option>
-									   </select></span></p>
+						</select>
+						</span></p>
 						<div class="clearfix"></div>
 					</div>
 					<div class="purchase">

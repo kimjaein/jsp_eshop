@@ -32,14 +32,6 @@ public class ProductService {
 	
 	}
 	
-	/////////////////////////////////////////////////////////////////////////////////////////////////
-	public ProductList makeProductList(String title) {
-		List<Product> selectProductList = dao.selectProductList(title);
-		
-		ProductList productList = new ProductList(selectProductList);
-		return productList;
-		
-	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public Product makeProduct(String title) {

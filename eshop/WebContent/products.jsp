@@ -33,9 +33,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 </head>
-<%
-	ProductList productList = (ProductList) request.getAttribute("productList");
-%>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
 		
