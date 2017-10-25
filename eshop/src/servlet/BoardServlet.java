@@ -21,7 +21,6 @@ public class BoardServlet extends HttpServlet{
 	private BoardService service = BoardService.getInstance(); 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("board");
         String task = request.getParameter("task");
         String path="";
 
