@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="reg-form">
 				<div class="reg">
 					<form action="${pageContext.request.contextPath}/test" method="post">
-					<input type="hidden" name="action" value="edit">
+					<input type="hidden" name="task" value="edit">
 					<!-- List에서 값 받아오고 text value에 넣고 수정완료 클릭시 값 넘어감 -->
 						<ul>
 							<li class="text-info">ID:</li>

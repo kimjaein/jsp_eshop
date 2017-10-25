@@ -14,12 +14,12 @@ public class TestServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
-		String id = req.getParameter("id");
+		String task = req.getParameter("task");
 		String path = "";
-		if(id.equals("AA")) {
+		if(task.equals("editaccount")) {
 			//dao에서 id가 AA인 정보 가져온 뒤 Setattribute함[멤버 객체 하나]
 			
-			path ="editaccount.jsp";
+			path ="editaccountform.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
@@ -27,9 +27,9 @@ public class TestServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
-		String action = req.getParameter("action");
+		String task = req.getParameter("task");
 		String path ="";
-		if(action.equals("edit")) {
+		if(task.equals("edit")) {
 			//MemberVo 객체 생성 후 set으로 값 넣어주고
 			System.out.println("ID : " +req.getParameter("userid"));
 			System.out.println("PW : " +req.getParameter("userpw"));
@@ -40,7 +40,15 @@ public class TestServlet extends HttpServlet {
 			
 			//service에서 회원수정 작업 수행 시킴
 			
-			path="수정완료다";
+			path="index.jsp";
+		}else if(task.equals("editCheck")) {
+			//입력받은 id는 DB에서 패스워드 검색용, 입력받은 pw는 검색된 pw와 비교용(service에서 실행)
+			//정보 수정하기 전 비밀번호 확인[일치 시 DB에서 계정 삭제]
+			String id = req.getParameter("userid");
+			String pw = req.getParameter("userpw");
+			
+		}else if(task.equals("delete")) {
+			//계정 삭제
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);

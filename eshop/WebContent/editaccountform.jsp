@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>MyPage</title>
+<title>계정 삭제</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
@@ -27,6 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <!-- cart -->
 <script src="js/simpleCart.min.js">
+	
 </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
@@ -34,30 +35,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
-<center>
+	<center>
 		<div class="clearfix"></div>
 		<p><br></p>
-		<h2>마이페이지</h2>
+		<h2>정보 수정</h2>
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					<h2>${sessionScope.loginId}님 반갑습니다.</h2>
-				고객님만의 페이지 / 다양한 쇼핑정보를 한눈에 볼 수 있는 공간입니다.
-
-				<hr>
-				<!-- 로그인 될때 session attribute한 값이 loginId -->
-				<!-- setattribute 된 회원의 값을 가져와서 아이디와 일치하면 정보출력 -->
-				<%--<c:if test="${SessionScope.loginId != null}"> --%>
-				<%--<a class="acount-btn" onclick="memberCheck(${loginId},${SessionScope.loginId});">정보수정</a> <a --%>
-				<a class="acount-btn" href="${pageContext.request.contextPath}/test?task=editaccount">정보수정</a>
-				<a class="acount-btn" href="buylist.jsp">구매내역</a>
-				<a class="acount-btn" href="checkout.jsp">장바구니</a>
-				<a class="acount-btn" href="deleteaccount.jsp">회원탈퇴</a>
-				<%-- 				</c:if> --%>
-				<%-- 				<c:if test="${SessionScope.loginId == null}"> --%>
-				<a class="acount-btn" href="account.jsp">로그인</a>
-				<%-- 				</c:if> --%>
-
+					<form action="${pageContext.request.contextPath}/test" method="post">
+					<input type="hidden" name="userid" value="${SessionScope.loginId}">
+					<input type="hidden" name="task" value="editCheck">
+						<ul>
+							<li class="text-info">Password:</li>
+							<li><input type="text" value="" name="userpw"></li>
+							<li></li>
+						</ul>
+						<input type="submit" value="확인">
+					</form>
 				</div>
 			</div>
 		</div>

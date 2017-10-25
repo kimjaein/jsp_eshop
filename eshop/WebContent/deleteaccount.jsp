@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>계정 삭제</title>
+<title>회원 탈퇴</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
@@ -38,14 +38,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<center>
 		<div class="clearfix"></div>
 		<p><br></p>
-		<h2>계정 삭제</h2>
+		<h2>회원 탈퇴</h2>
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					<form action="보낼 서블릿으로 정보전송">
-					<!-- 입력한 패스워드가 DB에 있는 패스워드와 일치시에 삭제 -->
-					<!-- SessionScope.loginId 값도 같이 보낸다. -->
+					<form action="${pageContext.request.contextPath}/test" method="post">
 					<input type="hidden" name="userid" value="${SessionScope.loginId}">
+					<input type="hidden" name="task" value="delete">
 						<ul>
 							<li class="text-info">Password:</li>
 							<li><input type="text" value="" name="userpw"></li>
