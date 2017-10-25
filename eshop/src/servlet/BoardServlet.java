@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import service.BoardService;
 import vo.Article;
+import vo.ArticlePage;
 
  
 @WebServlet("/board")
@@ -31,7 +32,19 @@ public class BoardServlet extends HttpServlet{
         	}else {
         		path="QnaWrite.jsp";
         	}
+        }else if(task.equals("boardList")) {
+        	String type=request.getParameter("type");
+        	
+        	String p=request.getParameter("p");
+        	int page=1;
+        	if(p!=null && !p.isEmpty()) {
+        		page=Integer.parseInt(p);
+        	}
+        	
+        	ArticlePage articlePage = service.makeArticlePage(p);
+        	
         }
+        
       
         RequestDispatcher dispatcher = request.getRequestDispatcher(path);
         dispatcher.forward(request, response);
