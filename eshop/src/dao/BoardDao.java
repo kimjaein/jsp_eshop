@@ -14,7 +14,7 @@ public class BoardDao {
 		return instance;
 	}
 	private BoardDao(){
-		
+		DBUtil.loadDriver();
 	}
 	
 	public int insert(Article article) {

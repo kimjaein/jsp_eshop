@@ -25,6 +25,7 @@ public class ProductDao {
 	}
 
 	private ProductDao() {
+		DBUtil.loadDriver();
 	}
 
 	///////////////////////////////////////////////////////////////////
