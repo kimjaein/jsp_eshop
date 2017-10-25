@@ -19,6 +19,7 @@ public class MemberDao {
 		return instance;
 	}
 	private MemberDao(){
+		DBUtil.loadDriver();
 	}
 ///////////////////////////////////////////////////////////////////
 	// DB 연결, 해제 관련 필드와 메소드들
