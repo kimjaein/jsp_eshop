@@ -126,6 +126,38 @@ public class ProductDao {
 		}
 		return productList;
 	}
+	///////////////////////////////////////////////////////////////////////////////
+	public Product selectProduct(String title) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE TITLE=?";
+		Product product = new Product();
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, title);
+			rs = pstmt.executeQuery(); // SQL 실행
+
+			while (rs.next()) {
+				product.setTitle(rs.getString(1));
+				product.setPrice(rs.getInt(2));
+				product.setColor(rs.getString(3));
+				product.setSize(rs.getString(4));
+				product.setLarge_Category(rs.getString(5));
+				product.setMiddle_Category(rs.getString(6));
+				
+			}
+		} catch (SQLException e) {
+			System.out.println("dao selectProduct 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		
+		return product;
+	}
+	
 
 	
 

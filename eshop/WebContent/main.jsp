@@ -193,9 +193,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									
 								</div>								
 							</li>
-			</c:forEach>
 					</div>
 				</div>
+			</c:forEach>
 		</c:otherwise>
 	</c:choose>
 	<script type="text/javascript">
