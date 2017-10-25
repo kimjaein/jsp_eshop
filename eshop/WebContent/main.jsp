@@ -151,8 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									
 						<c:forEach var="product" items="${ProductList}">
 							<div class="col-md-4 product simpleCart_shelfItem text-center">
-								<a href="single.jsp"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" alt="" /></a>
-<!-- 								<a href="single.jsp"><img src="images/OUTER/COAT/coat1-1.JPG" alt="" /></a> -->
+								<a href="product?task=detail&title=${product.title}"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" alt="" /></a>
 				
 								<div class="mask">
 									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
@@ -189,6 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="single.jsp"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" class="img-responsive" alt="" /></a>
 								<div class="product liked-product simpleCart_shelfItem">
 									<a class="like_name" href="single.jsp">${product.title}</a>
+									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
 									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p>
 									
 								</div>								

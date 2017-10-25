@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.ProductDao;
 import service.ProductService;
 import vo.Product;
+import vo.ProductList;
 
 @WebServlet("/product")
 public class ProductServlet extends HttpServlet{
@@ -29,6 +30,13 @@ public class ProductServlet extends HttpServlet{
 		request.setAttribute("ProductList", productList);
 		
 		path ="main.jsp";
+		} else if(task.equals("detail")) {
+			String title = request.getParameter("title");
+			
+			ProductList singleProductList = service.makeProductList(title);
+			
+			
+			path = "single.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);

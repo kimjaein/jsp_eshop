@@ -21,14 +21,6 @@ public class ProductService {
 	
 	private ProductService() {}
 	/////////////////////////////////////////////////////////////////////////////////////////////
-	public ProductList makeList(String title) {
-		List<Product> productList = dao.selectProductList(title);
-		
-		return new ProductList(productList);
-		
-	}
-	
-	
 	public boolean addProduct(Product product) {
 		product.setRegisterTime(new Date());
 		
@@ -38,6 +30,15 @@ public class ProductService {
 		else
 			return false;
 	
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	public ProductList makeProductList(String title) {
+		List<Product> selectProductList = dao.selectProductList(title);
+		
+		ProductList productList = new ProductList(selectProductList);
+		return productList;
+		
 	}
 	
 	
