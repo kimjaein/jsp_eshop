@@ -93,7 +93,7 @@
 			            </div>
 		            </ul>
 		        </li>
-					<li><a href="QnA.jsp?task=boardList&type=qna">Q & A</a></li>
+					<li><a href="board?task=boardList&type=qna">Q & A</a></li>
 	        </ul>
 	    </div>
 	    <!--/.navbar-collapse-->

@@ -52,22 +52,24 @@ public class MemberServlet extends HttpServlet{
 			
 			if(service.joinMember(member)) {
 				path = "account.jsp";
-			} else {
-				path = "join_fail.jsp";
-			}
+			} 
+//			else {
+//				path = "join_fail.jsp";
+//			}
 		} else if(task.equals("login")) {
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
 			String loginId = service.login(id, pw);
+			System.out.println("service.login value : "+loginId);
 			if(loginId!=null) {
 				// 로그인 된 아이디를 세션에 저장
 				HttpSession session = request.getSession();
 				session.setAttribute("loginId", loginId);
 				path = "index.jsp";
 			}
-			else {
-				path = "login_fail.jsp";
-			}
+//			else {
+//				path = "login_fail.jsp";
+//			}
 		} else if(task.equals("loginIdCheck")) {
 			String id = request.getParameter("id");
 			String idCheck = service.loginIdCheck(id);
