@@ -140,55 +140,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</header>
 
 
-				<!-- 			메인 상품 new -->
-<%-- 				<c:choose> --%>
-<%-- 					<c:when test="${empty ProductList}"> --%>
-<!-- 						<div class="banner-info"> -->
-<!-- 							<h3>상품이 존재하지 않습니다.</h3> -->
-<!-- 						</div> -->
-<%-- 					</c:when> --%>
-<%-- 					<c:otherwise> --%>
+<!-- 							메인 상품 new -->
+				<c:choose>
+					<c:when test="${empty ProductList}">
+						<div class="banner-info">
+							<h3>상품이 존재하지 않습니다.</h3>
+						</div>
+					</c:when>
+					<c:otherwise>
+									<%
+										String path = "images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG";
+									%>
 						<c:forEach var="product" items="${ProductList}">
 							<div class="col-md-4 product simpleCart_shelfItem text-center">
-								<a href="single.jsp"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" alt="" /></a>
-									
-									<%
-										String path = "${product.large_Category}/${product.middle_Category}/${product.title}.JPG";
-									%>
-					
+								<a href="single.jsp"><img src="path" alt="" /></a>
+				
 								<div class="mask">
 
-									<a href="single.jsp/product?item=detail&title=${product.title}">Quick View</a>
+									<a href="single.jsp">Quick View</a>
 								</div>
-								<a class="product_name" href="single.jsp/product?task=${product.title}">${product.title}</a>
+								<a class="product_name" href="single.jsp">${product.title}</a>
 								<p>
 									<a class="item_add" href="#"><i></i> <span
 										class="item_price">${product.price}</span></a>
 								</p>
 							</div>
 						</c:forEach>
-<%-- 					</c:otherwise> --%>
-<%-- 				</c:choose> --%>
-
-				<!-- 					여기서부터 동일한 상품목록 -->
-				<!-- 					<div class="col-md-4 product simpleCart_shelfItem text-center"> -->
-				<!-- 						<a href="single.jsp"><img src="images/top/long_sleeve/long-sleeve2-1.JPG" alt="" /></a> -->
-				<!-- 						<div class="mask"> -->
-				<!-- 							<a href="single.jsp">Quick View</a> -->
-				<!-- 						</div> -->
-				<!-- 						<a class="product_name" href="single.jsp">패딩2</a> -->
-				<!-- 						<p><a class="item_add" href="#"><i></i> <span class="item_price">50,000</span></a></p> -->
-				<!-- 					</div> -->
-
-				<!-- 					<div class="col-md-4 product simpleCart_shelfItem text-center"> -->
-				<!-- 						<a href="single.jsp"><img src="images/padding/padding3-1.jpg" alt="" /></a> -->
-				<!-- 						<div class="mask"> -->
-				<!-- 							<a href="single.jsp">Quick View</a> -->
-				<!-- 						</div> -->
-				<!-- 						<a class="product_name" href="single.jsp">패딩3</a> -->
-				<!-- 						<p><a class="item_add" href="#"><i></i> <span class="item_price">60,000</span></a></p> -->
-				<!-- 					</div> -->
-				<!-- 						여기까지 -->
+					</c:otherwise>
+				</c:choose>
 
 				<div class="clearfix"></div>
 			</div>
@@ -197,47 +176,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!-- 	best상품 -->
 						<h3 class="like text-center">B e s t &nbsp; &nbsp; P r o d u c t s</h3>
-<%-- 	<c:choose> --%>
-<%-- 		<c:when test="${empty productList}"> --%>
-<!-- 			<div class="banner-info"> -->
-<!-- 				<h3>상품이 존재하지 않습니다.</h3> -->
-<!-- 			</div> -->
-<%-- 		</c:when> --%>
-<%-- 		<c:otherwise> --%>
-			<c:forEach var="product" items="${ProductList}">
+	<c:choose>
+		<c:when test="${empty ProductList}">
+			<div class="banner-info">
+				<h3>상품이 존재하지 않습니다.</h3>
+			</div>
+		</c:when>
+		<c:otherwise>
 				<div class="other-products">
+			<c:forEach var="product" items="${ProductList}">
 					<div class="container">
 						<ul id="flexiselDemo3">
 							<li><a href="single.jsp"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" class="img-responsive" alt="" /></a>
 								<div class="product liked-product simpleCart_shelfItem">
 									<a class="like_name" href="single.jsp">${product.title}</a>
 									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p>
-								</div>
+								</div>								
 							</li>
+					</div>
 			</c:forEach>
-<%-- 		</c:otherwise> --%>
-<%-- 	</c:choose> --%>
-	<!-- 						best 상품목록 중복되는부분 -->
-	<!-- 						<li><a href="single.jsp"><img src="images/padding/padding5-1.jpg" class="img-responsive" alt="" /></a>						 -->
-	<!-- 							<div class="product liked-product simpleCart_shelfItem"> -->
-	<!-- 							<a class="like_name" href="single.jsp">패딩3422342</a> -->
-	<!-- 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">69,000</span></a></p> -->
-	<!-- 							</div> -->
-	<!-- 						</li> -->
-	<!-- 						<li><a href="single.jsp"><img src="images/padding/padding6-1.jpg" class="img-responsive" alt="" /></a> -->
-	<!-- 							<div class="product liked-product simpleCart_shelfItem"> -->
-	<!-- 							<a class="like_name" href="single.jsp">패딩1929328298</a> -->
-	<!-- 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">90,000</span></a></p> -->
-	<!-- 							</div> -->
-	<!-- 						</li> -->
-	<!-- 						<li><a href="single.jsp"><img src="images/padding/padding1-1.jpg" class="img-responsive" alt="" /></a> -->
-	<!-- 							<div class="product liked-product simpleCart_shelfItem"> -->
-	<!-- 							<a class="like_name" href="single.jsp">패딩987967</a> -->
-	<!-- 							<p><a class="item_add" href="#"><i></i> <span class=" item_price">50,000</span></a></p> -->
-	<!-- 							</div> -->
-	<!-- 						</li> -->
-	<!-- 						여기까지 중복 -->
-	</ul>
+				</div>
+		</c:otherwise>
+	</c:choose>
 	<script type="text/javascript">
 		$(window).load(function() {
 			$("#flexiselDemo3").flexisel({
@@ -265,6 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		});
 	</script>
+	</ul>
 	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 	</div>
 	<!-- content-section-ends-here -->
