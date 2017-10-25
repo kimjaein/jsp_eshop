@@ -21,12 +21,14 @@ public class BoardServlet extends HttpServlet{
 	private BoardService service = BoardService.getInstance(); 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("board");
         String task = request.getParameter("task");
         String path="";
 
         if(task.equals("writeForm")) {
         	HttpSession session=request.getSession();
         	String loginId =(String)session.getAttribute("loginId");
+        	
         	if(loginId==null ||loginId.isEmpty()) {
         		path="account.jsp";
         	}else {
@@ -41,8 +43,26 @@ public class BoardServlet extends HttpServlet{
         		page=Integer.parseInt(p);
         	}
         	
-        	ArticlePage articlePage = service.makeArticlePage(p);
+        	ArticlePage articlePage = service.makeArticlePage(page,type);
         	
+        	request.setAttribute("articlePage",articlePage);
+        	if(type.equals("qna")){
+        		path="QnA.jsp";
+        	}
+        }else if(task.equals("read")) {
+        	HttpSession session=request.getSession();
+        	String loginId =(String)session.getAttribute("loginId");
+        	
+        	String articleNumStr =request.getParameter("articleNum");
+        	int articleNum=Integer.parseInt(articleNumStr);
+        	Article article = service.read(articleNum,loginId);
+        	
+        	if(article !=null) {
+        		request.setAttribute("article", article);
+        		path="read.jsp";
+        	}else {
+        		path="QnA.jsp";//俊矾 匡副 规过 积阿
+        	}
         }
         
       
