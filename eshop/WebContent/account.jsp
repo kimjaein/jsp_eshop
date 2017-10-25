@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<form id="loginForm" action="${pageContext.request.contextPath}/member" method="post">
 						<input type="hidden" value="login" name="task">
 							<div>
-								<span>아이디<label>*</label></span> <input type="text" name="id">
+								<span>아이디<label>*</label></span> <input type="text" id="id" name="id">
 							</div>
 
 							<div>
