@@ -13,7 +13,9 @@
 				</div>
 				<div class="header-right">
 						<div class="cart box_1">
-							
+							<c:if test="${not empty sessionScope.loginId}">
+								<h2>${sessionScope.loginId}´Ô ¹Ý°©½À´Ï´Ù!!</h2>
+							</c:if>
 							<a href="checkout.jsp">
 								<h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)<img src="images/bag.png" alt=""></h3>
 							</a>	
