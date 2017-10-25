@@ -41,6 +41,13 @@ public class ProductService {
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public List<Product> categoryProduct(String category) {
 		 List<Product> categoryList = dao.selectCategory(category);
+		 
+		 for(int i=0; i<categoryList.size();i++) {
+			 String title = categoryList.get(i).getTitle();
+			 
+			 title = title.substring(0,title.length()-2);
+			 categoryList.get(i).setTitle(title);			 
+		 }
 		
 		return categoryList;
 	}	
