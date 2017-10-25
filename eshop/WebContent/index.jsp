@@ -140,7 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<!-- 			메인 상품 new -->
 				<c:choose>
-					<c:when test="${empty ProductList.productList}">
+					<c:when test="${empty ProductList}">
 						<div class="banner-info">
 							<h3>상품이 존재하지 않습니다.</h3>
 						</div>
@@ -154,10 +154,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 									<a href="single.jsp/product?task=">Quick View</a>
 								</div>
-								<a class="product_name" href="single.jsp">패딩1</a>
+								<a class="product_name" href="single.jsp">${product.title}</a>
 								<p>
 									<a class="item_add" href="#"><i></i> <span
-										class="item_price">30,000</span></a>
+										class="item_price">${product.price}</span></a>
 								</p>
 							</div>
 						</c:forEach>
