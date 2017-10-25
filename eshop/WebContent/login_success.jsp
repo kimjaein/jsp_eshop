@@ -9,10 +9,6 @@
 <c:set var="myContextPath" value="${pageContext.request.contextPath}"/>
 
 	<h2>${sessionScope.loginId}님 반갑습니다!!</h2>
-	<a href="${myContextPath}/board">게시판 입장하기</a>
-	
-	<a href="${myContextPath}/">
-		처음 화면으로
-	</a>
+	<a href="${myContextPath}/member">메인으로</a>
 </body>
 </html>
