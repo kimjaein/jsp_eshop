@@ -1,5 +1,4 @@
 <%@page import="vo.Product"%>
-<%@page import="vo.ProductList"%>
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.ProductDao;
 import service.ProductService;
 import vo.Product;
-import vo.ProductList;
 
 @WebServlet("/product")
 public class ProductServlet extends HttpServlet{
@@ -45,6 +44,14 @@ public class ProductServlet extends HttpServlet{
 			System.out.println(singleProduct.toString());
 			
 			path = "single.jsp";
+		} else if(task.equals("list")) {
+			String category = request.getParameter("category");
+			List<Product> categoryList = service.categoryProduct(category);
+			
+			request.setAttribute("categoryList", categoryList);
+			
+			path="products.jsp";
+			
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);

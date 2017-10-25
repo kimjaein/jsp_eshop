@@ -158,6 +158,36 @@ public class ProductDao {
 		
 		return product;
 	}
+	///////////////////////////////////////////////////////////////////////////////
+	public List<Product> selectCategory(String category) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=?";
+		List<Product> productList = new ArrayList<>();
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, category);
+			rs = pstmt.executeQuery(); // SQL 실행
+
+			while (rs.next()) {
+				Product product = new Product();
+				product.setTitle(rs.getString(1));
+				product.setPrice(rs.getInt(2));
+				product.setLarge_Category(rs.getString(3));
+				product.setMiddle_Category(rs.getString(4));
+				
+				productList.add(product);
+			}
+		} catch (SQLException e) {
+			System.out.println("dao selectCategory 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return productList;
+	}
 	
 
 	
