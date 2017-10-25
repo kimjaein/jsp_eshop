@@ -23,10 +23,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<style type="text/css">
+.table>#read>th {
+    text-align: end !important;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
 	<!-- <h4>${sessionScope.loginId}</h4> -->
+	<div class="container">
+	<center>
+	<div class="qna">	
 	 <section id="tables">
 	<br>
             <h1 id="h1.-bootstrap-heading">QnA</h1>
@@ -34,32 +42,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <div class="bs-docs-example">
 	<table class="table">
 		<tr>
-			<td><span text-align=left>${article.title}</span><span text-align=right>${article.writeDate}</span></td>
+			<th><span class=pull-left>${article.title}</span><span class=pull-right>${article.writeDate}</span>
 		</tr>
 		<tr>
-			<td>작성자</td>
-			<td>${article.writer}</td>
+			<td><span class=pull-left>${article.writer}</span>
+			<span class=pull-right>${article.readCount}</span></td>
 		</tr>
 		<tr>
-			<td>조회수</td>
-			<td>${article.readCount}</td>
+			<td height =100px >${article.contents}</td>
 		</tr>
 		<tr>
-			<td>내용</td>
-			<td>${article.contents}</td>
+		<td></td>
 		</tr>
 	</table>
 	</div>
 	</section>
 	
 	<c:if test="${sessionScope.loginId==article.writer}">
-	<a
-		href="<%=request.getContextPath()%>/board?task=updateForm&articleNum=${article.articleNum}">수정하기</a>
-	<a
-		href="<%=request.getContextPath()%>/board?task=deleteForm&articleNum=${article.articleNum}">삭제하기</a>
+	<a class="acount-btn"
+		href="<%=request.getContextPath()%>/board?task=updateForm&articleNum=${article.articleNum}">수정</a>
+	<a class="acount-btn"
+		href="<%=request.getContextPath()%>/board?task=deleteForm&articleNum=${article.articleNum}">삭제</a>
 	</c:if>
-	<a href="<%=request.getContextPath()%>/board?task=boardList">게시글
-		목록으로</a>
+	<a class="acount-btn" href="<%=request.getContextPath()%>/board?task=boardList">목록으로</a>
+		</div>
+		</center>
+		</div>	
 		<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

@@ -5,6 +5,7 @@
  */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
 html {
 	font-family: 'Oswald', sans-serif;
 	-webkit-text-size-adjust: 100%;
@@ -2601,6 +2602,7 @@ th {
 	margin-bottom: 20px;
 }
 
+
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td,
 	.table>tbody>tr>td, .table>tfoot>tr>td {
 	padding: 8px;
@@ -2608,6 +2610,8 @@ th {
 	vertical-align: top;
 	border-top: 1px solid #ddd;
 }
+
+
 
 .table>thead>tr>th {
 	vertical-align: bottom;
