@@ -34,20 +34,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	 <div class="bs-docs-example">
 	<table class="table">
 		<tr>
-			<td>글번호</td>
-			<td>${article.articleNum}</td>
-		</tr>
-		<tr>
-			<td>제목</td>
-			<td>${article.title}</td>
+			<td><span text-align=left>${article.title}</span><span text-align=right>${article.writeDate}</span></td>
 		</tr>
 		<tr>
 			<td>작성자</td>
 			<td>${article.writer}</td>
-		</tr>
-		<tr>
-			<td>작성일</td>
-			<td>${article.writeDate }]</td>
 		</tr>
 		<tr>
 			<td>조회수</td>

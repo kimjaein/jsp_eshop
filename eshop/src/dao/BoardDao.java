@@ -147,7 +147,7 @@ public class BoardDao {
 	
 	public int updateReadCount(int articleNum) {
 		con = DBUtil.makeConnection();
-		String sql ="update board set read_count=read_count+1 where article_count=?";
+		String sql ="update board set read_count=read_count+1 where article_num=?";
 		int result=0;
 		try {
 			pstmt=con.prepareStatement(sql);
