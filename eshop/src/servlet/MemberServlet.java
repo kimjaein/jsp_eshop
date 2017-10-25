@@ -52,9 +52,10 @@ public class MemberServlet extends HttpServlet{
 			
 			if(service.joinMember(member)) {
 				path = "account.jsp";
-			} else {
-				path = "join_fail.jsp";
-			}
+			} 
+//			else {
+//				path = "join_fail.jsp";
+//			}
 		} else if(task.equals("login")) {
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
@@ -66,9 +67,9 @@ public class MemberServlet extends HttpServlet{
 				session.setAttribute("loginId", loginId);
 				path = "index.jsp";
 			}
-			else {
-				path = "login_fail.jsp";
-			}
+//			else {
+//				path = "login_fail.jsp";
+//			}
 		} else if(task.equals("loginIdCheck")) {
 			String id = request.getParameter("id");
 			String idCheck = service.loginIdCheck(id);
