@@ -51,7 +51,7 @@ public class MemberServlet extends HttpServlet{
 			member.setEmail(request.getParameter("email"));
 			
 			if(service.joinMember(member)) {
-				path = "join_success.jsp";
+				path = "account.jsp";
 			} else {
 				path = "join_fail.jsp";
 			}
@@ -63,7 +63,7 @@ public class MemberServlet extends HttpServlet{
 				// 로그인 된 아이디를 세션에 저장
 				HttpSession session = request.getSession();
 				session.setAttribute("loginId", loginId);
-				path = "login_success.jsp";
+				path = "index.jsp";
 			}
 			else {
 				path = "login_fail.jsp";

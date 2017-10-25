@@ -9,17 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.MemberService;
+import vo.Member;
+
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
+	MemberService service = MemberService.getInstance();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
-		String id = req.getParameter("id");
+		String task = req.getParameter("task");
 		String path = "";
-		if(id.equals("AA")) {
-			//dao에서 id가 AA인 정보 가져온 뒤 Setattribute함[멤버 객체 하나]
-			
-			path ="editaccount.jsp";
+		if(task.equals("editaccount")) {
+			path ="editaccountform.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
@@ -27,20 +29,41 @@ public class TestServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
-		String action = req.getParameter("action");
+		String task = req.getParameter("task");
 		String path ="";
-		if(action.equals("edit")) {
+		if(task.equals("edit")) {
 			//MemberVo 객체 생성 후 set으로 값 넣어주고
-			System.out.println("ID : " +req.getParameter("userid"));
-			System.out.println("PW : " +req.getParameter("userpw"));
-			System.out.println("NAME : " +req.getParameter("username"));
-			req.getParameter("userphone");
-			req.getParameter("useraddress");
-			req.getParameter("useremail");
+			Member member = new Member();
+			member.setId(req.getParameter("userid"));
+			member.setPw(req.getParameter("userpw"));
+			member.setName(req.getParameter("username"));
+			member.setphone(req.getParameter("userphone"));
+			member.setAddress(req.getParameter("useraddress"));
+			member.setEmail(req.getParameter("useremail"));
 			
+			if(service.memberUpdate(member)) {
+				path="index.jsp";
+			}else {
+				return;
+			}
 			//service에서 회원수정 작업 수행 시킴
-			
-			path="수정완료다";
+		}else if(task.equals("editCheck")) {
+			//입력받은 id는 DB에서 패스워드 검색용, 입력받은 pw는 검색된 pw와 비교용(service에서 실행)
+			//정보 수정하기 전 비밀번호 확인[일치 시  정보수정 폼으로 연결]
+			String id = req.getParameter("userid");
+			String pw = req.getParameter("userpw");
+			if(id != null && id.length()>0 && pw != null &&pw.length()>0) {
+				if(service.loginPwCheck(id, pw)) {
+					Member memberInfo = service.memberInfo(id);
+					req.setAttribute("memberInfo", memberInfo);
+					path ="editaccount.jsp";
+				}else {
+					path="mypage.jsp";
+				}
+				return;
+			}
+		}else if(task.equals("delete")) {
+			//계정 삭제
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
