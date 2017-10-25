@@ -20,7 +20,7 @@ public class MemberServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String task = request.getParameter("task");
-		String path = "";		
+		String path = "index.jsp";		
 		
 //		if(task.equals("joinForm")) {
 //			path = "join_form.jsp";

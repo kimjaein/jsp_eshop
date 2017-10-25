@@ -98,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/coat/coat1-1.JPG" class="img-responsive" alt=""/>
+									<img src="images/outer/coat/coat1-1.JPG" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>
