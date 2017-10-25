@@ -104,6 +104,25 @@ public class MemberDao {
 		}
 		return result;
 	}
+	public int deleteMember(String id) {
+		con = DBUtil.makeConnection();
+		String sql = "DELETE FROM MEMBER WHERE ID=?";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("dao delete 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return result;
+	}
+	
 	/////////////////////////////////////////
 	//비밀번호 일치 여부
 	public String selectPwCheck(String id) {

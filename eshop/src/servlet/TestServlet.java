@@ -75,6 +75,15 @@ public class TestServlet extends HttpServlet {
 			}
 		} else if (task.equals("delete")) {
 			// 계정 삭제
+			String id = req.getParameter("userid");
+			String pw = req.getParameter("userpw");
+			if(service.loginPwCheck(id, pw)){
+				service.deleteMember(id);
+				path ="index.jsp";
+			}else {
+				path = "testfail.jsp";
+			}
+			
 			
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);

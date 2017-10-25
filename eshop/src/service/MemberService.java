@@ -59,4 +59,13 @@ public class MemberService {
 			return false;
 		}
 	}
+	
+	public boolean deleteMember(String id) {
+		if(dao.deleteMember(id)==1) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 }
