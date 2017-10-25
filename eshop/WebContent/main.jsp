@@ -155,9 +155,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 								<div class="mask">
 									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
-									<a href="single.jsp">Quick View</a>
+									<a href="product?task=detail&title=${product.title}">Quick View</a>
 								</div>
-								<a class="product_name" href="single.jsp">${product.title}</a>
+								<a class="product_name" href="product?task=detail&title=${product.title}">${product.title}</a>
 								<p>
 									<a class="item_add" href="#"><i></i> <span
 										class="item_price">${product.price}</span></a>
@@ -185,9 +185,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<c:forEach var="product" items="${ProductList}">
 					<div class="container">
 						<ul id="flexiselDemo3">
-							<li><a href="single.jsp"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" class="img-responsive" alt="" /></a>
+							<li><a href="product?task=detail&title=${product.title}"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" class="img-responsive" alt="" /></a>
 								<div class="product liked-product simpleCart_shelfItem">
-									<a class="like_name" href="single.jsp">${product.title}</a>
+									<a class="like_name" href="product?task=detail&title=${product.title}">${product.title}</a>
 									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
 									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p>
 									
