@@ -19,13 +19,7 @@
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -48,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					<form action="보낼 서블릿으로 정보전송" method="post">
+					<form action="${pageContext.request.contextPath}/test" method="post">
 					<input type="hidden" name="action" value="edit">
 					<!-- List에서 값 받아오고 text value에 넣고 수정완료 클릭시 값 넘어감 -->
 						<ul>

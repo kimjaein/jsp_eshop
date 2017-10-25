@@ -35,7 +35,7 @@
 		        <span class="icon-bar"></span>
 	        </button>
 				<div class="logo">
-					<h1><a href="index.jsp"><span>E</span> -Shop</a></h1>
+					<h1><a href="index.jsp"><span>S</span> -Shop</a></h1>
 				</div>
 	    </div>
 	    <!--/.navbar-header-->

@@ -34,7 +34,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
-	<c:set var="myContextPath" value="${pageContext.request.contextPath}"/>
 <%-- 	<form action="${myContextPath}/member" method="post"> --%>
 <!-- 	<input type="hidden" name="task" value="join"> -->
 		<!-- registration-form -->
@@ -64,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					 <p>아래 항목에 해당되는 내용을 적어주십시오.</p>
 					 <p>이미 가입이 되어있다면, <a href="account.jsp">여기를 누르세요!!</a></p>
-					 <form action="${myContextPath}/member" method="post">
+					 <form action="${pageContext.request.contextPath}/member" method="post">
 					 <input type="hidden" name="task" value="join">
 						 <ul>
 							 <li class="text-info">아이디: </li>
@@ -124,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 				</div> -->
 <!-- 			</div> -->
 <!-- 		</div> -->
-	</form>
+<!-- 	</form> -->
 		<jsp:include page="bottom.jsp"></jsp:include>	
 </body>
 </html>

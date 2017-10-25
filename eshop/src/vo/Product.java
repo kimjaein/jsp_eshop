@@ -1,5 +1,6 @@
 package vo;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Product {
@@ -13,6 +14,22 @@ public class Product {
 	private Date registerTime;
 	private int stock;
 
+	public Product(int product_num, String title, int price, String color, String size, String large_Category,
+			String middle_Category, Timestamp registerTime, int stock) {
+		super();
+		this.product_num = product_num;
+		this.title = title;
+		this.price = price;
+		this.color = color;
+		this.size = size;
+		this.large_Category = large_Category;
+		this.middle_Category = middle_Category;
+		this.registerTime = registerTime;
+		this.stock = stock;
+	}
+	
+	public Product() {
+	}
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	public int getProduct_num() {
 		return product_num;
@@ -87,22 +104,8 @@ public class Product {
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
-	public Product(int product_num, String title, int price, String color, String size, String large_Category,
-			String middle_Category, Date registerTime, int stock) {
-		super();
-		this.product_num = product_num;
-		this.title = title;
-		this.price = price;
-		this.color = color;
-		this.size = size;
-		this.large_Category = large_Category;
-		this.middle_Category = middle_Category;
-		this.registerTime = registerTime;
-		this.stock = stock;
-	}
 
-	public Product() {
-	}
+
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
