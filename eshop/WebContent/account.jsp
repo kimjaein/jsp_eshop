@@ -73,12 +73,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 
 							<a class="forgot" href="#">비밀번호를 잊으셨나요?</a> 
-							<input type="submit" value="로그인">
+							<input type="submit" name="login" value="로그인">
 						</form>
 					</div>
-
 					<div class="clearfix"></div>
 				</div>
+				
 			</div>
 		</div>
 		<!-- 		<div class="news-letter"> -->
