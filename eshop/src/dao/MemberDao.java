@@ -109,7 +109,7 @@ public class MemberDao {
 	public String selectPwCheck(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT PASSWORD FROM MEMBER WHERE ID=?";
-		String result = null;
+		String result="";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -127,6 +127,7 @@ public class MemberDao {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
+		System.out.println("dao pwCheck result : " + result);
 		return result;
 	}
 	/////////////////////////////////////////
