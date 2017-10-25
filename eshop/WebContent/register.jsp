@@ -30,6 +30,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+<script type="text/javascript">
+	$(function(){
+		$('#join').click(function(){
+			success:function(join){
+				alert('회원가입이 완료되었습니다!')
+			}
+			error:function(){
+				alert('회원가입에 실패하였습니다.')
+			}
+		}
+	}
+</script>
+
 </head>
 
 <body>
@@ -89,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <li class="text-info">이메일:</li>
 							 <li><input type="text" name="email" placeholder="메일 주소를 입력하세요."></li>
 						 </ul>						
-						 <input type="submit" value="지금 가입하기">
+						 <input type="submit" name="join" value="지금 가입하기">
 <!-- 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>  -->
 					 </form>
 				 </div>
@@ -105,6 +119,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 			</div> -->
 			<div class="clearfix"></div>
 		</div>
+		
+		
 	</div>
 </div>
 <!-- registration-form -->

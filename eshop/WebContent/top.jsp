@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!-- header-section-starts -->
 	<div class="header">
 		<div class="header-top-strip">
@@ -12,6 +13,7 @@
 				</div>
 				<div class="header-right">
 						<div class="cart box_1">
+							
 							<a href="checkout.jsp">
 								<h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)<img src="images/bag.png" alt=""></h3>
 							</a>	

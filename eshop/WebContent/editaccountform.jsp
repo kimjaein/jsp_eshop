@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>회원 탈퇴</title>
+<title>정보 수정</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
@@ -38,19 +38,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<center>
 		<div class="clearfix"></div>
 		<p><br></p>
-		<h2>회원 탈퇴</h2>
+		<h2>정보 수정</h2>
+		${sessionScope.loginId}
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
 					<form action="${pageContext.request.contextPath}/test" method="post">
 					<input type="hidden" name="userid" value="${sessionScope.loginId}">
-					<input type="hidden" name="task" value="delete">
+					<input type="hidden" name="task" value="editCheck">
 						<ul>
 							<li class="text-info">Password:</li>
 							<li><input type="password" name="userpw"></li>
 							<li></li>
 						</ul>
-						<input type="submit" value="삭제 하기">
+						<input type="submit" value="확인">
 					</form>
 				</div>
 			</div>
