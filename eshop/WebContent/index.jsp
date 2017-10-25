@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@page import="vo.Product"%>
+<%@page import="vo.ProductList"%>    
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -8,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Eshop a Flat E-Commerce Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Home</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -40,13 +45,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 								<div class="banner-info">
 									<h3>첫번째 배너</h3>
-									<p>Start your shopping here...</p>
+									<p>공지사항1</p>
 								</div>
 							</li>
 							<li>
 								<div class="banner-info">
 								   <h3>두번째 배너</h3>
-									<p>Start your shopping here...</p>
+									<p>공지사항2</p>
 								</div>
 							</li>
 							<li>
@@ -112,6 +117,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3 class="head text-center">N e w  &nbsp; &nbsp; P r o d u c t s</h3>
 				</header>
 			
+			
+<!-- 			메인 상품 new -->
+					<c:choose>
+						<c:forEach var="product" items="${ProductList.productList}">
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
 						<a href="single.jsp"><img src="images/padding/padding1-1.jpg" alt="" /></a>
 						<div class="mask">
@@ -120,6 +129,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a class="product_name" href="single.jsp">패딩1</a>
 						<p><a class="item_add" href="#"><i></i> <span class="item_price">30,000</span></a></p>
 					</div>
+						</c:forEach>
+					</c:choose>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
 						<a href="single.jsp"><img src="images/padding/padding2-1.jpg" alt="" /></a>
 						<div class="mask">
