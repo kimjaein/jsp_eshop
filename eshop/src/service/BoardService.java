@@ -6,6 +6,8 @@ import dao.BoardDao;
 import vo.Article;
 
 public class BoardService {
+	private static final int COUNT_PER_PAGE=10; // 게시판에서 한번에 보여질 페이지 개수
+	
 	private BoardDao dao =BoardDao.getInstance(); 
 	private static BoardService instance= new BoardService();
 	public static BoardService getInstance() {
@@ -26,5 +28,9 @@ public class BoardService {
 			return true;
 		else 
 			return false;
+	}
+	
+	public List<Article> makeArticleList(int page){
+		
 	}
 }
