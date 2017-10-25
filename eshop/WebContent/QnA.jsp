@@ -81,6 +81,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</c:forEach>
 		</c:otherwise>	
 	</c:choose>	
+	<tr>
+		<td colspan =5>
+			
+				<a href="<%=request.getContextPath()%>/board?task=writeForm" class="acount-btn">±Û¾²±â</a>
+		<td>
+	</tr>
               </tbody>
             </table>
           </div>

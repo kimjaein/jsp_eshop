@@ -22,8 +22,16 @@ public class BoardServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String task = request.getParameter("task");
         String path="";
-        System.out.println("board +get");
-         
+
+        if(task.equals("writeForm")) {
+        	HttpSession session=request.getSession();
+        	String loginId =(String)session.getAttribute("loginId");
+        	if(loginId==null ||loginId.isEmpty()) {
+        		path="account.jsp";
+        	}else {
+        		path="QnaWrite.jsp";
+        	}
+        }
       
         RequestDispatcher dispatcher = request.getRequestDispatcher(path);
         dispatcher.forward(request, response);
