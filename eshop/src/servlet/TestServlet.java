@@ -18,7 +18,7 @@ public class TestServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
+		req.setCharacterEncoding("EUC-KR");
 		String task = req.getParameter("task");
 		String path = "";
 		if (task.equals("editaccount")) {
@@ -30,7 +30,7 @@ public class TestServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
+		req.setCharacterEncoding("EUC-KR");
 		String task = req.getParameter("task");
 		String path = "";
 		if (task.equals("edit")) {
@@ -75,6 +75,7 @@ public class TestServlet extends HttpServlet {
 			}
 		} else if (task.equals("delete")) {
 			// 계정 삭제
+			
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
