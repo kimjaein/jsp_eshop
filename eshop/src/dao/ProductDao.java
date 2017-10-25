@@ -14,6 +14,11 @@ import vo.Product;;
 
 public class ProductDao {
 	///////////////////////////////////////////////////////////////////
+	// DB 연결, 해제 관련 필드와 메소드들
+	private Connection con;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	///////////////////////////////////////////////////////////////////
 	// singleton
 	private static ProductDao instance;
 
@@ -28,18 +33,12 @@ public class ProductDao {
 		DBUtil.loadDriver();
 	}
 
-	///////////////////////////////////////////////////////////////////
-	// DB 연결, 해제 관련 필드와 메소드들
-	private Connection con;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
 
 	////////////////////////////////////////////////////////////////////
 	// 상품 입력
 	public int insert(Product product) {
 		con = DBUtil.makeConnection();
-		String sql = "INSERT INTO PRODUCT(TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY, DATE, STOCK) "
-				+ "VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO PRODUCT(TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY, DATE, STOCK) VALUES(?,?,?,?,?,?,?,?)";
 		int result = 0;
 
 		try {
@@ -86,7 +85,7 @@ public class ProductDao {
 				productList.add(product);
 			}
 		} catch (SQLException e) {
-			System.out.println("dao selectArticleList 에러");
+			System.out.println("dao selectProductList 에러");
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeRs(rs);
