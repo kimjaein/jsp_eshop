@@ -62,7 +62,15 @@ public class BoardServlet extends HttpServlet{
         	}else {
         		path="QnA.jsp";//에러 울릴 방법 생각
         	}
-        }
+        }else if(task.equals("replyForm")) { //답변 글 달기
+    		String articleNumStr = request.getParameter("articleNum");
+    		int articleNum = Integer.parseInt(articleNumStr);
+    		//필요한 정보 담아서 넘기기
+    		//Article article = service.readArticleInfo(articleNum);
+    		request.setAttribute("article",article);
+    		
+    		path="reply_form.jsp";
+    	}
         
       
         RequestDispatcher dispatcher = request.getRequestDispatcher(path);
