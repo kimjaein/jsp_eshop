@@ -47,27 +47,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- List에서 값 받아오고 text value에 넣고 수정완료 클릭시 값 넘어감 -->
 						<ul>
 							<li class="text-info">ID:</li>
-							<li><input type="text" value="" name="userid"></li>
+							<li><input type="text" value="${memberInfo.id}" name="userid"></li>
 						</ul>
 						<ul>
 							<li class="text-info">Password:</li>
-							<li><input type="text" value="" name="userpw"></li>
+							<li><input type="password" name="userpw1"></li>
+						</ul>
+						<ul>
+							<li class="text-info">Password2:</li>
+							<li><input type="password" name="userpw2"></li>
 						</ul>
 						<ul>
 							<li class="text-info">Name:</li>
-							<li><input type="text" value="" name="username"></li>
+							<li><input type="text" value="${memberInfo.name}" name="username"></li>
 						</ul>
 						<ul>
 							<li class="text-info">Phone Number:</li>
-							<li><input type="password" value="" name="userphone"></li>
+							<li><input type="password" value="${memberInfo.phone}" name="userphone"></li>
 						</ul>
 						<ul>
 							<li class="text-info">Address:</li>
-							<li><input type="password" value="" name="useraddress"></li>
+							<li><input type="password" value="${memberInfo.address}" name="useraddress"></li>
 						</ul>
 						<ul>
 							<li class="text-info">E-mail:</li>
-							<li><input type="text" value="" name="useremail"></li>
+							<li><input type="text" value="${memberInfo.email}" name="useremail"></li>
 						</ul>
 						<input type="submit" value="수정 완료">
 					</form>

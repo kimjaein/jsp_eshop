@@ -33,18 +33,18 @@ public class MemberService {
 		String idCheck = dao.selectIdCheck(id);
 		return idCheck;
 	}
+	public boolean loginPwCheck(String id, String pw) {
+		if(dao.selectPwCheck(id).equals(pw)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Member memberInfo(String id) {
+		if(id != null && id.isEmpty()) {
+			return dao.selectUserInfo(id);
+		}else {
+			return null;
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

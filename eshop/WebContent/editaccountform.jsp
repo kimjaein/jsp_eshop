@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="hidden" name="task" value="editCheck">
 						<ul>
 							<li class="text-info">Password:</li>
-							<li><input type="text" value="" name="userpw"></li>
+							<li><input type="password" name="userpw"></li>
 							<li></li>
 						</ul>
 						<input type="submit" value="È®ÀÎ">

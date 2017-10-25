@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.MemberService;
+
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
+	MemberService service = MemberService.getInstance();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
@@ -43,10 +46,15 @@ public class TestServlet extends HttpServlet {
 			path="index.jsp";
 		}else if(task.equals("editCheck")) {
 			//입력받은 id는 DB에서 패스워드 검색용, 입력받은 pw는 검색된 pw와 비교용(service에서 실행)
-			//정보 수정하기 전 비밀번호 확인[일치 시 DB에서 계정 삭제]
+			//정보 수정하기 전 비밀번호 확인[일치 시  정보수정 폼으로 연결]
 			String id = req.getParameter("userid");
 			String pw = req.getParameter("userpw");
 			
+			if(service.loginPwCheck(id, pw)) {
+				
+				req.setAttribute("memberInfo", service.memberInfo(id));
+				path ="editaccount.jsp";
+			}
 		}else if(task.equals("delete")) {
 			//계정 삭제
 		}
