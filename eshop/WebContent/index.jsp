@@ -35,6 +35,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 </head>
+
+
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
 	<div class="banner">
@@ -120,34 +122,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 			
 <!-- 			메인 상품 new -->
-<%-- 					<c:choose> --%>
-<%-- 						<c:forEach var="product" items="${ProductList.productList}"> --%>
+					<c:choose>
+						<c:forEach var="product" items="${ProductList.productList}">
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/padding/padding1-1.jpg" alt="" /></a>
+						<a href="single.jsp"><img src="images//coat/coat1-1.JPG" alt="" /></a>
 						<div class="mask">
-							<a href="single.jsp">Quick View</a>
+						
+							<a href="single.jsp/product?task=">Quick View</a>
 						</div>
 						<a class="product_name" href="single.jsp">패딩1</a>
 						<p><a class="item_add" href="#"><i></i> <span class="item_price">30,000</span></a></p>
 					</div>
-<%-- 						</c:forEach> --%>
-<%-- 					</c:choose> --%>
-					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/padding/padding2-1.jpg" alt="" /></a>
-						<div class="mask">
-							<a href="single.jsp">Quick View</a>
-						</div>
-						<a class="product_name" href="single.jsp">패딩2</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">50,000</span></a></p>
-					</div>
-					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="single.jsp"><img src="images/padding/padding3-1.jpg" alt="" /></a>
-						<div class="mask">
-							<a href="single.jsp">Quick View</a>
-						</div>
-						<a class="product_name" href="single.jsp">패딩3</a>
-						<p><a class="item_add" href="#"><i></i> <span class="item_price">60,000</span></a></p>
-					</div>
+						</c:forEach>
+					</c:choose>
+					
+<!-- 					여기서부터 동일한 상품목록 -->
+<!-- 					<div class="col-md-4 product simpleCart_shelfItem text-center"> -->
+<!-- 						<a href="single.jsp"><img src="images/top/long_sleeve/long-sleeve2-1.JPG" alt="" /></a> -->
+<!-- 						<div class="mask"> -->
+<!-- 							<a href="single.jsp">Quick View</a> -->
+<!-- 						</div> -->
+<!-- 						<a class="product_name" href="single.jsp">패딩2</a> -->
+<!-- 						<p><a class="item_add" href="#"><i></i> <span class="item_price">50,000</span></a></p> -->
+<!-- 					</div> -->
+					
+<!-- 					<div class="col-md-4 product simpleCart_shelfItem text-center"> -->
+<!-- 						<a href="single.jsp"><img src="images/padding/padding3-1.jpg" alt="" /></a> -->
+<!-- 						<div class="mask"> -->
+<!-- 							<a href="single.jsp">Quick View</a> -->
+<!-- 						</div> -->
+<!-- 						<a class="product_name" href="single.jsp">패딩3</a> -->
+<!-- 						<p><a class="item_add" href="#"><i></i> <span class="item_price">60,000</span></a></p> -->
+<!-- 					</div> -->
+<!-- 						여기까지 -->
+					
 					<div class="clearfix"></div>
 				</div>
 			</div>
