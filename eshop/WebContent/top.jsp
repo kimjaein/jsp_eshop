@@ -14,14 +14,12 @@
 					<c:if test="${sessionScope.loginId != null}">
 					<li><a href="${pageContext.request.contextPath}/member?task=logout"><span class="glyphicon glyphicon-user"> </span>Logout</a></li>
 					<li><a href="mypage.jsp"><span class="glyphicon glyphicon-user"> </span>My page</a></li>
+					<li><b><span style="color: white;">${sessionScope.loginId}´Ô ¹Ý°©½À´Ï´Ù</span></b></li>
 					</c:if>
 					</ul>
 				</div>
 				<div class="header-right">
 						<div class="cart box_1">
-							<c:if test="${not empty sessionScope.loginId}">
-								<h2>${sessionScope.loginId}´Ô ¹Ý°©½À´Ï´Ù!!</h2>
-							</c:if>
 							<a href="checkout.jsp">
 								<h3> <img src="images/bag.png" alt=""></h3>
 							
