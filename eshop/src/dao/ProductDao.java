@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import vo.Article;
@@ -94,5 +95,35 @@ public class ProductDao {
 		}
 		return productList;
 	}
+	/////////////////////////////////////////////////////////////////////////////////////
+	// Index 최신 상품 조회
+	public Product selectIndex(Date date) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT TITLE, PRICE FROM PRODUCT WHERE DATE=?";
+		Product product = null;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setTimestamp(1, new Timestamp(product.getRegisterTime().getTime()));
+			rs = pstmt.executeQuery(); // SQL 실행
+
+			if (rs.next()) {
+				product = new Product();
+				product.setTitle(rs.getString(1));
+				product.setPrice(rs.getInt(2));
+			}
+		} catch (SQLException e) {
+			System.out.println("dao selectIndex 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		
+		return product;
+	}
+	
+	
 
 }

@@ -1,9 +1,10 @@
+<%@page import="vo.Product"%>
+<%@page import="vo.ProductList"%>
+    
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%@page import="vo.Product"%>
-<%@page import="vo.ProductList"%>    
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -119,8 +120,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 			
 <!-- 			메인 상품 new -->
-					<c:choose>
-						<c:forEach var="product" items="${ProductList.productList}">
+<%-- 					<c:choose> --%>
+<%-- 						<c:forEach var="product" items="${ProductList.productList}"> --%>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
 						<a href="single.jsp"><img src="images/padding/padding1-1.jpg" alt="" /></a>
 						<div class="mask">
@@ -129,8 +130,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a class="product_name" href="single.jsp">패딩1</a>
 						<p><a class="item_add" href="#"><i></i> <span class="item_price">30,000</span></a></p>
 					</div>
-						</c:forEach>
-					</c:choose>
+<%-- 						</c:forEach> --%>
+<%-- 					</c:choose> --%>
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
 						<a href="single.jsp"><img src="images/padding/padding2-1.jpg" alt="" /></a>
 						<div class="mask">
