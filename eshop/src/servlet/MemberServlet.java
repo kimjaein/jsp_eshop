@@ -22,6 +22,13 @@ public class MemberServlet extends HttpServlet{
 		String task = request.getParameter("task");
 		String path = "index.jsp";		
 		
+		if(task.equals("logout")) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("loginId");
+			session.invalidate();
+			
+			path ="index.jsp";
+		}
 //		if(task.equals("joinForm")) {
 //			path = "join_form.jsp";
 //		}

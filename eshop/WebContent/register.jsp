@@ -33,17 +33,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script type="text/javascript">
 	$(function(){
-		$('#join').click(function(){
-			success:function(join){
-				alert('회원가입이 완료되었습니다!')
+		// submit을 실행했을 때의 이벤트 및 조건문
+		$('#joinForm').submit(function(){
+			console.log("test:"+$('#id').val()+"/");
+			if($('#id').val()== null || $('#id').val()==''){
+				alert('아이디를 입력하세요.');
+				$('#id').focus();
 			}
-			error:function(){
-				alert('회원가입에 실패하였습니다.')
+			else if($('#pw').val()== null || $('#pw').val()==''){
+				alert('비밀번호를 입력하세요.');
+				$('#pw').focus();
 			}
-		}
-	}
+			else if($('#name').val()== null || $('#name').val()==''){
+				alert('이름을 입력하세요.');
+				$('#name').focus();
+			}
+			else if($('#phone').val()== null || $('#phone').val()==''){
+				alert('전화번호를 입력하세요.');
+				$('#phone').focus();
+			}
+			else if($('#address').val()== null || $('#address').val()==''){
+				alert('주소를 입력하세요.');
+				$('#address').focus();
+			}
+			else if($('#email').val()== null || $('#email').val()==''){
+				alert('이메일을 입력하세요.');
+				$('#email').focus();
+			}
+			return false;
+		})
+	})
 </script>
-
 </head>
 
 <body>
@@ -77,7 +97,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					 <p>아래 항목에 해당되는 내용을 적어주십시오.</p>
 					 <p>이미 가입이 되어있다면, <a href="account.jsp">여기를 누르세요!!</a></p>
-					 <form action="${pageContext.request.contextPath}/member" method="post">
+				 <!-- form에도 id를 부여할수 있다. -->	
+					 <form id="joinForm" action="${pageContext.request.contextPath}/member" method="post">
 					 <input type="hidden" name="task" value="join">
 						 <ul>
 							 <li class="text-info">아이디: </li>
@@ -103,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <li class="text-info">이메일:</li>
 							 <li><input type="text" name="email" placeholder="메일 주소를 입력하세요."></li>
 						 </ul>						
-						 <input type="submit" name="join" value="지금 가입하기">
+						 <input type="submit" value="지금 가입하기">
 <!-- 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>  -->
 					 </form>
 				 </div>
@@ -119,8 +140,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 			</div> -->
 			<div class="clearfix"></div>
 		</div>
-		
-		
 	</div>
 </div>
 <!-- registration-form -->

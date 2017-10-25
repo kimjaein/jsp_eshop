@@ -36,13 +36,13 @@ public class BuylistDao {
 	// 상품 구매시 Insert **수정전**
 	public int insert(BuyList buylist) {
 		con = DBUtil.makeConnection();
-		String sql = "INSERT INTO BUY_LIST(BUYER_ID, PRODUCT_NUM, BUY_DATE, BUY_QUANTITY) VALUES(?,?,?,?)";
+		String sql = "INSERT INTO BUY_LIST(BUYER_ID, PRODUCT_TITLE, BUY_DATE, BUY_QUANTITY) VALUES(?,?,?,?)";
 		int result = 0;
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, buylist.getBuyer_id());
-			pstmt.setInt(2, buylist.getProduct_num());
+			pstmt.setString(2, buylist.getProduct_title());
 			pstmt.setDate(3, buylist.getBuy_date());
 			pstmt.setInt(4, buylist.getBuy_quantity());
 			
@@ -62,7 +62,7 @@ public class BuylistDao {
 	// Single페이지 상품 선택
 	public List<BuyList> selectBuyList(String id) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT BUY_LIST_NUM, BUYER_ID, PRODUCT_NUM, BUY_DATE, BUY_QUANTITY FROM BUY_LIST WHERE BUYER_ID=?";
+		String sql = "SELECT BUY_LIST_NUM, BUYER_ID, PRODUCT_TITLE, BUY_DATE, BUY_QUANTITY FROM BUY_LIST WHERE BUYER_ID=?";
 		List<BuyList> buyList = new ArrayList<>();
 
 		try {
@@ -74,7 +74,7 @@ public class BuylistDao {
 				BuyList list = new BuyList();
 				list.setBuy_list_num(rs.getInt(1));
 				list.setBuyer_id(rs.getString(2));
-				list.setProduct_num(rs.getInt(3));
+				list.setProduct_title(rs.getString(3));
 				list.setBuy_date(rs.getDate(4));
 				list.setBuy_quantity(rs.getInt(5));
 				buyList.add(list);
