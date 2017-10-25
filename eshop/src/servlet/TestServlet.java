@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import service.MemberService;
+import vo.BuyList;
 import vo.Member;
 
 @WebServlet("/test")
@@ -25,6 +26,11 @@ public class TestServlet extends HttpServlet {
 		String path = "";
 		if (task.equals("editaccount")) {
 			path = "editaccountform.jsp";
+		}else if(task.equals("buylist")) {
+			String id = req.getParameter("id");
+			List <BuyList> buylist=dao.BuylistDao.getInstance().selectBuyList(id);
+			req.setAttribute("buylist", buylist);
+			path="buylist.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
@@ -44,9 +50,11 @@ public class TestServlet extends HttpServlet {
 			member.setphone(req.getParameter("userphone"));
 			member.setAddress(req.getParameter("useraddress"));
 			member.setEmail(req.getParameter("useremail"));
+			
 			System.out.println("name : "+member.getName());
 			System.out.println("address : "+member.getAddress());
 			System.out.println("email : "+member.getEmail());
+			
 			if (service.memberUpdate(member)) {
 				path = "mypage.jsp";
 			} else {

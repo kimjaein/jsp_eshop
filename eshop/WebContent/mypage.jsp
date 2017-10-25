@@ -61,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!-- 				setattribute 된 회원의 값을 가져와서 아이디와 일치하면 정보출력 -->
 						<a class="acount-btn"
 							href="${pageContext.request.contextPath}/test?task=editaccount">정보수정</a>
-						<a class="acount-btn" href="buylist.jsp">구매내역</a>
+						<a class="acount-btn" href="${pageContext.request.contextPath}/test?task=buylist&id=${sessionScope.loginId}">구매내역</a>
 						<a class="acount-btn" href="checkout.jsp">장바구니</a>
 						<a class="acount-btn" href="deleteaccount.jsp">회원탈퇴</a>
 					</c:if>
