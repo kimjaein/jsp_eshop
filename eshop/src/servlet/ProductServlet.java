@@ -34,11 +34,14 @@ public class ProductServlet extends HttpServlet{
 			String title = request.getParameter("title");
 
 			Product singleProduct = service.makeProduct(title);
-			System.out.println(task +" : "+title);
 			
-			
+			 String str=singleProduct.getTitle();
+			 str=str.substring(0,str.length()-1);
+			 singleProduct.setTitle(str);
+			 
 			request.setAttribute("singleProduct", singleProduct);
 			System.out.println(singleProduct.toString());
+			
 			path = "single.jsp";
 		}
 		
