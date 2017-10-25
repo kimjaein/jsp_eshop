@@ -148,15 +148,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</c:when>
 					<c:otherwise>
-									<%
-										String path = "images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG";
-									%>
+									
 						<c:forEach var="product" items="${ProductList}">
 							<div class="col-md-4 product simpleCart_shelfItem text-center">
-								<a href="single.jsp"><img src="path" alt="" /></a>
+								<a href="single.jsp"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" alt="" /></a>
+<!-- 								<a href="single.jsp"><img src="images/OUTER/COAT/coat1-1.JPG" alt="" /></a> -->
 				
 								<div class="mask">
-
+									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
 									<a href="single.jsp">Quick View</a>
 								</div>
 								<a class="product_name" href="single.jsp">${product.title}</a>
@@ -191,6 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="product liked-product simpleCart_shelfItem">
 									<a class="like_name" href="single.jsp">${product.title}</a>
 									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p>
+									
 								</div>								
 							</li>
 					</div>

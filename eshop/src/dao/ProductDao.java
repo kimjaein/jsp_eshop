@@ -98,7 +98,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT ORDER BY DATE DESC LIMIT 6";
+		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY DATE DESC LIMIT 6";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -111,6 +111,8 @@ public class ProductDao {
 				product.setPrice(rs.getInt(2));
 				product.setColor(rs.getString(3));
 				product.setSize(rs.getString(4));
+				product.setLarge_Category(rs.getString(5));
+				product.setMiddle_Category(rs.getString(6));
 				
 				productList.add(product);
 			}
