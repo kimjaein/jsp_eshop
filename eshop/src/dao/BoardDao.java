@@ -164,4 +164,59 @@ public class BoardDao {
 		}
 		return result;
 	}
+	public Article selectReplyInfo(int articleNum) { //reply에 필요한 정보
+		con=DBUtil.makeConnection();
+		String sql="SELECT ARTICLE_NUM,TITLE,LIST,DEPTH FROM BOARD "
+				+"WHERE ARTICLE_NUM=?";
+		Article article = new Article();
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, articleNum);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				article.setArticleNum(rs.getInt(1));
+				article.setTitle(rs.getString(2));
+				article.setList(rs.getInt(3));
+				article.setDepth(rs.getString(4));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeRs(rs);
+		}
+		return article;
+	}
+	public String ExistNextLevel(int list,String depth) {
+		con=DBUtil.makeConnection();
+		String sql="SELECT depth FROM BOARD "
+				+"WHERE LIST=? AND DEPTH LIKE ? ORDER BY LIST DESC limit 1";
+		
+		String result=null;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, list);
+			pstmt.setString(2, depth);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = (rs.getString(1));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeRs(rs);
+		}
+		return result;
+	}
 }

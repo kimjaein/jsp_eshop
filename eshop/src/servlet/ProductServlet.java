@@ -32,7 +32,7 @@ public class ProductServlet extends HttpServlet{
 		path ="main.jsp";
 		} else if(task.equals("detail")) {
 			String title = request.getParameter("title");
-			
+			System.out.println(task +" : "+title);
 			ProductList singleProductList = service.makeProductList(title);
 			
 			

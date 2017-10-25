@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</script>
 							<c:forEach var="i" begin="1" end="3">
 							
-							<li data-thumb="images/${product.large_Category}/${product.middle_Category}/${title}+${i}.JPG">
+							<li data-thumb="images/${product.large_Category}/${product.middle_Category}/${title+i}.JPG">
 								<div class="thumb-image"> <img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
 							</li>		
 							</c:forEach>				

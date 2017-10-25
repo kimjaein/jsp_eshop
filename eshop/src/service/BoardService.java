@@ -70,4 +70,38 @@ public class BoardService {
 		}
 		
 	}
+	public Article readArticleInfo(int articleNum) {
+		Article article=dao.selectReplyInfo(articleNum);
+		return article;
+	}
+	
+	public boolean setReplyArticle(Article article) {
+		//부모글의 B정보를 가져와 답변글의 정보로 만들고 나머지 정보를 채워 insert
+		Article newArticle = article;
+		//list는 상속받고
+		//depth 찾기
+		//원래의 depth 길이 가져와 그 길이보다 하나 긴 depth 존재하는지 찾기 
+		//존재하면 그레벨 다음글자 ex)AAC ->AAD 수정
+		//존재하지 않으면 A붙여서 저장
+		String level = dao.ExistNextLevel(article.getList(), article.getDepth()+"_");
+		if(level != null) {
+			char c=level.charAt(level.length()-1);
+			c=(char) (c+1);
+			level=level.substring(0, level.length()-1)+c;
+		}else {
+			level=article.getDepth()+"A";
+		}
+		// 나머지 정보 채우기
+		newArticle.setDepth(level);
+		newArticle.setReadCount(0);
+		newArticle.setWriteDate(new Date()); // 나머지 정보 채우고 
+		int result=0;
+		result=dao.insert(newArticle);
+		
+		if(result==1) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
