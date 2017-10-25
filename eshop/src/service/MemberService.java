@@ -41,9 +41,11 @@ public class MemberService {
 	}
 	
 	public Member memberInfo(String id) {
-		if(id != null && id.isEmpty()) {
+		if(id != null && id.length()>0) {
+			System.out.println("아이디가 존재함");
 			return dao.selectUserInfo(id);
 		}else {
+			System.out.println("아이디가 존재안함");
 			return null;
 		}
 	}

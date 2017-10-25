@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="reg-form">
 				<div class="reg">
 					<form action="${pageContext.request.contextPath}/test" method="post">
-					<input type="hidden" name="userid" value="${SessionScope.loginId}">
+					<input type="hidden" name="userid" value="${sessionScope.loginId}">
 					<input type="hidden" name="task" value="delete">
 						<ul>
 							<li class="text-info">Password:</li>

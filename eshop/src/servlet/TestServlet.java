@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.MemberService;
+import vo.Member;
 
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
@@ -20,8 +21,6 @@ public class TestServlet extends HttpServlet {
 		String task = req.getParameter("task");
 		String path = "";
 		if(task.equals("editaccount")) {
-			//dao에서 id가 AA인 정보 가져온 뒤 Setattribute함[멤버 객체 하나]
-			
 			path ="editaccountform.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
@@ -34,12 +33,13 @@ public class TestServlet extends HttpServlet {
 		String path ="";
 		if(task.equals("edit")) {
 			//MemberVo 객체 생성 후 set으로 값 넣어주고
-			System.out.println("ID : " +req.getParameter("userid"));
-			System.out.println("PW : " +req.getParameter("userpw"));
-			System.out.println("NAME : " +req.getParameter("username"));
-			req.getParameter("userphone");
-			req.getParameter("useraddress");
-			req.getParameter("useremail");
+			Member member = new Member();
+			member.setId(req.getParameter("userid"));
+			member.setPw(req.getParameter("userpw"));
+			member.setName(req.getParameter("username"));
+			member.setphone(req.getParameter("userphone"));
+			member.setAddress(req.getParameter("useraddress"));
+			member.setEmail(req.getParameter("useremail"));
 			
 			//service에서 회원수정 작업 수행 시킴
 			
@@ -51,8 +51,8 @@ public class TestServlet extends HttpServlet {
 			String pw = req.getParameter("userpw");
 			
 			if(service.loginPwCheck(id, pw)) {
-				
-				req.setAttribute("memberInfo", service.memberInfo(id));
+				Member memberInfo = service.memberInfo(id);
+				req.setAttribute("memberInfo", memberInfo);
 				path ="editaccount.jsp";
 			}
 		}else if(task.equals("delete")) {

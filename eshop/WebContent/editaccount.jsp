@@ -63,11 +63,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 						<ul>
 							<li class="text-info">Phone Number:</li>
-							<li><input type="password" value="${memberInfo.phone}" name="userphone"></li>
+							<li><input type="text" value="${memberInfo.phone}" name="userphone"></li>
 						</ul>
 						<ul>
 							<li class="text-info">Address:</li>
-							<li><input type="password" value="${memberInfo.address}" name="useraddress"></li>
+							<li><input type="text" value="${memberInfo.address}" name="useraddress"></li>
 						</ul>
 						<ul>
 							<li class="text-info">E-mail:</li>
