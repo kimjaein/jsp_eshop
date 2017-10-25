@@ -57,10 +57,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					<form action="${pageContext.request.contextPath}/test" method="post">
 					<input type="hidden" name="task" value="edit">
+					<input type="hidden" name="userid" value="${sessionScope.loginId}">
 					<!-- List에서 값 받아오고 text value에 넣고 수정완료 클릭시 값 넘어감 -->
 						<ul>
 							<li class="text-info">ID:</li>
-							<li><input type="text" value="${memberInfo.id}" name="userid" disabled="disabled"></li>
+							<li><input type="text" value="${memberInfo.id}" disabled="disabled"></li>
 						</ul>
 						<ul>
 							<li class="text-info">Password:</li>

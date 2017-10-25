@@ -127,7 +127,6 @@ public class MemberDao {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
-		System.out.println("dao password value : "+result);
 		return result;
 	}
 	/////////////////////////////////////////
@@ -163,7 +162,8 @@ public class MemberDao {
 	//정보 수정
 	public int memberUpdate(Member member) {
 		con = DBUtil.makeConnection();
-		String sql = "UPDATE MEMBER SET PASSWORD=?,NAME=?,PHONE=?,ADDRESS=?,EMAIL_ADDRESS=? WHERE ID = ?";
+		String sql = "UPDATE MEMBER SET PASSWORD=?,NAME=?,PHONE=?,ADDRESS=?,EMAIL_ADDRESS=? WHERE ID=?";
+		
 		int result = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -182,7 +182,6 @@ public class MemberDao {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
-		System.out.println("dao update result value : "+result);
 		return result;
 	}
 }

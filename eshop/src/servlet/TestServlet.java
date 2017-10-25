@@ -37,12 +37,12 @@ public class TestServlet extends HttpServlet {
 			// MemberVo 객체 생성 후 set으로 값 넣어주고
 			Member member = new Member();
 			member.setId(req.getParameter("userid"));
-			member.setPw(req.getParameter("userpw"));
+			member.setPw(req.getParameter("userpw1"));
 			member.setName(req.getParameter("username"));
 			member.setphone(req.getParameter("userphone"));
 			member.setAddress(req.getParameter("useraddress"));
 			member.setEmail(req.getParameter("useremail"));
-
+			System.out.println("name : "+member.getName());
 			if (service.memberUpdate(member)) {
 				path = "mypage.jsp";
 			} else {
@@ -54,13 +54,10 @@ public class TestServlet extends HttpServlet {
 			// 정보 수정하기 전 비밀번호 확인[일치 시 정보수정 폼으로 연결]
 			String id = req.getParameter("userid");
 			String pw = req.getParameter("userpw");
-			System.out.println("[editCheck]서블릿에서 받은 id와 pw값 : " + id + "/" + pw);
 			// 받아온 id와 pw값이 빈 값이 아니면
 			if (id != null && id.length() > 0 && pw != null && pw.length() > 0) {
-				System.out.println("[editCheck]id와 pw값이 널이 아님");
 				// 해당 id의 pw와 DB에 있는 pw와 비교값이 참이면
 				if (service.loginPwCheck(id, pw)) {
-					System.out.println("해당 id의 pw값과 DB의 pw값이 일치");
 					// MemberInfo에 id로 검색한 정보를 넣는다
 					Member memberInfo = service.memberInfo(id);
 					req.setAttribute("memberInfo", memberInfo);

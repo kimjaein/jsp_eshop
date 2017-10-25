@@ -40,12 +40,8 @@ public class MemberService {
 	public boolean loginPwCheck(String id, String pw) {
 		String checkPw = dao.selectPwCheck(id);
 		if (checkPw.equals(pw)) {
-			System.out.println("pw value : "+pw);
-			System.out.println("checkPw value : "+checkPw);
-			System.out.println("service 패스워드 일치");
 			return true;
 		}
-		System.out.println("service 패스워드 불일치");
 		return false;
 	}
 
@@ -55,7 +51,6 @@ public class MemberService {
 
 	public boolean memberUpdate(Member member) {
 		if (dao.memberUpdate(member) == 1) {
-			System.out.println("정보 수정 성공");
 			return true;
 		}else {
 			return false;
