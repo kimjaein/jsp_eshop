@@ -42,11 +42,21 @@ public class MemberService {
 	
 	public Member memberInfo(String id) {
 		if(id != null && id.length()>0) {
-			System.out.println("아이디가 존재함");
+			System.out.println("아이디 값이 널이 아니면");
 			return dao.selectUserInfo(id);
 		}else {
-			System.out.println("아이디가 존재안함");
+			System.out.println("아이디값이 널이면");
 			return null;
 		}
+	}
+	
+	public boolean memberUpdate(Member member) {
+		if(member != null) {
+			if(dao.memberUpdate(member)==1)
+				System.out.println("정보 수정 성공");
+			return true;
+		}
+		System.out.println("정보 수정 실패");
+		return false;
 	}
 }

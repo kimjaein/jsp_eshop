@@ -152,6 +152,30 @@ public class MemberDao {
 		}
 		return member;
 	}
+	
+	public int memberUpdate(Member member) {
+		con = DBUtil.makeConnection();
+		String sql = "UPDATE MEMBER SET PASSWORD=?,NAME=?,PHONE=?,ADDRESS=?,EMAIL_ADDRESS=? WHERE ID = ?";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getPw());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getphone());
+			pstmt.setString(4, member.getAddress());
+			pstmt.setString(5, member.getEmail());
+			pstmt.setString(6, member.getId());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("dao memberUpdate ¿¡·¯");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return result;
+	}
 }
 
 
