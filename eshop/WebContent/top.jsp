@@ -58,9 +58,9 @@
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
 									<h6>OUTER</h6>
-						            <li><a href="products.jsp">PADDING</a></li>
-						            <li><a href="products.jsp">COAT</a></li>
-						            <li><a href="products.jsp">JACKET</a></li>
+						            <li><a href="product?task=list&category=PADDING">PADDING</a></li>
+						            <li><a href="product?task=list&category=COAT">COAT</a></li>
+						            <li><a href="product?task=list&category=JACKET">JACKET</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
@@ -74,9 +74,9 @@
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
 									<h6>TOP</h6>
-						            <li><a href="products.jsp">LONG SLEEVE</a></li>
-						            <li><a href="products.jsp">SHORT SLEEVE</a></li>
-						            <li><a href="products.jsp">SLEEVELESS</a></li>
+						            <li><a href="product?task=list&category=LONG SLEEVE">LONG SLEEVE</a></li>
+						            <li><a href="product?task=list&category=SHORT SLEEVE">SHORT SLEEVE</a></li>
+						            <li><a href="product?task=list&category=SLEEVELESS">SLEEVELESS</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
@@ -90,9 +90,9 @@
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
 									<h6>BOTTOM</h6>
-						            <li><a href="products.jsp">SLACKS</a></li>
-						            <li><a href="products.jsp">JEANS</a></li>
-						            <li><a href="products.jsp">SHORTS</a></li>
+						            <li><a href="product?task=list&category=SLACKS">SLACKS</a></li>
+						            <li><a href="product?task=list&category=JEANS">JEANS</a></li>
+						            <li><a href="product?task=list&category=SHORTS">SHORTS</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>

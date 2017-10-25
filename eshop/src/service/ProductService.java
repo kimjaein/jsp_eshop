@@ -5,7 +5,6 @@ import java.util.List;
 
 import dao.ProductDao;
 import vo.Product;
-import vo.ProductList;
 
 public class ProductService {
 	private ProductDao dao = ProductDao.getInstance();
@@ -32,14 +31,6 @@ public class ProductService {
 	
 	}
 	
-	/////////////////////////////////////////////////////////////////////////////////////////////////
-	public ProductList makeProductList(String title) {
-		List<Product> selectProductList = dao.selectProductList(title);
-		
-		ProductList productList = new ProductList(selectProductList);
-		return productList;
-		
-	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public Product makeProduct(String title) {
@@ -47,6 +38,11 @@ public class ProductService {
 		
 		return singleProduct;
 	}
-	
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	public List<Product> categoryProduct(String category) {
+		 List<Product> categoryList = dao.selectCategory(category);
+		
+		return categoryList;
+	}	
 	
 }

@@ -66,14 +66,13 @@ public class ProductDao {
 
 	///////////////////////////////////////////////////////////////////////
 	// Single페이지 상품 선택
-	public List<Product> selectProductList(String title) {
+	public List<Product> selectBestProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT WHERE TITLE=?";
+		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY PRICE ASC LIMIT 6";
 		List<Product> productList = new ArrayList<>();
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, title);
 			rs = pstmt.executeQuery(); // SQL 실행
 
 			while (rs.next()) {
@@ -82,11 +81,13 @@ public class ProductDao {
 				product.setPrice(rs.getInt(2));
 				product.setColor(rs.getString(3));
 				product.setSize(rs.getString(4));
+				product.setLarge_Category(rs.getString(5));
+				product.setMiddle_Category(rs.getString(6));
 				
 				productList.add(product);
 			}
 		} catch (SQLException e) {
-			System.out.println("dao selectProductList 에러");
+			System.out.println("dao selectBestProduct 에러");
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeRs(rs);
@@ -117,7 +118,7 @@ public class ProductDao {
 				productList.add(product);
 			}
 		} catch (SQLException e) {
-			System.out.println("dao selectProductList 에러");
+			System.out.println("dao selectRecentProduct 에러");
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeRs(rs);
@@ -156,6 +157,36 @@ public class ProductDao {
 		}
 		
 		return product;
+	}
+	///////////////////////////////////////////////////////////////////////////////
+	public List<Product> selectCategory(String category) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=?";
+		List<Product> productList = new ArrayList<>();
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, category);
+			rs = pstmt.executeQuery(); // SQL 실행
+
+			while (rs.next()) {
+				Product product = new Product();
+				product.setTitle(rs.getString(1));
+				product.setPrice(rs.getInt(2));
+				product.setLarge_Category(rs.getString(3));
+				product.setMiddle_Category(rs.getString(4));
+				
+				productList.add(product);
+			}
+		} catch (SQLException e) {
+			System.out.println("dao selectCategory 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return productList;
 	}
 	
 
