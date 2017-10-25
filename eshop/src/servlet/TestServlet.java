@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import service.MemberService;
 import vo.Member;
@@ -79,6 +81,9 @@ public class TestServlet extends HttpServlet {
 			String pw = req.getParameter("userpw");
 			if(service.loginPwCheck(id, pw)){
 				service.deleteMember(id);
+				HttpSession session = req.getSession();
+				session.removeAttribute("loginId");
+				session.invalidate();
 				path ="index.jsp";
 			}else {
 				path = "testfail.jsp";

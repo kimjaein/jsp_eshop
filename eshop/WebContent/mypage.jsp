@@ -19,7 +19,15 @@
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -27,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for bootstrap working -->
 <!-- cart -->
 <script src="js/simpleCart.min.js">
+	
 </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
@@ -34,29 +43,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
-<center>
+	<center>
 		<div class="clearfix"></div>
-		<p><br></p>
+		<p>
+			<br>
+		</p>
 		<h2>마이페이지</h2>
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					<h2>${sessionScope.loginId}님 반갑습니다.</h2>
-				고객님만의 페이지 / 다양한 쇼핑정보를 한눈에 볼 수 있는 공간입니다.
+					<c:if test="${sessionScope.loginId != null}">
+						<h4>${sessionScope.loginId}님반갑습니다.</h4>
+					고객님만의 페이지 / 다양한 쇼핑정보를 한눈에 볼 수 있는 공간입니다.
 
-				<hr>
-				<!-- 로그인 될때 session attribute한 값이 loginId -->
-				<!-- setattribute 된 회원의 값을 가져와서 아이디와 일치하면 정보출력 -->
-				<%--<c:if test="${SessionScope.loginId != null}"> --%>
-				<%--<a class="acount-btn" onclick="memberCheck(${loginId},${SessionScope.loginId});">정보수정</a> <a --%>
-				<a class="acount-btn" href="${pageContext.request.contextPath}/test?task=editaccount">정보수정</a>
-				<a class="acount-btn" href="buylist.jsp">구매내역</a>
-				<a class="acount-btn" href="checkout.jsp">장바구니</a>
-				<a class="acount-btn" href="deleteaccount.jsp">회원탈퇴</a>
-				<%-- 				</c:if> --%>
-				<%-- 				<c:if test="${SessionScope.loginId == null}"> --%>
-				<a class="acount-btn" href="account.jsp">로그인</a>
-				<%-- 				</c:if> --%>
+					<hr>
+						<!-- 				로그인 될때 session attribute한 값이 loginId -->
+						<!-- 				setattribute 된 회원의 값을 가져와서 아이디와 일치하면 정보출력 -->
+						<a class="acount-btn"
+							href="${pageContext.request.contextPath}/test?task=editaccount">정보수정</a>
+						<a class="acount-btn" href="buylist.jsp">구매내역</a>
+						<a class="acount-btn" href="checkout.jsp">장바구니</a>
+						<a class="acount-btn" href="deleteaccount.jsp">회원탈퇴</a>
+					</c:if>
+					<c:if test="${sessionScope.loginId == null}">
+						<h4>로그인 정보가 없습니다.</h4>
+						<a class="acount-btn" href="account.jsp">로그인</a>
+					</c:if>
 
 				</div>
 			</div>
