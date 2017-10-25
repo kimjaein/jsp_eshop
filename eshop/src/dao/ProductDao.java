@@ -6,36 +6,42 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
+import vo.Article;
 import vo.Product;;
 
 public class ProductDao {
-///////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
 	// singleton
 	private static ProductDao instance;
+
 	public static ProductDao getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new ProductDao();
 		}
 		return instance;
 	}
-	private ProductDao(){
+
+	private ProductDao() {
+		DBUtil.loadDriver();
 	}
-	
-///////////////////////////////////////////////////////////////////
+
+	///////////////////////////////////////////////////////////////////
 	// DB 연결, 해제 관련 필드와 메소드들
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
-////////////////////////////////////////////////////////////////////
+
+	////////////////////////////////////////////////////////////////////
 	// 상품 입력
 	public int insert(Product product) {
 		con = DBUtil.makeConnection();
 		String sql = "INSERT INTO PRODUCT(TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY, DATE, STOCK) "
-					 + "VALUES(?,?,?,?,?,?,?,?)";
+				+ "VALUES(?,?,?,?,?,?,?,?)";
 		int result = 0;
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, product.getTitle());
@@ -46,55 +52,48 @@ public class ProductDao {
 			pstmt.setString(6, product.getMiddle_Category());
 			pstmt.setTimestamp(7, new Timestamp(product.getRegisterTime().getTime()));
 			pstmt.setInt(8, product.getStock());
-			
+
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Product dao insert 에러");
 			e.printStackTrace();
-		} finally{
+		} finally {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
-		return result;	
+		return result;
 	}
-///////////////////////////////////////////////////////////////////////
-	// 상품 선택
-	public String selectIdCheck(String product_num) {
+
+	///////////////////////////////////////////////////////////////////////
+	// Single페이지 상품 선택
+	public List<Product> selectProductList(String title) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT ID FROM MEMBER WHERE ID=?";
-		String result = null;
-		
+		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT WHERE TITLE=?";
+		List<Product> productList = new ArrayList<>();
+
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, product_num);
-			
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				result = rs.getString(1);
+			pstmt.setString(1, title);
+			rs = pstmt.executeQuery(); // SQL 실행
+
+			while (rs.next()) {
+				Product product = new Product();
+				product.setTitle(rs.getString(1));
+				product.setPrice(rs.getInt(2));
+				product.setColor(rs.getString(3));
+				product.setSize(rs.getString(4));
+				
+				productList.add(product);
 			}
 		} catch (SQLException e) {
-			System.out.println("member dao idCheck 에러");
+			System.out.println("dao selectArticleList 에러");
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
-		return result;
+		return productList;
 	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

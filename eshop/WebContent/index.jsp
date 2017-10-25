@@ -166,7 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="single.jsp"><img src="images/padding/padding1-1.jpg" class="img-responsive" alt="" /></a>
 							<div class="product liked-product simpleCart_shelfItem">
 							<a class="like_name" href="single.jsp">ÆÐµù987967</a>
-							<p><a class="item_add" href="#"><i></i> <span class=" item_price">50000</span></a></p>
+							<p><a class="item_add" href="#"><i></i> <span class=" item_price">50,000</span></a></p>
 							</div>
 						</li>
 				     </ul>
