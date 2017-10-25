@@ -8,7 +8,7 @@ public class Article {
 	private String title;
 	private String writer;
 	private int readCount;
-	private Date writeTime;
+	private Date writeDate;
 	private String contents;
 	private int list;
 	private String depth;
@@ -52,11 +52,11 @@ public class Article {
 	public void setReadCount(int readCount) {
 		this.readCount = readCount;
 	}
-	public Date getWriteTime() {
-		return writeTime;
+	public Date getWriteDate() {
+		return writeDate;
 	}
-	public void setWriteTime(Date writeTime) {
-		this.writeTime = writeTime;
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
 	}
 	public String getContents() {
 		return contents;
@@ -84,7 +84,7 @@ public class Article {
 		this.title = title;
 		this.writer = writer;
 		this.readCount = readCount;
-		this.writeTime = writeTime;
+		this.writeDate = writeTime;
 		this.contents = contents;
 		this.list = list;
 		this.depth = depth;
@@ -97,7 +97,7 @@ public class Article {
 	@Override
 	public String toString() {
 		return "Article [articleNum=" + articleNum + ", boardName=" + boardName + ", title=" + title + ", writer="
-				+ writer + ", readCount=" + readCount + ", writeTime=" + writeTime + ", contents=" + contents
+				+ writer + ", readCount=" + readCount + ", writeDate=" + writeDate + ", contents=" + contents
 				+ ", list=" + list + ", depth=" + depth + "]";
 	}
 	

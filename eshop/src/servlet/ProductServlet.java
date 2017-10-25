@@ -21,18 +21,18 @@ public class ProductServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String item=request.getParameter("item");
+		String task=request.getParameter("task");
 		String path="";
 		
-		if(item.equals("detail")) {
-		String title = request.getParameter("title");
-		List<Product> productList = dao.selectProductList(title);
-		request.setAttribute("productList", productList);
+		if(task.equals("start")) {
+		List<Product> productList = dao.selectRecentProduct();
+		request.setAttribute("ProductList", productList);
 		
-		path ="single.jsp";
+		path ="main.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		dispatcher.forward(request, response);
 	}
 	
 

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import service.MemberService;
+import vo.BuyList;
 import vo.Member;
 
 @WebServlet("/test")
@@ -18,11 +21,16 @@ public class TestServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("EUC-KR");
 		String task = req.getParameter("task");
 		String path = "";
 		if (task.equals("editaccount")) {
 			path = "editaccountform.jsp";
+		}else if(task.equals("buylist")) {
+			String id = req.getParameter("id");
+			List <BuyList> buylist=dao.BuylistDao.getInstance().selectBuyList(id);
+			req.setAttribute("buylist", buylist);
+			path="buylist.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
@@ -30,7 +38,7 @@ public class TestServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("EUC-KR");
 		String task = req.getParameter("task");
 		String path = "";
 		if (task.equals("edit")) {
@@ -42,7 +50,11 @@ public class TestServlet extends HttpServlet {
 			member.setphone(req.getParameter("userphone"));
 			member.setAddress(req.getParameter("useraddress"));
 			member.setEmail(req.getParameter("useremail"));
+			
 			System.out.println("name : "+member.getName());
+			System.out.println("address : "+member.getAddress());
+			System.out.println("email : "+member.getEmail());
+			
 			if (service.memberUpdate(member)) {
 				path = "mypage.jsp";
 			} else {
@@ -54,6 +66,7 @@ public class TestServlet extends HttpServlet {
 			// 정보 수정하기 전 비밀번호 확인[일치 시 정보수정 폼으로 연결]
 			String id = req.getParameter("userid");
 			String pw = req.getParameter("userpw");
+			System.out.println("[editCheck]" + "id : "+id + "/ pw : "+pw);
 			// 받아온 id와 pw값이 빈 값이 아니면
 			if (id != null && id.length() > 0 && pw != null && pw.length() > 0) {
 				// 해당 id의 pw와 DB에 있는 pw와 비교값이 참이면
@@ -72,6 +85,19 @@ public class TestServlet extends HttpServlet {
 			}
 		} else if (task.equals("delete")) {
 			// 계정 삭제
+			String id = req.getParameter("userid");
+			String pw = req.getParameter("userpw");
+			if(service.loginPwCheck(id, pw)){
+				service.deleteMember(id);
+				HttpSession session = req.getSession();
+				session.removeAttribute("loginId");
+				session.invalidate();
+				path ="index.jsp";
+			}else {
+				path = "testfail.jsp";
+			}
+			
+			
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);

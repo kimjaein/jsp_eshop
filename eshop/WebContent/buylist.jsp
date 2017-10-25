@@ -20,7 +20,25 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
+
+
+
 
 </script>
 <!--webfont-->
@@ -38,7 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
 	<div class="content">
-	
+
 		<div class="container">
 			<div class="page-header">
 				<h1 style="color: #816263;">구매 목록</h1>
@@ -48,21 +66,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<table class="table table-striped">
 					<thead>
 						<tr>
-						<!-- forEach 로 List로 출력[등록일로 group by 되어있음]
+							<!-- forEach 로 List로 출력[등록일로 group by 되어있음]
 						아무거나 클릭시 해당 정보 가지고 구매목록 DB에서 그룹 풀고 구매목록 상세 페이지에 보여줌 -->
 							<th>번호</th>
-							<th>등록일</th>
+							<th>구매일자</th>
 							<th>상품명</th>
-							<th>가격</th>
+							<th>구매수량</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>2017.10.24</td>
-							<td>어쩌고 저쩌고</td>
-							<td>300$</td>
-						</tr>
+						<c:choose>
+							<c:when test="${not empty buylist}">
+							<c:forEach var="list" items="${buylist}">
+								<tr>
+									<td>${list.buy_list_num}</td>
+									<td>${list.buy_date}</td>
+									<td>${list.product_num}</td>
+									<td>${list.buy_quantity}</td>
+								</tr>
+							</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<tr>
+									<td>값이 없습니다</td>
+									<td>값이 없습니다</td>
+									<td>값이 없습니다</td>
+									<td>값이 없습니다</td>
+								</tr>
+							</c:otherwise>
+						</c:choose>
+
 					</tbody>
 				</table>
 			</div>

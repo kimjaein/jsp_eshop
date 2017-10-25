@@ -7,8 +7,14 @@
 			<div class="container">
 				<div class="header-top-left">
 					<ul>
+					<c:if test="${sessionScope.loginId == null}">
 						<li><a href="account.jsp"><span class="glyphicon glyphicon-user"> </span>Login</a></li>
 						<li><a href="register.jsp"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li>			
+					</c:if>
+					<c:if test="${sessionScope.loginId != null}">
+					<li><a href="logout.jsp"><span class="glyphicon glyphicon-user"> </span>Logout</a></li>
+					<li><a href="mypage.jsp"><span class="glyphicon glyphicon-user"> </span>My page</a></li>
+					</c:if>
 					</ul>
 				</div>
 				<div class="header-right">
@@ -95,7 +101,7 @@
 			            </div>
 		            </ul>
 		        </li>
-					<li><a href="QnA.jsp?task=boardList&type=qna">Q & A</a></li>
+					<li><a href="board?task=boardList&type=qna">Q & A</a></li>
 	        </ul>
 	    </div>
 	    <!--/.navbar-collapse-->

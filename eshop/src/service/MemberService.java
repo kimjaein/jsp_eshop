@@ -39,6 +39,9 @@ public class MemberService {
 
 	public boolean loginPwCheck(String id, String pw) {
 		String checkPw = dao.selectPwCheck(id);
+		System.out.println("[loginPwCheck] checkPw : "+checkPw);
+		System.out.println("[loginPwCheck] pw : "+pw);
+		System.out.println("[loginPwCheck] id : "+id);
 		if (checkPw.equals(pw)) {
 			return true;
 		}
@@ -56,4 +59,13 @@ public class MemberService {
 			return false;
 		}
 	}
+	
+	public boolean deleteMember(String id) {
+		if(dao.deleteMember(id)==1) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 }
