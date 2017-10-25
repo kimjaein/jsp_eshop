@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><input type="password" name="userpw"></li>
 							<li></li>
 						</ul>
-						<input type="submit" value="»èÁ¦ ÇÏ±â">
+						<input type="submit" value="Å»Åð ÇÏ±â">
 					</form>
 				</div>
 			</div>

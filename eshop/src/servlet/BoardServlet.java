@@ -66,10 +66,10 @@ public class BoardServlet extends HttpServlet{
     		String articleNumStr = request.getParameter("articleNum");
     		int articleNum = Integer.parseInt(articleNumStr);
     		//필요한 정보 담아서 넘기기
-    		//Article article = service.readArticleInfo(articleNum);
+    		Article article = service.readArticleInfo(articleNum);
     		request.setAttribute("article",article);
     		
-    		path="reply_form.jsp";
+    		path="replyWrite.jsp";
     	}
         
       

@@ -30,7 +30,9 @@
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 </head>
 <body>
@@ -46,34 +48,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<br>
 
 					</thead>
-						<form action="<%=request.getContextPath()%>/board" method="post">
-					<tbody>
-							<input type="hidden" name="writer" value="wodls" /><!-- session.loginId 받아오기 -->
-							<input type="hidden" name=task value="write" /> <input
-								type="hidden" name=type value="qna" />
-						<tr>
-							<td>제목:</td>
-							<td><input type="text" placeholder="제목을 입력하세요. "
-								name="title" class="form-control" /></td>
-						</tr>
-						<tr>
-							<td>내용:</td>
-							<td><textarea cols="10" rows=20 placeholder="내용을 입력하세요. "
-									name="contents" class="form-control"></textarea></td>
-						</tr>
+					<form action="<%=request.getContextPath()%>/board" method="post">
+						<tbody>
+							<input type="hidden" name="task" value="reply">
+							<input type="hidden" name="writer" value="${sessionScope.loginId}">
+							<input type="hidden" name="list"	value="${article.list}">
+							<input type="hidden" name="depth"	value="${article.depth}">
+							<input type="hidden" name=type value="qna" />
+							<tr>
+								<td>제목:</td>
+								<td><input type="text" placeholder="제목을 입력하세요. "
+									name="title" class="form-control" /></td>
+							</tr>
+							<tr>
+								<td>내용:</td>
+								<td><textarea cols="10" rows=20 placeholder="내용을 입력하세요. "
+										name="contents" class="form-control"></textarea></td>
+							</tr>
 
-						<tr>
-							<td colspan="2">
-								<ol class="breadcrumb">
-									<li><input type="submit" value="등록" /></li>
-									<li><input type="reset" value="reset" /></li>
-									<li><a href="board?task=boardList&type=qna"  class="acount-btn">목록으로</a></li>
-								</ol>
+							<tr>
+								<td colspan="2">
+									<ol class="breadcrumb">
+										<li><input type="submit" value="등록" /></li>
+										<li><input type="reset" value="reset" /></li>
+										<li><a href="board?task=boardList&type=qna"  class="acount-btn">목록으로</a></li>
+									</ol>
 
-							</td>
-						</tr>
-					</tbody>
-						</form>
+								</td>
+							</tr>
+						</tbody>
+					</form>
 				</table>
 			</div>
 		</center>
