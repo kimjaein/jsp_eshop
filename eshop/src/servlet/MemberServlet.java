@@ -59,6 +59,7 @@ public class MemberServlet extends HttpServlet{
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
 			String loginId = service.login(id, pw);
+			System.out.println("service.login value : "+loginId);
 			if(loginId!=null) {
 				// 로그인 된 아이디를 세션에 저장
 				HttpSession session = request.getSession();

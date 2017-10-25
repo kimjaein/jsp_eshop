@@ -79,6 +79,8 @@ public class MemberDao {
 		}
 		return result;
 	}
+	/////////////////////////////////////////
+	//아이디 일치 여부
 	public String selectIdCheck(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT ID FROM MEMBER WHERE ID=?";
@@ -102,6 +104,8 @@ public class MemberDao {
 		}
 		return result;
 	}
+	/////////////////////////////////////////
+	//비밀번호 일치 여부
 	public String selectPwCheck(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT PASSWORD FROM MEMBER WHERE ID=?";
@@ -123,8 +127,11 @@ public class MemberDao {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
+		System.out.println("dao password value : "+result);
 		return result;
 	}
+	/////////////////////////////////////////
+	//유저 정보 조회
 	public Member selectUserInfo(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT ID, NAME, PHONE, ADDRESS, EMAIL_ADDRESS FROM MEMBER WHERE ID=?";
@@ -152,7 +159,8 @@ public class MemberDao {
 		}
 		return member;
 	}
-	
+	/////////////////////////////////////////
+	//정보 수정
 	public int memberUpdate(Member member) {
 		con = DBUtil.makeConnection();
 		String sql = "UPDATE MEMBER SET PASSWORD=?,NAME=?,PHONE=?,ADDRESS=?,EMAIL_ADDRESS=? WHERE ID = ?";
@@ -174,6 +182,7 @@ public class MemberDao {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
+		System.out.println("dao update result value : "+result);
 		return result;
 	}
 }
