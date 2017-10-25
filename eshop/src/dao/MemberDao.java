@@ -79,6 +79,8 @@ public class MemberDao {
 		}
 		return result;
 	}
+	/////////////////////////////////////////
+	//아이디 일치 여부
 	public String selectIdCheck(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT ID FROM MEMBER WHERE ID=?";
@@ -102,6 +104,8 @@ public class MemberDao {
 		}
 		return result;
 	}
+	/////////////////////////////////////////
+	//비밀번호 일치 여부
 	public String selectPwCheck(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT PASSWORD FROM MEMBER WHERE ID=?";
@@ -123,8 +127,11 @@ public class MemberDao {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
+		System.out.println("dao password value : "+result);
 		return result;
 	}
+	/////////////////////////////////////////
+	//유저 정보 조회
 	public Member selectUserInfo(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT ID, NAME, PHONE, ADDRESS, EMAIL_ADDRESS FROM MEMBER WHERE ID=?";
@@ -151,6 +158,32 @@ public class MemberDao {
 			DBUtil.closeCon(con);
 		}
 		return member;
+	}
+	/////////////////////////////////////////
+	//정보 수정
+	public int memberUpdate(Member member) {
+		con = DBUtil.makeConnection();
+		String sql = "UPDATE MEMBER SET PASSWORD=?,NAME=?,PHONE=?,ADDRESS=?,EMAIL_ADDRESS=? WHERE ID = ?";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getPw());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getphone());
+			pstmt.setString(4, member.getAddress());
+			pstmt.setString(5, member.getEmail());
+			pstmt.setString(6, member.getId());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("dao memberUpdate 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		System.out.println("dao update result value : "+result);
+		return result;
 	}
 }
 

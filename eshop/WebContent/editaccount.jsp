@@ -32,6 +32,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
+	<script type="text/javascript">
+		function pwCheck(){
+			var pw1= $('#pw1').val();
+			var pw2=$('#pw2').val();
+			
+			if(pw1 == pw2){
+				$('#passwordCheck').html("<b>패스워드가 일치합니다</b>");
+				$('#passwordCheck').css('color','green');
+			}else{
+				$('#passwordCheck').html("");
+			}
+		}
+	</script>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
@@ -47,16 +60,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- List에서 값 받아오고 text value에 넣고 수정완료 클릭시 값 넘어감 -->
 						<ul>
 							<li class="text-info">ID:</li>
-							<li><input type="text" value="${memberInfo.id}" name="userid"></li>
+							<li><input type="text" value="${memberInfo.id}" name="userid" disabled="disabled"></li>
 						</ul>
 						<ul>
 							<li class="text-info">Password:</li>
-							<li><input type="password" name="userpw1"></li>
+							<li><input type="password" name="userpw1" id="pw1" onkeyup="pwCheck();"></li>
 						</ul>
 						<ul>
 							<li class="text-info">Password2:</li>
-							<li><input type="password" name="userpw2"></li>
+							<li><input type="password" name="userpw2" id="pw2" onkeyup="pwCheck();"></li>
 						</ul>
+						<ul>
+						<li class="text-info">PASSWORD SAME</li>
+						<li id="passwordCheck"></li>
+						</ul>
+						
 						<ul>
 							<li class="text-info">Name:</li>
 							<li><input type="text" value="${memberInfo.name}" name="username"></li>

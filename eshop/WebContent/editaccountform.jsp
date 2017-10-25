@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>계정 삭제</title>
+<title>정보 수정</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script
@@ -39,6 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"></div>
 		<p><br></p>
 		<h2>정보 수정</h2>
+		${sessionScope.loginId}
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
