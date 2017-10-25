@@ -45,7 +45,6 @@ public class ProductService {
 	public Product makeProduct(String title) {
 		Product singleProduct = dao.selectProduct(title);
 		
-		
 		return singleProduct;
 	}
 	
