@@ -1,5 +1,11 @@
+<%@page import="vo.Product"%>
+<%@page import="vo.ProductList"%>
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -52,15 +58,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-5 zoom-grid">
 					<div class="flexslider">
 						<ul class="slides">
-							<li data-thumb="images/coat/coat6-1.JPG">
-								<div class="thumb-image"> <img src="images/coat/coat6-1.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
-							</li>
-							<li data-thumb="images/coat/coat6-2.JPG">
-								<div class="thumb-image"> <img src="images/coat/coat6-2.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
-							</li>
-							<li data-thumb="images/coat/coat6-3.JPG">
-							<div class="thumb-image"> <img src="images/coat/coat6-3.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
-							</li> 
+							<li data-thumb="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG">
+								<div class="thumb-image"> <img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" data-imagezoom="true" class="img-responsive" alt="" /> </div>
+							</li>						
 						</ul>
 					</div>
 				</div>

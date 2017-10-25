@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  	
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -29,8 +30,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
-<link rel="stylesheet" href="css/flexslider.css" type="text/css"
-	media="screen" />
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+<script type="text/javascript">
+	$(function(){
+		// submit을 실행했을 때의 이벤트 및 조건문
+		$('#loginForm').submit(function(){
+			console.log("test:"+$('#id').val()+"/");
+			
+			if($('#id').val()== null || $('#id').val()==''){
+				alert('아이디를 입력하세요.');
+				$('#id').focus();
+			}
+			else if($('#pw').val()== null || $('#pw').val()==''){
+				alert('비밀번호를 입력하세요.');
+				$('#pw').focus();
+			}
+			return false;
+		})
+	})
+</script>
+	
 </head>
 <body>
 
@@ -62,10 +82,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
 						<h3>기존 회원</h3>
 						<p>Login</p>
-						<form action="${pageContext.request.contextPath}/member" method="post">
+						<form id="loginForm" action="${pageContext.request.contextPath}/member" method="post">
 						<input type="hidden" value="login" name="task">
 							<div>
-								<span>아이디<label>*</label></span> <input type="text" name="id">
+								<span>아이디<label>*</label></span> <input type="text" id="id" name="id">
 							</div>
 
 							<div>
@@ -73,12 +93,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 
 							<a class="forgot" href="#">비밀번호를 잊으셨나요?</a> 
-							<input type="submit" name="login" value="로그인">
+							<input type="submit" value="로그인">
 						</form>
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				
+
 			</div>
 		</div>
 		<!-- 		<div class="news-letter"> -->

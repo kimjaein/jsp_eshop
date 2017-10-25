@@ -12,18 +12,18 @@
 						<li><a href="register.jsp"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li>			
 					</c:if>
 					<c:if test="${sessionScope.loginId != null}">
-					<li><a href="logout.jsp"><span class="glyphicon glyphicon-user"> </span>Logout</a></li>
+					<li><a href="${pageContext.request.contextPath}/member?task=logout"><span class="glyphicon glyphicon-user"> </span>Logout</a></li>
 					<li><a href="mypage.jsp"><span class="glyphicon glyphicon-user"> </span>My page</a></li>
+					<li><b><span style="color: white;">${sessionScope.loginId}´Ô ¹Ý°©½À´Ï´Ù</span></b></li>
 					</c:if>
 					</ul>
 				</div>
 				<div class="header-right">
 						<div class="cart box_1">
-							
 							<a href="checkout.jsp">
-								<h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)<img src="images/bag.png" alt=""></h3>
-							</a>	
-							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
+								<h3> <img src="images/bag.png" alt=""></h3>
+							
+							<p style="font-size: 14px; color: rgb(255, 198, 207);">Cart</p></a>	
 							<div class="clearfix"> </div>
 						</div>
 				</div>
