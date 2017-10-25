@@ -1,19 +1,16 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import vo.Article;
+import vo.BuyList;
 import vo.Product;;
 
-public class ProductDao {
+public class BuylistDao {
 	///////////////////////////////////////////////////////////////////
 	// DB 연결, 해제 관련 필드와 메소드들
 	private Connection con;
@@ -21,41 +18,38 @@ public class ProductDao {
 	private ResultSet rs;
 	///////////////////////////////////////////////////////////////////
 	// singleton
-	private static ProductDao instance;
+	private static BuylistDao instance;
 
-	public static ProductDao getInstance() {
+	public static BuylistDao getInstance() {
 		if (instance == null) {
-			instance = new ProductDao();
+			instance = new BuylistDao();
 		}
 		return instance;
 	}
 
-	private ProductDao() {
+	private BuylistDao() {
 		DBUtil.loadDriver();
 	}
 
 
 	////////////////////////////////////////////////////////////////////
-	// 상품 입력
-	public int insert(Product product) {
+	// 상품 구매시 Insert **수정전**
+	public int insert(BuyList buylist) {
 		con = DBUtil.makeConnection();
-		String sql = "INSERT INTO PRODUCT(TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY, DATE, STOCK) VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO BUY_LIST(BUYER_ID, PRODUCT_NUM, BUY_DATE, BUY_QUANTITY) VALUES(?,?,?,?)";
 		int result = 0;
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, product.getTitle());
-			pstmt.setInt(2, product.getPrice());
-			pstmt.setString(3, product.getColor());
-			pstmt.setString(4, product.getSize());
-			pstmt.setString(5, product.getLarge_Category());
-			pstmt.setString(6, product.getMiddle_Category());
-			pstmt.setTimestamp(7, new Timestamp(product.getRegisterTime().getTime()));
-			pstmt.setInt(8, product.getStock());
-
+			pstmt.setString(1, buylist.getBuyer_id());
+			pstmt.setInt(2, buylist.getProduct_num());
+			pstmt.setDate(3, buylist.getBuy_date());
+			pstmt.setInt(4, buylist.getBuy_quantity());
+			
 			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
-			System.out.println("Product dao insert 에러");
+			System.out.println("Buylist dao insert 에러");
 			e.printStackTrace();
 		} finally {
 			DBUtil.closePstmt(pstmt);
@@ -66,39 +60,39 @@ public class ProductDao {
 
 	///////////////////////////////////////////////////////////////////////
 	// Single페이지 상품 선택
-	public List<Product> selectProductList(String title) {
+	public List<BuyList> selectBuyList(String id) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT WHERE TITLE=?";
-		List<Product> productList = new ArrayList<>();
+		String sql = "SELECT BUY_LIST_NUM, BUYER_ID, PRODUCT_NUM, BUY_DATE, BUY_QUANTITY FROM BUY_LIST WHERE BUYER_ID=?";
+		List<BuyList> buyList = new ArrayList<>();
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, title);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery(); // SQL 실행
 
 			while (rs.next()) {
-				Product product = new Product();
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setColor(rs.getString(3));
-				product.setSize(rs.getString(4));
-				
-				productList.add(product);
+				BuyList list = new BuyList();
+				list.setBuy_list_num(rs.getInt(1));
+				list.setBuyer_id(rs.getString(2));
+				list.setProduct_num(rs.getInt(3));
+				list.setBuy_date(rs.getDate(4));
+				list.setBuy_quantity(rs.getInt(5));
+				buyList.add(list);
 			}
 		} catch (SQLException e) {
-			System.out.println("dao selectProductList 에러");
+			System.out.println("dao select buylist 에러");
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
-		return productList;
+		return buyList;
 	}
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY DATE DESC LIMIT 6";
+		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT ORDER BY DATE DESC";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -111,8 +105,6 @@ public class ProductDao {
 				product.setPrice(rs.getInt(2));
 				product.setColor(rs.getString(3));
 				product.setSize(rs.getString(4));
-				product.setLarge_Category(rs.getString(5));
-				product.setMiddle_Category(rs.getString(6));
 				
 				productList.add(product);
 			}
