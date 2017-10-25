@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<tr>
 									<td>${list.buy_list_num}</td>
 									<td>${list.buy_date}</td>
-									<td>${list.product_num}</td>
+									<td><a href="상품 상세 페이지">${list.product_title}</a></td>
 									<td>${list.buy_quantity}</td>
 								</tr>
 							</c:forEach>
