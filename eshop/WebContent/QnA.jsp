@@ -51,48 +51,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               
               <tbody>
                 <c:choose>	
-		<c:when test="${empty articlePage.articleList}">	
-			<tr>
-				<td colspan="5">
-					작성된 게시글이 존재하지 않습니다.
-				</td>
-			</tr>
-		</c:when>
-		<c:otherwise>
-			<c:forEach var="article" items="${articlePage.articleList}">
+					<c:when test="${empty articlePage.articleList}">	
+						<tr>
+							<td colspan="5">작성된 게시글이 존재하지 않습니다.
+							</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="article" items="${articlePage.articleList}">
+							<tr>
+								<td>${article.articleNum}</td>
+								<td>
+								<a href="${myContextPath}/board?task=read&articleNum=${article.articleNum}">
+										<c:if test="${article.depth.length() >1}">
+											<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
+												&nbsp;&nbsp;
+											</c:forEach>
+											->
+										</c:if>
+									${article.title}
+								</a>
+								</td>
+								<td>${article.writer}</td>
+								<td>${article.writeDate}</td>
+								<td>${article.readCount}</td>
+							</tr>
+						</c:forEach>
+					</c:otherwise>	
+				</c:choose>	
+				<!-- 게시글 끝 -->
 				<tr>
-					<td>${article.articleNum}</td>
-					<td>
-						<a href="${myContextPath}/board?task=read&articleNum=${article.articleNum}">
-						<c:if test="${article.depth.length() >1}">
-							<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
-							&nbsp;
-							</c:forEach>
-							->
+				<td colspan=5>
+					<div>
+						<ul class="pagination pagination-sm">
+						<c:if test="${articlePage.startPage>1}">
+							<li class="disabled">
+							<a href="${myContextPath}/board?p=${articlePage.startPage-1}">
+							<span aria-hidden="true"> < </span></a></li>
 						</c:if>
-						${article.title}
-						</a>
-					</td>
-					<td>${article.writer}</td>
-					<td>${article.writeDate}</td>
-								
-					<td>${article.readCount}</td>
+						<c:forEach begin="${articlePage.startPage}" end="${articlePage.endPage}" var="i">
+							<c:choose>	
+								<c:when test="${articlePage.currentPage == i}">
+									<li class="active">
+								</c:when>
+								<c:otherwise>
+									<li>
+								</c:otherwise>
+							</c:choose>
+							<a href="${myContextPath}/board?task=boardList&type=qna&p=${i}"> ${i} </a></li>
+						</c:forEach>
+						<c:if test="${articlePage.endPage<articlePage.totalPage}">
+							<li class="disabled">
+							<a href="${myContextPath}/board?p=${articlePage.startPage-1}">
+							<span aria-hidden="true"> > </span></a></li>
+						</c:if>		
+						</ul>	
+					</div>
+				</td>
 				</tr>
-			</c:forEach>
-		</c:otherwise>	
-	</c:choose>	
-	<tr>
-		<td colspan =5>
-			
-				<a href="<%=request.getContextPath()%>/board?task=writeForm" class="acount-btn">글쓰기</a>
-		<td>
-	</tr>
-              </tbody>
-            </table>
-          </div>
-          
-		  
-		  </section>
+				<tr>
+					<td colspan =5>
+						<a href="<%=request.getContextPath()%>/board?task=writeForm" class="acount-btn">글쓰기</a>
+					<td>
+				</tr>
+             </tbody>
+           </table>
+        </div>
+    </section>
 		  </div>
 		  </div>
 		  <jsp:include page="bottom.jsp"></jsp:include>

@@ -195,7 +195,7 @@ public class BoardDao {
 	public String ExistNextLevel(int list,String depth) {
 		con=DBUtil.makeConnection();
 		String sql="SELECT depth FROM BOARD "
-				+"WHERE LIST=? AND DEPTH LIKE ? ORDER BY LIST DESC limit 1";
+				+"WHERE LIST=? AND DEPTH LIKE ? ORDER BY depth DESC limit 1";
 		
 		String result=null;
 		try {
@@ -207,6 +207,47 @@ public class BoardDao {
 			
 			while(rs.next()) {
 				result = (rs.getString(1));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeRs(rs);
+		}
+		return result;
+	}
+	public int insertBList(int last) {
+		con=DBUtil.makeConnection();
+		String sql = "update board set list = article_num where article_num=?";
+		int result=0;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, last);
+			result =pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+		}
+		return result;
+	}
+	public int selectLastId() {
+		con=DBUtil.makeConnection();
+		String sql="SELECT article_num from board order by article_num desc limit 1";
+		int result=0;
+		try {
+			pstmt=con.prepareStatement(sql);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result= rs.getInt(1);
 			}
 			
 		} catch (SQLException e) {

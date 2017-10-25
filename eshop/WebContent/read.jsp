@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>Eshop a Flat E-Commerce Bootstrap Responsive Website
@@ -64,6 +64,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</section>
 
 				<c:if test="${sessionScope.loginId==article.writer}">
+					<script>
+					console.log(${sessionScope.loginId});
+					</script>
 					<a class="acount-btn"
 						href="<%=request.getContextPath()%>/board?task=updateForm&articleNum=${article.articleNum}">수정</a>
 					<a class="acount-btn"
@@ -71,10 +74,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</c:if>
 				<c:if test="${sessionScope.loginId eq 'admin'}">
 					<a class="acount-btn"
-					href="<%=request.getContextPath()%>/board?task=replyForm">답변</a>
+					href="<%=request.getContextPath()%>/board?task=replyForm&articleNum=${article.articleNum}">답변</a>
 				</c:if>
 				<a class="acount-btn"
-					href="<%=request.getContextPath()%>/board?task=boardList">목록으로</a>
+					href="<%=request.getContextPath()%>/board?task=boardList&type=qna">목록으로</a>
 			</div>
 		</center>
 	</div>

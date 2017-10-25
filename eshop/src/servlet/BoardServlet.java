@@ -27,7 +27,7 @@ public class BoardServlet extends HttpServlet{
         if(task.equals("writeForm")) {
         	HttpSession session=request.getSession();
         	String loginId =(String)session.getAttribute("loginId");
-        	
+        	loginId="wodls";
         	if(loginId==null ||loginId.isEmpty()) {
         		path="account.jsp";
         	}else {
@@ -60,7 +60,7 @@ public class BoardServlet extends HttpServlet{
         		request.setAttribute("article", article);
         		path="read.jsp";
         	}else {
-        		path="QnA.jsp";//에러 울릴 방법 생각
+        		path="board?task=boardList&type=qna";//에러 울릴 방법 생각
         	}
         }else if(task.equals("replyForm")) { //답변 글 달기
     		String articleNumStr = request.getParameter("articleNum");
@@ -79,8 +79,7 @@ public class BoardServlet extends HttpServlet{
      
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	System.out.println("board");
-		request.setCharacterEncoding("euc-kr");
+    	request.setCharacterEncoding("euc-kr");
 		String task=request.getParameter("task");
 		String path="";
 		
@@ -90,11 +89,29 @@ public class BoardServlet extends HttpServlet{
 			article.setTitle(request.getParameter("title"));
 			article.setWriter(request.getParameter("writer"));
 			article.setContents(request.getParameter("contents"));
-			boolean reault =service.writeArticle(article);
+			boolean result =service.writeArticle(article);
 			
-			path="QnA.jsp";
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
+			path="board?task=boardList&type=qna";
+			response.sendRedirect("board?task=boardList&type=qna");
+			return;
+		}else if(task.equals("reply")) {
+    		Article article =new Article();
+    		article.setTitle(request.getParameter("title")); //수정된title로 업데이트
+    		article.setWriter(request.getParameter("writer"));
+    		article.setContents(request.getParameter("contents"));
+    		article.setList(Integer.parseInt(request.getParameter("list")));
+    		article.setDepth(request.getParameter("depth"));
+    		article.setBoardName(request.getParameter("type"));
+    		
+    		if(service.setReplyArticle(article)){
+    			//path="board?task=boardList&type=qna";
+    			response.sendRedirect("board?task=boardList&type=qna");
+    			return;
+    		}else {
+    			//path=".jsp";
+    		}
+    		
+    	}
+		
     }
 }

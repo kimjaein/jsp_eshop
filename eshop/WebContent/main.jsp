@@ -190,7 +190,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a class="like_name" href="product?task=detail&title=${product.title}">${product.title}</a>
 									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
 									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p>
-									
 								</div>								
 							</li>
 					</div>

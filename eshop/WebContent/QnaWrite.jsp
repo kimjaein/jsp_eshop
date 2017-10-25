@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,26 +48,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</thead>
 						<form action="<%=request.getContextPath()%>/board" method="post">
 					<tbody>
-							<input type="hidden" name="writer" value="wodls" /><!-- session.loginId Î∞õÏïÑÏò§Í∏∞ -->
-							<input type="hidden" name=task value="write" /> <input
-								type="hidden" name=type value="qna" />
+							<input type="hidden" name="writer" value="wodls" /><!-- session.loginId πﬁæ∆ø¿±‚ -->
+							<input type="hidden" name=task value="write" />
+							<input type="hidden" name=type value="qna" />
 						<tr>
-							<td>Ï†úÎ™©:</td>
-							<td><input type="text" placeholder="Ï†úÎ™©ÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî. "
+							<td>¡¶∏Ò:</td>
+							<td><input type="text" placeholder="¡¶∏Ò¿ª ¿‘∑¬«œººø‰. "
 								name="title" class="form-control" /></td>
 						</tr>
 						<tr>
-							<td>ÎÇ¥Ïö©:</td>
-							<td><textarea cols="10" rows=20 placeholder="ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî. "
+							<td>≥ªøÎ:</td>
+							<td><textarea cols="10" rows=20 placeholder="≥ªøÎ¿ª ¿‘∑¬«œººø‰. "
 									name="contents" class="form-control"></textarea></td>
 						</tr>
 
 						<tr>
 							<td colspan="2">
 								<ol class="breadcrumb">
-									<li><input type="submit" value="Îì±Î°ù" /></li>
-									<li><input type="reset" value="reset" /></li>
-									<li><a href="board?task=boardList&type=qna"  class="acount-btn">Î™©Î°ùÏúºÎ°ú</a></li>
+									<li><input type="submit" value="µÓ∑œ" class="acount-btn"/></li>
+									<li><input type="reset" value="reset" class="acount-btn"/></li>
+									<li><a href="board?task=boardList&type=qna"  class="acount-btn">∏Ò∑œ¿∏∑Œ</a></li>
 								</ol>
 
 							</td>

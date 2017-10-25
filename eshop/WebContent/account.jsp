@@ -41,12 +41,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			if($('#id').val()== null || $('#id').val()==''){
 				alert('아이디를 입력하세요.');
 				$('#id').focus();
+				return false;
 			}
 			else if($('#pw').val()== null || $('#pw').val()==''){
 				alert('비밀번호를 입력하세요.');
 				$('#pw').focus();
+				return false;
 			}
-			return false;
 		})
 	})
 </script>
@@ -89,7 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 
 							<div>
-								<span>비밀번호<label>*</label></span> <input type="password" name="pw">
+								<span>비밀번호<label>*</label></span> <input type="password" id="pw" name="pw">
 							</div>
 
 							<a class="forgot" href="#">비밀번호를 잊으셨나요?</a> 
