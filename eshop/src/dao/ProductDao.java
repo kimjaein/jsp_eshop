@@ -95,35 +95,36 @@ public class ProductDao {
 		}
 		return productList;
 	}
-	/////////////////////////////////////////////////////////////////////////////////////
-	// Index 최신 상품 조회
-	public Product selectIndex(Date date) {
+	///////////////////////////////////////////////////////////////////////////////
+	public List<Product> selectRecentProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE FROM PRODUCT WHERE DATE=?";
-		Product product = null;
-		
+		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT ORDER BY DATE DESC";
+		List<Product> productList = new ArrayList<>();
+
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setTimestamp(1, new Timestamp(product.getRegisterTime().getTime()));
 			rs = pstmt.executeQuery(); // SQL 실행
 
-			if (rs.next()) {
-				product = new Product();
+			while (rs.next()) {
+				Product product = new Product();
 				product.setTitle(rs.getString(1));
 				product.setPrice(rs.getInt(2));
+				product.setColor(rs.getString(3));
+				product.setSize(rs.getString(4));
+				
+				productList.add(product);
 			}
 		} catch (SQLException e) {
-			System.out.println("dao selectIndex 에러");
+			System.out.println("dao selectProductList 에러");
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
-		
-		return product;
+		return productList;
 	}
-	
+
 	
 
 }
