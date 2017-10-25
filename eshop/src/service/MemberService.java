@@ -33,18 +33,20 @@ public class MemberService {
 		String idCheck = dao.selectIdCheck(id);
 		return idCheck;
 	}
+	public boolean loginPwCheck(String id, String pw) {
+		if(dao.selectPwCheck(id).equals(pw)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Member memberInfo(String id) {
+		if(id != null && id.length()>0) {
+			System.out.println("아이디가 존재함");
+			return dao.selectUserInfo(id);
+		}else {
+			System.out.println("아이디가 존재안함");
+			return null;
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
