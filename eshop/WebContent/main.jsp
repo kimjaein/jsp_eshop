@@ -171,18 +171,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						<c:forEach var="recentProduct" items="${recentProductList}">
 							<div class="col-md-4 product simpleCart_shelfItem text-center">
-								<a href="product?task=detail&title=${recentProduct.title}">
+								<a href="product?task=detail&title=${recentProduct.title}-${1}">
 									<img
-										src="images/${recentProduct.large_Category}/${recentProduct.middle_Category}/${recentProduct.title}.JPG"
+										src="images/${recentProduct.large_Category}/${recentProduct.middle_Category}/${recentProduct.title}-${1}.JPG"
 										alt="" />
 								</a>
 
 								<div class="mask">
-									<a href="product?task=detail&title=${recentProduct.title}">Quick
+									<a href="product?task=detail&title=${recentProduct.title}-${1}">Quick
 										View</a>
 								</div>
 								<a class="product_name"
-									href="product?task=detail&title=${recentProduct.title}">${recentProduct.title}</a>
+									href="product?task=detail&title=${recentProduct.title}-${1}">${recentProduct.title}</a>
 								<p>
 									<a class="item_add" href="#">
 										<i></i> <span class="item_price">${recentProduct.price}</span>
@@ -217,18 +217,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<c:forEach var="bestProduct" items="${bestProductList}">
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="product?task=detail&title=${bestProduct.title}">
+						<a href="product?task=detail&title=${bestProduct.title}-${1}">
 							<img
-								src="images/${bestProduct.large_Category}/${bestProduct.middle_Category}/${bestProduct.title}.JPG"
+								src="images/${bestProduct.large_Category}/${bestProduct.middle_Category}/${bestProduct.title}-${1}.JPG"
 								alt="" />
 						</a>
 
 						<div class="mask">
-							<a href="product?task=detail&title=${bestProduct.title}">Quick
+							<a href="product?task=detail&title=${bestProduct.title}-${1}">Quick
 								View</a>
 						</div>
 						<a class="product_name"
-							href="product?task=detail&title=${bestProduct.title}">${bestProduct.title}</a>
+							href="product?task=detail&title=${bestProduct.title}-${1}">${bestProduct.title}</a>
 						<p>
 							<a class="item_add" href="#">
 								<i></i> <span class="item_price">${bestProduct.price}</span>

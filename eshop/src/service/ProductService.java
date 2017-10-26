@@ -31,11 +31,13 @@ public class ProductService {
 			 
 			 
 			 
-			 title = title.substring(0,title.length()-3);
+			 title = title.substring(0,title.length()-2);
 			 p.setTitle(title);
 			 
 			 recentProductList.remove(i);
 			 recentProductList.add(i, p);
+			 
+			 System.out.println(title);
 			 
 		 }
 		
@@ -78,6 +80,15 @@ public class ProductService {
 	public Product makeProduct(String title) {
 		Product singleProduct = dao.selectProduct(title);
 
+		System.out.println(title);
+		String str = singleProduct.getTitle();
+		
+		System.out.println(str);
+		
+		 str=str.substring(0,str.length()-2);
+		 singleProduct.setTitle(str);
+		
+		 
 		return singleProduct;
 	}
 
