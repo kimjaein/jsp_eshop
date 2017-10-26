@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mysql.fabric.Response;
+
 import service.MemberService;
 import vo.BuyList;
 import vo.Member;
@@ -18,7 +21,6 @@ import vo.Member;
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
 	MemberService service = MemberService.getInstance();
-
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("EUC-KR");
@@ -32,6 +34,7 @@ public class TestServlet extends HttpServlet {
 			String id = req.getParameter("id");
 			List <BuyList> buylist=dao.BuylistDao.getInstance().selectBuyList(id);
 			req.setAttribute("buylist", buylist);
+			
 			path="buylist.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
@@ -58,9 +61,11 @@ public class TestServlet extends HttpServlet {
 			System.out.println("email : "+member.getEmail());
 			
 			if (service.memberUpdate(member)) {
+				req.setAttribute("msg", "수정 완료");
 				path = "mypage.jsp";
 			} else {
-				path = "testfail.jsp";
+				req.setAttribute("msg", "정보 수정 실패");
+				path = "mypage.jsp";
 			}
 			// service에서 회원수정 작업 수행 시킴
 		} else if (task.equals("editCheck")) {
@@ -76,14 +81,17 @@ public class TestServlet extends HttpServlet {
 					// MemberInfo에 id로 검색한 정보를 넣는다
 					Member memberInfo = service.memberInfo(id);
 					req.setAttribute("memberInfo", memberInfo);
+					req.setAttribute("msg", "정보 일치");
 					path = "editaccount.jsp";
 				} else {
 					// 비밀번호 일치하지 않음
-					path = "testfail.jsp";
+					req.setAttribute("msg", "비밀번호 일치하지 않음");
+					path = "mypage.jsp";
 				}
 			} else {
 				// id나 pw값이 빈값임
-				path = "testfail.jsp";
+				req.setAttribute("msg", "ID나 PW가 NULL값임");
+				path = "mypage.jsp";
 			}
 		} else if (task.equals("delete")) {
 			// 계정 삭제
@@ -92,15 +100,13 @@ public class TestServlet extends HttpServlet {
 			if(service.loginPwCheck(id, pw)){
 				service.deleteMember(id);
 				HttpSession session = req.getSession();
-				
 				session.removeAttribute("loginId");
-				session.invalidate();
-				path ="index.jsp";
+				req.setAttribute("msg", "삭제 완료");
+				path ="mypage.jsp";
 			}else {
-				path = "testfail.jsp";
+				req.setAttribute("msg", "삭제 실패");
+				path = "mypage.jsp";
 			}
-			
-			
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);

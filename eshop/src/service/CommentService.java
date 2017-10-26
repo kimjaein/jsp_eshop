@@ -31,7 +31,7 @@ public class CommentService {
 			return false;
 		}
 	}
-	public List<Comment> readComment(int articleNum){
-		return dao.selectCommentList(articleNum);
+	public List<Comment> readComment(String title){
+		return dao.selectCommentList(title);
 	}
 }
