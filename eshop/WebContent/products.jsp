@@ -88,6 +88,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        	   
        	   
        	   <!-- 							메인 상품 new -->
+       	   
+       	   
+       	   
+       	   
+					<div class="clearfix"></div>
+					<ul>
+					  <li>
 				<c:choose>
 					<c:when test="${empty categoryList}">
 						<div class="banner-info">
@@ -97,19 +104,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<c:otherwise>
 									
 						<c:forEach var="categoryProduct" items="${categoryList}">
-       	   
-       	   
-       	   
-       	   
-					<div class="clearfix"></div>
-					<ul>
-					  <li>
+						
 							<a class="cbp-vm-image" href="single.jsp">
 								<div class="simpleCart_shelfItem">
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/${categoryProduct.large_Category}/${categoryProduct.middle_Category}/${categoryProduct.title} }.JPG" class="img-responsive" alt=""/>
+									<img src="images/${categoryProduct.large_Category}/${categoryProduct.middle_Category}/${categoryProduct.title}-${1}.JPG" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>

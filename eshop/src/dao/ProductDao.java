@@ -161,7 +161,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectCategory(String category) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=?";
+		String sql = "SELECT * FROM PRODUCT WHERE MIDDLE_CATEGORY=?";
 		List<Product> productList = new ArrayList<>();
 
 		try {
