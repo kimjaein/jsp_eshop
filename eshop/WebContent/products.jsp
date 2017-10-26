@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<c:forEach var="categoryProduct" items="${categoryList}">
 						
 					  <li>
-							<a class="cbp-vm-image" href="single.jsp">
+							<a class="cbp-vm-image" href="product?task=detail&title=${categoryProduct.title}-${1}">
 							<div class="simpleCart_shelfItem">
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
