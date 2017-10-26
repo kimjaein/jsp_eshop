@@ -77,7 +77,6 @@ public class MemberServlet extends HttpServlet {
 				// 로그인 된 아이디를 세션에 저장
 				session.setAttribute("loginId", loginId);
 				session.removeAttribute("logout");
-
 				path = "index.jsp";
 			} else {
 				session.setAttribute("msg", "로그인 실패");
