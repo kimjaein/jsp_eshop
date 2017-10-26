@@ -43,11 +43,11 @@ public class ProductServlet extends HttpServlet{
 			 str=str.substring(0,str.length()-2);
 			 singleProduct.setTitle(str);
 
-			 List<Comment> commentList = serviceComment.readComment(title);
+//			 List<Comment> commentList = serviceComment.readComment(title);
 			 
 			request.setAttribute("singleProduct", singleProduct);
 			System.out.println(singleProduct.toString());
-			request.setAttribute("commentList",commentList);
+//			request.setAttribute("commentList",commentList);
 			path = "single.jsp";
 		} else if(task.equals("list")) {
 			String category = request.getParameter("category");
@@ -57,7 +57,7 @@ public class ProductServlet extends HttpServlet{
 			request.setAttribute("categoryList", categoryList);
 			
 			path="products.jsp";
-			
+//			System.out.println(categoryList);
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
