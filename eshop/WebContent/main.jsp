@@ -139,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-4 follow-us">
 					<h3>
 						Facebook :
-						<a class="facebook" href="#"></a>
+						<a class="facebook" href="http://www.facebook.com"></a>
 					</h3>
 				</div>
 				<div class="col-md-4 shipping-grid">
