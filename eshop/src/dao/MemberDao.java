@@ -93,6 +93,7 @@ public class MemberDao {
 			if(rs.next()) {
 				result = rs.getString(1);
 			}
+			System.out.println("result:"+result+".");
 		} catch (SQLException e) {
 			System.out.println("member dao idCheck ¿¡·¯");
 			e.printStackTrace();

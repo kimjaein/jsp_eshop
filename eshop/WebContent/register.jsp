@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$.ajax({
 				type:'post',
 				url:'member?task=loginIdCheck&id='+id,
-				dataType:'json', // 응답데이터 형식, 보통은 xml, json으로 옴.
+				dataType:'text', // 응답데이터 형식, 보통은 xml, json으로 옴.
 				success:function(idCheck){
 					
 					if(id == ''){
@@ -47,11 +47,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						return false;
 					}
 					
-					if(idCheck == null){
+					if(idCheck == null || idCheck=='null'){
 						alert('사용할수 있는 아이디입니다.')	
 					}
-					
-					if(idCheck != null){
+					else{
 						alert('이미 등록된 아이디입니다.')
 					}
 					
