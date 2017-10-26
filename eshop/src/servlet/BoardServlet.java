@@ -75,6 +75,32 @@ public class BoardServlet extends HttpServlet{
     		request.setAttribute("article",article);
     		
     		path="replyWrite.jsp";
+    	}else if(task.equals("update")) {
+    		Article article = new Article();
+    		String articleNumStr = request.getParameter("articleNum");
+    		int articleNum = Integer.parseInt(articleNumStr);
+    		
+    		article.setArticleNum(articleNum);
+    		article.setTitle(request.getParameter("title"));
+    		article.setContents(request.getParameter("contents"));
+    		
+    		if(service.update(article)) {
+    			request.setAttribute("articleNum", articleNum);
+    			path="update_success.jsp";
+    		}else {
+    			path="update_fail.jsp";
+    		}
+    		
+    	}else if(task.equals("delete")) {
+    		String pw = request.getParameter("password");
+    		String articleNumStr = request.getParameter("articleNum");
+    		int articleNum = Integer.parseInt(articleNumStr);
+    		if(service.delete(articleNum,pw)) {
+    			path="delete_success.jsp";
+    		}else {
+    			path="delete_fail.jsp";
+    		}
+    		
     	}
         
       

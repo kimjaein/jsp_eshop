@@ -24,6 +24,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script type="text/javascript">
+$(function(){
+	var loginId = <%=session.getAttribute("loginId")%>;
+	$('#write').click(function(){
+		if(loginId ==null){
+			alert("로그인 하세요");
+		}
+		return false;
+	})
+	
+	$('.link').click(function(){
+		if($(this).val != loginId && loginId !='admin'){
+			alert("작성자만 읽을 수 있습니다.")
+			return  false;
+		}	
+	})
+		
+	
+})
+
+</script>
 </head>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
@@ -62,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<tr>
 								<td>${article.articleNum}</td>
 								<td>
-								<a href="${myContextPath}/board?task=read&articleNum=${article.articleNum}">
+								<a class="link" value="${article.writer}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}" >
 										<c:if test="${article.depth.length() >1}">
 											<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
 												&nbsp;&nbsp;
@@ -98,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li>
 								</c:otherwise>
 							</c:choose>
-							<a href="${myContextPath}/board?task=boardList&type=qna&p=${i}"> ${i} </a></li>
+							<a href="${myContextPath}/board?task=boardList&type=qna&p=${i}" > ${i} </a></li>
 						</c:forEach>
 						<c:if test="${articlePage.endPage<articlePage.totalPage}">
 							<li class="disabled">
@@ -111,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</tr>
 				<tr>
 					<td colspan =5>
-						<a href="<%=request.getContextPath()%>/board?task=writeForm" class="acount-btn">글쓰기</a>
+						<a href="<%=request.getContextPath()%>/board?task=writeForm" class="acount-btn" id="write">글쓰기</a>
 					<td>
 				</tr>
              </tbody>
