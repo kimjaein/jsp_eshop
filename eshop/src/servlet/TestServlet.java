@@ -44,6 +44,7 @@ public class TestServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("EUC-KR");
+		HttpSession session = req.getSession();
 		String task = req.getParameter("task");
 		String path = "";
 		if (task.equals("edit")) {
@@ -61,11 +62,11 @@ public class TestServlet extends HttpServlet {
 			System.out.println("email : "+member.getEmail());
 			
 			if (service.memberUpdate(member)) {
-				req.setAttribute("msg", "수정 완료");
-				path = "mypage.jsp";
+				session.setAttribute("msg", "수정 완료");
+				path = "index.jsp";
 			} else {
-				req.setAttribute("msg", "정보 수정 실패");
-				path = "mypage.jsp";
+				session.setAttribute("msg", "정보 수정 실패");
+				path = "index.jsp";
 			}
 			// service에서 회원수정 작업 수행 시킴
 		} else if (task.equals("editCheck")) {
@@ -81,17 +82,17 @@ public class TestServlet extends HttpServlet {
 					// MemberInfo에 id로 검색한 정보를 넣는다
 					Member memberInfo = service.memberInfo(id);
 					req.setAttribute("memberInfo", memberInfo);
-					req.setAttribute("msg", "정보 일치");
+					session.setAttribute("msg", "정보 일치");
 					path = "editaccount.jsp";
 				} else {
 					// 비밀번호 일치하지 않음
-					req.setAttribute("msg", "비밀번호 일치하지 않음");
-					path = "mypage.jsp";
+					session.setAttribute("msg", "비밀번호 일치하지 않음");
+					path = "index.jsp";
 				}
 			} else {
 				// id나 pw값이 빈값임
-				req.setAttribute("msg", "ID나 PW가 NULL값임");
-				path = "mypage.jsp";
+				session.setAttribute("msg", "ID나 PW가 NULL값임");
+				path = "index.jsp";
 			}
 		} else if (task.equals("delete")) {
 			// 계정 삭제
@@ -99,13 +100,12 @@ public class TestServlet extends HttpServlet {
 			String pw = req.getParameter("userpw");
 			if(service.loginPwCheck(id, pw)){
 				service.deleteMember(id);
-				HttpSession session = req.getSession();
 				session.removeAttribute("loginId");
-				req.setAttribute("msg", "삭제 완료");
-				path ="mypage.jsp";
+				session.setAttribute("msg", "삭제 완료");
+				path = "index.jsp";
 			}else {
-				req.setAttribute("msg", "삭제 실패");
-				path = "mypage.jsp";
+				session.setAttribute("msg", "삭제 실패");
+				path = "index.jsp";
 			}
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
