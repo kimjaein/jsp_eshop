@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</thead>
 						<form action="<%=request.getContextPath()%>/board" method="post">
 					<tbody>
-							<input type="hidden" name="writer" value="wodls" /><!-- session.loginId 받아오기 -->
+							<input type="hidden" name="writer" value="${sessionScope.loginId} }" /><!-- session.loginId 받아오기 -->
 							<input type="hidden" name=task value="write" />
 							<input type="hidden" name=type value="qna" />
 						<tr>

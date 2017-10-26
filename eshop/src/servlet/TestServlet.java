@@ -116,6 +116,35 @@ public class TestServlet extends HttpServlet {
 				session.setAttribute("msg", "삭제 실패");
 				path = "index.jsp";
 			}
+		}else if (task.equals("cartDel")) {
+			String id = req.getParameter("id");
+			String productNumStr = req.getParameter("num");
+			int productNum=0;
+			if(productNumStr.length()>0 && productNumStr != null) {
+				productNum = Integer.parseInt(productNumStr);
+			}
+			int result = pService.cartDelete(id, productNum);
+			resp.setContentType("text/text;charset=utf-8");
+			resp.getWriter().print(result);
+			return;
+		}else if(task.equals("cartPlus")){
+			String id = req.getParameter("id");
+			String productNumStr = req.getParameter("num");
+			int productNum=0;
+			if(productNumStr.length()>0 && productNumStr != null) {
+				productNum = Integer.parseInt(productNumStr);
+			}
+			int result = pService.updateAndInsert(id, productNum);
+			if(result == 1) {
+				System.out.println("[Tservlet]장바구니에 없는 상품");
+				path = "mypage.jsp";
+			}else if(result == 2) {
+				System.out.println("[Tservlet]장바구니 물품 수량증가");
+				path = "mypage.jsp";
+			}else {
+				System.out.println("[Tservlet]장바구니 추가 및 업데이트 에러");
+				path = "mypage.jsp";
+			}
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);

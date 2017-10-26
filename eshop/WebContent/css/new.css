@@ -1,0 +1,36 @@
+@charset "EUC-KR";
+
+.reply>.recomment{
+	
+    color: #887f66;
+    font-size: 14px;
+    font-weight: 600;
+}
+.reply{
+	list-style:none;
+}
+
+.acount-btn2 {
+	background: #816263;
+	color: #FFF;
+	font-size: 13px;
+	padding: 7 7;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+}
+.reply{
+	margin-left:20px
+}
+.hr{
+	    border-top: 1px solid #ccc  !important;
+}
+
+ #replyimg{
+    width: 80%;
+    float: left;
+    margin-right: -20%;
+}
