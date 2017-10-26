@@ -138,9 +138,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <input type="hidden" name="task" value="join">
 						 <ul>
 							 <li class="text-info">아이디: </li>
-							 <li><input type="text" id="id" name="id" placeholder="아이디를 입력하세요.">
-							 	 <button id="idCheck">중복검사</button>
-							 </li>
+							 <li><input type="text" id="id" name="id" placeholder="아이디를 입력하세요."></li>
+							 <li><button id="idCheck">중복검사</button></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">비밀번호: </li>

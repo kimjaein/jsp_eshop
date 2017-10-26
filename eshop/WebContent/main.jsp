@@ -28,7 +28,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -41,32 +47,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
- 
+
 <%
-String logout = (String)session.getAttribute("logout");
-if(logout != null){
- 	%><script> 
-	alert('로그아웃 됨');
-	</script>
-	<%
-	session.removeAttribute("logout");
-}
-%>
-<!-- 
- <script type="text/javascript">
-window.onload = function(){
-	if(${sessionScope.logout} === logout){
-		console.log('로그아웃 됨');
-	}else{
-		console.log('세션 남아있음');
+	//로그아웃 수행시 로그아웃 세션 속성을 삭제함.
+	String logout = (String) session.getAttribute("logout");
+	if (logout == "complete") {
+		%><script>alert("로그아웃 완료")</script><%
+		session.removeAttribute("logout");
 	}
-}
- </script>
--->
- 
+%>
+<!-- msg로 저장된 session을 알림창으로 출력 (예시:회원탈퇴 완료, 정보수정 완료 등등]-->
+<%
+	String msg = (String) session.getAttribute("msg");
+	if (msg != null) {
+%><script>alert("<%=msg%>")</script>
+<%
+	session.removeAttribute("msg");
+	}
+%>
 </head>
-
-
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
 	<div class="banner">
