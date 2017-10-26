@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import dao.BuylistDao;
 import dao.ProductDao;
 import vo.MyCart;
-import vo.Article;
-import vo.ArticlePage;
 import vo.Product;
 import vo.ProductPage;
 
@@ -215,5 +214,12 @@ public class ProductService {
 			dao.insertCart(cartQuantity, productNum,id);
 			return 1;
 		}
+	}
+	
+	public boolean buylistInsert(List<MyCart> cart, List<Product> product, String id) {
+		
+		BuylistDao.getInstance().checkQuantity(id);
+		
+		return true;
 	}
 }

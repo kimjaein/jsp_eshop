@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -56,6 +57,17 @@ public class TestServlet extends HttpServlet {
 			req.setAttribute("cartList", cartList);
 			req.setAttribute("quantityList", quantityList);
 			path="payment.jsp";
+		}else if(task.equals("payment")) {
+			String id = req.getParameter("id");
+			HttpSession session = req.getSession();
+			
+			List<Product> cartList = pService.myCartProduct(id);
+			List<MyCart> quantityList = ProductDao.getInstance().quantityList(id);
+			pService.buylistInsert(cartList, quantityList, id);
+			//결제완료될때 DB에서 장바구니 삭제
+			
+			session.setAttribute("msg", "결제 완료");
+			path="index.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
