@@ -1,5 +1,6 @@
 package service;
 
+import dao.BuylistDao;
 import dao.MemberDao;
 import vo.Member;
 
@@ -61,6 +62,7 @@ public class MemberService {
 	}
 	
 	public boolean deleteMember(String id) {
+		BuylistDao.getInstance().deleteBuylist(id);
 		if(dao.deleteMember(id)==1) {
 			return true;
 		}else {
