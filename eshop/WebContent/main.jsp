@@ -51,7 +51,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <%
 	//로그아웃 수행시 로그아웃 세션 속성을 삭제함.
 	String logout = (String) session.getAttribute("logout");
-	System.out.println(logout);
 	if (logout == "complete") {
 		%><script>alert("로그아웃 완료")</script><%
 		session.removeAttribute("logout");
@@ -60,7 +59,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- msg로 저장된 session을 알림창으로 출력 (예시:회원탈퇴 완료, 정보수정 완료 등등]-->
 <%
 	String msg = (String) session.getAttribute("msg");
-	System.out.println(msg);
 	if (msg != null) {
 %><script>alert("<%=msg%>")</script>
 <%
