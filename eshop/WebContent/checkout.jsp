@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -22,7 +25,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords"
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript">addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }</script>
+<script type="application/x-javascript">
+	addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
 <!--webfont-->
 <!-- for bootstrap working -->
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
@@ -34,8 +39,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
+	
+<script type="text/javascript">
+function cancelCart(num){
+	var product_num = num;
+	var id = "${sessionScope.loginId}";
+	$.ajax({
+		type:'post',
+		url:'test?task=cartDel&id='+id+'&num='+product_num,
+		dataType:'text', // 응답데이터 형식, 보통은 xml, json으로 옴.
+		success:function(delComplete){
+			alert('응답 완료');
+		},
+		error:function(){
+			alert("ajax 요청이 전달되지 못함.")
+		}
+	})
+	
+}
+
+</script>
 </head>
 <body>
+	<c:set var="sum" value="0" />
 	<jsp:include page="top.jsp"></jsp:include>
 	<!-- checkout -->
 	<div class="cart-items">
@@ -48,36 +74,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 				<div class="clearfix"></div>
 			</div>
-			<h2>나의 장바구니 (Count(*))</h2>
+			<h2>나의 장바구니 [${cartCount}]</h2>
 			<div class="cart-gd">
-			
 				<!-- 상품 하나의 시작 -->
-				<div class="cart-header1">
-					<div class="close1"></div>
-					<div class="cart-sec simpleCart_shelfItem">
-						<div class="cart-item cyc">
-							<img src="images/l3.jpg" class="img-responsive" alt="">
-						</div>
-						<div class="cart-item-info">
-							<h3>
-								<a href="#"> 상품 이름 </a>
-								<span>사이즈 : </span>
-								<span>색상 : </span>
-								<span>수량 : </span>
-								<span>가격 : </span>
-							</h3>
-							<div class="delivery">
-								<span>
-									<b>[무료 배송]</b>배송 예정일 1~3일
-								</span>
-								<div class="clearfix"></div>
+				<c:forEach var="list" items="${cartList}">
+					<hr>
+					<div class="cart-header1">
+						<div class="cart-sec simpleCart_shelfItem">
+							<div class="cart-item cyc">
+								<img
+									src="images/${list.large_Category}/${list.middle_Category}/${list.title}.JPG"
+									class="img-responsive" alt="">
 							</div>
+							<div class="cart-item-info">
+								<h3>
+									<a href="#">상품명 : ${list.title} </a>
+									<a href="#"
+										onclick="cancelCart(${list.product_num});">
+										<img src="images/close_1.png" align="right">
+									</a>
+									<br> <br> <b>사이즈 : ${list.size}</b><br> <br>
+									<b>색상 : ${list.color}</b><br> <br> <b>수량 : 1개</b><br>
+									<br> <b>가격 : ${list.price} </b><br> <br>
+									<c:set var="sum" value="${sum + list.price}" />
+								</h3>
+								<div class="delivery">
+									<span> <b>[무료 배송]</b>배송 예정일 1~3일
+									</span>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
 						</div>
-						<div class="clearfix"></div>
 					</div>
-				</div>
+				</c:forEach>
 				<!-- 상품 하나의 끝 -->
-
+				<hr>
+				<h2>결제금액 : ${sum}</h2>
+				<br>
+				<h2>
+					<a class="acount-btn"
+						href="${pageContext.request.contextPath}/test?task=buy&id=${sessionScope.loginId}">구매하기</a>
+				</h2>
 			</div>
 		</div>
 	</div>

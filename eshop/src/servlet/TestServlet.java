@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,15 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mysql.fabric.Response;
-
+import dao.ProductDao;
 import service.MemberService;
+import service.ProductService;
 import vo.BuyList;
 import vo.Member;
+import vo.Product;
 
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
-	MemberService service = MemberService.getInstance();
+	MemberService mService = MemberService.getInstance();
+	ProductService pService = ProductService.getInstance();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("EUC-KR");
@@ -39,6 +40,10 @@ public class TestServlet extends HttpServlet {
 		}else if(task.equals("cart")) {
 			String id = req.getParameter("id");
 			req.setAttribute("id", id);
+			//service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
+			List<Product> cartList = pService.myCartProduct(id);
+			req.setAttribute("cartCount", ProductDao.getInstance().cartCount(id));
+			req.setAttribute("cartList", cartList);
 			path ="checkout.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
@@ -65,7 +70,7 @@ public class TestServlet extends HttpServlet {
 			System.out.println("address : "+member.getAddress());
 			System.out.println("email : "+member.getEmail());
 			
-			if (service.memberUpdate(member)) {
+			if (mService.memberUpdate(member)) {
 				session.setAttribute("msg", "수정 완료");
 				path = "index.jsp";
 			} else {
@@ -82,9 +87,9 @@ public class TestServlet extends HttpServlet {
 			// 받아온 id와 pw값이 빈 값이 아니면
 			if (id != null && id.length() > 0 && pw != null && pw.length() > 0) {
 				// 해당 id의 pw와 DB에 있는 pw와 비교값이 참이면
-				if (service.loginPwCheck(id, pw)) {
+				if (mService.loginPwCheck(id, pw)) {
 					// MemberInfo에 id로 검색한 정보를 넣는다
-					Member memberInfo = service.memberInfo(id);
+					Member memberInfo = mService.memberInfo(id);
 					req.setAttribute("memberInfo", memberInfo);
 					session.setAttribute("msg", "정보 일치");
 					path = "editaccount.jsp";
@@ -102,8 +107,8 @@ public class TestServlet extends HttpServlet {
 			// 계정 삭제
 			String id = req.getParameter("userid");
 			String pw = req.getParameter("userpw");
-			if(service.loginPwCheck(id, pw)){
-				service.deleteMember(id);
+			if(mService.loginPwCheck(id, pw)){
+				mService.deleteMember(id);
 				session.removeAttribute("loginId");
 				session.setAttribute("msg", "삭제 완료");
 				path = "index.jsp";
