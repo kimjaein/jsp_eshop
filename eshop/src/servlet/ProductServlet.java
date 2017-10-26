@@ -52,6 +52,7 @@ public class ProductServlet extends HttpServlet{
 
 			List<Product> categoryList = service.middleCategoryProduct(middleList);
 			
+			request.setAttribute("middleCategory", task);
 			request.setAttribute("categoryList", categoryList);
 			
 			path="products.jsp";
@@ -61,6 +62,8 @@ public class ProductServlet extends HttpServlet{
 
 			List<Product> categoryList = service.largeCategoryProduct(largeList);
 			
+			
+			request.setAttribute("largeCategory", task);
 			request.setAttribute("categoryList", categoryList);
 			
 			path="products.jsp";
