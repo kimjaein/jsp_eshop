@@ -74,10 +74,6 @@ function addCart(num){
 			<div class="new-product">
 				<div class="new-product-top">
 					<ul class="product-top-list">
-					<%
-						System.out.println(request.getAttribute("large"));
-						System.out.println(request.getAttribute("middle"));
-					%>
 						<li><a href="index.jsp">Home</a>&nbsp;<span>&gt;</span></li>
 <%-- 					<li><span class="act">${categoryList.get(0).large_Category}</span>&nbsp;</li> --%>
 						<c:choose>
