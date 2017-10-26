@@ -6,6 +6,7 @@ import java.util.List;
 
 import dao.ProductDao;
 import vo.Product;
+import vo.ProductPage;
 
 public class ProductService {
 	private ProductDao dao = ProductDao.getInstance();
@@ -22,6 +23,14 @@ public class ProductService {
 
 	private ProductService() {
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////
+	private static final int COUNT_PER_PAGE=10;
+	public ProductPage makePage(int page) {
+		int totalProduct = 
+		
+	}
+	
+	
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct(){
 		List<Product> recentProductList = dao.selectRecentProduct();
