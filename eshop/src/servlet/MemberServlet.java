@@ -80,13 +80,13 @@ public class MemberServlet extends HttpServlet {
 				session.removeAttribute("logout");
 				path = "index.jsp";
 			} else {
-				session.setAttribute("msg", "로그인 실패");
+				session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
 				path = "index.jsp";
 			}
 		} else if (task.equals("loginIdCheck")) {
 			String id = request.getParameter("id");
 			String idCheck = service.loginIdCheck(id);
-			response.setContentType("text/json;charset=euc-kr");
+			response.setContentType("text/text;charset=utf-8");
 			response.getWriter().print(idCheck);
 			return;
 		}

@@ -34,6 +34,7 @@ public class MemberService {
 	}
 
 	public String loginIdCheck(String id) {
+		System.out.println("id:"+id+".");
 		String idCheck = dao.selectIdCheck(id);
 		return idCheck;
 	}
