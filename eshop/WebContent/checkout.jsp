@@ -48,20 +48,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 				<div class="clearfix"></div>
 			</div>
-			<h2>나의 장바구니 (쿠키 갯수)</h2>
+			<h2>나의 장바구니 (Count(*))</h2>
 			<div class="cart-gd">
+			
 				<!-- 상품 하나의 시작 -->
-				<script>
-					$(document).ready(function(c) {
-						$('.close3').on('click', function(c) {
-							$('.cart-header3').fadeOut('slow', function(c) {
-								$('.cart-header3').remove();
-							});
-						});
-					});
-				</script>
-				<div class="cart-header3">
-					<div class="close3"></div>
+				<div class="cart-header1">
+					<div class="close1"></div>
 					<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
 							<img src="images/l3.jpg" class="img-responsive" alt="">

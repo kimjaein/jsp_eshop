@@ -63,9 +63,10 @@ public class MemberServlet extends HttpServlet {
 			member.setEmail(request.getParameter("email"));
 
 			if (service.joinMember(member)) {
-				path = "account.jsp";
+				session.setAttribute("msg", "회원가입 성공");
+				path = "index.jsp";
 			} else {
-				session.setAttribute("msg", "회원가입 실패");
+				session.setAttribute("msg", "가입에 실패하였습니다.");
 				path = "index.jsp";
 			}
 		} else if (task.equals("login")) {
@@ -79,8 +80,8 @@ public class MemberServlet extends HttpServlet {
 				session.removeAttribute("logout");
 				path = "index.jsp";
 			} else {
-				session.setAttribute("msg", "아이디 또는 비밀번호가 일치하지 않습니다.");
-				path = "index.jsp";
+				session.setAttribute("msg", "아이디 혹은 비밀번호가 틀렸습니다.");
+				path = "account.jsp";
 			}
 		} else if (task.equals("loginIdCheck")) {
 			String id = request.getParameter("id");
