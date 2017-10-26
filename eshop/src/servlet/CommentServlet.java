@@ -26,14 +26,14 @@ public class CommentServlet extends HttpServlet {
 		String task = request.getParameter("task");
 		System.out.println("comment");
 		if (task.equals("read")) {
-			String articleNumStr = request.getParameter("articleNum");
-			int articleNum = Integer.parseInt(articleNumStr);
-			response.setContentType("text/text;charset=euc-kr");
-			List<Comment> commentList = service.readComment(articleNum);
-			PrintWriter writer = response.getWriter();
-			Gson gson = new Gson();
-			writer.print(gson.toJson(commentList));
-			System.out.println(gson.toString());
+//			String articleNumStr = request.getParameter("articleNum");
+//			int articleNum = Integer.parseInt(articleNumStr);
+//			response.setContentType("text/text;charset=euc-kr");
+//			List<Comment> commentList = service.readComment(articleNum);
+//			PrintWriter writer = response.getWriter();
+//			Gson gson = new Gson();
+//			writer.print(gson.toJson(commentList));
+//			System.out.println(gson.toString());
 		}
 	}
 
@@ -47,20 +47,22 @@ public class CommentServlet extends HttpServlet {
 
 			String writer = request.getParameter("writer");
 			String contents = request.getParameter("contents");
-			String articleNumStr = request.getParameter("articleNum");
-			int articleNum = Integer.parseInt(articleNumStr);
+			String title = request.getParameter("title")+"-1";
 
+			System.out.println(title);
 			Comment comment = new Comment();
-			comment.setArticleNum(articleNum);
+			comment.setTitle(title);
 			comment.setWriter(writer);
 			comment.setContents(contents);
 
 			boolean result = service.writeComment(comment);
+			
 			if (result) {
-				path = "board?task=read&articleNum=" + articleNum;
+				path = "product?task=detail&title="+ title;
 			}
 			
 			response.sendRedirect(path); // 원래의 페이지로 이동
+			return;
 		}
 
 	}

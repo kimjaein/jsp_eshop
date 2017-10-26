@@ -2,6 +2,7 @@
 <%@page import="vo.Product"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -43,9 +44,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="product-listy">
 					<h2>our Products</h2>
 					<ul class="product-list">
-						<li><a href="">OUTER</a></li>
-						<li><a href="">TOP</a></li>
-						<li><a href="">BOTTOM</a></li>
+						<li><a href="product?task=largeCategory&largeList=OUTER">OUTER</a></li>
+						<li><a href="product?task=largeCategory&largeList=TOP">TOP</a></li>
+						<li><a href="product?task=largeCategory&largeList=BOTTOM">BOTTOM</a></li>
 					</ul>
 				</div>
 
@@ -88,13 +89,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        	   </div>
  
 					<div class="clearfix"></div>
-					<%
-						List<Product> categoryList = (List)request.getAttribute("categoryList");
-						System.out.println("products.jsp"+categoryList);
-					%>
+<!-- 상품 목록 -->
 					
 					<ul>
-					
 					  
 				<c:choose>
 					<c:when test="${empty categoryList}">
@@ -107,13 +104,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<c:forEach var="categoryProduct" items="${categoryList}">
 						
 					  <li>
-							<a class="cbp-vm-image" href="single.jsp">
+							<a class="cbp-vm-image" href="product?task=detail&title=${categoryProduct.title}-${1}">
 							<div class="simpleCart_shelfItem">
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
 							</div>
-									<img src="images/${categoryProduct.larget_Category}/${categoryProduct.middle_Category}/${categoryProduct.title}-${1}.JPG" class="img-responsive" alt=""/>
+									<img src="images/${categoryProduct.large_Category}/${categoryProduct.middle_Category}/${categoryProduct.title}-${1}.JPG" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>

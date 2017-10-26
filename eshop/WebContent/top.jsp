@@ -58,9 +58,9 @@
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
 									<h6>OUTER</h6>
-						            <li><a href="product?task=list&category=PADDING">PADDING</a></li>
-						            <li><a href="product?task=list&category=COAT">COAT</a></li>
-						            <li><a href="product?task=list&category=JACKET">JACKET</a></li>
+						            <li><a href="product?task=middleCategory&middleList=PADDING">PADDING</a></li>
+						            <li><a href="product?task=middleCategory&middleList=COAT">COAT</a></li>
+						            <li><a href="product?task=middleCategory&middleList=JACKET">JACKET</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
@@ -74,9 +74,9 @@
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
 									<h6>TOP</h6>
-						            <li><a href="product?task=list&category=LONG SLEEVE">LONG SLEEVE</a></li>
-						            <li><a href="product?task=list&category=SHORT SLEEVE">SHORT SLEEVE</a></li>
-						            <li><a href="product?task=list&category=SLEEVELESS">SLEEVELESS</a></li>
+						            <li><a href="product?task=middleCategory&middleList=LONG SLEEVE">LONG SLEEVE</a></li>
+						            <li><a href="product?task=middleCategory&middleList=SHORT SLEEVE">SHORT SLEEVE</a></li>
+						            <li><a href="product?task=middleCategory&middleList=SLEEVELESS">SLEEVELESS</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
@@ -90,9 +90,9 @@
 				            <div class="col-sm-12">
 					            <ul class="multi-column-dropdown">
 									<h6>BOTTOM</h6>
-						            <li><a href="product?task=list&category=SLACKS">SLACKS</a></li>
-						            <li><a href="product?task=list&category=JEANS">JEANS</a></li>
-						            <li><a href="product?task=list&category=SHORTS">SHORTS</a></li>
+						            <li><a href="product?task=middleCategory&middleList=SLACKS">SLACKS</a></li>
+						            <li><a href="product?task=middleCategory&middleList=JEANS">JEANS</a></li>
+						            <li><a href="product?task=middleCategory&middleList=SHORT">SHORTS</a></li>
 					            </ul>
 				            </div>
 							<div class="clearfix"></div>
