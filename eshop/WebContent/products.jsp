@@ -33,6 +33,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
+<script src="js/classie.js" type="text/javascript"></script>
 <script type="text/javascript">
 function addCart(num){
 	var id = "${sessionScope.loginId}";
@@ -77,126 +79,97 @@ function addCart(num){
 						System.out.println(request.getAttribute("middle"));
 					%>
 						<li><a href="index.jsp">Home</a>&nbsp;<span>&gt;</span></li>
-<%-- 						<li><span class="act">${categoryList.get(0).large_Category}</span>&nbsp;</li> --%>
+<%-- 					<li><span class="act">${categoryList.get(0).large_Category}</span>&nbsp;</li> --%>
 						<c:choose>
 							<c:when test = "${type eq 'largeCategory'}">
 								<li><span class="act">${categoryPage.productList.get(0).large_Category}</span>&nbsp;</li>
 							</c:when>
-							
 							<c:otherwise>
 								<li><span class="act">${categoryPage.productList.get(0).large_Category} > ${categoryPage.productList.get(0).middle_Category}</span>&nbsp;</li>
 							</c:otherwise>
-							
 						</c:choose>
-						
-						
-						
-						
 					</ul>
 					<p class="back"><a href="index.jsp">Back to Previous</a></p>
 					<div class="clearfix"></div>
 				</div>
 				<div class="mens-toolbar">
-                 <div class="sort">
-               	   <div class="sort-by">
-			            <label>Sort By</label>
-			            <select>
-			                            <option value="">
-			                    Name                </option>
-			                            <option value="">
-			                    Price                </option>
-			            </select>
-			            <a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
+                	<div class="sort">
+               	 		<div class="sort-by">
+			            	<label>Sort By</label>
+			            	<select>
+			                	<option value="">Name</option>
+			                    <option value="">Price</option>
+			           		</select>
+			            	<a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
 	                   </div>
-	    		     </div>
-		    	        <ul class="women_pagenation">
-					     <li>Page:</li>
-					     
-							
-					     
-					     <c:forEach begin="${categoryPage.startPage}" end="${categoryPage.endPage}" var="i">
-					     <c:choose>
-					     	<c:when test = "${type eq 'largeCategory'}">
-					   	  		<li class="active"><a href="product?task=largeCategory&p=${i}"> ${i} </a></li>
-							</c:when>
-							
-							<c:otherwise>
-								<li class="active"><a href="product?task=middleCategory&p=${i}"> ${i} </a></li>
-							</c:otherwise>
-							
-							
-						</c:choose>
-							
-					     </c:forEach>
-				  	    </ul>
-	               		 <div class="clearfix"></div>		
-			        </div>
-			        <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
+	    		    </div>
+		    	    <ul class="women_pagenation">
+						<li>Page:</li>
+				    	<c:forEach begin="${categoryPage.startPage}" end="${categoryPage.endPage}" var="i">
+				    		<c:choose>
+				     			<c:when test = "${type eq 'largeCategory'}">
+				   	  				<li class="active"><a href="product?task=largeCategory&p=${i}"> ${i} </a></li>
+								</c:when>
+								<c:otherwise>
+									<li class="active"><a href="product?task=middleCategory&p=${i}"> ${i} </a></li>
+								</c:otherwise>
+							</c:choose>
+				    	</c:forEach>
+				  	</ul>
+	               	<div class="clearfix"></div>	
+				</div>
+			    <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
 					<div class="cbp-vm-options">
 						<a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid" title="grid">Grid View</a>
 						<a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list" title="list">List View</a>
 					</div>
-					<div class="pages">   
-       	   </div>
- 
-					<div class="clearfix"></div>
-<!-- 상품 목록 -->
-					
+					<div class="pages"></div>
+	 				<div class="clearfix"></div>
 					<ul>
-					  
-				<c:choose>
-					<c:when test="${empty categoryPage.productList}">
-						<div class="banner-info">
-							<h3 class="head text-center"> 상품이 존재하지 않습니다. </h3>
-						</div>
-					</c:when>
-					<c:otherwise>		
-												
-						<c:forEach var="categoryProduct" items="${categoryPage.productList}">
-						
-					  <li>
-							<a class="cbp-vm-image" href="product?task=detail&title=${categoryProduct.title}-${1}">
-							<div class="simpleCart_shelfItem">
-							 <div class="view view-first">
-					   		  <div class="inner_content clearfix">
-								<div class="product_image">
-							</div>
-									<img src="images/${categoryProduct.large_Category}/${categoryProduct.middle_Category}/${categoryProduct.title}-${1}.JPG" class="img-responsive" alt=""/>
-									<div class="mask">
-			                       		<div class="info">Quick View</div>
-					                  </div>
-									<div class="product_container">
-									   <div class="cart-left">
-										 <p class="title">${categoryProduct.title}</p>
-									   </div>
-									   <div class="pricey"><span class="item_price">\ ${categoryProduct.price}</span></div>
-									   <div class="clearfix"></div>
-								     </div>		
-								  </div>
-		                     </div>
-		                     </div>
-		                    </a>
-							</div>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#" onclick="addCart(${categoryProduct.product_num});">Add to cart</a>
-							
-						</li>					
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-				
+						<c:choose>
+							<c:when test="${empty categoryPage.productList}">
+								<div class="banner-info">
+									<h3 class="head text-center"> 상품이 존재하지 않습니다. </h3>
+								</div>
+							</c:when>
+							<c:otherwise>		
+														
+								<c:forEach var="categoryProduct" items="${categoryPage.productList}">
+								
+							  <li>
+									<a class="cbp-vm-image" href="product?task=detail&title=${categoryProduct.title}-${1}">
+									<div class="simpleCart_shelfItem">
+									 <div class="view view-first">
+							   		  <div class="inner_content clearfix">
+										<div class="product_image">
+									</div>
+											<img src="images/${categoryProduct.large_Category}/${categoryProduct.middle_Category}/${categoryProduct.title}-${1}.JPG" class="img-responsive" alt=""/>
+											<div class="mask">
+					                       		<div class="info">Quick View</div>
+							                  </div>
+											<div class="product_container">
+											   <div class="cart-left">
+												 <p class="title">${categoryProduct.title}</p>
+											   </div>
+											   <div class="pricey"><span class="item_price">\ ${categoryProduct.price}</span></div>
+											   <div class="clearfix"></div>
+										     </div>		
+										  </div>
+				                     </div>
+				                     </div>
+				                    </a>
+									<a class="cbp-vm-icon cbp-vm-add item_add" href="#" onclick="addCart(${categoryProduct.product_num});">Add to car</a>
+									
+								</li>					
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
 					</ul>
 				</div>
-				
-				
-				
-				
-				<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
-                <script src="js/classie.js" type="text/javascript"></script>
-			<div class="clearfix"></div>
+				<div class="clearfix"></div>
 			</div>
 			<div class="clearfix"></div>
-			</div>
-
+		</div>
 		<!-- content-section-ends-here -->
 		<jsp:include page="bottom.jsp"></jsp:include>
 </body>
