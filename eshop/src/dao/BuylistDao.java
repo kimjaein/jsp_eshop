@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import vo.BuyList;
@@ -136,6 +137,30 @@ public class BuylistDao {
 		}
 		return result;
 	}
-	
-
+	//////////////////////////////////////////////////
+	//상품번호 넣고 수량 출력하기
+	public BuyList checkQuantity(String id) {
+		String sql = "SELECT CART_QUANTITY, TITLE FROM MYCART AS M, PRODUCT AS P WHERE M.PRODUCT_NUM=? AND"
+				+" M.PRODUCT_NUM = P.PRODUCT_NUM;";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, productNum);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				BuyList buy = new BuyList();
+				buy.setBuy_date(new Date());
+				buy.setBuy_quantity(rs.getInt(1));
+				buy.setProduct_title(rs.getString(2));
+				buy.setBuyer_id(id);
+			}
+		} catch (SQLException e) {
+			System.out.println("dao checkQuantity 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return buy;
+	}
 }
