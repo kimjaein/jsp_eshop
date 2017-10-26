@@ -108,10 +108,10 @@ function addCart(num){
 				    	<c:forEach begin="${categoryPage.startPage}" end="${categoryPage.endPage}" var="i">
 				    		<c:choose>
 				     			<c:when test = "${type eq 'largeCategory'}">
-				   	  				<li class="active"><a href="product?task=largeCategory&p=${i}"> ${i} </a></li>
+				   	  				<li class="active"><a href="product?task=largeCategory&p=${i}&largeList=${categoryPage.productList.get(0).large_Category}"> ${i} </a></li>
 								</c:when>
 								<c:otherwise>
-									<li class="active"><a href="product?task=middleCategory&p=${i}"> ${i} </a></li>
+									<li class="active"><a href="product?task=middleCategory&p=${i}&middleList=${categoryPage.productList.get(0).middle_Category}"> ${i} </a></li>
 								</c:otherwise>
 							</c:choose>
 				    	</c:forEach>
