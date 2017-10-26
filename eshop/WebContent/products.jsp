@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="vo.Product"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -85,65 +86,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="pages">   
        	   </div>
-       	   
-       	   
-       	   <!-- 							메인 상품 new -->
-       	   
-       	   
-       	   
-       	   
+ 
 					<div class="clearfix"></div>
+					<%
+						List<Product> categoryList = (List)request.getAttribute("categoryList");
+						System.out.println("products.jsp"+categoryList);
+					%>
+					
 					<ul>
-					  <li>
+					
+					  
 				<c:choose>
 					<c:when test="${empty categoryList}">
 						<div class="banner-info">
 							<h3>상품이 존재하지 않습니다.</h3>
 						</div>
 					</c:when>
-					<c:otherwise>
-									
+					<c:otherwise>		
+												
 						<c:forEach var="categoryProduct" items="${categoryList}">
 						
+					  <li>
 							<a class="cbp-vm-image" href="single.jsp">
-								<div class="simpleCart_shelfItem">
+							<div class="simpleCart_shelfItem">
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/${categoryProduct.large_Category}/${categoryProduct.middle_Category}/${categoryProduct.title}-${1}.JPG" class="img-responsive" alt=""/>
+							</div>
+									<img src="images/${categoryProduct.larget_Category}/${categoryProduct.middle_Category}/${categoryProduct.title}-${1}.JPG" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>
 									<div class="product_container">
 									   <div class="cart-left">
-										 <p class="title">coat1</p>
+										 <p class="title">이름:${categoryProduct.title}</p>
 									   </div>
-									   <div class="pricey"><span class="item_price">50000</span></div>
+									   <div class="pricey"><span class="item_price">가격:${categoryProduct.price}</span></div>
 									   <div class="clearfix"></div>
 								     </div>		
 								  </div>
-			                     </div>
-		                      </div>
+		                     </div>
 		                    </a>
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
 							</div>
-						</li>						
+							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
+						
+							
+						</li>					
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+				
 					</ul>
 				</div>
 				
 				
-										</c:forEach>
-					</c:otherwise>
-				</c:choose>
 				
 				
 				<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
                 <script src="js/classie.js" type="text/javascript"></script>
-			</div>
 			<div class="clearfix"></div>
 			</div>
 			<div class="clearfix"></div>
-   </div>
+			</div>
 
 		<!-- content-section-ends-here -->
 		<jsp:include page="bottom.jsp"></jsp:include>

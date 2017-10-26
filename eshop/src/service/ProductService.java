@@ -59,7 +59,7 @@ public class ProductService {
 			 
 			 //			 categoryList.get(i).setTitle(title);			 
 		 }
-		 System.out.println(categoryList);
+//		 System.out.println(categoryList);
 		 
 		 
 		 
