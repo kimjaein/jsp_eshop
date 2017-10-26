@@ -48,6 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$('#pw').focus();
 				return false;
 			}
+			document.form.submit();
 		})
 	})
 </script>
@@ -83,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
 						<h3>기존 회원</h3>
 						<p>Login</p>
-						<form id="loginForm" action="${pageContext.request.contextPath}/member" method="post">
+						<form name="form" id="loginForm" action="${pageContext.request.contextPath}/member" method="post">
 						<input type="hidden" value="login" name="task">
 							<div>
 								<span>아이디<label>*</label></span> <input type="text" id="id" name="id">
