@@ -96,11 +96,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<form name="form" id="loginForm" action="${pageContext.request.contextPath}/member" method="post">
 						<input type="hidden" value="login" name="task">
 							<div>
-								<span>아이디<label>*</label></span> <input type="text" id="id" name="id">
+								<span>아이디<label>*</label></span> 
+								<input type="text" id="id" name="id" placeholder="아이디를 입력하세요.">
 							</div>
 
 							<div>
-								<span>비밀번호<label>*</label></span> <input type="password" id="pw" name="pw">
+								<span>비밀번호<label>*</label></span> 
+								<input type="password" id="pw" name="pw" placeholder="비밀번호를 입력하세요.">
 							</div>
 
 							<a class="forgot" href="#">비밀번호를 잊으셨나요?</a> 
