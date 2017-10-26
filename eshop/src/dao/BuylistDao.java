@@ -118,7 +118,24 @@ public class BuylistDao {
 		}
 		return productList;
 	}
-
+	public int deleteBuylist(String id) {
+		con = DBUtil.makeConnection();
+		String sql = "DELETE FROM BUY_LIST WHERE BUYER_ID=?";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("dao buylist delete ¿¡·¯");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return result;
+	}
 	
 
 }

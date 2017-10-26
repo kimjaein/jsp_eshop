@@ -32,11 +32,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
+
 	<script type="text/javascript">
 	window.onload = function(){
 		$('#passwordCheck').html("");
-		$("input[name=submit]").val('수정 불가');
-		$("input[name=submit]").prop("disabled",true);
 	}
 		function pwCheck(){
 			var pw1= $('#pw1').val();
@@ -45,22 +44,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			if(pw1 == pw2){
 				$('#passwordCheck').html("<b>패스워드가 일치합니다</b>");
 				$('#passwordCheck').css('color','green');
-				$("input[name=submit]").val('수정 완료');
-				$("input[name=submit]").prop("disabled",false);
 			}else{
 				$('#passwordCheck').html("");
-				$("input[name=submit]").val('수정 불가');
-				$("input[name=submit]").prop("disabled",true);
 			}
 		}
-		function pwemptyCheck(){
-			var pw1=$('#pw1').val();
-			var pw2=$('#pw2').val();
-			
-			if(pw1 == null || pw2 == null){
-				return;
-			}
-		}
+		$(function(){
+			// submit을 실행했을 때의 이벤트 및 조건문
+			$('#editForm').submit(function(){
+				if($('#pw1').val()== null || $('#pw1').val()==''){
+					alert('패스워드를 입력하세요.');
+					$('#pw1').focus();
+					return false;
+				}
+				else if($('#pw2').val()== null || $('#pw2').val()==''){
+					alert('패스워드를 입력하세요.');
+					$('#pw2').focus();
+					return false;
+				}
+				document.form.submit();
+			})
+		})
 	</script>
 </head>
 <body>
@@ -72,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
-					<form action="${pageContext.request.contextPath}/test" method="post">
+					<form name="form" id="editForm" action="${pageContext.request.contextPath}/test" method="post">
 					<input type="hidden" name="task" value="edit">
 					<input type="hidden" name="userid" value="${sessionScope.loginId}">
 					<!-- List에서 값 받아오고 text value에 넣고 수정완료 클릭시 값 넘어감 -->
@@ -109,8 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="text-info">E-mail:</li>
 							<li><input type="text" value="${memberInfo.email}" name="useremail"></li>
 						</ul>
-						<input type="submit" value="수정 완료" name="submit">
-						<a href="${pageContext.request.contextPath}/test"><input type="submit" class="acount-btn" value="수정 취소"></a>
+						<input type="submit" class="acount-btn" value="수정 완료">
 					</form>
 				</div>
 			</div>

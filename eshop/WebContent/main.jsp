@@ -265,8 +265,9 @@ window.onload = function(){
 						visibleItems : 3
 					}
 				}
+			
 			});
-
+		}
 				<div class="clearfix"></div>
 
 <!-- 	</script>

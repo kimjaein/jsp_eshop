@@ -20,13 +20,7 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
 
 </script>
 <!--webfont-->
@@ -40,6 +34,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
+<%
+	String msg = (String) request.getAttribute("msg");
+	if (msg != null) {
+%>
+<script>
+	alert("<%=msg%>");
+</script>
+<%
+	}
+%>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
@@ -61,7 +65,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!-- 				setattribute 된 회원의 값을 가져와서 아이디와 일치하면 정보출력 -->
 						<a class="acount-btn"
 							href="${pageContext.request.contextPath}/test?task=editaccount">정보수정</a>
-						<a class="acount-btn" href="${pageContext.request.contextPath}/test?task=buylist&id=${sessionScope.loginId}">구매내역</a>
+						<a class="acount-btn"
+							href="${pageContext.request.contextPath}/test?task=buylist&id=${sessionScope.loginId}">구매내역</a>
 						<a class="acount-btn" href="checkout.jsp">장바구니</a>
 						<a class="acount-btn" href="deleteaccount.jsp">회원탈퇴</a>
 					</c:if>

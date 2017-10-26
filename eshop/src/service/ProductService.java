@@ -42,8 +42,8 @@ public class ProductService {
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	public List<Product> categoryProduct(String category) {
-		List<Product> categoryList = dao.selectCategory(category);
+	public List<Product> middleCategoryProduct(String middleCategory) {
+		List<Product> categoryList = dao.selectMiddleCategory(middleCategory);
 		
 		 for(int i=0; i<categoryList.size();i++) {
 			 Product p = categoryList.get(i);
@@ -59,12 +59,31 @@ public class ProductService {
 			 
 			 //			 categoryList.get(i).setTitle(title);			 
 		 }
-		 System.out.println(categoryList);
-		 
-		 
-		 
-		 
+//		 System.out.println(categoryList);
+		 		
+		return categoryList;
+	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	public List<Product> largeCategoryProduct(String largeCategory) {
+		List<Product> categoryList = dao.selectLargeCategory(largeCategory);
 		
+		 for(int i=0; i<categoryList.size();i++) {
+			 Product p = categoryList.get(i);
+			 String title = p.getTitle();
+			 
+			 
+			 
+			 title = title.substring(0,title.length()-2);
+			 p.setTitle(title);
+			 
+			 categoryList.remove(i);
+			 categoryList.add(i, p);
+			 
+			 //			 categoryList.get(i).setTitle(title);			 
+		 }
+//		 System.out.println(categoryList);
+		 		
 		return categoryList;
 	}
 

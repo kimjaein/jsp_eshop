@@ -43,23 +43,32 @@ public class ProductServlet extends HttpServlet{
 			 str=str.substring(0,str.length()-2);
 			 singleProduct.setTitle(str);
 
-			 List<Comment> commentList = serviceComment.readComment(title);
+//			 List<Comment> commentList = serviceComment.readComment(title);
 			 
 			request.setAttribute("singleProduct", singleProduct);
 			System.out.println(singleProduct.toString());
-			request.setAttribute("commentList",commentList);
+//			request.setAttribute("commentList",commentList);
 			path = "single.jsp";
-		} else if(task.equals("list")) {
-			String category = request.getParameter("category");
+			
+		} else if(task.equals("middleCategory")) {
+			String middleList = request.getParameter("middleList");
 
-			List<Product> categoryList = service.categoryProduct(category);
+			List<Product> categoryList = service.middleCategoryProduct(middleList);
 			
 			request.setAttribute("categoryList", categoryList);
 			
 			path="products.jsp";
+
+		} else if(task.equals("largeCategory")) {
+			String largeList = request.getParameter("largeList");
+
+			List<Product> categoryList = service.largeCategoryProduct(largeList);
 			
-		}
+			request.setAttribute("categoryList", categoryList);
+			
+			path="products.jsp";
 		
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
