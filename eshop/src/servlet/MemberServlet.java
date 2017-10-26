@@ -25,7 +25,9 @@ public class MemberServlet extends HttpServlet{
 		if(task.equals("logout")) {
 			HttpSession session = request.getSession();
 			session.removeAttribute("loginId");
-			session.invalidate();
+			
+			String logout="logout";
+			session.setAttribute("logout", logout);
 			
 			path ="index.jsp";
 		}

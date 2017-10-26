@@ -24,7 +24,9 @@ public class TestServlet extends HttpServlet {
 		req.setCharacterEncoding("EUC-KR");
 		String task = req.getParameter("task");
 		String path = "";
-		if (task.equals("editaccount")) {
+		if(task == null || task.isEmpty()){
+			path="mypage.jsp";
+		}else if (task.equals("editaccount")) {
 			path = "editaccountform.jsp";
 		}else if(task.equals("buylist")) {
 			String id = req.getParameter("id");
@@ -90,6 +92,7 @@ public class TestServlet extends HttpServlet {
 			if(service.loginPwCheck(id, pw)){
 				service.deleteMember(id);
 				HttpSession session = req.getSession();
+				
 				session.removeAttribute("loginId");
 				session.invalidate();
 				path ="index.jsp";

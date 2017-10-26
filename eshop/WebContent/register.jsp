@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <p>아래 항목에 해당되는 내용을 적어주십시오.</p>
 					 <p>이미 가입이 되어있다면, <a href="account.jsp">여기를 누르세요!!</a></p>
 				 <!-- form에도 id를 부여할수 있다. -->	
-					 <form name=form id="joinForm" action="${pageContext.request.contextPath}/member" method="post">
+					 <form name="form" id="joinForm" action="${pageContext.request.contextPath}/member" method="post">
 					 <input type="hidden" name="task" value="join">
 						 <ul>
 							 <li class="text-info">아이디: </li>
