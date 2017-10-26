@@ -33,26 +33,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/new.css" type="text/css"/>
 <script type="text/javascript">
 $(function(){
 	$('.recomment').click(function(){
-		alert("update");//반응함 !!!
 		var html =''
+		+'<div class="media response-info reply">'
 		+'	<form action="comment" method="post">'
 		+'<input type="hidden" name="writer" value="${sessionScope.loginId}">'
 		+'<input type="hidden" name="title" value="${singleProduct.title}">'
-		+'<input type="hidden" name="task" value="write">'
+		+'<input type="hidden" name="task" value="reply">'
+		+'<input type="hidden" name="commentNum" value="'+$(this).val()+'">'
 		+'<div class="media-left response-text-left">'
-		+'	<h5>${sessionScope.loginId}</h5>'
+		+'	<h5> >><a>${sessionScope.loginId}wodls</a></h5>'
 		+'</div>'
 		+'<div class="media-body response-text-right">'
 		+'<ul>'
-		+'	<li><textarea rows="5" cols="50" name="contents" placeholder="댓글을 입력하세요."></textarea></li>'
-		+'	<li><input type="submit" value="댓글달기"></li>'
+		+'	<li><textarea rows="3"  name="contents" placeholder="댓글을 입력하세요."></textarea></li>'
+		+'	<li><input type="submit" value="입력" class="acount-btn2"></li>'
 		+'</ul>'
 		+'</div>'
 		+'</form>'	
-		alert($(this).val())
+		+'</div>'
+	$(this).after(html);
 		
 	})
 })
@@ -153,47 +156,61 @@ $(function(){
         <div class="tab-pane" id="features">
 		  <p class="tab-text"> 여기에 상세정보</p>
 		</div>
+		
 		<div class="tab-pane" id="source">
 		  <div class="response">
 		  <c:if test="${not empty commentList}">
 				<c:forEach var="comment" items="${commentList}">
 					<div class="media response-info">
+						<c:if test="${comment.c_level.length() >1}">
 							<div class="media-left response-text-left">
-								<h5><a href="#source">${comment.writer}</a></h5>
+								<c:forEach var="i" begin="1" end="${comment.c_level.length()-1}">
+								 <img id="replyimg" src="images/reply.png">
+								</c:forEach>
 							</div>
-							<div class="media-body response-text-right">
-								<p>${comment.contents}</p>
-								<ul>
-									<li>${comment.writeTime}</li>
-									<li class="commentNum">${comment.commentNum}</li>
-									<li><a class="recomment">Reply</a></li>
-								</ul>
-							</div>
-							<div id="recommentForm${comment.commentNum}">
-								
-							</div>
-							<div class="clearfix"> </div>
+						</c:if>
+						<div class="media-left response-text-left">
+							<h5><a href="#source">${comment.writer}</a></h5>
 						</div>
+						<div class="media-body response-text-right">
+							<p>${comment.contents}</p>
+							<ul>
+								<li>${comment.writeTime}</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<ul class="reply">
+					<c:if test="${comment.c_level.length() >1}">
+							<div class="media-left response-text-left">
+								<c:forEach var="i" begin="1" end="${comment.c_level.length()-1}">
+								&nbsp;&nbsp;
+								</c:forEach>
+							</div>
+						</c:if>
+						<li class="recomment" value="${comment.commentNum}">Reply</li>
+					</ul>
+					<hr class=hr>
 				</c:forEach>
 			</c:if>
 
-						<div class="media response-info">
+			<div class="media response-info">
 							<div class="media-left response-text-left">
-								<h5><a href="#">wodls</a></h5>
-							</div>
-							<div class="media-body response-text-right">
-								<ul>
+							<h5><a href="#">wodls</a></h5>
+						</div>
+						<div class="media-body response-text-right">
+							<ul>
 								<form action="comment" method="post">
 									<input type="hidden" name="writer" value="${sessionScope.loginId}wodls">
 									<input type="hidden" name="title" value="${singleProduct.title}">
 									<input type="hidden" name="task" value="write">
-										<li><textarea rows="5" cols="50" name="contents" placeholder="리뷰를 입력하세요." class="form-control"></textarea></li>
-										<li><input type="submit" value="리뷰달기" class="acount-btn"></li>
+									<li><textarea rows="5" cols="50" name="contents" placeholder="리뷰를 입력하세요." class="form-control"></textarea></li>
+									<li><input type="submit" value="review" class="acount-btn"></li>
 								</form>
-								</ul>
-							</div>
+							</ul>
 						</div>
 					</div>
+				</div>
         </div>
  	</div>
 <!-- 여기까지 -->

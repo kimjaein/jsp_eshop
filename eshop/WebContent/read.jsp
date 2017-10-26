@@ -64,9 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</section>
 
 				<c:if test="${sessionScope.loginId==article.writer}">
-					<script>
-					console.log(${sessionScope.loginId});
-					</script>
+					
 					<a class="acount-btn"
 						href="<%=request.getContextPath()%>/board?task=updateForm&articleNum=${article.articleNum}">¼öÁ¤</a>
 					<a class="acount-btn"
