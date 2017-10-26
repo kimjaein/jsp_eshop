@@ -176,13 +176,8 @@ function addCart(num){
 		                     </div>
 		                     </div>
 		                    </a>
-<<<<<<< HEAD
 							</div>
 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#" onclick="addCart(${categoryProduct.product_num});">Add to cart</a>
-=======
-							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
->>>>>>> c9231304ba1b780056b14bf6d7667ed4d913228f
-						
 							
 						</li>					
 						</c:forEach>
