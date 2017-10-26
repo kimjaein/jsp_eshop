@@ -62,6 +62,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	session.removeAttribute("msg");
 	}
 %>
+<script type="text/javascript">
+function addCart(num){
+	var id = "${sessionScope.loginId}";
+	var product_num = num;
+	console.log(product_num);
+	$.ajax({
+		type:'post',
+		url:'test?task=cartPlus&id='+id+'&num='+product_num,
+		dataType:'text', // 응답데이터 형식, 보통은 xml, json으로 옴.
+		success:function(plusComplete){
+			console.log('추가 완료');
+		},
+		error:function(){
+			alert("ajax 요청이 전달되지 못함.")
+		}
+	})
+}
+</script>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
@@ -181,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a class="product_name"
 									href="product?task=detail&title=${recentProduct.title}-${1}">${recentProduct.title}</a>
 								<p>
-									<a class="item_add" href="#">
+									<a class="item_add" href="#" onclick="addCart(${recentProduct.product_num});">
 										<i></i> <span class="item_price">${recentProduct.price} ￦</span>
 									</a>
 								</p>
@@ -227,7 +245,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a class="product_name"
 							href="product?task=detail&title=${bestProduct.title}-${1}">${bestProduct.title}</a>
 						<p>
-							<a class="item_add" href="#">
+							<a class="item_add" href="#" onclick="addCart(${bestProduct.product_num});">
 								<i></i> <span class="item_price">${bestProduct.price} ￦</span>
 							</a>
 						</p>

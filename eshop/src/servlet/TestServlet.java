@@ -16,6 +16,7 @@ import service.MemberService;
 import service.ProductService;
 import vo.BuyList;
 import vo.Member;
+import vo.MyCart;
 import vo.Product;
 
 @WebServlet("/test")
@@ -42,10 +43,19 @@ public class TestServlet extends HttpServlet {
 			req.setAttribute("id", id);
 			//service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
 			List<Product> cartList = pService.myCartProduct(id);
+			List<MyCart> quantityList = ProductDao.getInstance().quantityList(id);
 			req.setAttribute("cartCount", ProductDao.getInstance().cartCount(id));
 			req.setAttribute("cartList", cartList);
-			req.setAttribute("quantityList", ProductDao.getInstance().quantityList(id));
+			req.setAttribute("quantityList", quantityList);
 			path ="checkout.jsp";
+		}else if(task.equals("buy")) {
+			String id = req.getParameter("id");
+			List<Product> cartList = pService.myCartProduct(id);
+			List<MyCart> quantityList = ProductDao.getInstance().quantityList(id);
+			
+			req.setAttribute("cartList", cartList);
+			req.setAttribute("quantityList", quantityList);
+			path="payment.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);

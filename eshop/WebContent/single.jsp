@@ -13,7 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Eshop a Flat E-Commerce Bootstrap Responsive Website Template | Single :: w3layouts</title>
+<title>Single :: w3layouts</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -154,7 +154,10 @@ $(function(){
 		 <p class="tab-text">여기에 추가정보 작성</p>    
         </div>
         <div class="tab-pane" id="features">
-		  <p class="tab-text"> 여기에 상세정보</p>
+		  <p class="tab-text"> 사이즈 상세정보</p>
+		  <img src="images/size.png" alt="" />
+		  <br>
+		  <img src="images/color.JPG" alt="" />
 		</div>
 		
 		<div class="tab-pane" id="source">

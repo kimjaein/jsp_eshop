@@ -97,8 +97,8 @@ function addCart(num){
                	 		<div class="sort-by">
 			            	<label>Sort By</label>
 			            	<select>
-			                	<option value="">Name</option>
-			                    <option value="">Price</option>
+			                	<option value="name">Name</option>
+			                    <option value="price">Price</option>
 			           		</select>
 			            	<a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
 	                   </div>
@@ -121,7 +121,7 @@ function addCart(num){
 			    <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
 					<div class="cbp-vm-options">
 						<a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid" title="grid">Grid View</a>
-						<a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list" title="list">List View</a>
+<!-- 						<a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list" title="list">List View</a> -->
 					</div>
 					<div class="pages"></div>
 	 				<div class="clearfix"></div>

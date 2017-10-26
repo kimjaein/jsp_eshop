@@ -20,7 +20,7 @@
 				</div>
 				<div class="header-right">
 						<div class="cart box_1">
-							<a href="checkout.jsp">
+							<a href="${pageContext.request.contextPath}/test?task=cart&id=${sessionScope.loginId}">
 								<h3> <img src="images/bag.png" alt=""></h3>
 							
 							<p style="font-size: 14px; color: rgb(255, 198, 207);">Cart</p></a>	
