@@ -53,9 +53,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="new-product">
 				<div class="new-product-top">
+				
+				
+				
+				
+				
 					<ul class="product-top-list">
+					
 						<li><a href="index.jsp">Home</a>&nbsp;<span>&gt;</span></li>
-						<li><span class="act">Best Sales</span>&nbsp;</li>
+						<c:choose>
+							<c:when test=" ${largeCategory} eq 'largeCategory' ">
+								<li><span class="act">${categoryList.get(0).large_Category}</span>&nbsp;</li>
+							</c:when>
+							
+							<c:when test=" ${middleCategory} eq 'middleCategory' ">
+								<li><span class="act">${categoryList.get(0).large_Category} > ${categoryList.get(0).middle_Category}</span>&nbsp;</li>
+							</c:when>
+							
+						</c:choose>
+						
+						
+						
+						
 					</ul>
 					<p class="back"><a href="index.jsp">Back to Previous</a></p>
 					<div class="clearfix"></div>
@@ -96,7 +115,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<c:choose>
 					<c:when test="${empty categoryList}">
 						<div class="banner-info">
-							<h3>상품이 존재하지 않습니다.</h3>
+							<h3 class="head text-center"> 상품이 존재하지 않습니다. </h3>
 						</div>
 					</c:when>
 					<c:otherwise>		
