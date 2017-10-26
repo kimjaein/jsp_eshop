@@ -28,21 +28,18 @@ public class ProductServlet extends HttpServlet{
 		String path="";
 		
 		if(task.equals("start")) {
-		List<Product> recentProductList = dao.selectRecentProduct();
-		List<Product> bestProductList = dao.selectBestProduct();
+		List<Product> recentProductList = service.selectRecentProduct();
+		List<Product> bestProductList = service.selectBestProduct();
 		request.setAttribute("recentProductList", recentProductList);
 		request.setAttribute("bestProductList", bestProductList);
 		
 		path ="main.jsp";
+		
 		} else if(task.equals("detail")) {
 			String title = request.getParameter("title");
 
 			Product singleProduct = service.makeProduct(title);
-			
-			 String str=singleProduct.getTitle();
-			 str=str.substring(0,str.length()-2);
-			 singleProduct.setTitle(str);
-
+						 
 //			 List<Comment> commentList = serviceComment.readComment(title);
 			 
 			request.setAttribute("singleProduct", singleProduct);

@@ -34,16 +34,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
-<%
-	String msg = (String) request.getAttribute("msg");
-	if (msg != null) {
-%>
-<script>
-	alert("<%=msg%>");
-</script>
-<%
-	}
-%>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>

@@ -21,7 +21,49 @@ public class ProductService {
 
 	private ProductService() {
 	}
-
+	/////////////////////////////////////////////////////////////////////////////////////////////
+	public List<Product> selectRecentProduct(){
+		List<Product> recentProductList = dao.selectRecentProduct();
+		
+		 for(int i=0; i<recentProductList.size();i++) {
+			 Product p = recentProductList.get(i);
+			 String title = p.getTitle();
+			 
+			 
+			 
+			 title = title.substring(0,title.length()-2);
+			 p.setTitle(title);
+			 
+			 recentProductList.remove(i);
+			 recentProductList.add(i, p);
+			 
+			 System.out.println(title);
+			 
+		 }
+		
+		return recentProductList;
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////
+	public List<Product> selectBestProduct(){
+		List<Product> bestProductList = dao.selectBestProduct();
+		
+		 for(int i=0; i<bestProductList.size();i++) {
+			 Product p = bestProductList.get(i);
+			 String title = p.getTitle();
+			 
+			 
+			 
+			 title = title.substring(0,title.length()-2);
+			 p.setTitle(title);
+			 
+			 bestProductList.remove(i);
+			 bestProductList.add(i, p);
+			 
+		 }
+		
+		return bestProductList;
+	}
+	
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	public boolean addProduct(Product product) {
 		product.setRegisterTime(new Date());
@@ -38,6 +80,15 @@ public class ProductService {
 	public Product makeProduct(String title) {
 		Product singleProduct = dao.selectProduct(title);
 
+		System.out.println(title);
+		String str = singleProduct.getTitle();
+		
+		System.out.println(str);
+		
+		 str=str.substring(0,str.length()-2);
+		 singleProduct.setTitle(str);
+		
+		 
 		return singleProduct;
 	}
 
