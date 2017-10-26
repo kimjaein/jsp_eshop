@@ -190,7 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									href="product?task=detail&title=${recentProduct.title}-${1}">${recentProduct.title}</a>
 								<p>
 									<a class="item_add" href="#">
-										<i></i> <span class="item_price">${recentProduct.price}</span>
+										<i></i> <span class="item_price">${recentProduct.price} £Ü</span>
 									</a>
 								</p>
 							</div>
@@ -236,7 +236,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							href="product?task=detail&title=${bestProduct.title}-${1}">${bestProduct.title}</a>
 						<p>
 							<a class="item_add" href="#">
-								<i></i> <span class="item_price">${bestProduct.price}</span>
+								<i></i> <span class="item_price">${bestProduct.price} £Ü</span>
 							</a>
 						</p>
 					</div>

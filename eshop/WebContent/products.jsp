@@ -116,9 +116,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					                  </div>
 									<div class="product_container">
 									   <div class="cart-left">
-										 <p class="title">이름:${categoryProduct.title}</p>
+										 <p class="title">${categoryProduct.title}</p>
 									   </div>
-									   <div class="pricey"><span class="item_price">가격:${categoryProduct.price}</span></div>
+									   <div class="pricey"><span class="item_price">\ ${categoryProduct.price}</span></div>
 									   <div class="clearfix"></div>
 								     </div>		
 								  </div>
