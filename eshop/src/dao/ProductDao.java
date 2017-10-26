@@ -438,8 +438,11 @@ public class ProductDao {
 		return quantity;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> b9de29620abab00753b05c65913686da0b69950d
 	//////////////////////////////////////////////////////
 	//장바구니에서 수량과 상품번호를 List로 담는거
 	public List<MyCart> quantityList(String id){
@@ -470,5 +473,8 @@ public class ProductDao {
 =======
 >>>>>>> ac9e988fda9e41e925d9c1693638dd9e4aa8642d
 >>>>>>> c9231304ba1b780056b14bf6d7667ed4d913228f
+<<<<<<< HEAD
+>>>>>>> b9de29620abab00753b05c65913686da0b69950d
+=======
 >>>>>>> b9de29620abab00753b05c65913686da0b69950d
 }
