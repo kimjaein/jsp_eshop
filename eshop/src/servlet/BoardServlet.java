@@ -58,10 +58,10 @@ public class BoardServlet extends HttpServlet{
         	String articleNumStr =request.getParameter("articleNum");
         	int articleNum=Integer.parseInt(articleNumStr);
         	Article article = service.read(articleNum,loginId);
-        	 List<Comment> commentList = serviceComment.readComment(articleNum);
+        	
         	
         	if(article !=null) {
-        		request.setAttribute("commentList",commentList);
+        		
         		request.setAttribute("article", article);
         		path="read.jsp";
         	}else {
