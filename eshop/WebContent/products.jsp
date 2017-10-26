@@ -97,8 +97,8 @@ function addCart(num){
                	 		<div class="sort-by">
 			            	<label>Sort By</label>
 			            	<select>
-			                	<option value="">Name</option>
-			                    <option value="">Price</option>
+			                	<option value="name">Name</option>
+			                    <option value="price">Price</option>
 			           		</select>
 			            	<a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
 	                   </div>

@@ -306,12 +306,36 @@ public class ProductDao {
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
-	public int selectProductCount() {
+	public int selectLargeProductCount(String largeCategory) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT COUNT(*) FROM PRODUCT";
+		String sql = "SELECT COUNT(*) FROM PRODUCT WHERE LARGE_CATEGORY = ?";
 		int result = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, largeCategory);
+			rs = pstmt.executeQuery(); // sql 실행
+
+			// 결과 숫자 하나 얻기
+			rs.next();
+			result = rs.getInt(1);
+		} catch (SQLException e) {
+			System.out.println("dao count 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closeCon(con);
+		
+		}
+		return result;
+	}
+	///////////////////////////////////////////////////////////////////////////////
+	public int selectMiddleProductCount(String middleCategory) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT COUNT(*) FROM PRODUCT WHERE MIDDLE_CATEGORY = ?";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, middleCategory);
 			rs = pstmt.executeQuery(); // sql 실행
 
 			// 결과 숫자 하나 얻기

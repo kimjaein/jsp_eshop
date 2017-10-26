@@ -104,7 +104,7 @@ public class ProductService {
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public ProductPage middleCategoryProduct(String middleCategory, int page) {
 		
-		int totalProductCount = dao.selectProductCount();
+		int totalProductCount = dao.selectMiddleProductCount(middleCategory);
 		int totalPage = totalProductCount / COUNT_PER_PAGE;
 		if(totalProductCount % COUNT_PER_PAGE > 0) {
 			totalPage++;
@@ -124,7 +124,7 @@ public class ProductService {
 		
 		
 		
-		 for(int i=0; i<categoryList.size();i++) {
+		 for(int i=0; i<3;i++) {
 			 Product p = categoryList.get(i);
 			 String title = p.getTitle();
 			 
@@ -148,7 +148,7 @@ public class ProductService {
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public ProductPage largeCategoryProduct(String largeCategory, int page) {
 		
-		int totalProductCount = dao.selectProductCount();
+		int totalProductCount = dao.selectLargeProductCount(largeCategory);
 		int totalPage = totalProductCount / COUNT_PER_PAGE;
 		if(totalProductCount % COUNT_PER_PAGE > 0) {
 			totalPage++;
