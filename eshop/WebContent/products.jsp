@@ -9,47 +9,39 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Products</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write something else you want</title>
+<!-- Latest compiled and minified CSS -->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
-<!-- Custom Theme files -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/component.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+<meta name="keywords"
+	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--webfont-->
-<!-- for bootstrap working -->
-	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-<!-- //for bootstrap working -->
-<!-- cart -->
-	<script src="js/simpleCart.min.js"> </script>
-<!-- cart -->
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-<script type="text/javascript">
-function addCart(num){
-	var id = "${sessionScope.loginId}";
-	var product_num = num;
-	console.log(product_num);
-	$.ajax({
-		type:'post',
-		url:'test?task=cartPlus&id='+id+'&num='+product_num,
-		dataType:'text', // 응답데이터 형식, 보통은 xml, json으로 옴.
-		success:function(plusComplete){
-			console.log('추가 완료');
-		},
-		error:function(){
-			alert("ajax 요청이 전달되지 못함.")
-		}
-	})
-}
+<script type="application/x-javascript">
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 </head>
 <body>
@@ -160,7 +152,7 @@ function addCart(num){
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-							</div>
+								</div>
 									<img src="images/${categoryProduct.large_Category}/${categoryProduct.middle_Category}/${categoryProduct.title}-${1}.JPG" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
@@ -175,10 +167,9 @@ function addCart(num){
 								  </div>
 		                     </div>
 		                     </div>
-		                    </a>
-							</div>
 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#" onclick="addCart(${categoryProduct.product_num});">Add to cart</a>
 							
+		                    </a>
 						</li>					
 						</c:forEach>
 					</c:otherwise>
