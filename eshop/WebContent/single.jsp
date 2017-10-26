@@ -196,12 +196,12 @@ $(function(){
 
 			<div class="media response-info">
 							<div class="media-left response-text-left">
-							<h5><a href="#">wodls</a></h5>
+							<h5><a href="#">${sessionScope.loginId}</a></h5>
 						</div>
 						<div class="media-body response-text-right">
 							<ul>
 								<form action="comment" method="post">
-									<input type="hidden" name="writer" value="${sessionScope.loginId}wodls">
+									<input type="hidden" name="writer" value="${sessionScope.loginId}">
 									<input type="hidden" name="title" value="${singleProduct.title}">
 									<input type="hidden" name="task" value="write">
 									<li><textarea rows="5" cols="50" name="contents" placeholder="리뷰를 입력하세요." class="form-control"></textarea></li>

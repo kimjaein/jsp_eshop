@@ -33,6 +33,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
+<script src="js/classie.js" type="text/javascript"></script>
 <script type="text/javascript">
 function addCart(num){
 	var id = "${sessionScope.loginId}";
@@ -164,8 +166,6 @@ function addCart(num){
 						</c:choose>
 					</ul>
 				</div>
-				<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
-                <script src="js/classie.js" type="text/javascript"></script>
 				<div class="clearfix"></div>
 			</div>
 			<div class="clearfix"></div>
