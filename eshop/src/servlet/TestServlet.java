@@ -36,6 +36,10 @@ public class TestServlet extends HttpServlet {
 			req.setAttribute("buylist", buylist);
 			
 			path="buylist.jsp";
+		}else if(task.equals("cart")) {
+			String id = req.getParameter("id");
+			req.setAttribute("id", id);
+			path ="checkout.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
