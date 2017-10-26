@@ -48,6 +48,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$('#pw').focus();
 				return false;
 			}
+// 			else if($('#id').val() !=  || $('#pw').val() != ){
+// 				alert('아이디 또는 비밀번호가 틀렸습니다.');
+// 				return false;
+// 			}
 			document.form.submit();
 		})
 	})

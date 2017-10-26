@@ -12,13 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import service.BoardService;
+import service.CommentService;
 import vo.Article;
 import vo.ArticlePage;
+import vo.Comment;
 
  
 @WebServlet("/board")
 public class BoardServlet extends HttpServlet{
 	private BoardService service = BoardService.getInstance(); 
+	
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String task = request.getParameter("task");
@@ -56,7 +59,9 @@ public class BoardServlet extends HttpServlet{
         	int articleNum=Integer.parseInt(articleNumStr);
         	Article article = service.read(articleNum,loginId);
         	
+        	
         	if(article !=null) {
+        		
         		request.setAttribute("article", article);
         		path="read.jsp";
         	}else {
