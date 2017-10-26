@@ -424,15 +424,16 @@ public class ProductDao {
 		con = DBUtil.makeConnection();
 		List<MyCart> mycartList = new ArrayList<>();
 		String sql = "SELECT CART_QUANTITY, PRODUCT_NUM FROM MYCART WHERE USER=?";
-		MyCart cart = new MyCart();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
+				MyCart cart = new MyCart();
 				cart.setCart_quantity(rs.getInt(1));
 				cart.setProduct_num(rs.getInt(2));
-				
+				System.out.println(cart.getCart_quantity());
+				System.out.println(cart.getProduct_num());
 				mycartList.add(cart);
 			}
 		} catch (SQLException e) {

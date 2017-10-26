@@ -61,6 +61,7 @@ function cancelCart(num){
 </head>
 <body>
 	<c:set var="sum" value="0" />
+
 	<jsp:include page="top.jsp"></jsp:include>
 	<!-- checkout -->
 	<div class="cart-items">
@@ -74,6 +75,9 @@ function cancelCart(num){
 				<div class="clearfix"></div>
 			</div>
 			<h2>나의 장바구니 [${cartCount}]</h2>
+				<c:forEach var="cart" items="${quantityList}">
+		${cart.cart_quantity }
+	</c:forEach>
 			<div class="cart-gd">
 				<!-- 상품 하나의 시작 -->
 				<c:forEach var="list" items="${cartList}" varStatus="status">
@@ -95,8 +99,9 @@ function cancelCart(num){
 									</a>
 									<br> <br> <b>사이즈 : ${list.size}</b><br> <br>
 									<b>색상 : ${list.color}</b><br> <br>
-									<br> <b>가격 : ${list.price} </b><br> <br>
-									<c:set var="sum" value="${sum + list.price}" />
+									<b>${quantityList[status.index].cart_quantity}개</b><br><br>
+									<b>가격 : ${list.price * quantityList[status.index].cart_quantity} </b><br> <br>
+									<c:set var="sum" value="${sum + list.price * quantityList[status.index].cart_quantity}" />
 								</h3>
 								<div class="delivery">
 									<span> <b>[무료 배송]</b>배송 예정일 1~3일
