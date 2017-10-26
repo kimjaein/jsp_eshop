@@ -33,6 +33,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script type="text/javascript">
+function addCart(num){
+	var id = "${sessionScope.loginId}";
+	var product_num = num;
+	console.log(product_num);
+	$.ajax({
+		type:'post',
+		url:'test?task=cartPlus&id='+id+'&num='+product_num,
+		dataType:'text', // 응답데이터 형식, 보통은 xml, json으로 옴.
+		success:function(plusComplete){
+			console.log('추가 완료');
+		},
+		error:function(){
+			alert("ajax 요청이 전달되지 못함.")
+		}
+	})
+}
+</script>
 </head>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
@@ -53,11 +71,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="new-product">
 				<div class="new-product-top">
-				
-				
-				
-				
-				
 					<ul class="product-top-list">
 					<%
 						System.out.println(request.getAttribute("large"));
@@ -163,7 +176,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		                     </div>
 		                     </div>
 		                    </a>
+<<<<<<< HEAD
+							</div>
+							<a class="cbp-vm-icon cbp-vm-add item_add" href="#" onclick="addCart(${categoryProduct.product_num});">Add to cart</a>
+=======
 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
+>>>>>>> c9231304ba1b780056b14bf6d7667ed4d913228f
 						
 							
 						</li>					

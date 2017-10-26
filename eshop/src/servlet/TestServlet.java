@@ -44,6 +44,7 @@ public class TestServlet extends HttpServlet {
 			List<Product> cartList = pService.myCartProduct(id);
 			req.setAttribute("cartCount", ProductDao.getInstance().cartCount(id));
 			req.setAttribute("cartList", cartList);
+			req.setAttribute("quantityList", ProductDao.getInstance().quantityList(id));
 			path ="checkout.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
