@@ -39,28 +39,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			if($('#id').val()== null || $('#id').val()==''){
 				alert('아이디를 입력하세요.');
 				$('#id').focus();
+				return false;
 			}
 			else if($('#pw').val()== null || $('#pw').val()==''){
 				alert('비밀번호를 입력하세요.');
 				$('#pw').focus();
+				return false;
 			}
 			else if($('#name').val()== null || $('#name').val()==''){
 				alert('이름을 입력하세요.');
 				$('#name').focus();
+				return false;
 			}
 			else if($('#phone').val()== null || $('#phone').val()==''){
 				alert('전화번호를 입력하세요.');
 				$('#phone').focus();
+				return false;
 			}
 			else if($('#address').val()== null || $('#address').val()==''){
 				alert('주소를 입력하세요.');
 				$('#address').focus();
+				return false;
 			}
 			else if($('#email').val()== null || $('#email').val()==''){
 				alert('이메일을 입력하세요.');
 				$('#email').focus();
+				return false;
 			}
-			return false;
+			document.form.submit();
 		})
 	})
 </script>
@@ -98,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <p>아래 항목에 해당되는 내용을 적어주십시오.</p>
 					 <p>이미 가입이 되어있다면, <a href="account.jsp">여기를 누르세요!!</a></p>
 				 <!-- form에도 id를 부여할수 있다. -->	
-					 <form id="joinForm" action="${pageContext.request.contextPath}/member" method="post">
+					 <form name=form id="joinForm" action="${pageContext.request.contextPath}/member" method="post">
 					 <input type="hidden" name="task" value="join">
 						 <ul>
 							 <li class="text-info">아이디: </li>
@@ -106,23 +112,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 </ul>
 						 <ul>
 							 <li class="text-info">비밀번호: </li>
-							 <li><input type="password" name="pw" placeholder="비밀번호를 입력하세요."></li>
+							 <li><input type="password" id="pw" name="pw" placeholder="비밀번호를 입력하세요."></li>
 						 </ul>				 
 						<ul>
 							 <li class="text-info">이름: </li>
-							 <li><input type="text" name="name" placeholder="이름을 입력하세요."></li>
+							 <li><input type="text" id="name" name="name" placeholder="이름을 입력하세요."></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">전화번호: </li>
-							 <li><input type="text" name="phone" placeholder="전화번호를 입력하세요."></li>
+							 <li><input type="text" id="phone" name="phone" placeholder="전화번호를 입력하세요."></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">주소:</li>
-							 <li><input type="text" name="address" placeholder="주소를 입력하세요."></li>
+							 <li><input type="text" id="address" name="address" placeholder="주소를 입력하세요."></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">이메일:</li>
-							 <li><input type="text" name="email" placeholder="메일 주소를 입력하세요."></li>
+							 <li><input type="text" id="email" name="email" placeholder="메일 주소를 입력하세요."></li>
 						 </ul>						
 						 <input type="submit" value="지금 가입하기">
 <!-- 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>  -->
