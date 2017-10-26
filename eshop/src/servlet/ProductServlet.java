@@ -37,14 +37,14 @@ public class ProductServlet extends HttpServlet{
 		
 		} else if(task.equals("detail")) {
 			String title = request.getParameter("title");
+			List<Comment> commentList = serviceComment.readComment(title);
 
 			Product singleProduct = service.makeProduct(title);
 						 
-//			 List<Comment> commentList = serviceComment.readComment(title);
 			 
 			request.setAttribute("singleProduct", singleProduct);
 			System.out.println(singleProduct.toString());
-//			request.setAttribute("commentList",commentList);
+			request.setAttribute("commentList",commentList);
 			path = "single.jsp";
 			
 		} else if(task.equals("middleCategory")) {
