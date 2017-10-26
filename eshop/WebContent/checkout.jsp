@@ -94,8 +94,7 @@ function cancelCart(num){
 										<img src="images/close_1.png" align="right">
 									</a>
 									<br> <br> <b>사이즈 : ${list.size}</b><br> <br>
-									<b>색상 : ${list.color}</b><br> <br> 
-									<b>수량 : 1개</b><br>
+									<b>색상 : ${list.color}</b><br> <br>
 									<br> <b>가격 : ${list.price} </b><br> <br>
 									<c:set var="sum" value="${sum + list.price}" />
 								</h3>
