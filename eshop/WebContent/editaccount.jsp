@@ -53,6 +53,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$("input[name=submit]").prop("disabled",true);
 			}
 		}
+		function pwemptyCheck(){
+			var pw1=$('#pw1').val();
+			var pw2=$('#pw2').val();
+			
+			if(pw1 == null || pw2 == null){
+				return;
+			}
+		}
 	</script>
 </head>
 <body>
@@ -102,6 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><input type="text" value="${memberInfo.email}" name="useremail"></li>
 						</ul>
 						<input type="submit" value="수정 완료" name="submit">
+						<a href="${pageContext.request.contextPath}/test"><input type="submit" class="acount-btn" value="수정 취소"></a>
 					</form>
 				</div>
 			</div>
