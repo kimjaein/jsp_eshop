@@ -76,7 +76,7 @@ function cancelCart(num){
 			<h2>나의 장바구니 [${cartCount}]</h2>
 			<div class="cart-gd">
 				<!-- 상품 하나의 시작 -->
-				<c:forEach var="list" items="${cartList}">
+				<c:forEach var="list" items="${cartList}" varStatus="status">
 					<form id="cartForm${list.product_num}">
 					<hr>
 					<div class="cart-header1">
@@ -94,7 +94,8 @@ function cancelCart(num){
 										<img src="images/close_1.png" align="right">
 									</a>
 									<br> <br> <b>사이즈 : ${list.size}</b><br> <br>
-									<b>색상 : ${list.color}</b><br> <br> <b>수량 : 1개</b><br>
+									<b>색상 : ${list.color}</b><br> <br> 
+									<b>수량 : 1개</b><br>
 									<br> <b>가격 : ${list.price} </b><br> <br>
 									<c:set var="sum" value="${sum + list.price}" />
 								</h3>
