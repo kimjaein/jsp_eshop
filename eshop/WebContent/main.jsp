@@ -31,7 +31,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -52,15 +54,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	//로그아웃 수행시 로그아웃 세션 속성을 삭제함.
 	String logout = (String) session.getAttribute("logout");
 	if (logout == "complete") {
-		%><script>alert("로그아웃 완료")</script><%
-		session.removeAttribute("logout");
+%><script>alert("로그아웃 완료")</script>
+<%
+	session.removeAttribute("logout");
 	}
 %>
 <!-- msg로 저장된 session을 알림창으로 출력 (예시:회원탈퇴 완료, 정보수정 완료 등등]-->
 <%
 	String msg = (String) session.getAttribute("msg");
 	if (msg != null) {
-%><script>alert("<%=msg%>")</script>
+%><script>alert("<%=msg%>
+	")
+</script>
 <%
 	session.removeAttribute("msg");
 	}
@@ -171,18 +176,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						<c:forEach var="recentProduct" items="${recentProductList}">
 							<div class="col-md-4 product simpleCart_shelfItem text-center">
-								<a href="product?task=detail&title=${recentProduct.title}">
+								<a href="product?task=detail&title=${recentProduct.title}-${1}">
 									<img
-										src="images/${recentProduct.large_Category}/${recentProduct.middle_Category}/${recentProduct.title}.JPG"
+										src="images/${recentProduct.large_Category}/${recentProduct.middle_Category}/${recentProduct.title}-${1}.JPG"
 										alt="" />
 								</a>
 
 								<div class="mask">
-									<a href="product?task=detail&title=${recentProduct.title}">Quick
+									<a href="product?task=detail&title=${recentProduct.title}-${1}">Quick
 										View</a>
 								</div>
 								<a class="product_name"
-									href="product?task=detail&title=${recentProduct.title}">${recentProduct.title}</a>
+									href="product?task=detail&title=${recentProduct.title}-${1}">${recentProduct.title}</a>
 								<p>
 									<a class="item_add" href="#">
 										<i></i> <span class="item_price">${recentProduct.price}</span>
@@ -217,18 +222,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<c:forEach var="bestProduct" items="${bestProductList}">
 					<div class="col-md-4 product simpleCart_shelfItem text-center">
-						<a href="product?task=detail&title=${bestProduct.title}">
+						<a href="product?task=detail&title=${bestProduct.title}-${1}">
 							<img
-								src="images/${bestProduct.large_Category}/${bestProduct.middle_Category}/${bestProduct.title}.JPG"
+								src="images/${bestProduct.large_Category}/${bestProduct.middle_Category}/${bestProduct.title}-${1}.JPG"
 								alt="" />
 						</a>
 
 						<div class="mask">
-							<a href="product?task=detail&title=${bestProduct.title}">Quick
+							<a href="product?task=detail&title=${bestProduct.title}-${1}">Quick
 								View</a>
 						</div>
 						<a class="product_name"
-							href="product?task=detail&title=${bestProduct.title}">${bestProduct.title}</a>
+							href="product?task=detail&title=${bestProduct.title}-${1}">${bestProduct.title}</a>
 						<p>
 							<a class="item_add" href="#">
 								<i></i> <span class="item_price">${bestProduct.price}</span>
@@ -241,36 +246,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		<div class="clearfix"></div>
 	</div>
-	<script type="text/javascript">
-		$(window).load(function() {
-			$("#flexiselDemo3").flexisel({
-				visibleItems : 4,
-				animationSpeed : 1000,
-				autoPlay : true,
-				autoPlaySpeed : 3000,
-				pauseOnHover : true,
-				enableResponsiveBreakpoints : true,
-				responsiveBreakpoints : {
-					portrait : {
-						changePoint : 480,
-						visibleItems : 1
-					},
-					landscape : {
-						changePoint : 640,
-						visibleItems : 2
-					},
-					tablet : {
-						changePoint : 768,
-						visibleItems : 3
-					}
-				}
-			
-			});
-		}
-				<div class="clearfix"></div>
+	<div class="clearfix"></div>
 
-<!-- 	</script>
-	-->
 	<!-- content-section-ends-here -->
 	<jsp:include page="bottom.jsp"></jsp:include>
 </body>
