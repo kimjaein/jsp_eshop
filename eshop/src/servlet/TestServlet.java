@@ -46,9 +46,16 @@ public class TestServlet extends HttpServlet {
 			List<MyCart> quantityList = ProductDao.getInstance().quantityList(id);
 			req.setAttribute("cartCount", ProductDao.getInstance().cartCount(id));
 			req.setAttribute("cartList", cartList);
-			System.out.println(quantityList);
 			req.setAttribute("quantityList", quantityList);
 			path ="checkout.jsp";
+		}else if(task.equals("buy")) {
+			String id = req.getParameter("id");
+			List<Product> cartList = pService.myCartProduct(id);
+			List<MyCart> quantityList = ProductDao.getInstance().quantityList(id);
+			
+			req.setAttribute("cartList", cartList);
+			req.setAttribute("quantityList", quantityList);
+			path="payment.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);

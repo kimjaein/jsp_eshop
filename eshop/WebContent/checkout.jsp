@@ -75,13 +75,9 @@ function cancelCart(num){
 				<div class="clearfix"></div>
 			</div>
 			<h2>나의 장바구니 [${cartCount}]</h2>
-				<c:forEach var="cart" items="${quantityList}">
-		${cart.cart_quantity }
-	</c:forEach>
 			<div class="cart-gd">
 				<!-- 상품 하나의 시작 -->
 				<c:forEach var="list" items="${cartList}" varStatus="status">
-					<form id="cartForm${list.product_num}">
 					<hr>
 					<div class="cart-header1">
 						<div class="cart-sec simpleCart_shelfItem">
@@ -112,7 +108,6 @@ function cancelCart(num){
 							<div class="clearfix"></div>
 						</div>
 					</div>
-					</form>
 				</c:forEach>
 				<!-- 상품 하나의 끝 -->
 				<hr>

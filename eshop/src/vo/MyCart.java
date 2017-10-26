@@ -5,6 +5,7 @@ public class MyCart {
 	private int cart_quantity;
 	private int product_num;
 	private String user;
+	
 	public int getCart_quantity() {
 		return cart_quantity;
 	}

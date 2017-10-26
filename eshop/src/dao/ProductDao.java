@@ -65,7 +65,7 @@ public class ProductDao {
 	// Single페이지 상품 선택
 	public List<Product> selectBestProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY PRODUCT_NUM ASC LIMIT 6";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY PRODUCT_NUM ASC LIMIT 6";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -74,12 +74,13 @@ public class ProductDao {
 
 			while (rs.next()) {
 				Product product = new Product();
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setColor(rs.getString(3));
-				product.setSize(rs.getString(4));
-				product.setLarge_Category(rs.getString(5));
-				product.setMiddle_Category(rs.getString(6));
+				product.setProduct_num(rs.getInt(1));
+				product.setTitle(rs.getString(2));
+				product.setPrice(rs.getInt(3));
+				product.setColor(rs.getString(4));
+				product.setSize(rs.getString(5));
+				product.setLarge_Category(rs.getString(6));
+				product.setMiddle_Category(rs.getString(7));
 
 				productList.add(product);
 			}
@@ -97,7 +98,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY DATE DESC LIMIT 6";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY DATE DESC LIMIT 6";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -106,12 +107,13 @@ public class ProductDao {
 
 			while (rs.next()) {
 				Product product = new Product();
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setColor(rs.getString(3));
-				product.setSize(rs.getString(4));
-				product.setLarge_Category(rs.getString(5));
-				product.setMiddle_Category(rs.getString(6));
+				product.setProduct_num(rs.getInt(1));
+				product.setTitle(rs.getString(2));
+				product.setPrice(rs.getInt(3));
+				product.setColor(rs.getString(4));
+				product.setSize(rs.getString(5));
+				product.setLarge_Category(rs.getString(6));
+				product.setMiddle_Category(rs.getString(7));
 
 				productList.add(product);
 			}
@@ -432,8 +434,6 @@ public class ProductDao {
 				MyCart cart = new MyCart();
 				cart.setCart_quantity(rs.getInt(1));
 				cart.setProduct_num(rs.getInt(2));
-				System.out.println(cart.getCart_quantity());
-				System.out.println(cart.getProduct_num());
 				mycartList.add(cart);
 			}
 		} catch (SQLException e) {
