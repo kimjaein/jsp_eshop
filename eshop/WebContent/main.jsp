@@ -206,25 +206,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="clearfix"></div>
 			</div>
-<<<<<<< HEAD
-		</c:when>
-		<c:otherwise>
-				<div class="other-products">
-			<c:forEach var="product" items="${ProductList}">
-					<div class="container">
-						<ul id="flexiselDemo3">
-							<li><a href="product?task=detail&title=${product.title}"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" class="img-responsive" alt="" /></a>
-								<div class="product liked-product simpleCart_shelfItem">
-									<a class="like_name" href="product?task=detail&title=${product.title}">${product.title}</a>
-									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b>
-									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p>
-								</div>								
-							</li>
-					</div>
-				</div>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
 	<script type="text/javascript">
 		$(window).load(function() {
 			$("#flexiselDemo3").flexisel({
@@ -249,64 +230,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					}
 				}
 			});
-=======
 
 				<div class="clearfix"></div>
-<!-- 						<h3 class="like text-center">B e s t &nbsp; &nbsp; P r o d u c t s</h3> -->
-<%-- 	<c:choose> --%>
-<%-- 		<c:when test="${empty ProductList}"> --%>
-<!-- 			<div class="banner-info"> -->
-<!-- 				<h3>상품이 존재하지 않습니다.</h3> -->
-<!-- 			</div> -->
-<%-- 		</c:when> --%>
-<%-- 		<c:otherwise> --%>
-<!-- 				<div class="other-products"> -->
-<%-- 			<c:forEach var="product" items="${ProductList}"> --%>
-<!-- 					<div class="container"> -->
-<!-- 						<ul id="flexiselDemo3"> -->
-<%-- 							<li><a href="product?task=detail&title=${product.title}"><img src="images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG" class="img-responsive" alt="" /></a> --%>
-<!-- 								<div class="product liked-product simpleCart_shelfItem"> -->
-<%-- 									<a class="like_name" href="product?task=detail&title=${product.title}">${product.title}</a> --%>
-<%-- 									<b>images/${product.large_Category}/${product.middle_Category}/${product.title}.JPG</b> --%>
-<%-- 									<p><a class="item_add" href="#"><i></i> <span class=" item_price">${product.price}</span></a></p> --%>
-									
-<!-- 								</div>								 -->
-<!-- 							</li> -->
-<!-- 						</ul> -->
-<!-- 					</div> -->
-<%-- 			</c:forEach> --%>
-<!-- 				</div> -->
-<%-- 		</c:otherwise> --%>
-<%-- 	</c:choose> --%>
-<!-- 	<script type="text/javascript"> -->
-<!-- // 		$(window).load(function() { -->
-<!-- // 			$("#flexiselDemo3").flexisel({ -->
-<!-- // 				visibleItems : 4, -->
-<!-- // 				animationSpeed : 1000, -->
-<!-- // 				autoPlay : true, -->
-<!-- // 				autoPlaySpeed : 3000, -->
-<!-- // 				pauseOnHover : true, -->
-<!-- // 				enableResponsiveBreakpoints : true, -->
-<!-- // 				responsiveBreakpoints : { -->
-<!-- // 					portrait : { -->
-<!-- // 						changePoint : 480, -->
-<!-- // 						visibleItems : 1 -->
-<!-- // 					}, -->
-<!-- // 					landscape : { -->
-<!-- // 						changePoint : 640, -->
-<!-- // 						visibleItems : 2 -->
-<!-- // 					}, -->
-<!-- // 					tablet : { -->
-<!-- // 						changePoint : 768, -->
-<!-- // 						visibleItems : 3 -->
-<!-- // 					} -->
-<!-- // 				} -->
-<!-- // 			}); -->
->>>>>>> d8d50ecaae4d48a87dc06571dcd9b7c887dd811d
 
-<!-- // 		}); -->
 <!-- 	</script> -->
-<!-- 	<script type="text/javascript" src="js/jquery.flexisel.js"></script> -->
 	<!-- content-section-ends-here -->
 	<jsp:include page="bottom.jsp"></jsp:include>
 </body>

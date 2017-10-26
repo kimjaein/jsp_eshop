@@ -85,8 +85,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="pages">   
        	   </div>
-<!--        	   상품 리스트 -->
-       	   		<c:choose>
+       	   
+       	   
+       	   <!-- 							메인 상품 new -->
+				<c:choose>
 					<c:when test="${empty categoryList}">
 						<div class="banner-info">
 							<h3>상품이 존재하지 않습니다.</h3>
@@ -96,6 +98,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									
 						<c:forEach var="categoryProduct" items="${categoryList}">
        	   
+       	   
+       	   
+       	   
 					<div class="clearfix"></div>
 					<ul>
 					  <li>
@@ -104,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <div class="view view-first">
 					   		  <div class="inner_content clearfix">
 								<div class="product_image">
-									<img src="images/OUTER/COAT/coat1-1.JPG" class="img-responsive" alt=""/>
+									<img src="images/${categoryProduct.large_Category}/${categoryProduct.middle_Category}/${categoryProduct.title} }.JPG" class="img-responsive" alt=""/>
 									<div class="mask">
 			                       		<div class="info">Quick View</div>
 					                  </div>
@@ -118,17 +123,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								  </div>
 			                     </div>
 		                      </div>
-		                
 		                    </a>
-	   					</c:forEach>
-					</c:otherwise>
-				</c:choose>
-		                    
 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
 							</div>
 						</li>						
 					</ul>
 				</div>
+				
+				
+										</c:forEach>
+					</c:otherwise>
+				</c:choose>
+				
 				
 				<script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
                 <script src="js/classie.js" type="text/javascript"></script>

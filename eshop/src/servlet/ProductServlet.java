@@ -46,6 +46,7 @@ public class ProductServlet extends HttpServlet{
 			path = "single.jsp";
 		} else if(task.equals("list")) {
 			String category = request.getParameter("category");
+
 			List<Product> categoryList = service.categoryProduct(category);
 			
 			request.setAttribute("categoryList", categoryList);
