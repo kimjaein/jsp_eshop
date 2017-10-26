@@ -33,7 +33,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script type="text/javascript">
 	$(function(){
-		// submit을 실행했을 때의 이벤트 및 조건문
+		// 아이디 중복여부 검사
+		$('#idCheck').click(function(){
+			var id = $('#id').val();
+			$.ajax({
+				type:'post',
+				url:'member?task=loginIdCheck&id='+id,
+				dataType:'json', // 응답데이터 형식, 보통은 xml, json으로 옴.
+				success:function(idCheck){
+					
+					if(id == ''){
+						alert('아이디를 입력하세요.')
+						return false;
+					}
+					
+					if(idCheck == null){
+						alert('사용할수 있는 아이디입니다.')	
+					}
+					
+					if(idCheck != null){
+						alert('이미 등록된 아이디입니다.')
+					}
+					
+				},
+				error:function(){
+					alert("ajax 요청이 전달되지 못함.")
+				}
+			})
+			return false;
+		})
+		
+		// 가입 버튼을 눌렀을 때의 이벤트 및 조건문
 		$('#joinForm').submit(function(){
 			console.log("test:"+$('#id').val()+"/");
 			if($('#id').val()== null || $('#id').val()==''){
@@ -103,12 +133,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					 <p>아래 항목에 해당되는 내용을 적어주십시오.</p>
 					 <p>이미 가입이 되어있다면, <a href="account.jsp">여기를 누르세요!!</a></p>
-				 <!-- form에도 id를 부여할수 있다. -->	
+				 <!-- form에도 id, name을 부여할수 있다. -->	
 					 <form name="form" id="joinForm" action="${pageContext.request.contextPath}/member" method="post">
 					 <input type="hidden" name="task" value="join">
 						 <ul>
 							 <li class="text-info">아이디: </li>
-							 <li><input type="text" id="id" name="id" placeholder="아이디를 입력하세요."></li>
+							 <li><input type="text" id="id" name="id" placeholder="아이디를 입력하세요.">
+							 	 <button id="idCheck">중복검사</button>
+							 </li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">비밀번호: </li>
