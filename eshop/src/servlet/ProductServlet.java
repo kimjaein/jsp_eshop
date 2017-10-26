@@ -15,6 +15,7 @@ import service.CommentService;
 import service.ProductService;
 import vo.Comment;
 import vo.Product;
+import vo.ProductPage;
 
 @WebServlet("/product")
 public class ProductServlet extends HttpServlet{
@@ -49,22 +50,32 @@ public class ProductServlet extends HttpServlet{
 			
 		} else if(task.equals("middleCategory")) {
 			String middleList = request.getParameter("middleList");
-
-			List<Product> categoryList = service.middleCategoryProduct(middleList);
+			String pageStr = request.getParameter("p");
+			int page = 1;
+			if(pageStr != null && !pageStr.isEmpty()) {
+				page = Integer.parseInt(pageStr);
+			}
 			
-			request.setAttribute("middle", task);
-			request.setAttribute("categoryList", categoryList);
+			ProductPage productPage = service.middleCategoryProduct(middleList, page);
+			
+			request.setAttribute("type", task);
+			request.setAttribute("categoryPage", productPage);
 			
 			path="products.jsp";
 
 		} else if(task.equals("largeCategory")) {
 			String largeList = request.getParameter("largeList");
+			String pageStr = request.getParameter("p");
+			int page = 1;
+			if(pageStr != null && !pageStr.isEmpty()) {
+				page = Integer.parseInt(pageStr);
+			}
 			
-			List<Product> categoryList = service.largeCategoryProduct(largeList);
+			ProductPage productPage = service.largeCategoryProduct(largeList, page);
+			System.out.println(productPage);
 			
-			
-			request.setAttribute("large", task);
-			request.setAttribute("categoryList", categoryList);
+			request.setAttribute("type", task);
+			request.setAttribute("categoryPage", productPage);
 			
 			path="products.jsp";
 		

@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                        <span>&gt;</span>
                     </li>
                    
-                    <li class="women">
+                    <li>
 						회원가입
                     </li>
                 </ul>

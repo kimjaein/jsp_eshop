@@ -126,4 +126,58 @@ public class CommentDao {
 		return commentList;
 		
 	}
+	public String ExistNextLevel(int list,String depth) {
+		con=DBUtil.makeConnection();
+		String sql="SELECT c_level FROM comment "
+				+"WHERE c_LIST=? AND c_level LIKE ? ORDER BY c_level DESC limit 1";
+		
+		String result=null;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, list);
+			pstmt.setString(2, depth);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = (rs.getString(1));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeRs(rs);
+		}
+		return result;
+	}
+	public String selectCInfo(int commentNum) {
+		con=DBUtil.makeConnection();
+		String sql="SELECT c_list,c_level FROM comment "
+				+"WHERE comment_num=?";
+		
+		String result=null;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, commentNum);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getString(1)+"/";
+				result += rs.getString(2);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeRs(rs);
+		}
+		return result;
+	}
 }

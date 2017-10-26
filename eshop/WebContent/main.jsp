@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	String logout = (String) session.getAttribute("logout");
 	if (logout == "complete") {
 %>
-<script>alert("로그아웃 했습니다.")</script>
+	<script>alert("로그아웃 하였습니다.")</script>
 <%
 	session.removeAttribute("logout");
 	}
