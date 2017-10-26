@@ -161,11 +161,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectMiddleCategory(String middleCategory, int startRow, int count) {
 		con = DBUtil.makeConnection();
-<<<<<<< HEAD
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=?";
-=======
 		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=? ORDER BY PRODUCT_NUM DESC LIMIT ?,?";
->>>>>>> c9231304ba1b780056b14bf6d7667ed4d913228f
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -177,20 +173,11 @@ public class ProductDao {
 
 			while (rs.next()) {
 				Product product = new Product();
-<<<<<<< HEAD
-				product.setProduct_num(rs.getInt(1));
-				product.setTitle(rs.getString(2));
-				product.setPrice(rs.getInt(3));
-				product.setLarge_Category(rs.getString(4));
-				product.setMiddle_Category(rs.getString(5));
-				
-=======
 				product.setTitle(rs.getString(1));
 				product.setPrice(rs.getInt(2));
 				product.setLarge_Category(rs.getString(3));
 				product.setMiddle_Category(rs.getString(4));
 
->>>>>>> c9231304ba1b780056b14bf6d7667ed4d913228f
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -237,14 +224,8 @@ public class ProductDao {
 		return productList;
 	}
 
-	//////////////////////////////////////
-<<<<<<< HEAD
-	//아이디를 이용해서 장바구니에서 상품번호 및 수량 조회하는 메소드
-	public List<Integer> cartList(String id){
-=======
 	// 아이디를 이용해서 장바구니에서 상품조회하는 메소드
 	public List<Integer> cartList(String id) {
->>>>>>> c9231304ba1b780056b14bf6d7667ed4d913228f
 		con = DBUtil.makeConnection();
 		List<Integer> numList = new ArrayList<>();
 		String sql = "SELECT PRODUCT_NUM FROM MYCART WHERE USER=?";
@@ -321,7 +302,6 @@ public class ProductDao {
 		}
 		return count;
 	}
-<<<<<<< HEAD
 
 	///////////////////////////////////////////////////////////////////////////////
 	public int selectProductCount() {
@@ -340,7 +320,11 @@ public class ProductDao {
 			e.printStackTrace();
 		} finally {
 			DBUtil.closeRs(rs);
-=======
+			DBUtil.closeCon(con);
+		
+		}
+		return result;
+	}
 	
 	///////////////////////////////////////////////
 	//장바구니 삭제
@@ -359,17 +343,12 @@ public class ProductDao {
 			System.out.println("Product Dao cartDelete 에러");
 			e.printStackTrace();
 		}finally {
->>>>>>> ac9e988fda9e41e925d9c1693638dd9e4aa8642d
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
 		return result;
 	}
-<<<<<<< HEAD
 
-	///////////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////////
-=======
 	/////////////////////////////////////////////////
 	//장바구니 추가 메소드
 	public void insertCart(int quantity, int productNum ,String id){
@@ -439,7 +418,6 @@ public class ProductDao {
 		}
 		return quantity;
 	}
-<<<<<<< HEAD
 	//////////////////////////////////////////////////////
 	//장바구니에서 수량과 상품번호를 List로 담는거
 	public List<MyCart> quantityList(String id){
@@ -467,7 +445,4 @@ public class ProductDao {
 		}
 		return mycartList;
 	}
-=======
->>>>>>> ac9e988fda9e41e925d9c1693638dd9e4aa8642d
->>>>>>> c9231304ba1b780056b14bf6d7667ed4d913228f
 }

@@ -5,12 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import dao.ProductDao;
-<<<<<<< HEAD
 import vo.MyCart;
-=======
 import vo.Article;
 import vo.ArticlePage;
->>>>>>> c9231304ba1b780056b14bf6d7667ed4d913228f
 import vo.Product;
 import vo.ProductPage;
 
