@@ -49,6 +49,7 @@ public class ProductServlet extends HttpServlet{
 			System.out.println(singleProduct.toString());
 //			request.setAttribute("commentList",commentList);
 			path = "single.jsp";
+			
 		} else if(task.equals("middleCategory")) {
 			String middleList = request.getParameter("middleList");
 
@@ -57,19 +58,19 @@ public class ProductServlet extends HttpServlet{
 			request.setAttribute("categoryList", categoryList);
 			
 			path="products.jsp";
-//			System.out.println(categoryList);
+
 		} else if(task.equals("largeCategory")) {
 			String largeList = request.getParameter("largeList");
 
-			List<Product> categoryList = service.middleCategoryProduct(largeList);
+			List<Product> categoryList = service.largeCategoryProduct(largeList);
 			
 			request.setAttribute("categoryList", categoryList);
 			
 			path="products.jsp";
 		
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
-		}
 	}
 	
 

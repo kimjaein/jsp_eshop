@@ -44,9 +44,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="product-listy">
 					<h2>our Products</h2>
 					<ul class="product-list">
-						<li><a href="product?task=largeCategory&list=OUTER">OUTER</a></li>
-						<li><a href="product?task=largeCategory&list=TOP">TOP</a></li>
-						<li><a href="product?task=largeCategory&list=BOTTOM">BOTTOM</a></li>
+						<li><a href="product?task=largeCategory&largeList=OUTER">OUTER</a></li>
+						<li><a href="product?task=largeCategory&largeList=TOP">TOP</a></li>
+						<li><a href="product?task=largeCategory&largeList=BOTTOM">BOTTOM</a></li>
 					</ul>
 				</div>
 
@@ -89,10 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        	   </div>
  
 					<div class="clearfix"></div>
-<%-- 					<% --%>
-<!-- // 						List<Product> categoryList = (List)request.getAttribute("categoryList"); -->
-<!-- // 						System.out.println("products.jsp"+categoryList); -->
-<%-- 					%> --%>
+<!-- 상품 목록 -->
 					
 					<ul>
 					  
