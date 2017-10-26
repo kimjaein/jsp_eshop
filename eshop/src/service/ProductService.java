@@ -156,5 +156,20 @@ public class ProductService {
 		}
 		return productList;
 	}
+	public int cartDelete(String id, int productNum) {
+		return dao.cartDelete(id, productNum);
+	}
 	
+	public int updateAndInsert(String id, int productNum) {
+		int cartQuantity = dao.quantityCheck(id, productNum);
+		if(cartQuantity>=1) {
+			System.out.println("[Pservice]수량 증가 실행");
+			dao.quantityPlus(id, productNum);
+			return 2;
+		}else {
+			System.out.println("[Pservice]장바구니 추가 실행");
+			dao.insertCart(cartQuantity, productNum,id);
+			return 1;
+		}
+	}
 }

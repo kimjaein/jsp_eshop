@@ -49,15 +49,14 @@ function cancelCart(num){
 		url:'test?task=cartDel&id='+id+'&num='+product_num,
 		dataType:'text', // 응답데이터 형식, 보통은 xml, json으로 옴.
 		success:function(delComplete){
-			alert('응답 완료');
+			console.log('삭제 완료');
+			location.href="${pageContext.request.contextPath}/test?task=cart&id="+id;
 		},
 		error:function(){
 			alert("ajax 요청이 전달되지 못함.")
 		}
 	})
-	
 }
-
 </script>
 </head>
 <body>
@@ -78,6 +77,7 @@ function cancelCart(num){
 			<div class="cart-gd">
 				<!-- 상품 하나의 시작 -->
 				<c:forEach var="list" items="${cartList}">
+					<form id="cartForm${list.product_num}">
 					<hr>
 					<div class="cart-header1">
 						<div class="cart-sec simpleCart_shelfItem">
@@ -107,6 +107,7 @@ function cancelCart(num){
 							<div class="clearfix"></div>
 						</div>
 					</div>
+					</form>
 				</c:forEach>
 				<!-- 상품 하나의 끝 -->
 				<hr>
