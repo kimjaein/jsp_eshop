@@ -28,8 +28,8 @@ public class ProductServlet extends HttpServlet{
 		String path="";
 		
 		if(task.equals("start")) {
-		List<Product> recentProductList = dao.selectRecentProduct();
-		List<Product> bestProductList = dao.selectBestProduct();
+		List<Product> recentProductList = service.selectRecentProduct();
+		List<Product> bestProductList = service.selectBestProduct();
 		request.setAttribute("recentProductList", recentProductList);
 		request.setAttribute("bestProductList", bestProductList);
 		
