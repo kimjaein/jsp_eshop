@@ -21,7 +21,47 @@ public class ProductService {
 
 	private ProductService() {
 	}
-
+	/////////////////////////////////////////////////////////////////////////////////////////////
+	public List<Product> selectRecentProduct(){
+		List<Product> recentProductList = dao.selectRecentProduct();
+		
+		 for(int i=0; i<recentProductList.size();i++) {
+			 Product p = recentProductList.get(i);
+			 String title = p.getTitle();
+			 
+			 
+			 
+			 title = title.substring(0,title.length()-3);
+			 p.setTitle(title);
+			 
+			 recentProductList.remove(i);
+			 recentProductList.add(i, p);
+			 
+		 }
+		
+		return recentProductList;
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////
+	public List<Product> selectBestProduct(){
+		List<Product> bestProductList = dao.selectBestProduct();
+		
+		 for(int i=0; i<bestProductList.size();i++) {
+			 Product p = bestProductList.get(i);
+			 String title = p.getTitle();
+			 
+			 
+			 
+			 title = title.substring(0,title.length()-2);
+			 p.setTitle(title);
+			 
+			 bestProductList.remove(i);
+			 bestProductList.add(i, p);
+			 
+		 }
+		
+		return bestProductList;
+	}
+	
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	public boolean addProduct(Product product) {
 		product.setRegisterTime(new Date());
