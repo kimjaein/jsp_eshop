@@ -121,7 +121,7 @@ function addCart(num){
 			    <div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
 					<div class="cbp-vm-options">
 						<a href="#" class="cbp-vm-icon cbp-vm-grid cbp-vm-selected" data-view="cbp-vm-view-grid" title="grid">Grid View</a>
-						<a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list" title="list">List View</a>
+<!-- 						<a href="#" class="cbp-vm-icon cbp-vm-list" data-view="cbp-vm-view-list" title="list">List View</a> -->
 					</div>
 					<div class="pages"></div>
 	 				<div class="clearfix"></div>
