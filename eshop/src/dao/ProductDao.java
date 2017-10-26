@@ -245,7 +245,7 @@ public class ProductDao {
 	//List에 담긴 상품번호를 이용해서 여러번 상품 조회하는 메소드
 	public Product cartProduct(int i){
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY,"
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY,"
 				+ " MIDDLE_CATEGORY FROM PRODUCT WHERE PRODUCT_NUM=?";
 		Product product = new Product();
 		try {
@@ -254,12 +254,13 @@ public class ProductDao {
 			rs = pstmt.executeQuery(); // SQL 실행
 
 			if(rs.next()) {
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setColor(rs.getString(3));
-				product.setSize(rs.getString(4));
-				product.setLarge_Category(rs.getString(5));
-				product.setMiddle_Category(rs.getString(6));
+				product.setProduct_num(rs.getInt(1));
+				product.setTitle(rs.getString(2));
+				product.setPrice(rs.getInt(3));
+				product.setColor(rs.getString(4));
+				product.setSize(rs.getString(5));
+				product.setLarge_Category(rs.getString(6));
+				product.setMiddle_Category(rs.getString(7));
 			}
 		} catch (SQLException e) {
 			System.out.println("dao productList[장바구니] 에러");
@@ -274,5 +275,25 @@ public class ProductDao {
 	
 	///////////////////////////////////////////
 	//해당 아이디 장바구니 목록이 몇개인지
-	
+	public int cartCount(String id){
+		con = DBUtil.makeConnection();
+		int count = 0;
+		String sql = "SELECT COUNT(*) FROM MYCART WHERE USER=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("Product Dao cartCount 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return count;
+	}
 }
