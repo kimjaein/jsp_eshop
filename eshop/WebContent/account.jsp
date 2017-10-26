@@ -48,15 +48,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$('#pw').focus();
 				return false;
 			}
-// 			else if($('#id').val() !=  || $('#pw').val() != ){
-// 				alert('아이디 또는 비밀번호가 틀렸습니다.');
-// 				return false;
-// 			}
 			document.form.submit();
 		})
 	})
 </script>
-	
+	<!-- msg로 저장된 session을 알림창으로 출력 (예시:회원탈퇴 완료, 정보수정 완료 등등]-->
+<%
+	String msg = (String) session.getAttribute("msg");
+	if (msg != null) {
+%>
+		<script>alert('<%=msg%>')</script>
+<%
+		session.removeAttribute("msg");
+	}
+%>
 </head>
 <body>
 
@@ -69,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="breadcrumbs">
 						<li class="home"><a href="index.jsp" title="Go to Home Page">홈</a>&nbsp;
 							<span>&gt;</span></li>
-						<li class="women">로그인</li>
+						<li>로그인</li>
 					</ul>
 					<ul class="previous">
 						<li><a href="index.jsp">메인 화면으로</a></li>
@@ -91,11 +96,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<form name="form" id="loginForm" action="${pageContext.request.contextPath}/member" method="post">
 						<input type="hidden" value="login" name="task">
 							<div>
-								<span>아이디<label>*</label></span> <input type="text" id="id" name="id">
+								<span>아이디<label>*</label></span> 
+								<input type="text" id="id" name="id" placeholder="아이디를 입력하세요.">
 							</div>
 
 							<div>
-								<span>비밀번호<label>*</label></span> <input type="password" id="pw" name="pw">
+								<span>비밀번호<label>*</label></span> 
+								<input type="password" id="pw" name="pw" placeholder="비밀번호를 입력하세요.">
 							</div>
 
 							<a class="forgot" href="#">비밀번호를 잊으셨나요?</a> 

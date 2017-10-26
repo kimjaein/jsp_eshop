@@ -71,9 +71,9 @@ $(function(){
 				<div class="product-listy">
 					<h2>our Products</h2>
 					<ul class="product-list">
-						<li><a href="">OUTER</a></li>
-						<li><a href="">TOP</a></li>
-						<li><a href="">BOTTOM</a></li>
+						<li><a href="product?task=largeCategory&largeList=OUTER">OUTER</a></li>
+						<li><a href="product?task=largeCategory&largeList=TOP">TOP</a></li>
+						<li><a href="product?task=largeCategory&largeList=BOTTOM">BOTTOM</a></li>
 					</ul>
 				</div>
 

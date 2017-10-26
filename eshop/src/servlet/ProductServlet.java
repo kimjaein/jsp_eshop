@@ -52,15 +52,18 @@ public class ProductServlet extends HttpServlet{
 
 			List<Product> categoryList = service.middleCategoryProduct(middleList);
 			
+			request.setAttribute("middle", task);
 			request.setAttribute("categoryList", categoryList);
 			
 			path="products.jsp";
 
 		} else if(task.equals("largeCategory")) {
 			String largeList = request.getParameter("largeList");
-
+			
 			List<Product> categoryList = service.largeCategoryProduct(largeList);
 			
+			
+			request.setAttribute("large", task);
 			request.setAttribute("categoryList", categoryList);
 			
 			path="products.jsp";

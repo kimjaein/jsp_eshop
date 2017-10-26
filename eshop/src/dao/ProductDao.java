@@ -218,8 +218,172 @@ public class ProductDao {
 		}
 		return productList;
 	}
-	
+	//////////////////////////////////////
+	//아이디를 이용해서 장바구니에서 상품조회하는 메소드
+	public List<Integer> cartList(String id){
+		con = DBUtil.makeConnection();
+		List<Integer> numList = new ArrayList<>();
+		String sql = "SELECT PRODUCT_NUM FROM MYCART WHERE USER=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				numList.add(rs.getInt(1));
+			}
+		} catch (SQLException e) {
+			System.out.println("Product Dao cartList 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return numList;
+	}
+	///////////////////////////////////////
+	//List에 담긴 상품번호를 이용해서 여러번 상품 조회하는 메소드
+	public Product cartProduct(int i){
+		con = DBUtil.makeConnection();
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY,"
+				+ " MIDDLE_CATEGORY FROM PRODUCT WHERE PRODUCT_NUM=?";
+		Product product = new Product();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, i);
+			rs = pstmt.executeQuery(); // SQL 실행
 
+			if(rs.next()) {
+				product.setProduct_num(rs.getInt(1));
+				product.setTitle(rs.getString(2));
+				product.setPrice(rs.getInt(3));
+				product.setColor(rs.getString(4));
+				product.setSize(rs.getString(5));
+				product.setLarge_Category(rs.getString(6));
+				product.setMiddle_Category(rs.getString(7));
+			}
+		} catch (SQLException e) {
+			System.out.println("dao productList[장바구니] 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return product;
+	}
 	
-
+	///////////////////////////////////////////
+	//해당 아이디 장바구니 목록이 몇개인지
+	public int cartCount(String id){
+		con = DBUtil.makeConnection();
+		int count = 0;
+		String sql = "SELECT COUNT(*) FROM MYCART WHERE USER=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("Product Dao cartCount 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return count;
+	}
+	
+	///////////////////////////////////////////////
+	//장바구니 삭제
+	public int cartDelete(String id, int productNum) {
+		con = DBUtil.makeConnection();
+		int result = 0;
+		String sql = "DELETE FROM MYCART WHERE USER=? AND PRODUCT_NUM=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			pstmt.setInt(2, productNum);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Product Dao cartDelete 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return result;
+	}
+	/////////////////////////////////////////////////
+	//장바구니 추가 메소드
+	public void insertCart(int quantity, int productNum ,String id){
+		con = DBUtil.makeConnection();
+		String sql = "INSERT INTO MYCART(CART_QUANTITY, PRODUCT_NUM, USER)"
+				+ " VALUES(?,?,?)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, quantity);
+			pstmt.setInt(2, productNum);
+			pstmt.setString(3, id);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Product Dao cartNum 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+	}
+	/////////////////////////////////////////////////
+	//장바구니 수량 추가 메소드
+	public int quantityPlus(String id, int productNum){
+		con = DBUtil.makeConnection();
+		int result = 0;
+		String sql = "UPDATE MYCART SET CART_QUANTITY = CART_QUANTITY + 1 "
+				+ " WHERE USER=? AND PRODUCT_NUM=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, productNum);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Product Dao quantityPlus 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return result;
+	}
+	////////////////////////////////////////////////////
+	//장바구니 수량 조회 메소드
+	public int quantityCheck(String id, int productNum){
+		con = DBUtil.makeConnection();
+		int quantity = 0;
+		String sql = "SELECT QUANTITY_NUM FROM MYCART WHERE USER=? AND PRODUCT_NUM=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				quantity = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("Product Dao quantityCheck 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return quantity;
+	}
 }

@@ -1,10 +1,12 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import dao.ProductDao;
 import vo.Product;
+import vo.ProductPage;
 
 public class ProductService {
 	private ProductDao dao = ProductDao.getInstance();
@@ -21,6 +23,14 @@ public class ProductService {
 
 	private ProductService() {
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////
+	private static final int COUNT_PER_PAGE=10;
+	public ProductPage makePage(int page) {
+		int totalProduct = 
+		
+	}
+	
+	
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct(){
 		List<Product> recentProductList = dao.selectRecentProduct();
@@ -137,5 +147,29 @@ public class ProductService {
 		 		
 		return categoryList;
 	}
-
+	
+	public List<Product> myCartProduct(String id){
+		List<Integer> list = dao.cartList(id);
+		List<Product> productList = new ArrayList<>();
+		for(int i=0;i<list.size();i++) {
+			productList.add(dao.cartProduct(list.get(i)));
+		}
+		return productList;
+	}
+	public int cartDelete(String id, int productNum) {
+		return dao.cartDelete(id, productNum);
+	}
+	
+	public int updateAndInsert(String id, int productNum) {
+		int cartQuantity = dao.quantityCheck(id, productNum);
+		if(cartQuantity>=1) {
+			System.out.println("[Pservice]수량 증가 실행");
+			dao.quantityPlus(id, productNum);
+			return 2;
+		}else {
+			System.out.println("[Pservice]장바구니 추가 실행");
+			dao.insertCart(cartQuantity, productNum,id);
+			return 1;
+		}
+	}
 }

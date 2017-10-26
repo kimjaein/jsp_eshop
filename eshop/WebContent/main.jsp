@@ -28,15 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -54,7 +46,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	//로그아웃 수행시 로그아웃 세션 속성을 삭제함.
 	String logout = (String) session.getAttribute("logout");
 	if (logout == "complete") {
-%><script>alert("로그아웃 완료")</script>
+%>
+	<script>alert("로그아웃 하였습니다.")</script>
 <%
 	session.removeAttribute("logout");
 	}
@@ -63,9 +56,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <%
 	String msg = (String) session.getAttribute("msg");
 	if (msg != null) {
-%><script>alert("<%=msg%>
-	")
-</script>
+%><script>alert('<%=msg%>')</script>
+
 <%
 	session.removeAttribute("msg");
 	}
@@ -139,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-4 follow-us">
 					<h3>
 						Facebook :
-						<a class="facebook" href="#"></a>
+						<a class="facebook" href="http://www.facebook.com"></a>
 					</h3>
 				</div>
 				<div class="col-md-4 shipping-grid">
@@ -190,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									href="product?task=detail&title=${recentProduct.title}-${1}">${recentProduct.title}</a>
 								<p>
 									<a class="item_add" href="#">
-										<i></i> <span class="item_price">${recentProduct.price}</span>
+										<i></i> <span class="item_price">${recentProduct.price} ￦</span>
 									</a>
 								</p>
 							</div>
@@ -236,7 +228,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							href="product?task=detail&title=${bestProduct.title}-${1}">${bestProduct.title}</a>
 						<p>
 							<a class="item_add" href="#">
-								<i></i> <span class="item_price">${bestProduct.price}</span>
+								<i></i> <span class="item_price">${bestProduct.price} ￦</span>
 							</a>
 						</p>
 					</div>

@@ -53,9 +53,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="new-product">
 				<div class="new-product-top">
+				
+				
+				
+				
+				
 					<ul class="product-top-list">
+					<%
+						System.out.println(request.getAttribute("large"));
+						System.out.println(request.getAttribute("middle"));
+					%>
 						<li><a href="index.jsp">Home</a>&nbsp;<span>&gt;</span></li>
-						<li><span class="act">Best Sales</span>&nbsp;</li>
+<%-- 						<li><span class="act">${categoryList.get(0).large_Category}</span>&nbsp;</li> --%>
+						<c:choose>
+							<c:when test = "${large} eq 'largeCategory'">
+								<li><span class="act">large ${categoryList.get(0).large_Category}</span>&nbsp;</li>
+							</c:when>
+							
+							<c:when test=" ${middle} eq 'middleCategory' ">
+								<li><span class="act">middle ${categoryList.get(0).large_Category} > ${categoryList.get(0).middle_Category}</span>&nbsp;</li>
+							</c:when>
+							<c:otherwise>
+								<li><span class="act">other ${categoryList.get(0).large_Category} > ${categoryList.get(0).middle_Category}</span>&nbsp;</li>
+							</c:otherwise>
+							
+						</c:choose>
+						
+						
+						
+						
 					</ul>
 					<p class="back"><a href="index.jsp">Back to Previous</a></p>
 					<div class="clearfix"></div>
@@ -96,7 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<c:choose>
 					<c:when test="${empty categoryList}">
 						<div class="banner-info">
-							<h3>상품이 존재하지 않습니다.</h3>
+							<h3 class="head text-center"> 상품이 존재하지 않습니다. </h3>
 						</div>
 					</c:when>
 					<c:otherwise>		
@@ -116,9 +142,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					                  </div>
 									<div class="product_container">
 									   <div class="cart-left">
-										 <p class="title">이름:${categoryProduct.title}</p>
+										 <p class="title">${categoryProduct.title}</p>
 									   </div>
-									   <div class="pricey"><span class="item_price">가격:${categoryProduct.price}</span></div>
+									   <div class="pricey"><span class="item_price">\ ${categoryProduct.price}</span></div>
 									   <div class="clearfix"></div>
 								     </div>		
 								  </div>

@@ -7,26 +7,22 @@
 				<div class="col-md-3 span1_of_4">
 					<h4>Shop</h4>
 					<ul class="f_nav">
-						<li><a href="#">new arrivals</a></li>
-						<li><a href="#">men</a></li>
-						<li><a href="#">women</a></li>
-						<li><a href="#">accessories</a></li>
-						<li><a href="#">kids</a></li>
-						<li><a href="#">brands</a></li>
-						<li><a href="#">trends</a></li>
-						<li><a href="#">sale</a></li>
-						<li><a href="#">style videos</a></li>
+						<li><a href="product?task=middleCategory&middleList=PADDING">padding</a></li>
+						<li><a href="product?task=middleCategory&middleList=COAT">coat</a></li>
+						<li><a href="product?task=middleCategory&middleList=JACKET">jacket</a></li>
+						<li><a href="product?task=middleCategory&middleList=LONG SLEEVE">long sleeve</a></li>
+						<li><a href="product?task=middleCategory&middleList=SHORT SLEEVE">short sleeve</a></li>
+						<li><a href="product?task=middleCategory&middleList=SLEEVELESS">sleeveless</a></li>
+						<li><a href="product?task=middleCategory&middleList=SLACKS">slacks</a></li>
+						<li><a href="product?task=middleCategory&middleList=JEANS">jeans</a></li>
+						<li><a href="product?task=middleCategory&middleList=SHORT">short</a></li>
 					</ul>	
 				</div>
 				<div class="col-md-3 span1_of_4">
 					<h4>help</h4>
 					<ul class="f_nav">
-						<li><a href="#">frequently asked  questions</a></li>
-						<li><a href="#">men</a></li>
-						<li><a href="#">women</a></li>
-						<li><a href="#">accessories</a></li>
-						<li><a href="#">kids</a></li>
-						<li><a href="#">brands</a></li>
+						<li><a href="#">notice</a></li>
+						<li><a href="#">Q & A</a></li>
 					</ul>	
 				</div>
 				<div class="col-md-3 span1_of_4">
@@ -34,28 +30,10 @@
 					<ul class="f_nav">
 						<li><a href="account.jsp">login</a></li>
 						<li><a href="register.jsp">create an account</a></li>
-						<li><a href="#">create wishlist</a></li>
-						<li><a href="checkout.jsp">my shopping bag</a></li>
-						<li><a href="#">brands</a></li>
-						<li><a href="#">create wishlist</a></li>
+						<li><a href="checkout.jsp">my cart</a></li>
 					</ul>				
 				</div>
-				<div class="col-md-3 span1_of_4">
-					<h4>popular</h4>
-					<ul class="f_nav">
-						<li><a href="#">new arrivals</a></li>
-						<li><a href="#">men</a></li>
-						<li><a href="#">women</a></li>
-						<li><a href="#">accessories</a></li>
-						<li><a href="#">kids</a></li>
-						<li><a href="#">brands</a></li>
-						<li><a href="#">trends</a></li>
-						<li><a href="#">sale</a></li>
-						<li><a href="#">style videos</a></li>
-						<li><a href="#">login</a></li>
-						<li><a href="#">brands</a></li>
-					</ul>			
-				</div>
+
 				<div class="clearfix"></div>
 				</div>
 		  </div>
