@@ -28,9 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -43,6 +41,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
+ 
+<%
+String logout = (String)session.getAttribute("logout");
+if(logout != null){
+ 	%><script> 
+	alert('로그아웃 됨');
+	</script>
+	<%
+	session.removeAttribute("logout");
+}
+%>
+<!-- 
+ <script type="text/javascript">
+window.onload = function(){
+	if(${sessionScope.logout} === logout){
+		console.log('로그아웃 됨');
+	}else{
+		console.log('세션 남아있음');
+	}
+}
+ </script>
+-->
+ 
 </head>
 
 
@@ -113,7 +134,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="online-strip">
 				<div class="col-md-4 follow-us">
 					<h3>
-						Facebook : <a class="facebook" href="#"></a>
+						Facebook :
+						<a class="facebook" href="#"></a>
 					</h3>
 				</div>
 				<div class="col-md-4 shipping-grid">
@@ -139,7 +161,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</header>
 
 
-<!-- 							메인 상품 new -->
+				<!-- 							메인 상품 new -->
 				<c:choose>
 					<c:when test="${empty recentProductList}">
 						<div class="banner-info">
@@ -147,18 +169,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</c:when>
 					<c:otherwise>
-									
+
 						<c:forEach var="recentProduct" items="${recentProductList}">
 							<div class="col-md-4 product simpleCart_shelfItem text-center">
-								<a href="product?task=detail&title=${recentProduct.title}"><img src="images/${recentProduct.large_Category}/${recentProduct.middle_Category}/${recentProduct.title}.JPG" alt="" /></a>
-				
+								<a href="product?task=detail&title=${recentProduct.title}">
+									<img
+										src="images/${recentProduct.large_Category}/${recentProduct.middle_Category}/${recentProduct.title}.JPG"
+										alt="" />
+								</a>
+
 								<div class="mask">
-									<a href="product?task=detail&title=${recentProduct.title}">Quick View</a>
+									<a href="product?task=detail&title=${recentProduct.title}">Quick
+										View</a>
 								</div>
-								<a class="product_name" href="product?task=detail&title=${recentProduct.title}">${recentProduct.title}</a>
+								<a class="product_name"
+									href="product?task=detail&title=${recentProduct.title}">${recentProduct.title}</a>
 								<p>
-									<a class="item_add" href="#"><i></i> <span
-										class="item_price">${recentProduct.price}</span></a>
+									<a class="item_add" href="#">
+										<i></i> <span class="item_price">${recentProduct.price}</span>
+									</a>
 								</p>
 							</div>
 						</c:forEach>
@@ -171,41 +200,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!-- 	best상품 -->
-			<div class="products-grid">
-				<header>
-					<h3 class="head text-center">B e s t &nbsp; &nbsp; P r o d u c t
-						s</h3>
-				</header>
+	<div class="products-grid">
+		<header>
+			<h3 class="head text-center">B e s t &nbsp; &nbsp; P r o d u c t
+				s</h3>
+		</header>
 
 
-<!-- 							메인 상품 new -->
-				<c:choose>
-					<c:when test="${empty bestProductList}">
-						<div class="banner-info">
-							<h3>상품이 존재하지 않습니다.</h3>
+		<!-- 							메인 상품 new -->
+		<c:choose>
+			<c:when test="${empty bestProductList}">
+				<div class="banner-info">
+					<h3>상품이 존재하지 않습니다.</h3>
+				</div>
+			</c:when>
+			<c:otherwise>
+
+				<c:forEach var="bestProduct" items="${bestProductList}">
+					<div class="col-md-4 product simpleCart_shelfItem text-center">
+						<a href="product?task=detail&title=${bestProduct.title}">
+							<img
+								src="images/${bestProduct.large_Category}/${bestProduct.middle_Category}/${bestProduct.title}.JPG"
+								alt="" />
+						</a>
+
+						<div class="mask">
+							<a href="product?task=detail&title=${bestProduct.title}">Quick
+								View</a>
 						</div>
-					</c:when>
-					<c:otherwise>
-									
-						<c:forEach var="bestProduct" items="${bestProductList}">
-							<div class="col-md-4 product simpleCart_shelfItem text-center">
-								<a href="product?task=detail&title=${bestProduct.title}"><img src="images/${bestProduct.large_Category}/${bestProduct.middle_Category}/${bestProduct.title}.JPG" alt="" /></a>
-				
-								<div class="mask">
-									<a href="product?task=detail&title=${bestProduct.title}">Quick View</a>
-								</div>
-								<a class="product_name" href="product?task=detail&title=${bestProduct.title}">${bestProduct.title}</a>
-								<p>
-									<a class="item_add" href="#"><i></i> <span
-										class="item_price">${bestProduct.price}</span></a>
-								</p>
-							</div>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
+						<a class="product_name"
+							href="product?task=detail&title=${bestProduct.title}">${bestProduct.title}</a>
+						<p>
+							<a class="item_add" href="#">
+								<i></i> <span class="item_price">${bestProduct.price}</span>
+							</a>
+						</p>
+					</div>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 
-				<div class="clearfix"></div>
-			</div>
+		<div class="clearfix"></div>
+	</div>
 	<script type="text/javascript">
 		$(window).load(function() {
 			$("#flexiselDemo3").flexisel({
@@ -233,7 +269,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="clearfix"></div>
 
-<!-- 	</script> -->
+<!-- 	</script>
+	-->
 	<!-- content-section-ends-here -->
 	<jsp:include page="bottom.jsp"></jsp:include>
 </body>

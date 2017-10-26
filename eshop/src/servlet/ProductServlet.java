@@ -11,13 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ProductDao;
+import service.CommentService;
 import service.ProductService;
+import vo.Comment;
 import vo.Product;
 
 @WebServlet("/product")
 public class ProductServlet extends HttpServlet{
 	private ProductService service = ProductService.getInstance();
 	private ProductDao dao = ProductDao.getInstance();
+	private CommentService serviceComment = CommentService.getInstance();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,10 +42,12 @@ public class ProductServlet extends HttpServlet{
 			 String str=singleProduct.getTitle();
 			 str=str.substring(0,str.length()-2);
 			 singleProduct.setTitle(str);
+
+			 List<Comment> commentList = serviceComment.readComment(title);
 			 
 			request.setAttribute("singleProduct", singleProduct);
 			System.out.println(singleProduct.toString());
-			
+			request.setAttribute("commentList",commentList);
 			path = "single.jsp";
 		} else if(task.equals("list")) {
 			String category = request.getParameter("category");
