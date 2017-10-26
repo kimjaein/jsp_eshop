@@ -14,24 +14,23 @@ public class Comment {
 //			foreign key(article_num) references board_list(article_num)
 //		);
 	private int commentNum;
-	private int articleNum;
+	private String title;
 	private String writer;
 	private Date writeTime;
 	private String contents;
 	private int c_list;
 	private String c_level;
-	
 	public int getCommentNum() {
 		return commentNum;
 	}
 	public void setCommentNum(int commentNum) {
 		this.commentNum = commentNum;
 	}
-	public int getArticleNum() {
-		return articleNum;
+	public String getTitle() {
+		return title;
 	}
-	public void setArticleNum(int articleNum) {
-		this.articleNum = articleNum;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getWriter() {
 		return writer;
@@ -57,37 +56,29 @@ public class Comment {
 	public void setC_list(int c_list) {
 		this.c_list = c_list;
 	}
-	
 	public String getC_level() {
 		return c_level;
 	}
 	public void setC_level(String c_level) {
 		this.c_level = c_level;
 	}
-	public Comment(int commentNum, int articleNum, String writer, Date writeTime, String contents, int c_list,
+	public Comment(int commentNum, String title, String writer, Date writeTime, String contents, int c_list,
 			String c_level) {
 		this.commentNum = commentNum;
-		this.articleNum = articleNum;
+		this.title = title;
 		this.writer = writer;
 		this.writeTime = writeTime;
 		this.contents = contents;
 		this.c_list = c_list;
 		this.c_level = c_level;
 	}
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Comment [commentNum=" + commentNum + ", title=" + title + ", writer=" + writer + ", writeTime="
+				+ writeTime + ", contents=" + contents + ", c_list=" + c_list + ", c_level=" + c_level + "]";
+	}
 	public Comment() {
 	}
 	
-	@Override
-	public String toString() {
-		return "CommentVO [commentNum=" + commentNum + ", articleNum=" + articleNum + ", writer=" + writer
-				+ ", writeTime=" + writeTime + ", contents=" + contents + ", c_list=" + c_list + ", c_level=" + c_level
-				+ "]";
-	}
-	
-	
-	
-	
+
 }

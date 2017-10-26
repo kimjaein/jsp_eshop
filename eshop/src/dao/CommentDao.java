@@ -26,13 +26,13 @@ public class CommentDao {
 	
 	public int insert(Comment comment) {
 		con=DBUtil.makeConnection();
-		String sql = "INSERT INTO Comment(ARTICLE_NUM,WRITER,WRITE_Time,CONTENTS,C_list,C_level) VALUES(?,?,?,?,?,?);";
+		String sql = "INSERT INTO Comment(PRODUCT_TITLE,WRITER,WRITE_Time,CONTENTS,C_list,C_level) VALUES(?,?,?,?,?,?);";
 		//	"update board_list set b_list = article_num where article_num=last_insert_id();";
 		int result=0;
 		try {
 			pstmt=con.prepareStatement(sql);
 			
-			pstmt.setInt(1, comment.getArticleNum());
+			pstmt.setString(1, comment.getTitle());
 			pstmt.setString(2, comment.getWriter());
 			pstmt.setTimestamp(3, new Timestamp(comment.getWriteTime().getTime()));
 			pstmt.setString(4,comment.getContents());
@@ -91,20 +91,20 @@ public class CommentDao {
 		return result;
 	}
 	
-	public List<Comment> selectCommentList(int articleNum) {
+	public List<Comment> selectCommentList(String title) {
 		con=DBUtil.makeConnection();
 		String sql="SELECT Comment_num,WRITER,CONTENTS,WRITE_Time,c_LIST,c_LEVEL FROM Comment "
-				+ "where article_Num=? ORDER BY c_LIST DESC, c_LEVEL ASC ";
+				+ "where PRODUCT_TITLE=? ORDER BY c_LIST DESC, c_LEVEL ASC ";
 		List<Comment> commentList = new ArrayList<>();
 		try {
 			pstmt=con.prepareStatement(sql);
 			
-			pstmt.setInt(1, articleNum);
+			pstmt.setString(1, title);
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
 				Comment c = new Comment();
-				c.setArticleNum(articleNum);
+				c.setTitle(title);
 				c.setCommentNum(rs.getInt(1));
 				c.setWriter(rs.getString(2));
 				c.setContents(rs.getString(3));
