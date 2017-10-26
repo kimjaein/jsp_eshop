@@ -103,7 +103,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<c:if test="${sum < 50000 }">
 				<c:set var="sum" value="${sum + 2500}"/>
 				</c:if>
-				
 				<h4>5만원 이상 구매시 무료배송</h4>
 				<h2><b>${sessionScope.loginId}</b>님 총 결제금액은 ${sum}입니다.</h2>
 			</div>
