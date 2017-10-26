@@ -66,15 +66,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="index.jsp">Home</a>&nbsp;<span>&gt;</span></li>
 <%-- 						<li><span class="act">${categoryList.get(0).large_Category}</span>&nbsp;</li> --%>
 						<c:choose>
-							<c:when test = "${large} eq 'largeCategory'">
-								<li><span class="act">large ${categoryList.get(0).large_Category}</span>&nbsp;</li>
+							<c:when test = "${type eq 'largeCategory'}">
+								<li><span class="act">${categoryPage.productList.get(0).large_Category}</span>&nbsp;</li>
 							</c:when>
 							
-							<c:when test=" ${middle} eq 'middleCategory' ">
-								<li><span class="act">middle ${categoryList.get(0).large_Category} > ${categoryList.get(0).middle_Category}</span>&nbsp;</li>
-							</c:when>
 							<c:otherwise>
-								<li><span class="act">other ${categoryList.get(0).large_Category} > ${categoryList.get(0).middle_Category}</span>&nbsp;</li>
+								<li><span class="act">${categoryPage.productList.get(0).large_Category} > ${categoryPage.productList.get(0).middle_Category}</span>&nbsp;</li>
 							</c:otherwise>
 							
 						</c:choose>
@@ -101,8 +98,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    		     </div>
 		    	        <ul class="women_pagenation">
 					     <li>Page:</li>
-					     <li class="active"><a href="#">1</a></li>
-					     <li><a href="#">2</a></li>
+					     
+							
+					     
+					     <c:forEach begin="${categoryPage.startPage}" end="${categoryPage.endPage}" var="i">
+					     <c:choose>
+					     	<c:when test = "${type eq 'largeCategory'}">
+					   	  		<li class="active"><a href="product?task=largeCategory&p=${i}"> ${i} </a></li>
+							</c:when>
+							
+							<c:otherwise>
+								<li class="active"><a href="product?task=middleCategory&p=${i}"> ${i} </a></li>
+							</c:otherwise>
+							
+							
+						</c:choose>
+							
+					     </c:forEach>
 				  	    </ul>
 	               		 <div class="clearfix"></div>		
 			        </div>
@@ -120,14 +132,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 					  
 				<c:choose>
-					<c:when test="${empty categoryList}">
+					<c:when test="${empty categoryPage.productList}">
 						<div class="banner-info">
 							<h3 class="head text-center"> 상품이 존재하지 않습니다. </h3>
 						</div>
 					</c:when>
 					<c:otherwise>		
 												
-						<c:forEach var="categoryProduct" items="${categoryList}">
+						<c:forEach var="categoryProduct" items="${categoryPage.productList}">
 						
 					  <li>
 							<a class="cbp-vm-image" href="product?task=detail&title=${categoryProduct.title}-${1}">
@@ -149,8 +161,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								     </div>		
 								  </div>
 		                     </div>
+		                     </div>
 		                    </a>
-							</div>
 							<a class="cbp-vm-icon cbp-vm-add item_add" href="#">Add to cart</a>
 						
 							

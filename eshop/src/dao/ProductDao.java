@@ -34,7 +34,6 @@ public class ProductDao {
 		DBUtil.loadDriver();
 	}
 
-
 	////////////////////////////////////////////////////////////////////
 	// 상품 입력
 	public int insert(Product product) {
@@ -83,7 +82,7 @@ public class ProductDao {
 				product.setSize(rs.getString(4));
 				product.setLarge_Category(rs.getString(5));
 				product.setMiddle_Category(rs.getString(6));
-				
+
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -96,6 +95,7 @@ public class ProductDao {
 		}
 		return productList;
 	}
+
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct() {
 		con = DBUtil.makeConnection();
@@ -114,7 +114,7 @@ public class ProductDao {
 				product.setSize(rs.getString(4));
 				product.setLarge_Category(rs.getString(5));
 				product.setMiddle_Category(rs.getString(6));
-				
+
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -127,12 +127,13 @@ public class ProductDao {
 		}
 		return productList;
 	}
+
 	///////////////////////////////////////////////////////////////////////////////
 	public Product selectProduct(String title) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE TITLE=?";
 		Product product = new Product();
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, title);
@@ -145,7 +146,7 @@ public class ProductDao {
 				product.setSize(rs.getString(4));
 				product.setLarge_Category(rs.getString(5));
 				product.setMiddle_Category(rs.getString(6));
-				
+
 			}
 		} catch (SQLException e) {
 			System.out.println("dao selectProduct 에러");
@@ -155,18 +156,21 @@ public class ProductDao {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
-		
+
 		return product;
 	}
+
 	///////////////////////////////////////////////////////////////////////////////
-	public List<Product> selectMiddleCategory(String middleCategory) {
+	public List<Product> selectMiddleCategory(String middleCategory, int startRow, int count) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=?";
+		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=? ORDER BY PRODUCT_NUM DESC LIMIT ?,?";
 		List<Product> productList = new ArrayList<>();
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, middleCategory);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, count);
 			rs = pstmt.executeQuery(); // SQL 실행
 
 			while (rs.next()) {
@@ -175,7 +179,7 @@ public class ProductDao {
 				product.setPrice(rs.getInt(2));
 				product.setLarge_Category(rs.getString(3));
 				product.setMiddle_Category(rs.getString(4));
-				
+
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -188,15 +192,18 @@ public class ProductDao {
 		}
 		return productList;
 	}
+
 	///////////////////////////////////////////////////////////////////////////////
-	public List<Product> selectLargeCategory(String largeCategory) {
+	public List<Product> selectLargeCategory(String largeCategory, int startRow, int count) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE LARGE_CATEGORY=?";
+		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE LARGE_CATEGORY=? ORDER BY PRODUCT_NUM DESC LIMIT ?,?";
 		List<Product> productList = new ArrayList<>();
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, largeCategory);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, count);
 			rs = pstmt.executeQuery(); // SQL 실행
 
 			while (rs.next()) {
@@ -205,7 +212,7 @@ public class ProductDao {
 				product.setPrice(rs.getInt(2));
 				product.setLarge_Category(rs.getString(3));
 				product.setMiddle_Category(rs.getString(4));
-				
+
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -218,32 +225,34 @@ public class ProductDao {
 		}
 		return productList;
 	}
+
 	//////////////////////////////////////
-	//아이디를 이용해서 장바구니에서 상품조회하는 메소드
-	public List<Integer> cartList(String id){
+	// 아이디를 이용해서 장바구니에서 상품조회하는 메소드
+	public List<Integer> cartList(String id) {
 		con = DBUtil.makeConnection();
 		List<Integer> numList = new ArrayList<>();
 		String sql = "SELECT PRODUCT_NUM FROM MYCART WHERE USER=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			rs=pstmt.executeQuery();
-			while(rs.next()) {
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
 				numList.add(rs.getInt(1));
 			}
 		} catch (SQLException e) {
 			System.out.println("Product Dao cartList 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
 		return numList;
 	}
+
 	///////////////////////////////////////
-	//List에 담긴 상품번호를 이용해서 여러번 상품 조회하는 메소드
-	public Product cartProduct(int i){
+	// List에 담긴 상품번호를 이용해서 여러번 상품 조회하는 메소드
+	public Product cartProduct(int i) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY,"
 				+ " MIDDLE_CATEGORY FROM PRODUCT WHERE PRODUCT_NUM=?";
@@ -253,7 +262,7 @@ public class ProductDao {
 			pstmt.setInt(1, i);
 			rs = pstmt.executeQuery(); // SQL 실행
 
-			if(rs.next()) {
+			if (rs.next()) {
 				product.setProduct_num(rs.getInt(1));
 				product.setTitle(rs.getString(2));
 				product.setPrice(rs.getInt(3));
@@ -272,28 +281,54 @@ public class ProductDao {
 		}
 		return product;
 	}
-	
+
 	///////////////////////////////////////////
-	//해당 아이디 장바구니 목록이 몇개인지
-	public int cartCount(String id){
+	// 해당 아이디 장바구니 목록이 몇개인지
+	public int cartCount(String id) {
 		con = DBUtil.makeConnection();
 		int count = 0;
 		String sql = "SELECT COUNT(*) FROM MYCART WHERE USER=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			rs=pstmt.executeQuery();
-			if(rs.next()) {
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
 				count = rs.getInt(1);
 			}
 		} catch (SQLException e) {
 			System.out.println("Product Dao cartCount 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
 		return count;
 	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	public int selectProductCount() {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT COUNT(*) FROM PRODUCT";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery(); // sql 실행
+
+			// 결과 숫자 하나 얻기
+			rs.next();
+			result = rs.getInt(1);
+		} catch (SQLException e) {
+			System.out.println("dao count 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return result;
+	}
+
+	///////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////
 }

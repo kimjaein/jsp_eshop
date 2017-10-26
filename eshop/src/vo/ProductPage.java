@@ -20,6 +20,8 @@ public class ProductPage {
 		this.totalPage = totalPage;
 	}
 	
+	public ProductPage() {
+	}
 	
 	
 //////////////////////////////////////////////////////

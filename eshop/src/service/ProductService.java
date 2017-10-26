@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import dao.ProductDao;
+import vo.Article;
+import vo.ArticlePage;
 import vo.Product;
 import vo.ProductPage;
 
@@ -24,11 +26,7 @@ public class ProductService {
 	private ProductService() {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////
-	private static final int COUNT_PER_PAGE=10;
-	public ProductPage makePage(int page) {
-		int totalProduct = 
-		
-	}
+	private static final int COUNT_PER_PAGE=6;
 	
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,8 +101,27 @@ public class ProductService {
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	public List<Product> middleCategoryProduct(String middleCategory) {
-		List<Product> categoryList = dao.selectMiddleCategory(middleCategory);
+	public ProductPage middleCategoryProduct(String middleCategory, int page) {
+		
+		int totalProductCount = dao.selectProductCount();
+		int totalPage = totalProductCount / COUNT_PER_PAGE;
+		if(totalProductCount % COUNT_PER_PAGE > 0) {
+			totalPage++;
+		}
+		int startPage = (page -1) / 10 * 10 + 1;
+
+		// 하단 끝 페이지
+		int endPage = startPage + 9;
+		if (endPage > totalPage) {
+			endPage = totalPage;
+		}
+
+		// limit 시작행 계산
+		int startRow = (page - 1) * COUNT_PER_PAGE;
+		
+		List<Product> categoryList = dao.selectMiddleCategory(middleCategory, startRow, COUNT_PER_PAGE);
+		
+		
 		
 		 for(int i=0; i<categoryList.size();i++) {
 			 Product p = categoryList.get(i);
@@ -120,14 +137,35 @@ public class ProductService {
 			 
 			 //			 categoryList.get(i).setTitle(title);			 
 		 }
+		 
+		 ProductPage productPage = new ProductPage(categoryList, startPage, endPage, page, totalPage);
 //		 System.out.println(categoryList);
 		 		
-		return categoryList;
+		return productPage;
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	public List<Product> largeCategoryProduct(String largeCategory) {
-		List<Product> categoryList = dao.selectLargeCategory(largeCategory);
+	public ProductPage largeCategoryProduct(String largeCategory, int page) {
+		
+		int totalProductCount = dao.selectProductCount();
+		int totalPage = totalProductCount / COUNT_PER_PAGE;
+		if(totalProductCount % COUNT_PER_PAGE > 0) {
+			totalPage++;
+		}
+		int startPage = (page -1) / 10 * 10 + 1;
+
+		// 하단 끝 페이지
+		int endPage = startPage + 9;
+		if (endPage > totalPage) {
+			endPage = totalPage;
+		}
+
+		// limit 시작행 계산
+		int startRow = (page - 1) * COUNT_PER_PAGE;
+		
+		List<Product> categoryList = dao.selectLargeCategory(largeCategory, startRow, COUNT_PER_PAGE);
+		
+		
 		
 		 for(int i=0; i<categoryList.size();i++) {
 			 Product p = categoryList.get(i);
@@ -143,10 +181,14 @@ public class ProductService {
 			 
 			 //			 categoryList.get(i).setTitle(title);			 
 		 }
+		 
+		 ProductPage productPage = new ProductPage(categoryList, startPage, endPage, page, totalPage);
 //		 System.out.println(categoryList);
 		 		
-		return categoryList;
+		return productPage;
 	}
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public List<Product> myCartProduct(String id){
 		List<Integer> list = dao.cartList(id);
