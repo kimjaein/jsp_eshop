@@ -63,7 +63,7 @@ public class MemberServlet extends HttpServlet {
 			member.setEmail(request.getParameter("email"));
 
 			if (service.joinMember(member)) {
-				session.setAttribute("msg", "회원가입 성공");
+				session.setAttribute("msg", "가입에 성공하였습니다.");
 				path = "index.jsp";
 			} else {
 				session.setAttribute("msg", "가입에 실패하였습니다.");
