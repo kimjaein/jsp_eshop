@@ -74,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="breadcrumbs">
 						<li class="home"><a href="index.jsp" title="Go to Home Page">홈</a>&nbsp;
 							<span>&gt;</span></li>
-						<li class="women">로그인</li>
+						<li>로그인</li>
 					</ul>
 					<ul class="previous">
 						<li><a href="index.jsp">메인 화면으로</a></li>
