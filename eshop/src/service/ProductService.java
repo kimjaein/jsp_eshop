@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -137,5 +138,14 @@ public class ProductService {
 		 		
 		return categoryList;
 	}
-
+	
+	public List<Product> myCartProduct(String id){
+		List<Integer> list = dao.cartList(id);
+		List<Product> productList = new ArrayList<>();
+		for(int i=0;i<list.size();i++) {
+			productList.add(dao.cartProduct(list.get(i)));
+		}
+		return productList;
+	}
+	
 }
