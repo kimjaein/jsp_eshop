@@ -52,7 +52,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		})
 	})
 </script>
-	
+	<!-- msg로 저장된 session을 알림창으로 출력 (예시:회원탈퇴 완료, 정보수정 완료 등등]-->
+<%
+	String msg = (String) session.getAttribute("msg");
+	if (msg != null) {
+%>
+		<script>alert('<%=msg%>')</script>
+<%
+		session.removeAttribute("msg");
+	}
+%>
 </head>
 <body>
 
