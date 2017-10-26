@@ -33,7 +33,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-
+<script type="text/javascript">
+$(function(){
+	$('.recomment').click(function(){
+		alert("update");//반응함 !!!
+		var html =''
+		+'	<form action="comment" method="post">'
+		+'<input type="hidden" name="writer" value="${sessionScope.loginId}">'
+		+'<input type="hidden" name="title" value="${singleProduct.title}">'
+		+'<input type="hidden" name="task" value="write">'
+		+'<div class="media-left response-text-left">'
+		+'	<h5>${sessionScope.loginId}</h5>'
+		+'</div>'
+		+'<div class="media-body response-text-right">'
+		+'<ul>'
+		+'	<li><textarea rows="5" cols="50" name="contents" placeholder="댓글을 입력하세요."></textarea></li>'
+		+'	<li><input type="submit" value="댓글달기"></li>'
+		+'</ul>'
+		+'</div>'
+		+'</form>'	
+		alert($(this).val())
+		
+	})
+})
+ 
+</script>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
@@ -119,9 +143,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <ul class="nav nav-tabs responsive hidden-xs hidden-sm" id="myTab">
         <li class="test-class active"><a class="deco-none misc-class" href="#how-to"> More Information</a></li>
         <li class="test-class"><a href="#features">Specifications</a></li>
-        <li class="test-class"><a class="deco-none" href="#source">Reviews (7)</a></li>
+        <li class="test-class"><a class="deco-none" href="#source">Reviews (${commentList.size()})</a></li>
       </ul>
-
+<!-- 여기부터 -->
       <div class="tab-content responsive hidden-xs hidden-sm">
         <div class="tab-pane active" id="how-to">
 		 <p class="tab-text">여기에 추가정보 작성</p>    
@@ -141,19 +165,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<p>${comment.contents}</p>
 								<ul>
 									<li>${comment.writeTime}</li>
-									<li><a href="single.html" id="recomment" value="${comment.commentNum}">Reply</a></li>
+									<li class="commentNum">${comment.commentNum}</li>
+									<li><a class="recomment">Reply</a></li>
 								</ul>
 							</div>
-							<tr id="recommentForm${comment.commentNum}">
-								<form action="comment" method="post">
-								<input type="hidden" name="writer" value="${sessionScope.loginId}">
-								<input type="hidden" name="title" value="${singleProduct.title}">
-								<input type="hidden" name="task" value="write">
-									<td>${sessionScope.loginId}</td>
-									<td><textarea rows="5" cols="50" name="contents" placeholder="댓글을 입력하세요."></textarea></td>
-									<td><input type="submit" value="댓글달기">
-								</form>	
-							</tr>
+							<div id="recommentForm${comment.commentNum}">
+								
+							</div>
 							<div class="clearfix"> </div>
 						</div>
 				</c:forEach>
@@ -178,7 +196,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
         </div>
  	</div>
-
+<!-- 여기까지 -->
 			</div>
 			<div class="clearfix"></div>
 			</div>
