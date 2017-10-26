@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -50,21 +51,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<h2>나의 장바구니 (Count(*))</h2>
 			<div class="cart-gd">
-			
 				<!-- 상품 하나의 시작 -->
+				<c:forEach var="list" items="${cartList}">
+				<hr>
 				<div class="cart-header1">
 					<div class="close1"></div>
 					<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
-							<img src="images/l3.jpg" class="img-responsive" alt="">
+							<img src="images/${list.large_Category}/${list.middle_Category}/${list.title}.JPG" class="img-responsive" alt="">
 						</div>
 						<div class="cart-item-info">
 							<h3>
-								<a href="#"> 상품 이름 </a>
-								<span>사이즈 : </span>
-								<span>색상 : </span>
-								<span>수량 : </span>
-								<span>가격 : </span>
+								<a href="#">상품명 : ${list.title} </a><br><br>
+								<b>사이즈 : ${list.size}</b><br><br>
+								<b>색상 : ${list.color}</b><br><br>
+								<b>수량 : 1개</b><br><br>
+								<b>가격 : ${list.price} </b><br><br>
 							</h3>
 							<div class="delivery">
 								<span>
@@ -76,6 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 				</div>
+				</c:forEach>
 				<!-- 상품 하나의 끝 -->
 
 			</div>

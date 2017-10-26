@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mysql.fabric.Response;
-
 import service.MemberService;
+import service.ProductService;
 import vo.BuyList;
 import vo.Member;
+import vo.Product;
 
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
@@ -39,6 +38,9 @@ public class TestServlet extends HttpServlet {
 		}else if(task.equals("cart")) {
 			String id = req.getParameter("id");
 			req.setAttribute("id", id);
+			//service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
+			List<Product> cartList = ProductService.getInstance().myCartProduct(id);
+			req.setAttribute("cartList", cartList);
 			path ="checkout.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
