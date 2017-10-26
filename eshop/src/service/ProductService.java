@@ -124,7 +124,7 @@ public class ProductService {
 		
 		
 		
-		 for(int i=0; i<3;i++) {
+		 for(int i=0; i<categoryList.size();i++) {
 			 Product p = categoryList.get(i);
 			 String title = p.getTitle();
 			 
