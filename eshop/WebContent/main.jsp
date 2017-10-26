@@ -63,9 +63,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <%
 	String msg = (String) session.getAttribute("msg");
 	if (msg != null) {
-%><script>alert("<%=msg%>
-	")
-</script>
+%><script>alert('<%=msg%>')</script>
+
 <%
 	session.removeAttribute("msg");
 	}
