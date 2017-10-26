@@ -154,7 +154,10 @@ $(function(){
 		 <p class="tab-text">여기에 추가정보 작성</p>    
         </div>
         <div class="tab-pane" id="features">
-		  <p class="tab-text"> 여기에 상세정보</p>
+		  <p class="tab-text"> 사이즈 상세정보</p>
+		  <img src="images/size.png" alt="" />
+		  <br>
+		  <img src="images/color.JPG" alt="" />
 		</div>
 		
 		<div class="tab-pane" id="source">
