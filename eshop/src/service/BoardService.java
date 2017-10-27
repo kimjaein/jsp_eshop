@@ -132,5 +132,11 @@ public class BoardService {
 		
 		return article;
 	}
+	public String checkListWriter(int list) {
+		String depth="A";
+		String writer = dao.selectWriterUsingList(list,depth);
+
+		return writer;
+	}
 
 }

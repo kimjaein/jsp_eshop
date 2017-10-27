@@ -1,6 +1,7 @@
 package servlet;
  
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import service.BoardService;
 import service.CommentService;
@@ -146,6 +149,16 @@ public class BoardServlet extends HttpServlet{
     			response.sendRedirect("board?task=boardList&type=qna");
     			return;
     		}
+    	}else if(task.equals("qnaRead")) {
+    		response.setContentType("text/text;charset=euc-kr");
+    		 PrintWriter writer = response.getWriter();
+    		 String liststr=request.getParameter("list");
+    		 int list= Integer.parseInt(liststr);
+    		 
+    		 String result= service.checkListWriter(list); 
+    		 
+             writer.print(result);
+    		 
     	}
 		
     }
