@@ -44,7 +44,6 @@ public class ProductServlet extends HttpServlet{
 						 
 			 
 			request.setAttribute("singleProduct", singleProduct);
-			System.out.println(singleProduct.toString());
 			request.setAttribute("commentList",commentList);
 			path = "single.jsp";
 			
@@ -72,7 +71,6 @@ public class ProductServlet extends HttpServlet{
 			}
 			
 			ProductPage productPage = service.largeCategoryProduct(largeList, page);
-			System.out.println(productPage);
 			
 			request.setAttribute("type", task);
 			request.setAttribute("categoryPage", productPage);

@@ -25,61 +25,58 @@ public class TestServlet extends HttpServlet {
 	MemberService mService = MemberService.getInstance();
 	ProductService pService = ProductService.getInstance();
 	ProductDao pDao = ProductDao.getInstance();
-	BuylistDao bDao = BuylistDao.getInstance(); 
+	BuylistDao bDao = BuylistDao.getInstance();
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("EUC-KR");
 		String task = req.getParameter("task");
 		String path = "";
-		if(task == null || task.isEmpty()){
-			path="mypage.jsp";
-		}else if (task.equals("editaccount")) {
+		if (task == null || task.isEmpty()) {
+			path = "mypage.jsp";
+		} else if (task.equals("editaccount")) {
 			path = "editaccountform.jsp";
-		}else if(task.equals("buylist")) {
+		} else if (task.equals("buylist")) {
 			String id = req.getParameter("id");
-			List <BuyList> buylist=bDao.selectBuyList(id);
+			List<BuyList> buylist = bDao.selectBuyList(id);
 			req.setAttribute("buylist", buylist);
-			
-			path="buylist.jsp";
-		}else if(task.equals("cart")) {
+
+			path = "buylist.jsp";
+		} else if (task.equals("cart")) {
 			String id = req.getParameter("id");
 			req.setAttribute("id", id);
-			//service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
+			// service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
 			List<Product> productList = pService.myCartProduct(id);
 			List<MyCart> cartList = pDao.cartList(id);
-			
-			req.setAttribute("cartCount", pDao.cartCount(id));//id로 장바구니 총 개수 조회
-			req.setAttribute("productList", productList);//상품 리스트
-			req.setAttribute("cartList", cartList);//장바구니 리스트
-			path ="checkout.jsp";
-			
-		}else if(task.equals("buy")) {
+
+			req.setAttribute("cartCount", pDao.cartCount(id));// id로 장바구니 총 개수 조회
+			req.setAttribute("productList", productList);// 상품 리스트
+			req.setAttribute("cartList", cartList);// 장바구니 리스트
+			path = "checkout.jsp";
+
+		} else if (task.equals("buy")) {
 			String id = req.getParameter("id");
-			String size = req.getParameter("size");
-			String color = req.getParameter("color");
-			String productNum = req.getParameter("productNum");
 			List<Product> productList = pService.myCartProduct(id);
 			List<MyCart> cartList = pDao.cartList(id);
-			
-			//buy로 task주는곳이 두곳[single.jsp와 checkout.jsp]
-			//single.jsp에서 size, color, 상품번호, id가 파라매터로 넘어오고
-			//checkout.jsp에서는 id만 파라매터로 넘어온다
-			//둘을 구분짓기위해 if문을 사용하여 single.jsp에서 넘어온 파라매터들이 널일때는 읽기(List)만 하고
-			//널이 아닐때는 장바구니에 해당 상품을 INSERT 하는 작업을 수행
-			
-			
+
+			// buy로 task주는곳이 두곳[single.jsp와 checkout.jsp]
+			// single.jsp에서 size, color, 상품번호, id가 파라매터로 넘어오고
+			// checkout.jsp에서는 id만 파라매터로 넘어온다
+			// 둘을 구분짓기위해 if문을 사용하여 single.jsp에서 넘어온 파라매터들이 널일때는 읽기(List)만 하고
+			// 널이 아닐때는 장바구니에 해당 상품을 INSERT 하는 작업을 수행
+
 			req.setAttribute("productList", productList);
 			req.setAttribute("cartList", cartList);
-			path="payment.jsp";
-		}else if(task.equals("payment")) {
+			path = "payment.jsp";
+		} else if (task.equals("payment")) {
 			String id = req.getParameter("id");
 			HttpSession session = req.getSession();
-			
+
 			pService.buylistInsert(id);
-			//결제완료될때 DB에서 장바구니 삭제
-			
+			// 결제완료될때 DB에서 장바구니 삭제
+
 			session.setAttribute("msg", "결제 완료");
-			path="index.jsp";
+			path = "index.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
@@ -100,11 +97,11 @@ public class TestServlet extends HttpServlet {
 			member.setphone(req.getParameter("userphone"));
 			member.setAddress(req.getParameter("useraddress"));
 			member.setEmail(req.getParameter("useremail"));
-			
-			System.out.println("name : "+member.getName());
-			System.out.println("address : "+member.getAddress());
-			System.out.println("email : "+member.getEmail());
-			
+
+			System.out.println("name : " + member.getName());
+			System.out.println("address : " + member.getAddress());
+			System.out.println("email : " + member.getEmail());
+
 			if (mService.memberUpdate(member)) {
 				session.setAttribute("msg", "수정 완료");
 				path = "index.jsp";
@@ -118,7 +115,7 @@ public class TestServlet extends HttpServlet {
 			// 정보 수정하기 전 비밀번호 확인[일치 시 정보수정 폼으로 연결]
 			String id = req.getParameter("userid");
 			String pw = req.getParameter("userpw");
-			System.out.println("[editCheck]" + "id : "+id + "/ pw : "+pw);
+			System.out.println("[editCheck]" + "id : " + id + "/ pw : " + pw);
 			// 받아온 id와 pw값이 빈 값이 아니면
 			if (id != null && id.length() > 0 && pw != null && pw.length() > 0) {
 				// 해당 id의 pw와 DB에 있는 pw와 비교값이 참이면
@@ -141,46 +138,52 @@ public class TestServlet extends HttpServlet {
 			// 계정 삭제
 			String id = req.getParameter("userid");
 			String pw = req.getParameter("userpw");
-			if(mService.loginPwCheck(id, pw)){
+			if (mService.loginPwCheck(id, pw)) {
 				mService.deleteMember(id);
 				session.removeAttribute("loginId");
 				session.setAttribute("msg", "탈퇴 완료");
 				path = "index.jsp";
-			}else {
+			} else {
 				session.setAttribute("msg", "탈퇴 실패");
 				path = "index.jsp";
 			}
-		}else if (task.equals("cartDel")) {
+		} else if (task.equals("cartDel")) {
 			String id = req.getParameter("id");
 			String productNumStr = req.getParameter("num");
-			int productNum=0;
-			if(productNumStr.length()>0 && productNumStr != null) {
+			int productNum = 0;
+			if (productNumStr.length() > 0 && productNumStr != null) {
 				productNum = Integer.parseInt(productNumStr);
 			}
 			int result = pService.cartDelete(id, productNum);
 			resp.setContentType("text/text;charset=utf-8");
 			resp.getWriter().print(result);
 			return;
-		}else if(task.equals("cartPlus")){
+		} else if (task.equals("cartPlus")) {
 			String id = req.getParameter("id");
 			String title = req.getParameter("title");
 			String color = req.getParameter("color");
-			String size=req.getParameter("size");
-			String quantity = req.getParameter("quantity");
+			String size = req.getParameter("size");
+			String quantityStr = req.getParameter("quantity");
+			int quantity=1;
+			if(quantityStr!=null && quantityStr.length()>0) {
+				quantity = Integer.parseInt(quantityStr);
+			}
 			
-			System.out.println(id +": title : "+title +" color : "+color+" size : "+size);
-//			int result = pService.updateAndInsert(id);
-//			if(result == 1) {
-//				System.out.println("[Tservlet]장바구니에 없는 상품");
-//				path = "mypage.jsp";
-//			}else if(result == 2) {
-//				System.out.println("[Tservlet]장바구니 물품 수량증가");
-//				path = "mypage.jsp";
-//			}else {
-//				System.out.println("[Tservlet]장바구니 추가 및 업데이트 에러");
-//				path = "mypage.jsp";
-//			}
-			path = "index.jsp"; 
+			System.out.println("id : " + id + ": title : " + title + " color : " + color + " size : " + size
+					+ " quantity : " + quantity);
+			int result = 0;
+			if(id != null && id.length()>0 && title != null && title.length()>0 && color != null && color.length()>0 &&
+				size != null && size.length()>0 ) {
+				result = pService.updateAndInsert(id, title, color, size, quantity);	
+			}
+			if (result == 1) {
+				System.out.println("[Tservlet]장바구니에 없는 상품");
+			} else if (result == 2) {
+				System.out.println("[Tservlet]장바구니 물품 수량증가");
+			} else{
+				System.out.println("[Tservlet]장바구니 추가 및 업데이트 에러");
+			}
+			path = "index.jsp";
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);

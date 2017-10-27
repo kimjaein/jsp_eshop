@@ -405,14 +405,15 @@ public class ProductDao {
 	}
 	/////////////////////////////////////////////////
 	//장바구니 수량 추가 메소드
-	public int quantityPlus(int quantity,int productNum,String id){
+	public int quantityPlus(int cartQuantity,int quantity,int productNum,String id){
 		con = DBUtil.makeConnection();
 		int result = 0;
-		String sql = "UPDATE MYCART SET CART_QUANTITY = ? + 1 "
+		String sql = "UPDATE MYCART SET CART_QUANTITY = ? + ? "
 				+ " WHERE USER=? AND PRODUCT_NUM=?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, quantity);
+			pstmt.setInt(1, cartQuantity);
+			pstmt.setInt(2, quantity);
 			pstmt.setString(2, id);
 			pstmt.setInt(3, productNum);
 			result = pstmt.executeUpdate();
@@ -450,4 +451,27 @@ public class ProductDao {
 		}
 		return quantity;
 	}
+	//////////////////////////////////////////////////
+	//장바구니에 넣기위해 제목,색상,사이즈를 이용하여 상품번호 뽑아오기
+	public int selectProductNum(String title, String color, String size) {
+		String sql = "SELECT PRODUCT_NUM FROM PRODUCT WHERE TITLE LIKE ? AND COLOR=? AND SIZE=?";
+		int productNum=0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+title);
+			pstmt.setString(2, color);
+			pstmt.setString(3, size);
+			
+			productNum = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("[ProductDao]select productNum 에러");
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return productNum;
+	}
+	
 }
