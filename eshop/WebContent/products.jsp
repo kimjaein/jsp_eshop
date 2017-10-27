@@ -153,7 +153,7 @@ function addCart(num){
 				                     </div>
 				                     </div>
 				                    </a>
-									<a class="cbp-vm-icon cbp-vm-add item_add" href="#" onclick="addCart(${categoryProduct.product_num});">Add to cart</a>
+<%-- 									<a class="cbp-vm-icon cbp-vm-add item_add" href="#" onclick="addCart(${categoryProduct.product_num});">Add to cart</a> --%>
 								</li>					
 								</c:forEach>
 							</c:otherwise>

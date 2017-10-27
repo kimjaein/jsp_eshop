@@ -215,7 +215,7 @@ function addCart(num){
 				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
+	
 
 	<!-- 	best»óÇ° -->
 	<div class="products-grid">
@@ -259,6 +259,7 @@ function addCart(num){
 		</c:choose>
 
 		<div class="clearfix"></div>
+	</div>
 	</div>
 	<div class="clearfix"></div>
 
