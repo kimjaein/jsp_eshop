@@ -76,12 +76,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</c:when>						
 							
 							<c:otherwise>
+							<c:choose>
 								<c:when test = "${type eq 'largeCategory'}">
 									<li><span class="act">${categoryPage.productList.get(0).large_Category}</span>&nbsp;</li>
 								</c:when>
 								<c:otherwise>
 									<li><span class="act">${categoryPage.productList.get(0).large_Category} > ${categoryPage.productList.get(0).middle_Category}</span>&nbsp;</li>
 								</c:otherwise>
+							</c:choose>
 							</c:otherwise>
 							
 								
@@ -96,10 +98,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                	 		<div class="sort-by">
 			            	<label>Sort By</label>
 			            	<select>
+			            		<option value="recent">Recent</option>
 			                	<option value="name">Name</option>
 			                    <option value="price">Price</option>
 			           		</select>
-			            	<a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
+			            	<a href=""><img src="images/find.png" alt="" class="v-middle"></a>
 	                   </div>
 	    		    </div>
 		    	    <ul class="women_pagenation">
