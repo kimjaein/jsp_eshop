@@ -72,6 +72,8 @@ public class MemberServlet extends HttpServlet {
 		} else if (task.equals("login")) {
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
+			System.out.println("id : "+id);
+			System.out.println("pw : "+pw);
 			String loginId = service.login(id, pw);
 			System.out.println("service.login value : " + loginId);
 			if (loginId != null) {

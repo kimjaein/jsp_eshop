@@ -77,14 +77,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="list" items="${cartList}" varStatus="status">
+						<c:forEach var="list" items="${productList}" varStatus="status">
 							<tr>
 							<td>${list.title}</td>
 							<td>${list.size }</td>
 							<td>${list.color }</td>
-							<td>${quantityList[status.index].cart_quantity}</td>
-							<td>${list.price *quantityList[status.index].cart_quantity}</td>
-							<c:set var="sum" value="${sum + list.price * quantityList[status.index].cart_quantity}"></c:set>
+							<td>${cartList[status.index].cart_quantity}</td>
+							<td>${list.price *cartList[status.index].cart_quantity}</td>
+							<c:set var="sum" value="${sum + list.price * cartList[status.index].cart_quantity}"></c:set>
 							<td><a href="#"
 										onclick="cancelCart(${list.product_num});">
 										<img src="images/close_1.png" align="middle">
@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				<h4>5만원 이상 구매시 무료배송</h4>
 				<c:if test="${sum >= 200000}">
-				<h4>20만원 이상 구매하여 10% <font style="color: white; background-color: rgb(129,98,99); ">${sum * 0.1}</font>할인 되었습니다.</h4>
+				<h4>20만원 이상 구매하여 10% <font style="color: white; background-color: rgb(129,98,99); ">${sum * 0.1}</font>원 할인 되었습니다.</h4>
 				<c:set var="sum" value="${sum * 0.9}"/>
 				</c:if>
 				<c:if test="${sum < 200000}">
@@ -105,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<c:if test="${sum < 50000 }">
 				<c:set var="sum" value="${sum + 2500}"/>
 				</c:if>
-				<h3><b>${sessionScope.loginId}</b>님 총 결제금액은 <font style="color: white; background-color: rgb(129,98,99); ">${sum}</font>입니다.</h3>
+				<h3><b>${sessionScope.loginId}</b>님 총 결제금액은 <font style="color: white; background-color: rgb(129,98,99); ">${sum}</font>원 입니다.</h3>
 				<center>
 					<a class="acount-btn"
 						href="${pageContext.request.contextPath}/test?task=payment&id=${sessionScope.loginId}">결제하기</a>

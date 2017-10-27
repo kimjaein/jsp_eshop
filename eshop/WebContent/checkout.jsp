@@ -77,7 +77,7 @@ function cancelCart(num){
 			<h2>나의 장바구니 [${cartCount}]</h2>
 			<div class="cart-gd">
 				<!-- 상품 하나의 시작 -->
-				<c:forEach var="list" items="${cartList}" varStatus="status">
+				<c:forEach var="list" items="${productList}" varStatus="status">
 					<hr>
 					<div class="cart-header1">
 						<div class="cart-sec simpleCart_shelfItem">
@@ -95,9 +95,9 @@ function cancelCart(num){
 									</a>
 									<br> <br> <b>사이즈 : ${list.size}</b><br> <br>
 									<b>색상 : ${list.color}</b><br> <br>
-									<b>${quantityList[status.index].cart_quantity}개</b><br><br>
-									<b>가격 : ${list.price * quantityList[status.index].cart_quantity} </b><br> <br>
-									<c:set var="sum" value="${sum + list.price * quantityList[status.index].cart_quantity}" />
+									<b>${cartList[status.index].cart_quantity}개</b><br><br>
+									<b>가격 : ${list.price * cartList[status.index].cart_quantity} </b><br> <br>
+									<c:set var="sum" value="${sum + list.price * cartList[status.index].cart_quantity}" />
 								</h3>
 								<div class="delivery">
 									<span> <b>[무료 배송]</b>배송 예정일 1~3일

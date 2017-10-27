@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import vo.BuyList;
@@ -35,17 +35,17 @@ public class BuylistDao {
 
 	////////////////////////////////////////////////////////////////////
 	// 상품 구매시 Insert **수정전**
-	public int insert(BuyList buylist) {
+	public int insertBuyList(Product product, int quantity, String id) {
 		con = DBUtil.makeConnection();
 		String sql = "INSERT INTO BUY_LIST(BUYER_ID, PRODUCT_TITLE, BUY_DATE, BUY_QUANTITY) VALUES(?,?,?,?)";
 		int result = 0;
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, buylist.getBuyer_id());
-			pstmt.setString(2, buylist.getProduct_title());
-			pstmt.setDate(3, buylist.getBuy_date());
-			pstmt.setInt(4, buylist.getBuy_quantity());
+			pstmt.setString(1, id);
+			pstmt.setString(2, product.getTitle());
+			pstmt.setTimestamp(3, new Timestamp(product.getRegisterTime().getTime()));
+			pstmt.setInt(4, quantity);
 			
 			result = pstmt.executeUpdate();
 			
@@ -91,34 +91,6 @@ public class BuylistDao {
 		return buyList;
 	}
 	///////////////////////////////////////////////////////////////////////////////
-	public List<Product> selectRecentProduct() {
-		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT ORDER BY DATE DESC";
-		List<Product> productList = new ArrayList<>();
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery(); // SQL 실행
-
-			while (rs.next()) {
-				Product product = new Product();
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setColor(rs.getString(3));
-				product.setSize(rs.getString(4));
-				
-				productList.add(product);
-			}
-		} catch (SQLException e) {
-			System.out.println("dao selectProductList 에러");
-			e.printStackTrace();
-		} finally {
-			DBUtil.closeRs(rs);
-			DBUtil.closePstmt(pstmt);
-			DBUtil.closeCon(con);
-		}
-		return productList;
-	}
 	public int deleteBuylist(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "DELETE FROM BUY_LIST WHERE BUYER_ID=?";
@@ -138,29 +110,29 @@ public class BuylistDao {
 		return result;
 	}
 	//////////////////////////////////////////////////
-	//상품번호 넣고 수량 출력하기
-	public BuyList checkQuantity(String id) {
-		String sql = "SELECT CART_QUANTITY, TITLE FROM MYCART AS M, PRODUCT AS P WHERE M.PRODUCT_NUM=? AND"
-				+" M.PRODUCT_NUM = P.PRODUCT_NUM;";
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, productNum);
-			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				BuyList buy = new BuyList();
-				buy.setBuy_date(new Date());
-				buy.setBuy_quantity(rs.getInt(1));
-				buy.setProduct_title(rs.getString(2));
-				buy.setBuyer_id(id);
-			}
-		} catch (SQLException e) {
-			System.out.println("dao checkQuantity 에러");
-			e.printStackTrace();
-		}finally {
-			DBUtil.closeRs(rs);
-			DBUtil.closePstmt(pstmt);
-			DBUtil.closeCon(con);
-		}
-		return buy;
-	}
+	//상품번호 넣고 수량 출력하기[리스트 쓰면 필요없을것 같아 보류]
+//	public BuyList checkQuantity(String id) {
+//		String sql = "SELECT CART_QUANTITY, TITLE FROM MYCART AS M, PRODUCT AS P WHERE M.PRODUCT_NUM=? AND"
+//				+" M.PRODUCT_NUM = P.PRODUCT_NUM;";
+//		try {
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setInt(1, productNum);
+//			rs=pstmt.executeQuery();
+//			while(rs.next()) {
+//				BuyList buy = new BuyList();
+//				buy.setBuy_date(new Date());
+//				buy.setBuy_quantity(rs.getInt(1));
+//				buy.setProduct_title(rs.getString(2));
+//				buy.setBuyer_id(id);
+//			}
+//		} catch (SQLException e) {
+//			System.out.println("dao checkQuantity 에러");
+//			e.printStackTrace();
+//		}finally {
+//			DBUtil.closeRs(rs);
+//			DBUtil.closePstmt(pstmt);
+//			DBUtil.closeCon(con);
+//		}
+//		return buy;
+//	}
 }
