@@ -110,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			})
 		}else if(button == "buy"){
 			$.ajax({
-				type : 'post',
+				type : 'get',
 				url : 'test?task=cartPlus',
 				dataType : 'text',
 				data : {"id" : id, "size" : size, "color" : color, "title" : title, "quantity" : quantity},
