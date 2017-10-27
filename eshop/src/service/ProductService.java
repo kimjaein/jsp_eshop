@@ -6,6 +6,9 @@ import java.util.List;
 
 import dao.BuylistDao;
 import dao.ProductDao;
+import vo.ArticlePage;
+import vo.BuyList;
+import vo.BuyListPage;
 import vo.MyCart;
 import vo.Product;
 import vo.ProductPage;
@@ -27,8 +30,7 @@ public class ProductService {
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	private static final int COUNT_PER_PAGE=6;
-	
-	
+	private static final int BUY_LIST_PAGE = 10;
 	/////////////////////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct(){
 		List<Product> recentProductList = dao.selectRecentProduct();
@@ -264,5 +266,39 @@ public class ProductService {
 	//상품명을 이용해서 size 리스트
 	public List<String> sizeList(String title){
 		return dao.sizeList(title);
+	}
+	public List<MyCart> cartList(String id){
+		return dao.cartList(id);
+	}
+	public int cartCount(String id){
+		return dao.cartCount(id);
+	}
+	public List<BuyList> selectBuyList(String id){
+		return BuylistDao.getInstance().selectOnlyList(id);
+	}
+	public BuyListPage makeBuylistPage(int page ,String id){
+//		private List<Article> articleList;
+//		private int startPage;
+//		private int endPage;
+//		private int currentPage==page
+//		private int totalPage; //DB 게시글 리스드의 개수 뽑아오익
+		int startPage =(page/10)*10+1;
+		int endPage = startPage+9;
+		System.out.println(id);
+		int buyListCount = BuylistDao.getInstance().countBuyList(id);
+		System.out.println(buyListCount);
+		int totalPage = buyListCount/BUY_LIST_PAGE;
+		if(buyListCount % BUY_LIST_PAGE >0 ) {
+			totalPage++;
+		}		
+		if(endPage > totalPage) {
+			endPage=totalPage;
+		}
+		int startRow=(page-1)*10;
+		List<BuyList> buyList = BuylistDao.getInstance().selectBuyList(id, startRow, BUY_LIST_PAGE);
+		
+		BuyListPage buyListPage = new BuyListPage(buyList, startPage, endPage, page, totalPage);
+		
+		return buyListPage;
 	}
 }

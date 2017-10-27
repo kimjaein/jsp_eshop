@@ -20,7 +20,9 @@
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -33,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
+	<c:set var="myContextPath" value="${pageContext.request.contextPath}"/>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
@@ -57,15 +60,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</thead>
 					<tbody>
 						<c:choose>
-							<c:when test="${not empty buylist}">
-							<c:forEach var="list" items="${buylist}">
-								<tr>
-									<td>${list.buy_list_num}</td>
-									<td>${list.buy_date}</td>
-									<td><a href="${pageContext.request.contextPath}/product?task=detail&title=${list.product_title}">${list.product_title}</a></td>
-									<td>${list.buy_quantity}</td>
-								</tr>
-							</c:forEach>
+							<c:when test="${not empty buyListPage.buylist}">
+								<c:forEach var="list" items="${buyListPage.buylist}">
+									<tr>
+										<td>${list.buy_list_num}</td>
+										<td>${list.buy_date}</td>
+										<td><a
+												href="${pageContext.request.contextPath}/product?task=detail&title=${list.product_title}">${list.product_title}</a></td>
+										<td>${list.buy_quantity}</td>
+									</tr>
+								</c:forEach>
 							</c:when>
 							<c:otherwise>
 								<tr>
@@ -73,9 +77,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</tr>
 							</c:otherwise>
 						</c:choose>
-
 					</tbody>
 				</table>
+				
+				<div align="center">
+				<ul class="pagination pagination-sm">
+						<c:if test="${buyListPage.startPage>1}">
+							<li class="disabled">
+							<a href="${myContextPath}/test?task=buylist&id=${sessionScope.loginId}&p=${buyListPage.startPage-1}">
+							<span aria-hidden="true"> ¡ç </span></a></li>
+						</c:if>
+						<c:forEach begin="${buyListPage.startPage}" end="${buyListPage.endPage}" var="i">
+							<c:choose>	
+								<c:when test="${buyListPage.currentPage == i}">
+									<li class="active">
+								</c:when>
+								<c:otherwise>
+									<li>
+								</c:otherwise>
+							</c:choose>
+							<a href="${myContextPath}/test?task=buylist&id=${sessionScope.loginId}&p=${i}">
+							 ${i}</a></li>
+						</c:forEach>
+						<c:if test="${buyListPage.endPage<buyListPage.totalPage}">
+							<li class="disabled">
+							<a href="${myContextPath}/test?task=buylist&id=${sessionScope.loginId}&p=${buyListPage.startPage-1}">
+							<span aria-hidden="true"> ¡æ</span></a></li>
+						</c:if>		
+						</ul>	
+					</div>				
 			</div>
 		</div>
 	</div>
