@@ -163,22 +163,24 @@ public class TestServlet extends HttpServlet {
 			return;
 		}else if(task.equals("cartPlus")){
 			String id = req.getParameter("id");
-			String productNumStr = req.getParameter("num");
-			int productNum=0;
-			if(productNumStr.length()>0 && productNumStr != null) {
-				productNum = Integer.parseInt(productNumStr);
-			}
-			int result = pService.updateAndInsert(id, productNum);
-			if(result == 1) {
-				System.out.println("[Tservlet]장바구니에 없는 상품");
-				path = "mypage.jsp";
-			}else if(result == 2) {
-				System.out.println("[Tservlet]장바구니 물품 수량증가");
-				path = "mypage.jsp";
-			}else {
-				System.out.println("[Tservlet]장바구니 추가 및 업데이트 에러");
-				path = "mypage.jsp";
-			}
+			String title = req.getParameter("title");
+			String color = req.getParameter("color");
+			String size=req.getParameter("size");
+			String quantity = req.getParameter("quantity");
+			
+			System.out.println(id +": title : "+title +" color : "+color+" size : "+size);
+//			int result = pService.updateAndInsert(id);
+//			if(result == 1) {
+//				System.out.println("[Tservlet]장바구니에 없는 상품");
+//				path = "mypage.jsp";
+//			}else if(result == 2) {
+//				System.out.println("[Tservlet]장바구니 물품 수량증가");
+//				path = "mypage.jsp";
+//			}else {
+//				System.out.println("[Tservlet]장바구니 추가 및 업데이트 에러");
+//				path = "mypage.jsp";
+//			}
+			path = "index.jsp"; 
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
