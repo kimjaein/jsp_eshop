@@ -72,13 +72,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	})
 </script>
 <script type="text/javascript">
-	function addCart(singleTitle) {
+	function addCart(singleTitle, btn) {
 		var id = "${sessionScope.loginId}";
 		var size = $("select[name=size]").val();
 		var color = $("select[name=color]").val();
+		var quantity = $("select[name=quantity]").val();
 		var title = singleTitle;
+		var button = btn;
 		
-		if(id == null){
+		if(id == ""){
 			console.log('회원만  이용가능');
 			return false;
 		}
@@ -88,22 +90,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}else{
 			console.log('ajax실행');
 		}
-		console.log(id);
-		console.log(size);
-		console.log(color);
-		console.log(title);
-		$.ajax({
-			type : 'post',
-			url : 'test?task=cartPlus',
-			dataType : 'text',
-			data : {"id" : id, "size" : size, "color" : color, "title" : title},
-			success : function(plusComplete) {
-				console.log('성공');
-			},
-			error : function() {
-				alert("ajax 요청이 전달되지 못함.")
-			}
-		})
+		console.log("아이디는 "+id);
+		console.log("사이즈는 "+size);
+		console.log("색상은 "+ color);
+		console.log("상품명은 "+title);
+		console.log("수량은 "+quantity)
+		if(button == "cart"){
+			$.ajax({
+				type : 'post',
+				url : 'test?task=cartPlus',
+				dataType : 'text',
+				data : {"id" : id, "size" : size, "color" : color, "title" : title, "quantity" : quantity},
+				success : function(plusComplete) {
+					console.log('장바구니 성공');
+				},
+				error : function() {
+					alert("ajax 요청이 전달되지 못함.")
+				}
+			})
+		}else if(button == "buy"){
+			$.ajax({
+				type : 'get',
+				url : 'test?task=cartPlus',
+				dataType : 'text',
+				data : {"id" : id, "size" : size, "color" : color, "title" : title, "quantity" : quantity},
+				success : function(plusComplete) {
+					console.log('구매 화면으로');
+					location.href="/eshop/test?task=buy&id="+id;
+				},
+				error : function() {
+					alert("ajax 요청이 전달되지 못함.")
+				}
+			})
+		}
 	}
 </script>
 </head>
@@ -149,7 +168,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span>${singleProduct.price}원</span>
 						<div class="clearfix"></div>
 					</div>
-					<div class="span span3">
+					<div class="span span1">
 						<p class="left">COLOR</p>
 						<p class="right">
 							<select class="domains valid" name="color">
@@ -160,31 +179,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</p>
 						<div class="clearfix"></div>
 					</div>
-					<div class="span span4">
+					<div class="span span2">
 						<p class="left">SIZE</p>
 						<p class="right">
-							<span class="selection-box"> <select class="domains valid"
-								name="size">
-									<option>S</option>
-									<option>M</option>
-									<option>L</option>
-									<option>XL</option>
+							<select class="domains valid" name="size">
+								<option>S</option>
+								<option>M</option>
+								<option>L</option>
+								<option>XL</option>
 							</select>
-							</span>
+
+						</p>
+						<div class="clearfix"></div>
+					</div>
+					<div class="span span3">
+						<p class="left">Quantity</p>
+						<p class="right">
+							<select class="domains valid" name="quantity">
+								<%for(int i=1;i<=10;i++){
+									
+									%>
+								<option><%=i%></option>
+								<% 
+								}	
+									%>
+							</select>
+
 						</p>
 						<div class="clearfix"></div>
 					</div>
 					<div class="purchase">
-						<a href="${pageContext.request.contextPath}/test?task=buy"
-						 class="acount-btn"	style="text-align: center;">
+						<a href="#" onclick="addCart('${singleProduct.title}','buy');"
+							class="acount-btn" style="text-align: center;">
 							<font style="color: white; size: 14px;">buy</font>
 						</a>
 						<br> <br>
-						<a href="#" onclick="addCart('${singleProduct.title}');"
+						<a href="#" onclick="addCart('${singleProduct.title}', 'cart');"
 							class="acount-btn" style="text-align: center;">
-							<font style="color: white; size: 14px;">Cart</font>
+							<font style="color: white; size: 14px;" id="cart">Cart</font>
 						</a>
-
 						<div class="clearfix"></div>
 					</div>
 					<script src="js/imagezoom.js"></script>

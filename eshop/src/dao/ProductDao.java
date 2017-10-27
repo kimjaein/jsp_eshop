@@ -454,11 +454,11 @@ public class ProductDao {
 	//////////////////////////////////////////////////
 	//장바구니에 넣기위해 제목,색상,사이즈를 이용하여 상품번호 뽑아오기
 	public int selectProductNum(String title, String color, String size) {
-		String sql = "SELECT PRODUCT_NUM FROM PRODUCT WHERE TITLE=? AND COLOR=? AND SIZE=?";
+		String sql = "SELECT PRODUCT_NUM FROM PRODUCT WHERE TITLE LIKE ? AND COLOR=? AND SIZE=?";
 		int productNum=0;
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, title);
+			pstmt.setString(1, "%"+title);
 			pstmt.setString(2, color);
 			pstmt.setString(3, size);
 			
