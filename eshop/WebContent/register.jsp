@@ -30,7 +30,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<style>
+#idCheck{
+	border:none;
+	color: #ffffff;
+	padding: 9px 35px;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight: 500;
+	margin: 0 0 22px 0;
+	background: #816263;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	display:inline-block;
+}
 
+#id{
+	display:inline-block;
+	width:50%;
+}
+</style>
 <script type="text/javascript">
 	$(function(){
 		// 아이디 중복여부 검사
@@ -136,10 +156,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 <!-- form에도 id, name을 부여할수 있다. -->	
 					 <form name="form" id="joinForm" action="${pageContext.request.contextPath}/member" method="post">
 					 <input type="hidden" name="task" value="join">
-						 <ul>
+						 <ul style="height:38px;">
 							 <li class="text-info">아이디: </li>
-							 <li><input type="text" id="id" name="id" placeholder="아이디를 입력하세요."></li>
-							 <li><button id="idCheck">중복검사</button></li>
+							 <li>
+							 <input type="text" id="id" name="id" placeholder="아이디를 입력하세요.">
+							 	 <button id="idCheck">중복검사</button>	
+							 </li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">비밀번호: </li>
@@ -153,7 +175,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <li class="text-info">전화번호: </li>
 							 <li><input type="text" id="phone" name="phone" placeholder="전화번호를 입력하세요."></li>
 						 </ul>
-						 <ul>
+						 <ul style="margin-bottom: 25px;">
 							 <li class="text-info">주소:</li>
 							 <li><input type="text" id="address" name="address" placeholder="주소를 입력하세요."></li>
 						 </ul>
@@ -197,5 +219,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- 		</div> -->
 <!-- 	</form> -->
 		<jsp:include page="bottom.jsp"></jsp:include>	
+	
 </body>
 </html>

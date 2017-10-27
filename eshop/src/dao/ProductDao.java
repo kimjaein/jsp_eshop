@@ -65,7 +65,7 @@ public class ProductDao {
 	// Single페이지 상품 선택
 	public List<Product> selectBestProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY PRODUCT_NUM ASC LIMIT 6";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT GROUP BY TITLE ORDER BY STOCK ASC LIMIT 6";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -98,7 +98,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY DATE DESC LIMIT 6";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT GROUP BY TITLE ORDER BY DATE DESC LIMIT 6";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -131,7 +131,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public Product selectProduct(String title) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE TITLE=?";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE TITLE=?";
 		Product product = new Product();
 
 		try {
@@ -140,12 +140,13 @@ public class ProductDao {
 			rs = pstmt.executeQuery(); // SQL 실행
 
 			while (rs.next()) {
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setColor(rs.getString(3));
-				product.setSize(rs.getString(4));
-				product.setLarge_Category(rs.getString(5));
-				product.setMiddle_Category(rs.getString(6));
+				product.setProduct_num(rs.getInt(1));
+				product.setTitle(rs.getString(2));
+				product.setPrice(rs.getInt(3));
+				product.setColor(rs.getString(4));
+				product.setSize(rs.getString(5));
+				product.setLarge_Category(rs.getString(6));
+				product.setMiddle_Category(rs.getString(7));
 
 			}
 		} catch (SQLException e) {
@@ -175,10 +176,11 @@ public class ProductDao {
 
 			while (rs.next()) {
 				Product product = new Product();
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setLarge_Category(rs.getString(3));
-				product.setMiddle_Category(rs.getString(4));
+				product.setProduct_num(rs.getInt(1));
+				product.setTitle(rs.getString(2));
+				product.setPrice(rs.getInt(3));
+				product.setLarge_Category(rs.getString(4));
+				product.setMiddle_Category(rs.getString(5));
 
 				productList.add(product);
 			}
@@ -196,7 +198,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectLargeCategory(String largeCategory, int startRow, int count) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE LARGE_CATEGORY=? ORDER BY PRODUCT_NUM DESC LIMIT ?,?";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE LARGE_CATEGORY=? ORDER BY PRODUCT_NUM DESC LIMIT ?,?";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -208,10 +210,11 @@ public class ProductDao {
 
 			while (rs.next()) {
 				Product product = new Product();
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setLarge_Category(rs.getString(3));
-				product.setMiddle_Category(rs.getString(4));
+				product.setProduct_num(rs.getInt(1));
+				product.setTitle(rs.getString(2));
+				product.setPrice(rs.getInt(3));
+				product.setLarge_Category(rs.getString(4));
+				product.setMiddle_Category(rs.getString(5));
 
 				productList.add(product);
 			}
@@ -356,7 +359,7 @@ public class ProductDao {
 	}
 	
 	///////////////////////////////////////////////
-	//장바구니 삭제
+	//장바구니 개별 삭제
 	public int cartDelete(String id, int productNum) {
 		con = DBUtil.makeConnection();
 		int result = 0;

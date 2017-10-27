@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,17 +62,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<tr>
 									<td>${list.buy_list_num}</td>
 									<td>${list.buy_date}</td>
-									<td><a href="상품 상세 페이지">${list.product_title}</a></td>
+									<td><a href="${pageContext.request.contextPath}/product?task=detail&title=${list.product_title}">${list.product_title}</a></td>
 									<td>${list.buy_quantity}</td>
 								</tr>
 							</c:forEach>
 							</c:when>
 							<c:otherwise>
 								<tr>
-									<td>값이 없습니다</td>
-									<td>값이 없습니다</td>
-									<td>값이 없습니다</td>
-									<td>값이 없습니다</td>
+									<td colspan="4">구매목록이 없습니다.</td>
 								</tr>
 							</c:otherwise>
 						</c:choose>

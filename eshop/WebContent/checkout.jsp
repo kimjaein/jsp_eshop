@@ -26,7 +26,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
+	
 	addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+
+
 </script>
 <!--webfont-->
 <!-- for bootstrap working -->
@@ -39,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
-	
+
 <script type="text/javascript">
 function cancelCart(num){
 	var product_num = num;
@@ -74,49 +78,55 @@ function cancelCart(num){
 				</ul>
 				<div class="clearfix"></div>
 			</div>
-			<h2>나의 장바구니 [${cartCount}]</h2>
 			<div class="cart-gd">
-				<!-- 상품 하나의 시작 -->
-				<c:forEach var="list" items="${productList}" varStatus="status">
-					<hr>
-					<div class="cart-header1">
-						<div class="cart-sec simpleCart_shelfItem">
-							<div class="cart-item cyc">
-								<img
-									src="images/${list.large_Category}/${list.middle_Category}/${list.title}.JPG"
-									class="img-responsive" alt="">
-							</div>
-							<div class="cart-item-info">
-								<h3>
-									<a href="#">상품명 : ${list.title} </a>
-									<a href="#"
-										onclick="cancelCart(${list.product_num});">
-										<img src="images/close_1.png" align="right">
-									</a>
-									<br> <br> <b>사이즈 : ${list.size}</b><br> <br>
-									<b>색상 : ${list.color}</b><br> <br>
-									<b>${cartList[status.index].cart_quantity}개</b><br><br>
-									<b>가격 : ${list.price * cartList[status.index].cart_quantity} </b><br> <br>
-									<c:set var="sum" value="${sum + list.price * cartList[status.index].cart_quantity}" />
-								</h3>
-								<div class="delivery">
-									<span> <b>[무료 배송]</b>배송 예정일 1~3일
-									</span>
-									<div class="clearfix"></div>
+				<c:if test="${empty productList}">
+					<h2>장바구니가 비어있습니다.</h2>
+				</c:if>
+				<c:if test="${not empty productList}">
+					<h2>나의 장바구니 [${cartCount}]</h2>
+					<!-- 상품 하나의 시작 -->
+					<c:forEach var="list" items="${productList}" varStatus="status">
+						<hr>
+						<div class="cart-header1">
+							<div class="cart-sec simpleCart_shelfItem">
+								<div class="cart-item cyc">
+									<img
+										src="images/${list.large_Category}/${list.middle_Category}/${list.title}.JPG"
+										class="img-responsive" alt="">
 								</div>
+								<div class="cart-item-info">
+									<h3>
+										<a href="#">상품명 : ${list.title} </a>
+										<a href="#" onclick="cancelCart(${list.product_num});">
+											<img src="images/close_1.png" align="right">
+										</a>
+										<br> <br> <b>사이즈 : ${list.size}</b><br> <br>
+										<b>색상 : ${list.color}</b><br> <br> <b>${cartList[status.index].cart_quantity}개</b><br>
+										<br> <b>가격 : ${list.price * cartList[status.index].cart_quantity}
+										</b><br> <br>
+										<c:set var="sum"
+											value="${sum + list.price * cartList[status.index].cart_quantity}" />
+									</h3>
+									<div class="delivery">
+										<span> <b>[무료 배송]</b>배송 예정일 1~3일
+										</span>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="clearfix"></div>
 							</div>
-							<div class="clearfix"></div>
 						</div>
-					</div>
-				</c:forEach>
-				<!-- 상품 하나의 끝 -->
-				<hr>
-				<h2>결제금액 : ${sum}</h2>
-				<br>
-				<h2>
-					<a class="acount-btn"
-						href="${pageContext.request.contextPath}/test?task=buy&id=${sessionScope.loginId}">구매하기</a>
-				</h2>
+					</c:forEach>
+					<!-- 상품 하나의 끝 -->
+					<hr>
+					<h2>결제금액 : ${sum}</h2>
+					<br>
+					<h2>
+						<a class="acount-btn"
+							href="${pageContext.request.contextPath}/test?task=buy&id=${sessionScope.loginId}">구매하기</a>
+					</h2>
+
+				</c:if>
 			</div>
 		</div>
 	</div>
