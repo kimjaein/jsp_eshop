@@ -99,6 +99,17 @@ public class ProductService {
 		 
 		return singleProduct;
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	public List<Product> selectColorAndSize(String title){
+		Product Product = dao.selectProduct(title);
+		List<Product> productList = new ArrayList<>();
+		
+		
+		productList.add(Product);
+		
+		return productList;
+	}
+	
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public ProductPage middleCategoryProduct(String middleCategory, int page) {
