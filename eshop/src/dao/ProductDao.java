@@ -330,10 +330,11 @@ public class ProductDao {
 		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closeCon(con);
-		
+
 		}
 		return result;
 	}
+
 	///////////////////////////////////////////////////////////////////////////////
 	public int selectMiddleProductCount(String middleCategory) {
 		con = DBUtil.makeConnection();
@@ -353,28 +354,28 @@ public class ProductDao {
 		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closeCon(con);
-		
+
 		}
 		return result;
 	}
-	
+
 	///////////////////////////////////////////////
-	//장바구니 개별 삭제
+	// 장바구니 개별 삭제
 	public int cartDelete(String id, int productNum) {
 		con = DBUtil.makeConnection();
 		int result = 0;
 		String sql = "DELETE FROM MYCART WHERE USER=? AND PRODUCT_NUM=?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, id);
 			pstmt.setInt(2, productNum);
-			
+
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Product Dao cartDelete 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
@@ -382,54 +383,54 @@ public class ProductDao {
 	}
 
 	/////////////////////////////////////////////////
-	//장바구니 추가 메소드
-	public void insertCart(int quantity, int productNum ,String id){
+	// 장바구니 추가 메소드
+	public void insertCart(int quantity, int productNum, String id) {
 		con = DBUtil.makeConnection();
-		String sql = "INSERT INTO MYCART(CART_QUANTITY, PRODUCT_NUM, USER)"
-				+ " VALUES(?,?,?)";
+		String sql = "INSERT INTO MYCART(CART_QUANTITY, PRODUCT_NUM, USER)" + " VALUES(?,?,?)";
 		try {
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setInt(1, quantity);
 			pstmt.setInt(2, productNum);
 			pstmt.setString(3, id);
 			pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			System.out.println("Product Dao insertCart 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
 	}
+
 	/////////////////////////////////////////////////
-	//장바구니 수량 추가 메소드
-	public int quantityPlus(int cartQuantity,int quantity,int productNum,String id){
+	// 장바구니 수량 추가 메소드
+	public int quantityPlus(int cartQuantity, int quantity, int productNum, String id) {
 		con = DBUtil.makeConnection();
 		int result = 0;
-		String sql = "UPDATE MYCART SET CART_QUANTITY = ? + ? "
-				+ " WHERE USER=? AND PRODUCT_NUM=?";
+		String sql = "UPDATE MYCART SET CART_QUANTITY = ? + ? " + " WHERE USER=? AND PRODUCT_NUM=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, cartQuantity);
 			pstmt.setInt(2, quantity);
-			pstmt.setString(2, id);
-			pstmt.setInt(3, productNum);
+			pstmt.setString(3, id);
+			pstmt.setInt(4, productNum);
 			result = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			System.out.println("Product Dao quantityPlus 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
 		return result;
 	}
+
 	////////////////////////////////////////////////////
-	//장바구니 수량,상품번호 조회 메소드
-	public int quantityCheck(String id, int productNum){
+	// 장바구니 수량,상품번호 조회 메소드
+	public int quantityCheck(String id, int productNum) {
 		con = DBUtil.makeConnection();
 		int quantity = 0;
 		String sql = "SELECT CART_QUANTITY FROM MYCART WHERE USER=? AND PRODUCT_NUM=?";
@@ -437,41 +438,93 @@ public class ProductDao {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setInt(2, productNum);
-			rs=pstmt.executeQuery();
-			if(rs.next()) {
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
 				quantity = rs.getInt(1);
 			}
 		} catch (SQLException e) {
 			System.out.println("Product Dao quantityCheck 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
 		return quantity;
 	}
+
 	//////////////////////////////////////////////////
-	//장바구니에 넣기위해 제목,색상,사이즈를 이용하여 상품번호 뽑아오기
+	// 장바구니에 넣기위해 제목,색상,사이즈를 이용하여 상품번호 뽑아오기
 	public int selectProductNum(String title, String color, String size) {
+		con = DBUtil.makeConnection();
 		String sql = "SELECT PRODUCT_NUM FROM PRODUCT WHERE TITLE LIKE ? AND COLOR=? AND SIZE=?";
-		int productNum=0;
+		int productNum = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "%"+title);
+			pstmt.setString(1, title + "%");
 			pstmt.setString(2, color);
 			pstmt.setString(3, size);
-			
-			productNum = pstmt.executeUpdate();
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				productNum = rs.getInt(1);
+			}
 		} catch (SQLException e) {
 			System.out.println("[ProductDao]select productNum 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.closeRs(rs);
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
 		return productNum;
 	}
-	
+
+	//////////////////////////////////////////////////
+	// 상품명을 이용해서 color 리스트만 뽑아오기
+	public List<String> colorList(String title) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT COLOR FROM PRODUCT WHERE TITLE LIKE ? GROUP BY SIZE";
+		List<String> colorlist = new ArrayList<>();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, title + "%");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				colorlist.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			System.out.println("[ProductDao] Select ColorList 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return colorlist;
+	}
+
+	//////////////////////////////////////////////////
+	// 상품명을 이용해서 color 리스트만 뽑아오기
+	public List<String> sizeList(String title) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT SIZE FROM PRODUCT WHERE TITLE LIKE ? GROUP BY COLOR";
+		List<String> sizelist = new ArrayList<>();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, title + "%");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				sizelist.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			System.out.println("[ProductDao] Select sizeList 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return sizelist;
+	}
 }

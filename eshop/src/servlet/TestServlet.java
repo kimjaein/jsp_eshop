@@ -1,3 +1,4 @@
+
 package servlet;
 
 import java.io.IOException;
@@ -52,18 +53,13 @@ public class TestServlet extends HttpServlet {
 			req.setAttribute("cartCount", pDao.cartCount(id));// id로 장바구니 총 개수 조회
 			req.setAttribute("productList", productList);// 상품 리스트
 			req.setAttribute("cartList", cartList);// 장바구니 리스트
+			
 			path = "checkout.jsp";
 
 		} else if (task.equals("buy")) {
 			String id = req.getParameter("id");
 			List<Product> productList = pService.myCartProduct(id);
 			List<MyCart> cartList = pDao.cartList(id);
-
-			// buy로 task주는곳이 두곳[single.jsp와 checkout.jsp]
-			// single.jsp에서 size, color, 상품번호, id가 파라매터로 넘어오고
-			// checkout.jsp에서는 id만 파라매터로 넘어온다
-			// 둘을 구분짓기위해 if문을 사용하여 single.jsp에서 넘어온 파라매터들이 널일때는 읽기(List)만 하고
-			// 널이 아닐때는 장바구니에 해당 상품을 INSERT 하는 작업을 수행
 
 			req.setAttribute("productList", productList);
 			req.setAttribute("cartList", cartList);
@@ -84,7 +80,7 @@ public class TestServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("EUC-KR");
+		req.setCharacterEncoding("utf-8");
 		HttpSession session = req.getSession();
 		String task = req.getParameter("task");
 		String path = "";
@@ -168,6 +164,11 @@ public class TestServlet extends HttpServlet {
 			if(quantityStr!=null && quantityStr.length()>0) {
 				quantity = Integer.parseInt(quantityStr);
 			}
+			// buy로 task주는곳이 두곳[single.jsp와 checkout.jsp]
+			// single.jsp에서 size, color, 상품번호, id가 파라매터로 넘어오고
+			// checkout.jsp에서는 id만 파라매터로 넘어온다
+			// 둘을 구분짓기위해 if문을 사용하여 single.jsp에서 넘어온 파라매터들이 널일때는 읽기(List)만 하고
+			// 널이 아닐때는 장바구니에 해당 상품을 INSERT 하는 작업을 수행
 			
 			System.out.println("id : " + id + ": title : " + title + " color : " + color + " size : " + size
 					+ " quantity : " + quantity);
