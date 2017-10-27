@@ -103,10 +103,9 @@ $(function(){
 						<p class="left">COLOR</p>
 						<p class="right">
 						<select class="domains valid" name="domains">
-										   <option>${singleProduct.color}</option>
-										   <option>WHITE</option>
-										   <option>GREEN</option>
-										   <option>BLACK</option>
+							<c:forEach var="colorProduct" items="${colorList}">
+										   <option>${colorProduct.color}</option>
+							</c:forEach>
 						</select>
 						</span>
 						</p>
@@ -127,12 +126,6 @@ $(function(){
 					</div>
 					<div class="purchase">
 						<a href="#">Buy</a>
-						<div class="social-icons">
-							<ul>
-								<li><a class="facebook1" href="#"></a></li>
-								<li><a class="googleplus1" href="#"></a></li>
-							</ul>
-						</div>
 						<div class="clearfix"></div>
 					</div>
 				<script src="js/imagezoom.js"></script>
