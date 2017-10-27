@@ -73,20 +73,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="rslides" id="slider4">
 							<li>
 								<div class="banner-info">
-									<h3>첫번째 배너</h3>
-									<p>공지사항1</p>
+									<h3>Join LIFE</h3>
+									<p>SUSTAINABILITY</p>
 								</div>
 							</li>
 							<li>
 								<div class="banner-info">
-									<h3>두번째 배너</h3>
-									<p>공지사항2</p>
+									<h2>our boxes  are made<br>of boxes with<br> a past</h2>
+									
+									<p>#recycle</p>
 								</div>
 							</li>
 							<li>
 								<div class="banner-info">
-									<h3>세번째 배너</h3>
-									<p>Start your shopping here...</p>
+									<h3>Our products</h3>
+									<p>Our products meet the most<br>stringent health, safety and<br>environmental sustainability<br>standards</p>
+								</div>
+							</li>
+							<li>
+								<div class="banner-info">
+									<h3>Our suppliers</h3>
+									<p>Our supply chain respects workers<br>and the environment</p>
 								</div>
 							</li>
 						</ul>
@@ -103,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												auto : true,
 												pager : true,
 												nav : false,
-												speed : 500,
+												speed : 300,
 												namespace : "callbacks",
 												before : function() {
 													$('.events')
