@@ -35,6 +35,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
 <script src="js/classie.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#selectimg').click(function(){
+			var select = $('#selectBox option:selected').text()
+			alert(select)
+		})
+	})
+</script>
 </head>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
@@ -97,12 +106,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 	<div class="sort">
                	 		<div class="sort-by">
 			            	<label>Sort By</label>
-			            	<select>
+			            	<select id="selectBox">
 			            		<option value="recent">Recent</option>
 			                	<option value="name">Name</option>
 			                    <option value="price">Price</option>
 			           		</select>
-			            	<a href=""><img src="images/find.png" alt="" class="v-middle"></a>
+			            	<a href="" id="selectimg"><img src="images/find.png" alt="" class="v-middle"></a>
 	                   </div>
 	    		    </div>
 		    	    <ul class="women_pagenation">

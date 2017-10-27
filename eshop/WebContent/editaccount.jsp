@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$('#submit').val('수정 완료');
 				$('#submit').attr('disabled',false);
 			}else{
-				$('#passwordCheck').html("<b>패스워드가 일치않습니다</b>");
+				$('#passwordCheck').html("<b>패스워드가 일치하지 않습니다</b>");
 				$('#passwordCheck').css('color','red');
 				$('#submit').attr('disabled',true);
 				$('#submit').val('수정 불가');
@@ -61,6 +61,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				else if($('#pw2').val()== null || $('#pw2').val()==''){
 					alert('패스워드를 입력하세요.');
 					$('#pw2').focus();
+					return false;
+				}else if($('#pw1').val() != $('#pw2').val()){
+					alert('패스워드가 일치하지 않습니다');
 					return false;
 				}
 				document.form.submit();
