@@ -56,9 +56,6 @@ public class TestServlet extends HttpServlet {
 
 		} else if (task.equals("buy")) {
 			String id = req.getParameter("id");
-			String size = req.getParameter("size");
-			String color = req.getParameter("color");
-			String productNum = req.getParameter("productNum");
 			List<Product> productList = pService.myCartProduct(id);
 			List<MyCart> cartList = pDao.cartList(id);
 
@@ -168,23 +165,23 @@ public class TestServlet extends HttpServlet {
 			String size = req.getParameter("size");
 			String quantityStr = req.getParameter("quantity");
 			int quantity=1;
-//			if(quantityStr!=null && quantityStr.length()>0) {
-//				quantity = Integer.parseInt(quantityStr);
-//			}
+			if(quantityStr!=null && quantityStr.length()>0) {
+				quantity = Integer.parseInt(quantityStr);
+			}
 			
 			System.out.println("id : " + id + ": title : " + title + " color : " + color + " size : " + size
 					+ " quantity : " + quantity);
-
-			int result = pService.updateAndInsert(id, title, color, size, quantity);
+			int result = 0;
+			if(id != null && id.length()>0 && title != null && title.length()>0 && color != null && color.length()>0 &&
+				size != null && size.length()>0 ) {
+				result = pService.updateAndInsert(id, title, color, size, quantity);	
+			}
 			if (result == 1) {
 				System.out.println("[Tservlet]장바구니에 없는 상품");
-				path = "mypage.jsp";
 			} else if (result == 2) {
 				System.out.println("[Tservlet]장바구니 물품 수량증가");
-				path = "mypage.jsp";
-			} else {
+			} else{
 				System.out.println("[Tservlet]장바구니 추가 및 업데이트 에러");
-				path = "mypage.jsp";
 			}
 			path = "index.jsp";
 		}

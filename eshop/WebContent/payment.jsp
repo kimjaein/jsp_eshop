@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h1 style="color: #816263;">결제 화면</h1>
 			</div>
 			<c:if test="${empty productList}">
-					구매목록이 비어있습니다.
+					장바구니가 비어있어 구매가 불가합니다.
 						</c:if>
 			<c:if test="${not empty productList}">
 				<div class="bs-docs-example">
