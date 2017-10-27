@@ -125,7 +125,12 @@ $(function(){
 						<div class="clearfix"></div>
 					</div>
 					<div class="purchase">
-						<a href="#">Buy</a>
+					<form action="${pageContext.request.contextPath}/test?task=buy" method="post"> 
+					<input type="hidden" name="size" value="">
+					<input type="hidden" name="color"value="">
+					<input type="submit" value="Buy">
+					</form>
+						
 						<div class="clearfix"></div>
 					</div>
 				<script src="js/imagezoom.js"></script>

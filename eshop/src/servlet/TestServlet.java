@@ -55,8 +55,18 @@ public class TestServlet extends HttpServlet {
 			
 		}else if(task.equals("buy")) {
 			String id = req.getParameter("id");
+			String size = req.getParameter("size");
+			String color = req.getParameter("color");
+			String productNum = req.getParameter("productNum");
 			List<Product> productList = pService.myCartProduct(id);
 			List<MyCart> cartList = pDao.cartList(id);
+			
+			//buy로 task주는곳이 두곳[single.jsp와 checkout.jsp]
+			//single.jsp에서 size, color, 상품번호, id가 파라매터로 넘어오고
+			//checkout.jsp에서는 id만 파라매터로 넘어온다
+			//둘을 구분짓기위해 if문을 사용하여 single.jsp에서 넘어온 파라매터들이 널일때는 읽기(List)만 하고
+			//널이 아닐때는 장바구니에 해당 상품을 INSERT 하는 작업을 수행
+			
 			
 			req.setAttribute("productList", productList);
 			req.setAttribute("cartList", cartList);
@@ -116,7 +126,6 @@ public class TestServlet extends HttpServlet {
 					// MemberInfo에 id로 검색한 정보를 넣는다
 					Member memberInfo = mService.memberInfo(id);
 					req.setAttribute("memberInfo", memberInfo);
-					session.setAttribute("msg", "정보 일치");
 					path = "editaccount.jsp";
 				} else {
 					// 비밀번호 일치하지 않음
