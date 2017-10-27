@@ -40,8 +40,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(function(){
 		$('#selectimg').click(function(){
 			var select = $('#selectBox option:selected').text()
-			var url=
-			location.href=url;
+			var url = $(this).attr('href')+select;
+				
+			location.href = url;
+			
+			alert(url);
+			
 		})
 	})
 </script>
@@ -108,11 +112,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                	 		<div class="sort-by">
 			            	<label>Sort By</label>
 			            	<select id="selectBox">
-			            		<option value="recent">Recent</option>
-			                	<option value="name">Name</option>
-			                    <option value="price">Price</option>
+			            		<option value="recent">DATE</option>
+			                	<option value="name">TITLE</option>
+			                    <option value="price">PRICE</option>
 			           		</select>
-			            	<a href="" id="selectimg"><img src="images/find.png" alt="" class="v-middle"></a>
+<!-- 			           		Á¤·Ä -->
+							<c:choose>
+							
+									<c:when test = "${type eq 'largeCategory'}">
+			            				<a href="product?task=largeCategory&p=${categoryPage.currentPage}&largeList=${categoryPage.productList.get(0).large_Category}&option=" id="selectimg"><img src="images/find.png" alt="" class="v-middle"></a>
+									</c:when>		
+							
+									<c:otherwise>
+			            				<a href="product?task=middleCategory&p=${categoryPage.currentPage}&middleList=${categoryPage.productList.get(0).middle_Category}&option=" id="selectimg"><img src="images/find.png" alt="" class="v-middle"></a>
+									</c:otherwise>					
+							</c:choose>
+							
 	                   </div>
 	    		    </div>
 		    	    <ul class="women_pagenation">

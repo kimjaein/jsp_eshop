@@ -110,7 +110,7 @@ public class ProductService {
 	
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	public ProductPage middleCategoryProduct(String middleCategory, int page) {
+	public ProductPage middleCategoryProduct(String middleCategory, int page, String option) {
 		
 		int totalProductCount = dao.selectMiddleProductCount(middleCategory);
 		int totalPage = totalProductCount / COUNT_PER_PAGE;
@@ -134,7 +134,7 @@ public class ProductService {
 		// limit 시작행 계산
 		int startRow = (page - 1) * COUNT_PER_PAGE;
 		
-		List<Product> categoryList = dao.selectMiddleCategory(middleCategory, startRow, COUNT_PER_PAGE);
+		List<Product> categoryList = dao.selectMiddleCategory(middleCategory, startRow, COUNT_PER_PAGE, option);
 		
 		
 		
@@ -161,7 +161,7 @@ public class ProductService {
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	public ProductPage largeCategoryProduct(String largeCategory, int page) {
+	public ProductPage largeCategoryProduct(String largeCategory, int page, String option) {
 		int totalProductCount = dao.selectLargeProductCount(largeCategory);
 		int totalPage = totalProductCount / COUNT_PER_PAGE;
 		if(totalProductCount % COUNT_PER_PAGE > 0) {
@@ -178,7 +178,7 @@ public class ProductService {
 		// limit 시작행 계산
 		int startRow = (page - 1) * COUNT_PER_PAGE;
 		
-		List<Product> categoryList = dao.selectLargeCategory(largeCategory, startRow, COUNT_PER_PAGE);
+		List<Product> categoryList = dao.selectLargeCategory(largeCategory, startRow, COUNT_PER_PAGE, option);
 		
 		
 		

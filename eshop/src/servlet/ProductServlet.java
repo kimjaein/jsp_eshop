@@ -54,12 +54,15 @@ public class ProductServlet extends HttpServlet{
 		} else if(task.equals("middleCategory")) {
 			String middleList = request.getParameter("middleList");
 			String pageStr = request.getParameter("p");
+			String option = request.getParameter("option");
+			
 			int page = 1;
 			if(pageStr != null && !pageStr.isEmpty()) {
 				page = Integer.parseInt(pageStr);
 			}
 			
-			ProductPage productPage = service.middleCategoryProduct(middleList, page);
+			ProductPage productPage = service.middleCategoryProduct(middleList, page, option);
+			
 			
 			request.setAttribute("type", task);
 			request.setAttribute("categoryPage", productPage);
@@ -71,12 +74,14 @@ public class ProductServlet extends HttpServlet{
 		} else if(task.equals("largeCategory")) {
 			String largeList = request.getParameter("largeList");
 			String pageStr = request.getParameter("p");
+			String option = request.getParameter("option");
+			
 			int page = 1;
 			if(pageStr != null && !pageStr.isEmpty()) {
 				page = Integer.parseInt(pageStr);
 			}
 			
-			ProductPage productPage = service.largeCategoryProduct(largeList, page);
+			ProductPage productPage = service.largeCategoryProduct(largeList, page, option);
 			
 			request.setAttribute("type", task);
 			request.setAttribute("categoryPage", productPage);
@@ -84,6 +89,10 @@ public class ProductServlet extends HttpServlet{
 			path="products.jsp";
 		
 		}
+		
+		
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
