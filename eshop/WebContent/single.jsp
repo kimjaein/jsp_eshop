@@ -103,10 +103,9 @@ $(function(){
 						<p class="left">COLOR</p>
 						<p class="right">
 						<select class="domains valid" name="domains">
-										   <option>${singleProduct.color}</option>
-										   <option>WHITE</option>
-										   <option>GREEN</option>
-										   <option>BLACK</option>
+							<c:forEach var="colorProduct" items="${colorList}">
+										   <option>${colorProduct.color}</option>
+							</c:forEach>
 						</select>
 						</span>
 						</p>
