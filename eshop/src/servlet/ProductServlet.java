@@ -63,6 +63,8 @@ public class ProductServlet extends HttpServlet{
 			
 			request.setAttribute("type", task);
 			request.setAttribute("categoryPage", productPage);
+
+			
 			
 			path="products.jsp";
 

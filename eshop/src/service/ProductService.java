@@ -88,10 +88,8 @@ public class ProductService {
 	public Product makeProduct(String title) {
 		Product singleProduct = dao.selectProduct(title);
 
-		System.out.println(title);
 		String str = singleProduct.getTitle();
 		
-		System.out.println(str);
 		
 		 str=str.substring(0,str.length()-2);
 		 singleProduct.setTitle(str);
@@ -116,21 +114,28 @@ public class ProductService {
 		
 		int totalProductCount = dao.selectMiddleProductCount(middleCategory);
 		int totalPage = totalProductCount / COUNT_PER_PAGE;
+		
+		int startPage = (page -1) / 10 * 10 + 1;
+
+		if(totalProductCount==0) {
+			startPage = 0;
+		}
+		
 		if(totalProductCount % COUNT_PER_PAGE > 0) {
 			totalPage++;
 		}
-		int startPage = (page -1) / 10 * 10 + 1;
+		
 
 		// 하단 끝 페이지
 		int endPage = startPage + 9;
 		if (endPage > totalPage) {
 			endPage = totalPage;
 		}
-
 		// limit 시작행 계산
 		int startRow = (page - 1) * COUNT_PER_PAGE;
 		
 		List<Product> categoryList = dao.selectMiddleCategory(middleCategory, startRow, COUNT_PER_PAGE);
+		
 		
 		
 		
@@ -157,9 +162,7 @@ public class ProductService {
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public ProductPage largeCategoryProduct(String largeCategory, int page) {
-		System.out.println(largeCategory+"string");
 		int totalProductCount = dao.selectLargeProductCount(largeCategory);
-		System.out.println(totalProductCount + "service total");
 		int totalPage = totalProductCount / COUNT_PER_PAGE;
 		if(totalProductCount % COUNT_PER_PAGE > 0) {
 			totalPage++;

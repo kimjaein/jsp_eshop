@@ -25,30 +25,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="css/new.css" type="text/css" />
+<script>
+	var loginId = <%=session.getAttribute("loginId")%>;
+</script>
 <script type="text/javascript">
 $(function(){
+	var loginId = $('#loginId').val();
 	$('.titlelink').click(function(){
 		var list = $(this).attr('value');
-		alert(list)
 		$.ajax({
 			type:'post',
 			url:'board?task=qnaRead&list='+list,
 			dataType:'text', 
-			success:function(writer){
-				alert(writer)
-				if(writer != loginId && loginId !='admin'){
+			success:function(result){
+				if(loginId != 'admin' && loginId != 'admin'){
+					
 					alert("작성자만 읽을 수 있습니다.")
-					return  false;
+					return false;
+					
+				}else{
+					
 				}
 			},
 			error:function(){
 				alert("잠시 후 다시 실행해 주시길 바랍니다.")
+				return false;
 			}
 		})
 		return false;
 	})
 	
-	var loginId = <%=session.getAttribute("loginId")%>;
 	$('#write').click(function(){
 		if(loginId ==null){
 			alert("로그인 하세요");
@@ -85,6 +91,7 @@ $(function(){
               <!-- 게시글 부분 -->
               
               <tbody id="qnaList">
+              <input type="hidden" value="${sessionScope.loginId}" id="loginId">
                 <c:choose>	
 					<c:when test="${empty articlePage.articleList}">	
 						<tr>
@@ -98,7 +105,7 @@ $(function(){
 							<tr>
 								<td>${article.articleNum}</td>
 								<td>
-								<a class="titlelink" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}" >
+								<a class="titlelink" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}&type=qna" >
 										<c:if test="${article.depth.length() >1}">
 											<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
 												&nbsp;&nbsp;

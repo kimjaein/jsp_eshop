@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +24,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/new.css" type="text/css" />
+
 </head>
 <body>
 <jsp:include page="top.jsp"></jsp:include>
+<c:set var="myContextPath" 
+			value="${pageContext.request.contextPath}"/>
 <div class="content">
 	<div class="container">	
            <section id="tables">
-            <br>
+           <br>
             <h1 id="h1.-bootstrap-heading">Notice</h1>
 			<br>
           
@@ -37,37 +42,87 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>작성일</th>
+                  <th>조회</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-		  
-		  </section>
+              <!-- 게시글 부분 -->
+              
+              <tbody id="qnaList">
+                <c:choose>	
+					<c:when test="${empty articlePage.articleList}">	
+						<tr>
+							<td colspan="5">작성된 게시글이 존재하지 않습니다.
+							</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+					<ul id="link-top">
+						<c:forEach var="article" items="${articlePage.articleList}">
+							<tr>
+								<td>${article.articleNum}</td>
+								<td>
+								<a class="titlelink" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}&type=notice" >
+										<c:if test="${article.depth.length() >1}">
+											<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
+												&nbsp;&nbsp;
+											</c:forEach>
+											->
+										</c:if>
+									${article.title}
+								</a>
+							
+								</td>
+								<td>${article.writer}</td>
+								<td>${article.writeDate}</td>
+								<td>${article.readCount}</td>
+							</tr>
+						</c:forEach>
+						</ul>
+					</c:otherwise>	
+				</c:choose>	
+				<!-- 게시글 끝 -->
+				<tr>
+				<td colspan=5>
+					<div>
+						<ul class="pagination pagination-sm">
+						<c:if test="${articlePage.startPage>1}">
+							<li class="disabled">
+							<a href="${myContextPath}/board?p=${articlePage.startPage-1}">
+							<span aria-hidden="true"> < </span></a></li>
+						</c:if>
+						<c:forEach begin="${articlePage.startPage}" end="${articlePage.endPage}" var="i">
+							<c:choose>	
+								<c:when test="${articlePage.currentPage == i}">
+									<li class="active">
+								</c:when>
+								<c:otherwise>
+									<li>
+								</c:otherwise>
+							</c:choose>
+							<a href="${myContextPath}/board?task=boardList&type=notice&p=${i}" > ${i} </a></li>
+						</c:forEach>
+						<c:if test="${articlePage.endPage<articlePage.totalPage}">
+							<li class="disabled">
+							<a href="${myContextPath}/board?p=${articlePage.startPage-1}">
+							<span aria-hidden="true"> > </span></a></li>
+						</c:if>		
+						</ul>	
+					</div>
+				</td>
+				</tr>
+				<tr>
+					<c:if test="${sessionScope.loginId=='admin'}">
+						<a href="<%=request.getContextPath()%>/board?task=writeForm" class="acount-btn" id="write">글쓰기</a>
+					</c:if>
+				</tr>
+             </tbody>
+           </table>
+        </div>
+    </section>
 		  </div>
 		  </div>
 		  <jsp:include page="bottom.jsp"></jsp:include>

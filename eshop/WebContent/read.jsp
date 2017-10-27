@@ -54,7 +54,14 @@ $(function(){
 			<div class="qna">
 				<section id="tables">
 					<br>
-					<h1 id="h1.-bootstrap-heading">QnA</h1>
+					<h1 id="h1.-bootstrap-heading">
+					<c:if test="${requestScope.type eq 'notice'}">
+						Notice
+					</c:if>
+					<c:if test="${requestScope.type eq 'qna'}">
+						QnA
+					</c:if>
+					</h1>
 					<br>
 					<div class="bs-docs-example">
 						<table class="table">
@@ -88,7 +95,7 @@ $(function(){
 					href="<%=request.getContextPath()%>/board?task=replyForm&articleNum=${article.articleNum}">답변</a>
 				</c:if>
 				<a class="acount-btn"
-					href="<%=request.getContextPath()%>/board?task=boardList&type=qna">목록으로</a>
+					href="<%=request.getContextPath()%>/board?task=boardList&type=${requestScope.type}">목록으로</a>
 			</div>
 		</center>
 	</div>
