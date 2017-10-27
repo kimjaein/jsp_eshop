@@ -53,22 +53,24 @@ public class BoardServlet extends HttpServlet{
         	request.setAttribute("articlePage",articlePage);
         	if(type.equals("qna")){
         		path="QnA.jsp";
+        	}else if(type.equals("notice")){
+        		path="notice.jsp";
         	}
         }else if(task.equals("read")) {
         	HttpSession session=request.getSession();
         	String loginId =(String)session.getAttribute("loginId");
-        	
+        	String type=request.getParameter("type");
         	String articleNumStr =request.getParameter("articleNum");
         	int articleNum=Integer.parseInt(articleNumStr);
         	Article article = service.read(articleNum,loginId);
         	
         	
         	if(article !=null) {
-        		
         		request.setAttribute("article", article);
+        		request.setAttribute("type", type);
         		path="read.jsp";
         	}else {
-        		path="board?task=boardList&type=qna";//에러 울릴 방법 생각
+        		path="board?task=boardList&type="+type;//에러 울릴 방법 생각
         	}
         }else if(task.equals("replyForm")) { //답변 글 달기
     		String articleNumStr = request.getParameter("articleNum");
