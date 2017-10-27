@@ -66,13 +66,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 function addCart(num){
 	var id = "${sessionScope.loginId}";
 	var product_num = num;
-	console.log(product_num);
 	$.ajax({
 		type:'post',
 		url:'test?task=cartPlus&id='+id+'&num='+product_num,
 		dataType:'text', // 응답데이터 형식, 보통은 xml, json으로 옴.
 		success:function(plusComplete){
-			console.log('추가 완료');
+			console.log('선택된 상품번호'+product_num+'번');
 		},
 		error:function(){
 			alert("ajax 요청이 전달되지 못함.")
