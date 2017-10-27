@@ -36,7 +36,6 @@ $(function(){
 	$('#delete').click(function(){
 		if(confirm("정말 삭제 하시겠습니까?")){
 			var url=$(this).attr('href');
-			alert(url)
 			location.href=url;
 		}else{
 			return false;

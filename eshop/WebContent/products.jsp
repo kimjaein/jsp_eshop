@@ -37,6 +37,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	media="screen" />
 <script src="js/cbpViewModeSwitch.js" type="text/javascript"></script>
 <script src="js/classie.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#selectimg').click(function(){
+			var select = $('#selectBox option:selected').text()
+			var url=
+			location.href=url;
+		})
+	})
+</script>
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
@@ -111,6 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="clearfix"></div>
 				</div>
 				<div class="mens-toolbar">
+<<<<<<< HEAD
 					<div class="sort">
 						<div class="sort-by">
 							<label>Sort By</label> <select>
@@ -124,6 +135,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 					<ul class="women_pagenation">
+=======
+                	<div class="sort">
+               	 		<div class="sort-by">
+			            	<label>Sort By</label>
+			            	<select id="selectBox">
+			            		<option value="recent">Recent</option>
+			                	<option value="name">Name</option>
+			                    <option value="price">Price</option>
+			           		</select>
+			            	<a href="" id="selectimg"><img src="images/find.png" alt="" class="v-middle"></a>
+	                   </div>
+	    		    </div>
+		    	    <ul class="women_pagenation">
+>>>>>>> 9b382293e844cdc701665ab06b2826aa3fe1c4c9
 						<li>Page:</li>
 
 						<c:choose>
