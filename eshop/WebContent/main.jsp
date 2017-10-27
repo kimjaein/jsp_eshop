@@ -153,8 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 online-order">
 					<p>Phone Num</p>
-					<h2>Tel : 070 1234 5678</h2>
-					<h2>Mobile : 010 8765 4321</h2>
+					<h3>Tel : 070 1234 5678 <br> Mobile : 010 8765 4321</h3>
 				</div>
 				<div class="clearfix"></div>
 			</div>
