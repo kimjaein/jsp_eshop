@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					}
 					
 					if(idCheck == null || idCheck == 'null'){
-						alert('사용할수 있는 아이디입니다.')	
+						alert('사용할수 있는 아이디입니다.')
 					}
 					
 					else{
