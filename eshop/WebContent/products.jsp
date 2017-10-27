@@ -40,7 +40,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(function(){
 		$('#selectimg').click(function(){
 			var select = $('#selectBox option:selected').text()
-			alert(select)
+			var url=
+			location.href=url;
 		})
 	})
 </script>
