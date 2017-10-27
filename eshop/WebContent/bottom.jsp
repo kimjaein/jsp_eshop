@@ -4,7 +4,7 @@
 		<div class="container">
 		 <div class="footer_top">
 			<div class="span_of_4">
-				<div class="col-md-3 span1_of_4">
+				<div class="col-md-4 span1_of_3">
 					<h4>Shop</h4>
 					<ul class="f_nav">
 						<li><a href="product?task=middleCategory&middleList=PADDING">padding</a></li>
@@ -18,14 +18,14 @@
 						<li><a href="product?task=middleCategory&middleList=SHORT">short</a></li>
 					</ul>	
 				</div>
-				<div class="col-md-3 span1_of_4">
+				<div class="col-md-4 span1_of_4">
 					<h4>help</h4>
 					<ul class="f_nav">
 						<li><a href="#">notice</a></li>
 						<li><a href="#">Q & A</a></li>
 					</ul>	
 				</div>
-				<div class="col-md-3 span1_of_4">
+				<div class="col-md-4 span1_of_4">
 					<h4>account</h4>
 					<ul class="f_nav">
 						<li><a href="account.jsp">login</a></li>
