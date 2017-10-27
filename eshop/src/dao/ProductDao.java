@@ -390,7 +390,7 @@ public class ProductDao {
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.out.println("Product Dao cartNum 에러");
+			System.out.println("Product Dao insertCart 에러");
 			e.printStackTrace();
 		}finally {
 			DBUtil.closePstmt(pstmt);

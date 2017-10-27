@@ -35,7 +35,7 @@ public class BuylistDao {
 
 	////////////////////////////////////////////////////////////////////
 	// 상품 구매시 Insert **수정전**
-	public int insert(BuyList buylist) {
+	public int insertBuyList(BuyList buylist) {
 		con = DBUtil.makeConnection();
 		String sql = "INSERT INTO BUY_LIST(BUYER_ID, PRODUCT_TITLE, BUY_DATE, BUY_QUANTITY) VALUES(?,?,?,?)";
 		int result = 0;
@@ -91,34 +91,6 @@ public class BuylistDao {
 		return buyList;
 	}
 	///////////////////////////////////////////////////////////////////////////////
-	public List<Product> selectRecentProduct() {
-		con = DBUtil.makeConnection();
-		String sql = "SELECT TITLE, PRICE, COLOR, SIZE FROM PRODUCT ORDER BY DATE DESC";
-		List<Product> productList = new ArrayList<>();
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery(); // SQL 실행
-
-			while (rs.next()) {
-				Product product = new Product();
-				product.setTitle(rs.getString(1));
-				product.setPrice(rs.getInt(2));
-				product.setColor(rs.getString(3));
-				product.setSize(rs.getString(4));
-				
-				productList.add(product);
-			}
-		} catch (SQLException e) {
-			System.out.println("dao selectProductList 에러");
-			e.printStackTrace();
-		} finally {
-			DBUtil.closeRs(rs);
-			DBUtil.closePstmt(pstmt);
-			DBUtil.closeCon(con);
-		}
-		return productList;
-	}
 	public int deleteBuylist(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "DELETE FROM BUY_LIST WHERE BUYER_ID=?";

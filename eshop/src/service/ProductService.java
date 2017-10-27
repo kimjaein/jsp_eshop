@@ -202,24 +202,29 @@ public class ProductService {
 	public int cartDelete(String id, int productNum) {
 		return dao.cartDelete(id, productNum);
 	}
-	
+	//////////////////////////////////////////////
+	//장바구니에 이미 상품이 있으면 수량증가, 아니면 상품정보 DB에 입력
 	public int updateAndInsert(String id, int productNum) {
-		int cartQuantity = dao.quantityCheck(id, productNum);
-		if(cartQuantity>=1) {
+		int cartQuantity = dao.quantityCheck(id, productNum);//수행 전 해당 상품의 수량을 가져옴
+		if(cartQuantity>=1) {//수량이 1보다 크거나 같을시에 수량증가(UPDATE)
 			System.out.println("[Pservice]수량 증가 실행");
 			dao.quantityPlus(cartQuantity, productNum,id);
 			return 2;
-		}else {
+		}else {//1보다 작을때 즉,0일땐 장바구니에 새로 추가(INSERT)
 			System.out.println("[Pservice]장바구니 추가 실행");
 			cartQuantity=1;
 			dao.insertCart(cartQuantity, productNum,id);
 			return 1;
 		}
 	}
-	
+	//////////////////////////////////////////////
+	//장바구니에 이미 상품이 있으면 수량증가, 아니면 상품정보 DB에 입력
 	public boolean buylistInsert(String id) {
+		List<MyCart> cartList = dao.quantityList(id);
 		
-		BuylistDao.getInstance().checkQuantity(id);
+		for(int i=0; i<cartList.size(); i++) {
+			cartList.get(i).getCart_quantity();//1번의 quantity
+		}
 		
 		return true;
 	}

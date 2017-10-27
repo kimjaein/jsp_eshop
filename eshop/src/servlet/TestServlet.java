@@ -61,7 +61,7 @@ public class TestServlet extends HttpServlet {
 			String id = req.getParameter("id");
 			HttpSession session = req.getSession();
 			
-			pService.buylistInsert(id)t(cartList, quantityList, id);
+			pService.buylistInsert(id);
 			//결제완료될때 DB에서 장바구니 삭제
 			
 			session.setAttribute("msg", "결제 완료");
