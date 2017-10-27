@@ -164,7 +164,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectMiddleCategory(String middleCategory, int startRow, int count) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=? ORDER BY PRODUCT_NUM DESC LIMIT ?,?";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=? GROUP BY TITLE ORDER BY DATE ASC LIMIT ?,?";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -198,7 +198,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectLargeCategory(String largeCategory, int startRow, int count) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE LARGE_CATEGORY=? ORDER BY PRODUCT_NUM DESC LIMIT ?,?";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE LARGE_CATEGORY=? GROUP BY TITLE ORDER BY DATE ASC LIMIT ?,?";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -314,7 +314,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public int selectLargeProductCount(String largeCategory) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT COUNT(*) FROM PRODUCT WHERE LARGE_CATEGORY = ?";
+		String sql = "SELECT COUNT(*) FROM PRODUCT WHERE LARGE_CATEGORY = ? GROUP BY TITLE";
 		int result = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -337,7 +337,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public int selectMiddleProductCount(String middleCategory) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT COUNT(*) FROM PRODUCT WHERE MIDDLE_CATEGORY = ?";
+		String sql = "SELECT COUNT(*) FROM PRODUCT WHERE MIDDLE_CATEGORY = ? GROUP BY TITLE";
 		int result = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
