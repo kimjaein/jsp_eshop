@@ -204,6 +204,30 @@ public class MemberDao {
 		}
 		return result;
 	}
+	public String selectIDUsingPW(String pw) {
+		con =DBUtil.makeConnection();
+        String sql = 
+            "SELECT ID FROM MEMBER WHERE PW=?";
+        String result = null;
+         
+        try {
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, pw);
+             
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+                result = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            System.out.println("member dao select ¿¡·¯");
+            e.printStackTrace();
+        } finally {
+        	DBUtil.closeRs(rs);
+        	DBUtil.closePstmt(pstmt);
+        	DBUtil.closeCon(con);
+        }
+        return result;
+	}
 }
 
 
