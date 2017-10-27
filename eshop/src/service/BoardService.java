@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import dao.BoardDao;
+import dao.MemberDao;
 import vo.Article;
 import vo.ArticlePage;
 
@@ -11,6 +12,7 @@ public class BoardService {
 	private static final int COUNT_PER_PAGE=10; // 게시판에서 한번에 보여질 페이지 개수
 	
 	private BoardDao dao =BoardDao.getInstance(); 
+	private MemberDao MemDao= MemberDao.getInstance();
 	private static BoardService instance= new BoardService();
 	public static BoardService getInstance() {
 		return instance;
@@ -105,4 +107,30 @@ public class BoardService {
 			return false;
 		}
 	}
+	public boolean delete(int articleNum,String writer) {
+		
+		int result=dao.delete(articleNum,writer);
+		
+		if(result==1) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	public boolean update(Article article) {
+		article.setWriteDate(new Date());
+		
+		if(dao.update(article)==1) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	public Article readWithoutReadCount(int articleNum) {
+		Article  article = dao.selectArticle(articleNum);
+		
+		return article;
+	}
+
 }
