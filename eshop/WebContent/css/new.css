@@ -8,6 +8,7 @@
 }
 .reply{
 	list-style:none;
+	margin-left:20px
 }
 
 .acount-btn2 {
@@ -22,9 +23,7 @@
 	display: inline-block;
 	text-transform: uppercase;
 }
-.reply{
-	margin-left:20px
-}
+
 .hr{
 	    border-top: 1px solid #ccc  !important;
 }
@@ -33,4 +32,10 @@
     width: 80%;
     float: left;
     margin-right: -20%;
+}
+#link-top{
+	list-style:none !important;
+}
+.titlelink :hover{
+	color:red;
 }

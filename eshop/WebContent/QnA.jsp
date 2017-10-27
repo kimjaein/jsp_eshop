@@ -24,11 +24,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/new.css" type="text/css" />
 <script type="text/javascript">
 $(function(){
-
-	$('.link').click(function(){
-		var list = $(this).val();
+	$('.titlelink').click(function(){
+		var list = $(this).attr('value');
 		alert(list)
 		$.ajax({
 			type:'post',
@@ -93,11 +93,12 @@ $(function(){
 						</tr>
 					</c:when>
 					<c:otherwise>
+					<ul id="link-top">
 						<c:forEach var="article" items="${articlePage.articleList}">
 							<tr>
 								<td>${article.articleNum}</td>
 								<td>
-								<li class="link" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}" >
+								<a class="titlelink" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}" >
 										<c:if test="${article.depth.length() >1}">
 											<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
 												&nbsp;&nbsp;
@@ -105,13 +106,15 @@ $(function(){
 											->
 										</c:if>
 									${article.title}
-								</li>
+								</a>
+							
 								</td>
 								<td>${article.writer}</td>
 								<td>${article.writeDate}</td>
 								<td>${article.readCount}</td>
 							</tr>
 						</c:forEach>
+						</ul>
 					</c:otherwise>	
 				</c:choose>	
 				<!-- 게시글 끝 -->
