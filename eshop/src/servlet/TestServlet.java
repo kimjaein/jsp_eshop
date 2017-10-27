@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.BuylistDao;
 import dao.ProductDao;
 import service.MemberService;
 import service.ProductService;
@@ -25,6 +25,7 @@ public class TestServlet extends HttpServlet {
 	MemberService mService = MemberService.getInstance();
 	ProductService pService = ProductService.getInstance();
 	ProductDao pDao = ProductDao.getInstance();
+	BuylistDao bDao = BuylistDao.getInstance(); 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("EUC-KR");
@@ -36,7 +37,7 @@ public class TestServlet extends HttpServlet {
 			path = "editaccountform.jsp";
 		}else if(task.equals("buylist")) {
 			String id = req.getParameter("id");
-			List <BuyList> buylist=dao.BuylistDao.getInstance().selectBuyList(id);
+			List <BuyList> buylist=bDao.selectBuyList(id);
 			req.setAttribute("buylist", buylist);
 			
 			path="buylist.jsp";
