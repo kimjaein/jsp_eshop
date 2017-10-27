@@ -135,10 +135,10 @@ public class TestServlet extends HttpServlet {
 			if(mService.loginPwCheck(id, pw)){
 				mService.deleteMember(id);
 				session.removeAttribute("loginId");
-				session.setAttribute("msg", "»èÁ¦ ¿Ï·á");
+				session.setAttribute("msg", "Å»Åð ¿Ï·á");
 				path = "index.jsp";
 			}else {
-				session.setAttribute("msg", "»èÁ¦ ½ÇÆÐ");
+				session.setAttribute("msg", "Å»Åð ½ÇÆÐ");
 				path = "index.jsp";
 			}
 		}else if (task.equals("cartDel")) {

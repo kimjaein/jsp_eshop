@@ -359,7 +359,7 @@ public class ProductDao {
 	}
 	
 	///////////////////////////////////////////////
-	//장바구니 삭제
+	//장바구니 개별 삭제
 	public int cartDelete(String id, int productNum) {
 		con = DBUtil.makeConnection();
 		int result = 0;
