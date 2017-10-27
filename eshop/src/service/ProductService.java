@@ -252,4 +252,14 @@ public class ProductService {
 		}
 		return true;
 	}
+	////////////////////////////////////////////////
+	//상품명을 이용해서 size, color 따로 따로 리스트로 뽑아오는 메소드 single.jsp[size, color select]에 사용
+	public List<String> colorList(String title){
+		return dao.colorList(title);
+	}
+	////////////////////////////////////////////////
+	//상품명을 이용해서 size 리스트
+	public List<String> sizeList(String title){
+		return dao.sizeList(title);
+	}
 }

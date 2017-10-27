@@ -21,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
 <meta name="keywords"
 	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
@@ -81,10 +81,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		var button = btn;
 		
 		if(id == ""){
-			console.log('회원만  이용가능');
+			alert('회원만  이용가능');
 			return false;
 		}
-		if(size == null ||title == null){
+		if(size == null ||title == null || color ==null || quantity == null){
 			console.log('null값이 있어 실행불가');
 			return false;
 		}else{
@@ -110,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			})
 		}else if(button == "buy"){
 			$.ajax({
-				type : 'get',
+				type : 'post',
 				url : 'test?task=cartPlus',
 				dataType : 'text',
 				data : {"id" : id, "size" : size, "color" : color, "title" : title, "quantity" : quantity},
@@ -172,8 +172,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p class="left">COLOR</p>
 						<p class="right">
 							<select class="domains valid" name="color">
-								<c:forEach var="colorProduct" items="${colorList}">
-									<option>${colorProduct.color}</option>
+								<c:forEach var="color" items="${colorList}">
+									<option>${color}</option>
 								</c:forEach>
 							</select>
 						</p>
@@ -183,10 +183,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p class="left">SIZE</p>
 						<p class="right">
 							<select class="domains valid" name="size">
-								<option>S</option>
-								<option>M</option>
-								<option>L</option>
-								<option>XL</option>
+								<c:forEach var="size" items="${sizeList}">
+									<option>${size}</option>
+								</c:forEach>
 							</select>
 
 						</p>
@@ -209,12 +208,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 					<div class="purchase">
-						<a href="#" onclick="addCart('${singleProduct.title}','buy');"
+						<a onclick="addCart('${singleProduct.title}','buy');"
 							class="acount-btn" style="text-align: center;">
 							<font style="color: white; size: 14px;">buy</font>
 						</a>
 						<br> <br>
-						<a href="#" onclick="addCart('${singleProduct.title}', 'cart');"
+						<a onclick="addCart('${singleProduct.title}', 'cart');"
 							class="acount-btn" style="text-align: center;">
 							<font style="color: white; size: 14px;" id="cart">Cart</font>
 						</a>

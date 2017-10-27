@@ -39,12 +39,16 @@ public class ProductServlet extends HttpServlet{
 		} else if(task.equals("detail")) {
 			String title = request.getParameter("title");
 			List<Comment> commentList = serviceComment.readComment(title);
-
 			Product singleProduct = service.makeProduct(title);
 						 
-			 
+			//title로 와일드카드 조회 
+			List<String> colorList = service.colorList(title);
+			List<String> sizeList = service.sizeList(title);
+			request.setAttribute("colorList", colorList);
+			request.setAttribute("sizeList", sizeList);
 			request.setAttribute("singleProduct", singleProduct);
 			request.setAttribute("commentList",commentList);
+			
 			path = "single.jsp";
 			
 		} else if(task.equals("middleCategory")) {
