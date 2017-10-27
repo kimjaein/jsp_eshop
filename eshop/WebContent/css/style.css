@@ -1684,7 +1684,7 @@ ul.women_pagenation li a:hover{
 	font-weight: bold;
 }
 .reg form input[type="text"],.reg form input[type="password"] {
-	width: 100%;
+	width: 80%;
 	padding: 8px;
 	font-size: 14px;
 	font-weight: 400;
