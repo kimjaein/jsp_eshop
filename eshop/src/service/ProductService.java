@@ -116,22 +116,35 @@ public class ProductService {
 		
 		int totalProductCount = dao.selectMiddleProductCount(middleCategory);
 		int totalPage = totalProductCount / COUNT_PER_PAGE;
+		
+		int startPage = (page -1) / 10 * 10 + 1;
+
+		if(totalProductCount==0) {
+			startPage = 0;
+		}
+		
 		if(totalProductCount % COUNT_PER_PAGE > 0) {
 			totalPage++;
 		}
-		int startPage = (page -1) / 10 * 10 + 1;
+		
 
 		// 하단 끝 페이지
 		int endPage = startPage + 9;
 		if (endPage > totalPage) {
 			endPage = totalPage;
 		}
-
+		System.out.println("---");
+		System.out.println(startPage);
+		System.out.println(endPage);
+		System.out.println(totalPage);
+		System.out.println("---");
 		// limit 시작행 계산
 		int startRow = (page - 1) * COUNT_PER_PAGE;
 		
 		List<Product> categoryList = dao.selectMiddleCategory(middleCategory, startRow, COUNT_PER_PAGE);
 		
+		
+		System.out.println(categoryList);
 		
 		
 		 for(int i=0; i<categoryList.size();i++) {
