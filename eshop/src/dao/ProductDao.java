@@ -65,7 +65,7 @@ public class ProductDao {
 	// Single페이지 상품 선택
 	public List<Product> selectBestProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY PRODUCT_NUM ASC LIMIT 6";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT GROUP BY TITLE ORDER BY STOCK ASC LIMIT 6";
 		List<Product> productList = new ArrayList<>();
 
 		try {
@@ -98,7 +98,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectRecentProduct() {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT ORDER BY DATE DESC LIMIT 6";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, COLOR, SIZE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT GROUP BY TITLE ORDER BY DATE DESC LIMIT 6";
 		List<Product> productList = new ArrayList<>();
 
 		try {
