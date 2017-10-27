@@ -74,10 +74,6 @@ function addCart(num){
 			<div class="new-product">
 				<div class="new-product-top">
 					<ul class="product-top-list">
-					<%
-						System.out.println(request.getAttribute("large"));
-						System.out.println(request.getAttribute("middle"));
-					%>
 						<li><a href="index.jsp">Home</a>&nbsp;<span>&gt;</span></li>
 <%-- 					<li><span class="act">${categoryList.get(0).large_Category}</span>&nbsp;</li> --%>
 						<c:choose>
@@ -108,10 +104,10 @@ function addCart(num){
 				    	<c:forEach begin="${categoryPage.startPage}" end="${categoryPage.endPage}" var="i">
 				    		<c:choose>
 				     			<c:when test = "${type eq 'largeCategory'}">
-				   	  				<li class="active"><a href="product?task=largeCategory&p=${i}"> ${i} </a></li>
+				   	  				<li class="active"><a href="product?task=largeCategory&p=${i}&largeList=${categoryPage.productList.get(0).large_Category}"> ${i} </a></li>
 								</c:when>
 								<c:otherwise>
-									<li class="active"><a href="product?task=middleCategory&p=${i}"> ${i} </a></li>
+									<li class="active"><a href="product?task=middleCategory&p=${i}&middleList=${categoryPage.productList.get(0).middle_Category}"> ${i} </a></li>
 								</c:otherwise>
 							</c:choose>
 				    	</c:forEach>

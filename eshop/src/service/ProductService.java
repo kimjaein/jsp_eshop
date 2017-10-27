@@ -146,8 +146,9 @@ public class ProductService {
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	public ProductPage largeCategoryProduct(String largeCategory, int page) {
-		
+		System.out.println(largeCategory+"string");
 		int totalProductCount = dao.selectLargeProductCount(largeCategory);
+		System.out.println(totalProductCount + "service total");
 		int totalPage = totalProductCount / COUNT_PER_PAGE;
 		if(totalProductCount % COUNT_PER_PAGE > 0) {
 			totalPage++;
