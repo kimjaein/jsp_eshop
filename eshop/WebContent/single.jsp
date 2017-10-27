@@ -27,7 +27,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 </script>
 <!--webfont-->
@@ -70,15 +72,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	})
 </script>
 <script type="text/javascript">
-	function addCart(num) {
+	function addCart(singleTitle) {
 		var id = "${sessionScope.loginId}";
-		var product_num = num;
+		var size = $("select[name=size]").val();
+		var color = $("select[name=color]").val();
+		var title = singleTitle;
+		
+		if(id == null){
+			console.log('회원만  이용가능');
+			return false;
+		}
+		if(size == null ||title == null){
+			console.log('null값이 있어 실행불가');
+			return false;
+		}else{
+			console.log('ajax실행');
+		}
+		console.log(id);
+		console.log(size);
+		console.log(color);
+		console.log(title);
 		$.ajax({
 			type : 'post',
-			url : 'test?task=cartPlus&id=' + id + '&num=' + product_num,
-			dataType : 'text', // 응답데이터 형식, 보통은 xml, json으로 옴.
+			url : 'test?task=cartPlus',
+			dataType : 'text',
+			data : {"id" : id, "size" : size, "color" : color, "title" : title},
 			success : function(plusComplete) {
-				console.log('선택된 상품번호' + product_num + '번');
+				console.log('성공');
 			},
 			error : function() {
 				alert("ajax 요청이 전달되지 못함.")
@@ -132,7 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="span span3">
 						<p class="left">COLOR</p>
 						<p class="right">
-							<select class="domains valid" name="domains">
+							<select class="domains valid" name="color">
 								<c:forEach var="colorProduct" items="${colorList}">
 									<option>${colorProduct.color}</option>
 								</c:forEach>
@@ -144,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p class="left">SIZE</p>
 						<p class="right">
 							<span class="selection-box"> <select class="domains valid"
-								name="domains">
+								name="size">
 									<option>S</option>
 									<option>M</option>
 									<option>L</option>
@@ -155,8 +175,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 					<div class="purchase">
-						<a href="#" class="acount-btn" onclick="addCart();" style="text-align: center;"><font style="color: white; size: 14px;">buy</font></a><br><br>
-						<a href="${pageContext.request.contextPath}/test?task=buy" class="acount-btn" style="text-align: center;"><font style="color: white; size: 14px;">Cart</font></a>
+						<a href="#" class="acount-btn"
+							onclick="addCart('${singleProduct.title}');"
+							style="text-align: center;">
+							<font style="color: white; size: 14px;">buy</font>
+						</a>
+						<br> <br>
+						<a href="${pageContext.request.contextPath}/test?task=buy"
+							class="acount-btn" style="text-align: center;">
+							<font style="color: white; size: 14px;">Cart</font>
+						</a>
 
 						<div class="clearfix"></div>
 					</div>
