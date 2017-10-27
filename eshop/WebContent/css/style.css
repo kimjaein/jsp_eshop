@@ -373,6 +373,7 @@ ul.multi-column-dropdown h6 {
   }
 .callbacks_tabs{
         list-style: none;
+    visibility: hidden;
     position: absolute;
     bottom: -21%;
     z-index: 999;
