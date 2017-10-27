@@ -12,11 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.BuylistDao;
-import dao.ProductDao;
 import service.MemberService;
 import service.ProductService;
 import vo.BuyList;
+import vo.BuyListPage;
 import vo.Member;
 import vo.MyCart;
 import vo.Product;
@@ -25,8 +24,6 @@ import vo.Product;
 public class TestServlet extends HttpServlet {
 	MemberService mService = MemberService.getInstance();
 	ProductService pService = ProductService.getInstance();
-	ProductDao pDao = ProductDao.getInstance();
-	BuylistDao bDao = BuylistDao.getInstance();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,18 +36,24 @@ public class TestServlet extends HttpServlet {
 			path = "editaccountform.jsp";
 		} else if (task.equals("buylist")) {
 			String id = req.getParameter("id");
-			List<BuyList> buylist = bDao.selectBuyList(id);
-			req.setAttribute("buylist", buylist);
-
+			String pageStr = req.getParameter("p");
+			int page = 1;
+			if(pageStr!=null && !pageStr.isEmpty()) {
+				page = Integer.parseInt(pageStr);
+			}
+			BuyListPage buyListPage = pService.makeBuylistPage(page, id);
+			System.out.println(buyListPage);
+			req.setAttribute("buyListPage", buyListPage);
+			
 			path = "buylist.jsp";
 		} else if (task.equals("cart")) {
 			String id = req.getParameter("id");
 			req.setAttribute("id", id);
 			// service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
 			List<Product> productList = pService.myCartProduct(id);
-			List<MyCart> cartList = pDao.cartList(id);
+			List<MyCart> cartList = pService.cartList(id);
 
-			req.setAttribute("cartCount", pDao.cartCount(id));// id로 장바구니 총 개수 조회
+			req.setAttribute("cartCount", pService.cartCount(id));// id로 장바구니 총 개수 조회
 			req.setAttribute("productList", productList);// 상품 리스트
 			req.setAttribute("cartList", cartList);// 장바구니 리스트
 			
@@ -59,7 +62,7 @@ public class TestServlet extends HttpServlet {
 		} else if (task.equals("buy")) {
 			String id = req.getParameter("id");
 			List<Product> productList = pService.myCartProduct(id);
-			List<MyCart> cartList = pDao.cartList(id);
+			List<MyCart> cartList = pService.cartList(id);
 
 			req.setAttribute("productList", productList);
 			req.setAttribute("cartList", cartList);

@@ -32,9 +32,8 @@ public class BuylistDao {
 		DBUtil.loadDriver();
 	}
 
-
 	////////////////////////////////////////////////////////////////////
-	// 상품 구매시 Insert **수정전**
+	// 상품 구매시 Insert
 	public int insertBuyList(Product product, int quantity, String id) {
 		con = DBUtil.makeConnection();
 		String sql = "INSERT INTO BUY_LIST(BUYER_ID, PRODUCT_TITLE, BUY_DATE, BUY_QUANTITY) VALUES(?,?,?,?)";
@@ -46,9 +45,9 @@ public class BuylistDao {
 			pstmt.setString(2, product.getTitle());
 			pstmt.setTimestamp(3, new Timestamp(product.getRegisterTime().getTime()));
 			pstmt.setInt(4, quantity);
-			
+
 			result = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			System.out.println("Buylist dao insert 에러");
 			e.printStackTrace();
@@ -61,7 +60,41 @@ public class BuylistDao {
 
 	///////////////////////////////////////////////////////////////////////
 	// Single페이지 상품 선택
-	public List<BuyList> selectBuyList(String id) {
+	public List<BuyList> selectBuyList(String id, int startRow, int count) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT BUY_LIST_NUM, BUYER_ID, PRODUCT_TITLE, BUY_DATE, BUY_QUANTITY FROM BUY_LIST WHERE BUYER_ID=? ORDER BY BUY_LIST_NUM ASC LIMIT ?,?";
+		List<BuyList> buyList = new ArrayList<>();
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, count);
+			rs = pstmt.executeQuery(); // SQL 실행
+
+			while (rs.next()) {
+				BuyList list = new BuyList();
+				list.setBuy_list_num(rs.getInt(1));
+				list.setBuyer_id(rs.getString(2));
+				list.setProduct_title(rs.getString(3));
+				list.setBuy_date(rs.getDate(4));
+				list.setBuy_quantity(rs.getInt(5));
+				buyList.add(list);
+			}
+		} catch (SQLException e) {
+			System.out.println("dao select buylist 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return buyList;
+	}
+
+	///////////////////////////////////////////////////////////////////////
+	// Single페이지 상품 선택
+	public List<BuyList> selectOnlyList(String id) {
 		con = DBUtil.makeConnection();
 		String sql = "SELECT BUY_LIST_NUM, BUYER_ID, PRODUCT_TITLE, BUY_DATE, BUY_QUANTITY FROM BUY_LIST WHERE BUYER_ID=?";
 		List<BuyList> buyList = new ArrayList<>();
@@ -90,6 +123,7 @@ public class BuylistDao {
 		}
 		return buyList;
 	}
+
 	///////////////////////////////////////////////////////////////////////////////
 	public int deleteBuylist(String id) {
 		con = DBUtil.makeConnection();
@@ -99,40 +133,37 @@ public class BuylistDao {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			result = pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			System.out.println("dao buylist delete 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeCon(con);
 		}
 		return result;
 	}
-	//////////////////////////////////////////////////
-	//상품번호 넣고 수량 출력하기[리스트 쓰면 필요없을것 같아 보류]
-//	public BuyList checkQuantity(String id) {
-//		String sql = "SELECT CART_QUANTITY, TITLE FROM MYCART AS M, PRODUCT AS P WHERE M.PRODUCT_NUM=? AND"
-//				+" M.PRODUCT_NUM = P.PRODUCT_NUM;";
-//		try {
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setInt(1, productNum);
-//			rs=pstmt.executeQuery();
-//			while(rs.next()) {
-//				BuyList buy = new BuyList();
-//				buy.setBuy_date(new Date());
-//				buy.setBuy_quantity(rs.getInt(1));
-//				buy.setProduct_title(rs.getString(2));
-//				buy.setBuyer_id(id);
-//			}
-//		} catch (SQLException e) {
-//			System.out.println("dao checkQuantity 에러");
-//			e.printStackTrace();
-//		}finally {
-//			DBUtil.closeRs(rs);
-//			DBUtil.closePstmt(pstmt);
-//			DBUtil.closeCon(con);
-//		}
-//		return buy;
-//	}
+
+	public int countBuyList(String id) {
+		con = DBUtil.makeConnection();
+		String sql = "SELECT COUNT(*) FROM BUY_LIST WHERE BUYER_ID=?";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("[BuyListDao select Count 에러]");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closeRs(rs);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return result;
+	}
 }
