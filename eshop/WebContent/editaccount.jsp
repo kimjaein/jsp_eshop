@@ -34,9 +34,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	media="screen" />
 
 	<script type="text/javascript">
-	window.onload = function(){
-		$('#passwordCheck').html("");
-	}
 		function pwCheck(){
 			var pw1= $('#pw1').val();
 			var pw2=$('#pw2').val();
@@ -44,8 +41,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			if(pw1 == pw2){
 				$('#passwordCheck').html("<b>패스워드가 일치합니다</b>");
 				$('#passwordCheck').css('color','green');
+				$('#submit').val('수정 완료');
+				$('#submit').attr('disabled',false);
 			}else{
-				$('#passwordCheck').html("");
+				$('#passwordCheck').html("<b>패스워드가 일치않습니다</b>");
+				$('#passwordCheck').css('color','red');
+				$('#submit').attr('disabled',true);
+				$('#submit').val('수정 불가');
 			}
 		}
 		$(function(){
@@ -92,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><input type="password" name="userpw2" id="pw2" onkeyup="pwCheck();"></li>
 						</ul>
 						<ul>
-						<li class="text-info">PASSWORD SAME</li>
+						<li class="text-info">PASSWORD SAME:</li>
 						<li id="passwordCheck"></li>
 						</ul>
 						
@@ -112,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="text-info">E-mail:</li>
 							<li><input type="text" value="${memberInfo.email}" name="useremail"></li>
 						</ul>
-						<input type="submit" class="acount-btn" value="수정 완료">
+						<input type="submit" id="submit" class="acount-btn" value="수정 불가">
 					</form>
 				</div>
 			</div>
