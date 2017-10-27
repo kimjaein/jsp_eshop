@@ -47,8 +47,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2>our Products</h2>
 					<ul class="product-list">
 						<li><a href="product?task=largeCategory&largeList=OUTER">OUTER</a></li>
+						<li><a href="product?task=middleCategory&middleList=COAT">&nbsp;>&nbsp; COAT</a></li>
+						<li><a href="product?task=middleCategory&middleList=PADDING">&nbsp;>&nbsp; PADDING</a></li>
+						<li><a href="product?task=middleCategory&middleList=JACKET">&nbsp;>&nbsp; JACKET</a></li>
+						
 						<li><a href="product?task=largeCategory&largeList=TOP">TOP</a></li>
+						<li><a href="product?task=middleCategory&middleList=LONG SLEEVE">&nbsp;>&nbsp; LONG SLEEVE</a></li>
+						<li><a href="product?task=middleCategory&middleList=SHORT SLEEVE">&nbsp;>&nbsp; SHORT SLEEVE</a></li>
+						<li><a href="product?task=middleCategory&middleList=SLEEVELESS">&nbsp;>&nbsp; SLEEVELESS</a></li>
+						
 						<li><a href="product?task=largeCategory&largeList=BOTTOM">BOTTOM</a></li>
+						<li><a href="product?task=middleCategory&middleList=SLACKS">&nbsp;>&nbsp; SLACKS</a></li>
+						<li><a href="product?task=middleCategory&middleList=JEANS">&nbsp;>&nbsp; JEANS</a></li>
+						<li><a href="product?task=middleCategory&middleList=SHORT">&nbsp;>&nbsp; SHORT</a></li>
 					</ul>
 				</div>
 
@@ -58,13 +69,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="product-top-list">
 						<li><a href="index.jsp">Home</a>&nbsp;<span>&gt;</span></li>
 <%-- 					<li><span class="act">${categoryList.get(0).large_Category}</span>&nbsp;</li> --%>
+						
 						<c:choose>
-							<c:when test = "${type eq 'largeCategory'}">
-								<li><span class="act">${categoryPage.productList.get(0).large_Category}</span>&nbsp;</li>
-							</c:when>
+							
+							<c:when test="${empty categoryPage.productList}">
+							</c:when>						
+							
 							<c:otherwise>
-								<li><span class="act">${categoryPage.productList.get(0).large_Category} > ${categoryPage.productList.get(0).middle_Category}</span>&nbsp;</li>
+								<c:when test = "${type eq 'largeCategory'}">
+									<li><span class="act">${categoryPage.productList.get(0).large_Category}</span>&nbsp;</li>
+								</c:when>
+								<c:otherwise>
+									<li><span class="act">${categoryPage.productList.get(0).large_Category} > ${categoryPage.productList.get(0).middle_Category}</span>&nbsp;</li>
+								</c:otherwise>
 							</c:otherwise>
+							
+								
+								
 						</c:choose>
 					</ul>
 					<p class="back"><a href="index.jsp">Back to Previous</a></p>
@@ -83,6 +104,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    		    </div>
 		    	    <ul class="women_pagenation">
 						<li>Page:</li>
+						
+						<c:choose>
+							<c:when test="${empty categoryPage.productList}">
+							</c:when>
+							<c:otherwise>
+						
 				    	<c:forEach begin="${categoryPage.startPage}" end="${categoryPage.endPage}" var="i">
 				    		<c:choose>
 				     			<c:when test = "${type eq 'largeCategory'}">
@@ -93,6 +120,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</c:otherwise>
 							</c:choose>
 				    	</c:forEach>
+				    	
+				    	
+				    	
+							</c:otherwise>
+				    	</c:choose>
+				    	
+				    	
 				  	</ul>
 	               	<div class="clearfix"></div>	
 				</div>
