@@ -146,14 +146,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<img src="images/shipping.png" alt="" />
 					</div>
 					<div class="shipping-text">
-						<h3>무료배송</h3>
-						<p>50,000원 이상 구입시</p>
+						<h3>Free Shipping</h3>
+						<p>When purchasing <br> more than ￦ 50,000</p>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 online-order">
 					<p>Phone Num</p>
-					<h3>Tel : 000 0000 0000</h3>
+					<h3>Tel : 070 1234 5678 <br> Mobile : 010 8765 4321</h3>
 				</div>
 				<div class="clearfix"></div>
 			</div>
