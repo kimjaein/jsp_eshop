@@ -114,7 +114,7 @@ public class BoardDao {
 	public Article selectArticle(int articleNum) {
 		con=DBUtil.makeConnection();
 		
-		String sql="SELECT TITLE,WRITER,CONTENTS,WRITE_DATE,READ_COUNT,LIST,DEPTH FROM BOARD where article_num=?";
+		String sql="SELECT TITLE,WRITER,CONTENTS,WRITE_DATE,READ_COUNT,LIST,DEPTH,board_Name FROM BOARD where article_num=?";
 		Article article = new Article();
 		try {
 			pstmt=con.prepareStatement(sql);
@@ -131,6 +131,7 @@ public class BoardDao {
 				article.setReadCount(rs.getInt(5));
 				article.setList(rs.getInt(6));
 				article.setDepth(rs.getString(7));
+				article.setBoardName(rs.getString(8));
 				
 				
 			}
@@ -258,6 +259,51 @@ public class BoardDao {
 			DBUtil.closePstmt(pstmt);
 			DBUtil.closeRs(rs);
 		}
+		return result;
+	}
+	
+	public int delete(int articleNum,String writer) {
+		con=DBUtil.makeConnection();
+		String sql = "DELETE FROM BOARD WHERE ARTICLE_NUM=? AND WRITER=?";
+		int result=0;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,articleNum);
+			pstmt.setString(2,writer);
+			
+			result =pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+		}
+		return result;
+	}
+	public int update(Article article) {
+		con=DBUtil.makeConnection();
+		String sql= "UPDATE BOARD SET TITLE=?,CONTENTS=?,WRITE_Date=? WHERE ARTICLE_NUM=? ";
+		int result=0;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, article.getTitle());
+			pstmt.setString(2, article.getContents());
+			pstmt.setTimestamp(3, new Timestamp(article.getWriteDate().getTime()));
+			pstmt.setInt(4, article.getArticleNum());
+	
+			
+			result =pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+		}
+		
 		return result;
 	}
 }

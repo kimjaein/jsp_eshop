@@ -31,6 +31,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css"
 	media="screen" />
+<script type="text/javascript">
+$(function(){
+	$('#delete').click(function(){
+		if(confirm("정말 삭제 하시겠습니까?")){
+			var url=$(this).attr('href');
+			alert(url)
+			location.href=url;
+		}else{
+			return false;
+		}
+	})
+})
+</script>
 
 </head>
 <body>
@@ -65,10 +78,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<c:if test="${sessionScope.loginId==article.writer}">
 					
-					<a class="acount-btn"
+					<a class="acount-btn" 
 						href="<%=request.getContextPath()%>/board?task=updateForm&articleNum=${article.articleNum}">수정</a>
-					<a class="acount-btn"
-						href="<%=request.getContextPath()%>/board?task=deleteForm&articleNum=${article.articleNum}">삭제</a>
+					<a class="acount-btn" id="delete"
+						href="board?task=delete&articleNum=${article.articleNum}&writer=${article.writer}">삭제</a>
 				</c:if>
 				<c:if test="${sessionScope.loginId eq 'admin'}">
 					<a class="acount-btn"
