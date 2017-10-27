@@ -175,13 +175,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 					<div class="purchase">
-						<a href="#" class="acount-btn"
-							onclick="addCart('${singleProduct.title}');"
-							style="text-align: center;">
+						<a href="${pageContext.request.contextPath}/test?task=buy"
+						 class="acount-btn"	style="text-align: center;">
 							<font style="color: white; size: 14px;">buy</font>
 						</a>
 						<br> <br>
-						<a href="${pageContext.request.contextPath}/test?task=buy"
+						<a href="#" onclick="addCart('${singleProduct.title}');"
 							class="acount-btn" style="text-align: center;">
 							<font style="color: white; size: 14px;">Cart</font>
 						</a>
