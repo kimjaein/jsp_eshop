@@ -28,7 +28,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 $(function(){
 
 	$('.link').click(function(){
-		var list = $('.link').attr('value');
+		var list = $(this).val();
 		alert(list)
 		$.ajax({
 			type:'post',
@@ -50,11 +50,10 @@ $(function(){
 	
 	var loginId = <%=session.getAttribute("loginId")%>;
 	$('#write').click(function(){
-			alert(loginId)
-		if(loginId =="wodls"){
+		if(loginId ==null){
 			alert("로그인 하세요");
+			return false;
 		}
-		return false;
 	})
 	
 })
@@ -85,7 +84,7 @@ $(function(){
               </thead>
               <!-- 게시글 부분 -->
               
-              <tbody>
+              <tbody id="qnaList">
                 <c:choose>	
 					<c:when test="${empty articlePage.articleList}">	
 						<tr>
@@ -98,7 +97,7 @@ $(function(){
 							<tr>
 								<td>${article.articleNum}</td>
 								<td>
-								<a class="link" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}" >
+								<li class="link" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}" >
 										<c:if test="${article.depth.length() >1}">
 											<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
 												&nbsp;&nbsp;
@@ -106,7 +105,7 @@ $(function(){
 											->
 										</c:if>
 									${article.title}
-								</a>
+								</li>
 								</td>
 								<td>${article.writer}</td>
 								<td>${article.writeDate}</td>
