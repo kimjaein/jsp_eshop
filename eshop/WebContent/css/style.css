@@ -113,17 +113,17 @@ a.simpleCart_empty {
 }
 .logo a span {
 	color: #816263;
-    font-size: 35px;
+    font-size: 32px;
     border: 2px solid #816263;
     border-radius: 50%;
-    width: 50px;
+    width: 87px;
     display: block;
     text-align: center;
     float: left;
-    padding: 2px 0 0 4px;
-    height: 50px;
+    padding: 6px 0 0 4px;
+    height: 55px;
     vertical-align: middle;
-    margin-right: 3px;
+    margin-right: 5px;
 }
 .banner-top {
 	padding-top: 25px;
@@ -2220,7 +2220,7 @@ p.right {
 }
 @media screen and (max-width: 1024px) {	
 	.navbar-header {
-		width: 17%;
+		width: 100%;
 	}
 	.banner {
 		min-height: 491px;
