@@ -196,12 +196,17 @@ function addCart(num){
 										View</a>
 								</div>
 								<a class="product_name"
-									href="product?task=detail&title=${recentProduct.title}-${1}">${recentProduct.title}</a>
-								<p>
-									<a class="item_add" href="#" onclick="addCart(${recentProduct.product_num});">
-										<i></i> <span class="item_price">${recentProduct.price} £Ü</span>
-									</a>
-								</p>
+									href="product?task=detail&title=${recentProduct.title}-${1}">${recentProduct.title}
+									<br><br>
+									<p>
+										<span class="item_price">${recentProduct.price} £Ü</span>
+									</p>
+								</a>
+									
+						
+									
+									
+								
 							</div>
 						</c:forEach>
 					</c:otherwise>
@@ -210,7 +215,7 @@ function addCart(num){
 				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
+	
 
 	<!-- 	best»óÇ° -->
 	<div class="products-grid">
@@ -242,18 +247,19 @@ function addCart(num){
 								View</a>
 						</div>
 						<a class="product_name"
-							href="product?task=detail&title=${bestProduct.title}-${1}">${bestProduct.title}</a>
+							href="product?task=detail&title=${bestProduct.title}-${1}">${bestProduct.title}
+						<br><br>
 						<p>
-							<a class="item_add" href="#" onclick="addCart(${bestProduct.product_num});">
-								<i></i> <span class="item_price">${bestProduct.price} £Ü</span>
-							</a>
+								</i> <span class="item_price">${bestProduct.price} £Ü</span>
 						</p>
+						</a>
 					</div>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 
 		<div class="clearfix"></div>
+	</div>
 	</div>
 	<div class="clearfix"></div>
 

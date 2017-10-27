@@ -314,7 +314,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public int selectLargeProductCount(String largeCategory) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT COUNT(*) FROM PRODUCT WHERE LARGE_CATEGORY = ? GROUP BY TITLE";
+		String sql = "SELECT COUNT(DISTINCT TITLE) FROM PRODUCT WHERE LARGE_CATEGORY = ?";
 		int result = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -337,7 +337,7 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public int selectMiddleProductCount(String middleCategory) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT COUNT(*) FROM PRODUCT WHERE MIDDLE_CATEGORY = ? GROUP BY TITLE";
+		String sql = "SELECT COUNT(DISTINCT TITLE) FROM PRODUCT WHERE MIDDLE_CATEGORY = ?";
 		int result = 0;
 		try {
 			pstmt = con.prepareStatement(sql);
