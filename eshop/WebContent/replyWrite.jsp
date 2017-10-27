@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<form action="<%=request.getContextPath()%>/board" method="post">
 						<tbody>
 							<input type="hidden" name="task" value="reply">
-							<input type="hidden" name="writer" value="wodls">
+							<input type="hidden" name="writer" value="${sessionScope.loginId}">
 							<input type="hidden" name="list"	value="${article.list}">
 							<input type="hidden" name="depth"	value="${article.depth}">
 							<input type="hidden" name=type value="qna" />

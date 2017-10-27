@@ -26,21 +26,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 <script type="text/javascript">
 $(function(){
+
+	$('.link').click(function(){
+		var list = $('.link').attr('value');
+		alert(list)
+		$.ajax({
+			type:'post',
+			url:'board?task=qnaRead&list='+list,
+			dataType:'text', 
+			success:function(writer){
+				alert(writer)
+				if(writer != loginId && loginId !='admin'){
+					alert("작성자만 읽을 수 있습니다.")
+					return  false;
+				}
+			},
+			error:function(){
+				alert("잠시 후 다시 실행해 주시길 바랍니다.")
+			}
+		})
+		return false;
+	})
+	
 	var loginId = <%=session.getAttribute("loginId")%>;
 	$('#write').click(function(){
-		if(loginId ==null){
+			alert(loginId)
+		if(loginId =="wodls"){
 			alert("로그인 하세요");
 		}
 		return false;
 	})
-	
-	$('.link').click(function(){
-		if($(this).val != loginId && loginId !='admin'){
-			alert("작성자만 읽을 수 있습니다.")
-			return  false;
-		}	
-	})
-		
 	
 })
 
@@ -83,7 +98,7 @@ $(function(){
 							<tr>
 								<td>${article.articleNum}</td>
 								<td>
-								<a class="link" value="${article.writer}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}" >
+								<a class="link" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}" >
 										<c:if test="${article.depth.length() >1}">
 											<c:forEach var="i" begin="1" end="${article.depth.length()-1}">
 												&nbsp;&nbsp;

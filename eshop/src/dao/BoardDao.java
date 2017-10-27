@@ -306,4 +306,30 @@ public class BoardDao {
 		
 		return result;
 	}
+	
+	public String selectWriterUsingList(int list,String depth) {
+		con=DBUtil.makeConnection();
+		String sql="SELECT writer from board where list=? and depth=?";
+		String result="";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, list);
+			pstmt.setString(2, depth);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result= rs.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeRs(rs);
+		}
+		return result;
+	}
 }
