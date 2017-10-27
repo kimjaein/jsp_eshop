@@ -217,7 +217,7 @@ public class ProductService {
 		}
 	}
 	
-	public boolean buylistInsert(List<MyCart> cart, List<Product> product, String id) {
+	public boolean buylistInsert(String id) {
 		
 		BuylistDao.getInstance().checkQuantity(id);
 		
