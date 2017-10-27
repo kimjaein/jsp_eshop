@@ -190,15 +190,17 @@ public class ProductService {
 	}
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////
-	
+	//장바구니를 이용해서 상품정보 리스트로 출력해오는거
 	public List<Product> myCartProduct(String id){
-		List<Integer> list = dao.cartList(id);
+		List<MyCart> cartList = dao.cartList(id);
 		List<Product> productList = new ArrayList<>();
-		for(int i=0;i<list.size();i++) {
-			productList.add(dao.cartProduct(list.get(i)));
+		for(int i=0;i<cartList.size();i++) {
+			productList.add(dao.cartProduct(cartList.get(i).getProduct_num()));
 		}
 		return productList;
 	}
+	/////////////////////////////////////////////////
+	//장바구니 삭제
 	public int cartDelete(String id, int productNum) {
 		return dao.cartDelete(id, productNum);
 	}
@@ -218,14 +220,24 @@ public class ProductService {
 		}
 	}
 	//////////////////////////////////////////////
-	//장바구니에 이미 상품이 있으면 수량증가, 아니면 상품정보 DB에 입력
+	//구매목록 추가메소드[장바구니 목록을 리스트로 가져와서 순차대로 장바구니의 수량과 상품번호를 뽑아서
+	//상품번호로는 상품 정보를 가져오고 상품정보와 수량을 구매목록 DB에 넣은 뒤 INSERT의 return값이 1일때 장바구니 DELETE
+	//그게 아니면 return false;
 	public boolean buylistInsert(String id) {
-		List<MyCart> cartList = dao.quantityList(id);
-		
+		List<MyCart> cartList = dao.cartList(id);
+
 		for(int i=0; i<cartList.size(); i++) {
-			cartList.get(i).getCart_quantity();//1번의 quantity
+			Product product = new Product();
+			product = dao.cartProduct(cartList.get(i).getProduct_num());
+			product.setRegisterTime(new Date());//INSERT할때 시간을 위해서 설정
+			//BuyListDao에 insertBuyList의 매개변수로 product객체, 수량, 아이디 입력
+			if(BuylistDao.getInstance().insertBuyList(product, cartList.get(i).getCart_quantity(), id)==1) {
+				//입력 성공 시 장바구니 삭제
+				dao.cartDelete(id, cartList.get(i).getProduct_num());
+			}else {
+				return false;
+			}
 		}
-		
 		return true;
 	}
 }

@@ -24,6 +24,7 @@ import vo.Product;
 public class TestServlet extends HttpServlet {
 	MemberService mService = MemberService.getInstance();
 	ProductService pService = ProductService.getInstance();
+	ProductDao pDao = ProductDao.getInstance();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("EUC-KR");
@@ -43,19 +44,21 @@ public class TestServlet extends HttpServlet {
 			String id = req.getParameter("id");
 			req.setAttribute("id", id);
 			//service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
-			List<Product> cartList = pService.myCartProduct(id);
-			List<MyCart> quantityList = ProductDao.getInstance().quantityList(id);
-			req.setAttribute("cartCount", ProductDao.getInstance().cartCount(id));
-			req.setAttribute("cartList", cartList);
-			req.setAttribute("quantityList", quantityList);
+			List<Product> productList = pService.myCartProduct(id);
+			List<MyCart> cartList = pDao.cartList(id);
+			
+			req.setAttribute("cartCount", pDao.cartCount(id));//id로 장바구니 총 개수 조회
+			req.setAttribute("productList", productList);//상품 리스트
+			req.setAttribute("cartList", cartList);//장바구니 리스트
 			path ="checkout.jsp";
+			
 		}else if(task.equals("buy")) {
 			String id = req.getParameter("id");
-			List<Product> cartList = pService.myCartProduct(id);
-			List<MyCart> quantityList = ProductDao.getInstance().quantityList(id);
+			List<Product> productList = pService.myCartProduct(id);
+			List<MyCart> cartList = pDao.cartList(id);
 			
+			req.setAttribute("productList", productList);
 			req.setAttribute("cartList", cartList);
-			req.setAttribute("quantityList", quantityList);
 			path="payment.jsp";
 		}else if(task.equals("payment")) {
 			String id = req.getParameter("id");

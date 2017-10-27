@@ -77,14 +77,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="list" items="${cartList}" varStatus="status">
+						<c:forEach var="list" items="${productList}" varStatus="status">
 							<tr>
 							<td>${list.title}</td>
 							<td>${list.size }</td>
 							<td>${list.color }</td>
-							<td>${quantityList[status.index].cart_quantity}</td>
-							<td>${list.price *quantityList[status.index].cart_quantity}</td>
-							<c:set var="sum" value="${sum + list.price * quantityList[status.index].cart_quantity}"></c:set>
+							<td>${cartList[status.index].cart_quantity}</td>
+							<td>${list.price *cartList[status.index].cart_quantity}</td>
+							<c:set var="sum" value="${sum + list.price * cartList[status.index].cart_quantity}"></c:set>
 							<td><a href="#"
 										onclick="cancelCart(${list.product_num});">
 										<img src="images/close_1.png" align="middle">
