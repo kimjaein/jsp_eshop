@@ -101,7 +101,15 @@ $(function(){
 					</div>
 					<div class="span span3">
 						<p class="left">COLOR</p>
-						<p class="right">${singleProduct.color}</p>
+						<p class="right">
+						<select class="domains valid" name="domains">
+										   <option>${singleProduct.color}</option>
+										   <option>WHITE</option>
+										   <option>GREEN</option>
+										   <option>BLACK</option>
+						</select>
+						</span>
+						</p>
 						<div class="clearfix"></div>
 					</div>
 					<div class="span span4">
