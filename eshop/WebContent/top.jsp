@@ -99,7 +99,8 @@
 			            </div>
 		            </ul>
 		        </li>
-					<li><a href="board?task=boardList&type=qna">Q & A</a></li>
+				<li><a href="board?task=boardList&type=qna">Q & A</a></li>
+				<li><a href="board?task=boardList&type=notice">Notice</a></li>
 	        </ul>
 	    </div>
 	    <!--/.navbar-collapse-->
