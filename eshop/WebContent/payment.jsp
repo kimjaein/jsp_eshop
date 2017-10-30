@@ -87,8 +87,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td><a href="${pageContext.request.contextPath}/product?task=detail&title=${list.title}">${list.title}</a></td>
 									<td>${list.size }</td>
 									<td>${list.color }</td>
-									<td>${cartList[status.index].cart_quantity}</td>
-									<td>${list.price *cartList[status.index].cart_quantity}</td>
+									<td>${cartList[status.index].cart_quantity} °³</td>
+									<td>${list.price *cartList[status.index].cart_quantity} ¿ø</td>
 									<c:set var="sum"
 										value="${sum + list.price * cartList[status.index].cart_quantity}"></c:set>
 									<td><a href="#" onclick="cancelCart(${list.product_num});">

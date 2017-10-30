@@ -101,8 +101,8 @@ function cancelCart(num){
 											<img src="images/close_1.png" align="right">
 										</a>
 										<br> <br> <b>사이즈 : ${list.size}</b><br> <br>
-										<b>색상 : ${list.color}</b><br> <br> <b>${cartList[status.index].cart_quantity}개</b><br>
-										<br> <b>가격 : ${list.price * cartList[status.index].cart_quantity}
+										<b>색상 : ${list.color}</b><br> <br> <b>수량 : ${cartList[status.index].cart_quantity} 개</b><br>
+										<br> <b>가격 : ${list.price * cartList[status.index].cart_quantity} 원
 										</b><br> <br>
 										<c:set var="sum"
 											value="${sum + list.price * cartList[status.index].cart_quantity}" />
@@ -119,7 +119,7 @@ function cancelCart(num){
 					</c:forEach>
 					<!-- 상품 하나의 끝 -->
 					<hr>
-					<h2>결제금액 : ${sum}</h2>
+					<h2>결제금액 : ${sum} 원</h2>
 					<br>
 					<h2>
 						<a class="acount-btn"

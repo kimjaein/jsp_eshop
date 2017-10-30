@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<td>${list.buy_date}</td>
 										<td><a
 												href="${pageContext.request.contextPath}/product?task=detail&title=${list.product_title}">${list.product_title}</a></td>
-										<td>${list.buy_quantity}</td>
+										<td>${list.buy_quantity} °³</td>
 									</tr>
 								</c:forEach>
 							</c:when>
