@@ -102,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				dataType : 'text',
 				data : {"id" : id, "size" : size, "color" : color, "title" : title, "quantity" : quantity},
 				success : function(plusComplete) {
-					console.log('장바구니 성공');
+					alert('장바구니에 추가되었습니다.');
 				},
 				error : function() {
 					alert("ajax 요청이 전달되지 못함.")
