@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									+ $(this).val()
 									+ '">'
 									+ '<div class="media-left response-text-left">'
-									+ '	<h5> >><a>${sessionScope.loginId}wodls</a></h5>'
+									+ '	<h5> >><a>${sessionScope.loginId}</a></h5>'
 									+ '</div>'
 									+ '<div class="media-body response-text-right">'
 									+ '<ul>'

@@ -28,6 +28,8 @@ public class TestServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("EUC-KR");
+		HttpSession session = req.getSession();
+		String scopeId = (String)session.getAttribute("loginId");
 		String task = req.getParameter("task");
 		String path = "";
 		if (task == null || task.isEmpty()) {
@@ -36,46 +38,63 @@ public class TestServlet extends HttpServlet {
 			path = "editaccountform.jsp";
 		} else if (task.equals("buylist")) {
 			String id = req.getParameter("id");
-			String pageStr = req.getParameter("p");
-			int page = 1;
-			if(pageStr!=null && !pageStr.isEmpty()) {
-				page = Integer.parseInt(pageStr);
+			if(scopeId.equals(id)) {
+				String pageStr = req.getParameter("p");
+				int page = 1;
+				if(pageStr!=null && !pageStr.isEmpty()) {
+					page = Integer.parseInt(pageStr);
+				}
+				BuyListPage buyListPage = pService.makeBuylistPage(page, id);
+				System.out.println(buyListPage);
+				req.setAttribute("buyListPage", buyListPage);
+				
+				path = "buylist.jsp";
+			}else {
+				session.setAttribute("msg", "잘못된 접근");
+				path="index.jsp";
 			}
-			BuyListPage buyListPage = pService.makeBuylistPage(page, id);
-			System.out.println(buyListPage);
-			req.setAttribute("buyListPage", buyListPage);
-			
-			path = "buylist.jsp";
 		} else if (task.equals("cart")) {
 			String id = req.getParameter("id");
-			req.setAttribute("id", id);
-			// service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
-			List<Product> productList = pService.myCartProduct(id);
-			List<MyCart> cartList = pService.cartList(id);
-
-			req.setAttribute("cartCount", pService.cartCount(id));// id로 장바구니 총 개수 조회
-			req.setAttribute("productList", productList);// 상품 리스트
-			req.setAttribute("cartList", cartList);// 장바구니 리스트
+			if(scopeId.equals(id)) {
+				req.setAttribute("id", id);
+				// service에 보냄[장바구니에서 받아온값들을 이용해서 상품조회]
+				List<Product> productList = pService.myCartProduct(id);
+				List<MyCart> cartList = pService.cartList(id);
+				req.setAttribute("cartCount", pService.cartCount(id));// id로 장바구니 총 개수 조회
+				req.setAttribute("productList", productList);// 상품 리스트
+				req.setAttribute("cartList", cartList);// 장바구니 리스트
+				path = "checkout.jsp";
+			}else {
+				session.setAttribute("msg", "잘못된 접근");
+				path="index.jsp";
+			}
 			
-			path = "checkout.jsp";
-
 		} else if (task.equals("buy")) {
 			String id = req.getParameter("id");
-			List<Product> productList = pService.myCartProduct(id);
-			List<MyCart> cartList = pService.cartList(id);
-
-			req.setAttribute("productList", productList);
-			req.setAttribute("cartList", cartList);
-			path = "payment.jsp";
+			
+			if(scopeId.equals(id)) {
+				List<Product> productList = pService.myCartProduct(id);
+				List<MyCart> cartList = pService.cartList(id);
+				
+				req.setAttribute("productList", productList);
+				req.setAttribute("cartList", cartList);
+				path = "payment.jsp";
+			}else {
+				session.setAttribute("msg", "잘못된 접근");
+				path="index.jsp";
+			}
 		} else if (task.equals("payment")) {
 			String id = req.getParameter("id");
-			HttpSession session = req.getSession();
+			if(scopeId.equals(id)){
+				pService.buylistInsert(id);
+				// 결제완료될때 DB에서 장바구니 삭제
 
-			pService.buylistInsert(id);
-			// 결제완료될때 DB에서 장바구니 삭제
-
-			session.setAttribute("msg", "결제 완료");
-			path = "index.jsp";
+				session.setAttribute("msg", "결제 완료");
+				path = "index.jsp";	
+			}else {
+				session.setAttribute("msg", "잘못된 접근");
+				path="index.jsp";
+			}
 		}
 		RequestDispatcher dispacther = req.getRequestDispatcher(path);
 		dispacther.forward(req, resp);
