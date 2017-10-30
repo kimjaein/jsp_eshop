@@ -489,7 +489,7 @@ public class ProductDao {
 	// 상품명을 이용해서 color 리스트만 뽑아오기
 	public List<String> colorList(String title) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT COLOR FROM PRODUCT WHERE TITLE LIKE ? GROUP BY SIZE";
+		String sql = "SELECT COLOR FROM PRODUCT WHERE TITLE LIKE ? GROUP BY COLOR";
 		List<String> colorlist = new ArrayList<>();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -513,7 +513,7 @@ public class ProductDao {
 	// 상품명을 이용해서 color 리스트만 뽑아오기
 	public List<String> sizeList(String title) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT SIZE FROM PRODUCT WHERE TITLE LIKE ? GROUP BY COLOR";
+		String sql = "SELECT SIZE FROM PRODUCT WHERE TITLE LIKE ? GROUP BY SIZE ORDER BY DATE ASC";
 		List<String> sizelist = new ArrayList<>();
 		try {
 			pstmt = con.prepareStatement(sql);
