@@ -169,15 +169,14 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectMiddleCategory(String middleCategory, int startRow, int count, String option) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=? GROUP BY TITLE ORDER BY ? ASC LIMIT ?,?";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE MIDDLE_CATEGORY=? GROUP BY TITLE ORDER BY "+option+" ASC LIMIT ?,?";
 		List<Product> productList = new ArrayList<>();
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, middleCategory);
-			pstmt.setString(2, option);
-			pstmt.setInt(3, startRow);
-			pstmt.setInt(4, count);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, count);
 			rs = pstmt.executeQuery(); // SQL 실행
 
 			while (rs.next()) {
@@ -204,15 +203,14 @@ public class ProductDao {
 	///////////////////////////////////////////////////////////////////////////////
 	public List<Product> selectLargeCategory(String largeCategory, int startRow, int count, String option) {
 		con = DBUtil.makeConnection();
-		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE LARGE_CATEGORY=? GROUP BY TITLE ORDER BY ? ASC LIMIT ?,?";
+		String sql = "SELECT PRODUCT_NUM, TITLE, PRICE, LARGE_CATEGORY, MIDDLE_CATEGORY FROM PRODUCT WHERE LARGE_CATEGORY=? GROUP BY TITLE ORDER BY "+option+" ASC LIMIT ?,?";
 		List<Product> productList = new ArrayList<>();
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, largeCategory);
-			pstmt.setString(2, option);
-			pstmt.setInt(3, startRow);
-			pstmt.setInt(4, count);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, count);
 			rs = pstmt.executeQuery(); // SQL 실행
 
 			while (rs.next()) {

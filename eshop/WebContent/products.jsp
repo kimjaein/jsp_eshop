@@ -40,11 +40,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(function(){
 		$('#selectimg').click(function(){
 			var select = $('#selectBox option:selected').text()
-			var url = $(this).attr('href')+select;
-				
-			location.href = url;
+			var selectUrl = $(this).attr('href')+select;
+			alert(selectUrl);
+			$(this).attr('href',selectUrl);	
+// 			location.href = selectUrl;
 			
-			alert(url);
 			
 		})
 	})
@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                	 		<div class="sort-by">
 			            	<label>Sort By</label>
 			            	<select id="selectBox">
-			            		<option value="recent">DATE</option>
+			            		<option value="recent" >DATE</option>
 			                	<option value="name">TITLE</option>
 			                    <option value="price">PRICE</option>
 			           		</select>
@@ -172,8 +172,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h3 class="head text-center"> 상품이 존재하지 않습니다. </h3>
 								</div>
 							</c:when>
-							<c:otherwise>		
-														
+							<c:otherwise>
+									
 								<c:forEach var="categoryProduct" items="${categoryPage.productList}">
 								
 							  <li>

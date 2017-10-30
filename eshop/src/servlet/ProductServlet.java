@@ -28,6 +28,7 @@ public class ProductServlet extends HttpServlet{
 		String task=request.getParameter("task");
 		String path="";
 		
+		
 		if(task.equals("start")) {
 		List<Product> recentProductList = service.selectRecentProduct();
 		List<Product> bestProductList = service.selectBestProduct();
@@ -56,6 +57,8 @@ public class ProductServlet extends HttpServlet{
 			String pageStr = request.getParameter("p");
 			String option = request.getParameter("option");
 			
+			System.out.println("option:"+option);
+			
 			int page = 1;
 			if(pageStr != null && !pageStr.isEmpty()) {
 				page = Integer.parseInt(pageStr);
@@ -68,13 +71,13 @@ public class ProductServlet extends HttpServlet{
 			request.setAttribute("categoryPage", productPage);
 
 			
-			
 			path="products.jsp";
 
 		} else if(task.equals("largeCategory")) {
 			String largeList = request.getParameter("largeList");
 			String pageStr = request.getParameter("p");
 			String option = request.getParameter("option");
+			System.out.println("option:"+option);
 			
 			int page = 1;
 			if(pageStr != null && !pageStr.isEmpty()) {
@@ -85,6 +88,7 @@ public class ProductServlet extends HttpServlet{
 			
 			request.setAttribute("type", task);
 			request.setAttribute("categoryPage", productPage);
+			
 			
 			path="products.jsp";
 		
