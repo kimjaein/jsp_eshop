@@ -41,9 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$('#selectimg').click(function(){
 			var select = $('#selectBox option:selected').text()
 			var selectUrl = $(this).attr('href')+select;
-			alert(selectUrl);
 			$(this).attr('href',selectUrl);	
-// 			location.href = selectUrl;
 			
 			
 		})
@@ -101,8 +99,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</c:otherwise>
 							
 								
-								
 						</c:choose>
+						
 					</ul>
 					<p class="back"><a href="index.jsp">Back to Previous</a></p>
 					<div class="clearfix"></div>
