@@ -116,7 +116,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			           		</select>
 <!-- 			           		Á¤·Ä -->
 							<c:choose>
-							
+							<c:when test="${empty categoryPage.productList}">
+							</c:when>
+							<c:otherwise>
+									<c:choose>
 									<c:when test = "${type eq 'largeCategory'}">
 			            				<a href="product?task=largeCategory&p=${categoryPage.currentPage}&largeList=${categoryPage.productList.get(0).large_Category}&option=" id="selectimg"><img src="images/find.png" alt="" class="v-middle"></a>
 									</c:when>		
@@ -124,7 +127,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<c:otherwise>
 			            				<a href="product?task=middleCategory&p=${categoryPage.currentPage}&middleList=${categoryPage.productList.get(0).middle_Category}&option=" id="selectimg"><img src="images/find.png" alt="" class="v-middle"></a>
 									</c:otherwise>					
+									</c:choose>
+
+							</c:otherwise>
 							</c:choose>
+							
 							
 	                   </div>
 	    		    </div>
