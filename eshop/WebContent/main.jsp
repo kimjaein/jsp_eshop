@@ -168,7 +168,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<c:choose>
 					<c:when test="${empty recentProductList}">
 						<div class="banner-info">
-							<h3>상품이 존재하지 않습니다.</h3>
+							<div class="banner-info">
+								<h3 class="head text-center"> 상품이 존재하지 않습니다.</h3>
+								 <h3><br><br></h3>
+							</div>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -219,7 +222,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<c:choose>
 			<c:when test="${empty bestProductList}">
 				<div class="banner-info">
-					<h3>상품이 존재하지 않습니다.</h3>
+					<div class="banner-info">
+						<h3 class="head text-center"> 상품이 존재하지 않습니다. </h3>
+					</div>
 				</div>
 			</c:when>
 			<c:otherwise>
