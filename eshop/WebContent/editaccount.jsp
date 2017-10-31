@@ -57,13 +57,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					alert('패스워드를 입력하세요.');
 					$('#pw1').focus();
 					return false;
-				}
-				else if($('#pw2').val()== null || $('#pw2').val()==''){
+				}else if($('#pw2').val()== null || $('#pw2').val()==''){
 					alert('패스워드를 입력하세요.');
 					$('#pw2').focus();
 					return false;
 				}else if($('#pw1').val() != $('#pw2').val()){
 					alert('패스워드가 일치하지 않습니다');
+					return false;
+				}else if($('input[name=username]').val() ==null || $('input[name=username]').val()==''){
+					alert('이름을 입력하세요');
+					return false;
+				}else if($('input[name=userphone]').val() == null || $('input[name=userphone]').val()==''){
+					alert('휴대폰번호를 입력하세요');
+					return false;
+				}else if($('input[name=useremail]').val() == null || $('input[name=useremail]').val() == ''){
+					alert('이메일을 입력하세요');
+					return false;
+				}else if($('input[name=useraddress]').val() == null || $('input[name=useraddress]').val() == ''){
+					alert('주소를 입력하세요')
 					return false;
 				}
 				document.form.submit();
