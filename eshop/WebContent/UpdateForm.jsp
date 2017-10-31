@@ -1,28 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Eshop a Flat E-Commerce Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Eshop a Flat E-Commerce Bootstrap Responsive Website
+	Template | Home :: w3layouts</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+<meta name="keywords"
+	content="Eshop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
 <!--webfont-->
 <!-- for bootstrap working -->
-	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 <!-- //for bootstrap working -->
 <!-- cart -->
-	<script src="js/simpleCart.min.js"> </script>
+<script src="js/simpleCart.min.js">
+	
+</script>
 <!-- cart -->
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/flexslider.css" type="text/css"
+	media="screen" />
 </head>
 <body>
 	<jsp:include page="top.jsp"></jsp:include>
@@ -37,33 +45,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<br>
 
 					</thead>
-						<form action="<%=request.getContextPath()%>/board" method="post">
-					<tbody>
-							<input type="hidden" name="writer" value="${sessionScope.loginId}" /><!-- session.loginId 받아오기 -->
+					<form action="<%=request.getContextPath()%>/board" method="post">
+						<tbody>
+							<input type="hidden" name="writer"
+								value="${sessionScope.loginId}" />
+							<!-- session.loginId 받아오기 -->
 							<input type="hidden" name=task value="update" />
-							<input type="hidden" name=articleNum value="${origin.articleNum}"/>
-						<tr>
-							<td>제목:</td>
-							<td><input type="text" 
-								name="title" class="form-control" value="${origin.title}"/></td>
-						</tr>
-						<tr>
-							<td>내용:</td>
-							<td><textarea cols="10" rows=20 
-									name="contents" class="form-control">${origin.contents}</textarea></td>
-						</tr>
+							<input type="hidden" name=articleNum value="${origin.articleNum}" />
+							<tr>
+								<td>제목:</td>
+								<td><input type="text" name="title" class="form-control"
+									value="${origin.title}" /></td>
+							</tr>
+							<tr>
+								<td>내용:</td>
+								<td><textarea cols="10" rows=20 name="contents"
+										class="form-control">${origin.contents}</textarea></td>
+							</tr>
 
-						<tr>
-							<td colspan="2">
-								<ol class="breadcrumb">
-									<li><input type="submit" value="수정" class="acount-btn"/></li>
-									<li><a href="board?task=boardList&type=qna"  class="acount-btn">목록으로</a></li>
-								</ol>
+							<tr>
+								<td colspan="2">
+									<ol class="breadcrumb">
+										<li><input type="submit" value="수정" class="acount-btn" /></li>
+										<li><a href="board?task=boardList&type=qna"
+												class="acount-btn">목록으로</a></li>
+									</ol>
 
-							</td>
-						</tr>
-					</tbody>
-						</form>
+								</td>
+							</tr>
+						</tbody>
+					</form>
 				</table>
 			</div>
 		</center>
