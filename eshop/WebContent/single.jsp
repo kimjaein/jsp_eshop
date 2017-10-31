@@ -136,8 +136,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h2>our Products</h2>
 					<ul class="product-list">
 						<li><a href="product?task=largeCategory&largeList=OUTER">OUTER</a></li>
+						<li><a href="product?task=middleCategory&middleList=COAT">&nbsp;>&nbsp; COAT</a></li>
+						<li><a href="product?task=middleCategory&middleList=PADDING">&nbsp;>&nbsp; PADDING</a></li>
+						<li><a href="product?task=middleCategory&middleList=JACKET">&nbsp;>&nbsp; JACKET</a></li>
+						
 						<li><a href="product?task=largeCategory&largeList=TOP">TOP</a></li>
+						<li><a href="product?task=middleCategory&middleList=LONG SLEEVE">&nbsp;>&nbsp; LONG SLEEVE</a></li>
+						<li><a href="product?task=middleCategory&middleList=SHORT SLEEVE">&nbsp;>&nbsp; SHORT SLEEVE</a></li>
+						<li><a href="product?task=middleCategory&middleList=SLEEVELESS">&nbsp;>&nbsp; SLEEVELESS</a></li>
+						
 						<li><a href="product?task=largeCategory&largeList=BOTTOM">BOTTOM</a></li>
+						<li><a href="product?task=middleCategory&middleList=SLACKS">&nbsp;>&nbsp; SLACKS</a></li>
+						<li><a href="product?task=middleCategory&middleList=JEANS">&nbsp;>&nbsp; JEANS</a></li>
+						<li><a href="product?task=middleCategory&middleList=SHORT">&nbsp;>&nbsp; SHORT</a></li>
 					</ul>
 				</div>
 
