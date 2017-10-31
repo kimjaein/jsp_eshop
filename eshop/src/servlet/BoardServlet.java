@@ -88,7 +88,7 @@ public class BoardServlet extends HttpServlet{
     		System.out.println(article);
     		request.setAttribute("origin",article);
     		
-    		path="QnAUpdate.jsp";
+    		path="UpdateForm.jsp";
     	}else if(task.equals("delete")) {
     		String writer = request.getParameter("writer");
     		String articleNumStr = request.getParameter("articleNum");
