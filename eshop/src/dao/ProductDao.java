@@ -386,6 +386,26 @@ public class ProductDao {
 		}
 		return result;
 	}
+	public int cartAllDelete(String id) {
+		con = DBUtil.makeConnection();
+		int result = 0;
+		String sql = "DELETE FROM MYCART WHERE USER=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, id);
+
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Product Dao cartDelete 에러");
+			e.printStackTrace();
+		} finally {
+			DBUtil.closePstmt(pstmt);
+			DBUtil.closeCon(con);
+		}
+		return result;
+	}
 
 	/////////////////////////////////////////////////
 	// 장바구니 추가 메소드

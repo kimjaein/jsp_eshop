@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import dao.BoardDao;
 import dao.BuylistDao;
 import dao.MemberDao;
 import dao.ProductDao;
@@ -67,11 +68,9 @@ public class MemberService {
 	}
 	
 	public boolean deleteMember(String id) {
-		List<MyCart> cartList = ProductDao.getInstance().cartList(id);
-		for(int i = 0; i<cartList.size();i++) {
-			ProductDao.getInstance().cartDelete(id, cartList.get(i).getProduct_num());
-		}
+		ProductDao.getInstance().cartAllDelete(id);
 		BuylistDao.getInstance().deleteBuylist(id);
+		BoardDao.getInstance().deleteAllbyID(id);
 		if(dao.deleteMember(id)==1) {
 			return true;
 		}else {

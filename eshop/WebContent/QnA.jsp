@@ -30,21 +30,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script type="text/javascript">
 $(function(){
-	var loginId = $('#loginId').val();
+	var loginId = $('#loginId').attr('value');
+	var writer;
 	$('.titlelink').click(function(){
 		var list = $(this).attr('value');
+		var url =$(this).attr('href');
 		$.ajax({
 			type:'post',
 			url:'board?task=qnaRead&list='+list,
 			dataType:'text', 
 			success:function(result){
-				if(loginId != 'admin' && loginId != 'admin'){
-					
+				if(loginId != result && loginId != 'admin'){
 					alert("작성자만 읽을 수 있습니다.")
 					return false;
-					
 				}else{
-					
+					location.href=url;
 				}
 			},
 			error:function(){
@@ -56,10 +56,14 @@ $(function(){
 	})
 	
 	$('#write').click(function(){
-		if(loginId ==null){
+		var url =$(this).attr('href');
+		if(loginId == null || loginId==""){
 			alert("로그인 하세요");
 			return false;
+		}else{
+			location.href=url;
 		}
+		return false;
 	})
 	
 })

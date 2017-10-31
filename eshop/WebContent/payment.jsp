@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,6 +61,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 	<jsp:include page="top.jsp" />
 	<c:set var="sum" value="0" />
+	
+	
+	
 	<div class="content">
 		<div class="container">
 			<div class="page-header">
@@ -87,8 +91,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<td><a href="${pageContext.request.contextPath}/product?task=detail&title=${list.title}">${list.title}</a></td>
 									<td>${list.size }</td>
 									<td>${list.color }</td>
-									<td>${cartList[status.index].cart_quantity}</td>
-									<td>${list.price *cartList[status.index].cart_quantity}</td>
+									<td>${cartList[status.index].cart_quantity} 개</td>
+									<td>${list.price *cartList[status.index].cart_quantity} 원</td>
 									<c:set var="sum"
 										value="${sum + list.price * cartList[status.index].cart_quantity}"></c:set>
 									<td><a href="#" onclick="cancelCart(${list.product_num});">
@@ -99,12 +103,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tbody>
 					</table>
 				</div>
-
+	총 상품 금액 : <fmt:formatNumber value="${sum}" type="number"/> 원
 				<h4>5만원 이상 구매시 무료배송</h4>
 				<c:if test="${sum >= 200000}">
 					<h4>
 						20만원 이상 구매하여 10% <font
-							style="color: white; background-color: rgb(129, 98, 99);">${sum * 0.1}</font>원
+							style="color: white; background-color: rgb(129, 98, 99);"><fmt:formatNumber value="${sum*0.1}" type="number"/></font>원
 						할인 되었습니다.
 					</h4>
 					<c:set var="sum" value="${sum * 0.9}" />
@@ -117,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</c:if>
 				<h3>
 					<b>${sessionScope.loginId}</b>님 총 결제금액은 <font
-						style="color: white; background-color: rgb(129, 98, 99);">${sum}</font>원
+						style="color: white; background-color: rgb(129, 98, 99);"><fmt:formatNumber value="${sum}" type="number"/></font>원
 					입니다.
 				</h3>
 				<center>
@@ -127,6 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</c:if>
 		</div>
 	</div>
+	
 	<jsp:include page="bottom.jsp"></jsp:include>
 </body>
 </html>

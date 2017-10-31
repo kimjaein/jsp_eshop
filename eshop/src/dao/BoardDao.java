@@ -282,6 +282,25 @@ public class BoardDao {
 		}
 		return result;
 	}
+	public int deleteAllbyID(String writer) {
+		con=DBUtil.makeConnection();
+		String sql = "DELETE FROM BOARD WHERE WRITER=?";
+		int result=0;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,writer);
+			
+			result =pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.closeCon(con);
+			DBUtil.closePstmt(pstmt);
+		}
+		return result;
+	}
 	public int update(Article article) {
 		con=DBUtil.makeConnection();
 		String sql= "UPDATE BOARD SET TITLE=?,CONTENTS=?,WRITE_Date=? WHERE ARTICLE_NUM=? ";

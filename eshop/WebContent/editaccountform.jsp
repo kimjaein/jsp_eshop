@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="clearfix"></div>
 		<p><br></p>
 		<h2>정보 수정</h2>
-		${sessionScope.loginId}
+		사용자ID : ${sessionScope.loginId}
 		<div class="registration-grids">
 			<div class="reg-form">
 				<div class="reg">
