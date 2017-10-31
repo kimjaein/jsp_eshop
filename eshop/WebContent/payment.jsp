@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tbody>
 					</table>
 				</div>
-<fmt:formatNumber value="${sum}" type="number"/>
+	총 상품 금액 : <fmt:formatNumber value="${sum}" type="number"/> 원
 				<h4>5만원 이상 구매시 무료배송</h4>
 				<c:if test="${sum >= 200000}">
 					<h4>
