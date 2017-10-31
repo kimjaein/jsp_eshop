@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script type="text/javascript">
 $(function(){
-	var loginId = $('#loginId').val();
+	var loginId = $('#loginId').attr('value');
 	var writer;
 	$('.titlelink').click(function(){
 		var list = $(this).attr('value');
@@ -56,10 +56,14 @@ $(function(){
 	})
 	
 	$('#write').click(function(){
-		if(loginId ==null){
+		var url =$(this).attr('href');
+		if(loginId == null || loginId==""){
 			alert("로그인 하세요");
 			return false;
+		}else{
+			location.href=url;
 		}
+		return false;
 	})
 	
 })

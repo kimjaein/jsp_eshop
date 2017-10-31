@@ -46,9 +46,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/new.css" type="text/css" />
 <script type="text/javascript">
 	$(function() {
-		$('.recomment')
-				.click(
+		var flag = 0;
+		var loginId=$('.loginId').attr('value');
+		$('.recomment').click(
 						function() {
+							if(loginId != null){
+							if(flag == 0){
+								flag=1;
 							var html = ''
 									+ '<div class="media response-info reply">'
 									+ '	<form action="comment" method="post">'
@@ -67,6 +71,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									+ '	<li><input type="submit" value="입력" class="acount-btn2"></li>'
 									+ '</ul>' + '</div>' + '</form>' + '</div>'
 							$(this).after(html);
+							}
+							}else{
+								alert("로그인 해주세요");
+							}
 
 						})
 	})
@@ -295,8 +303,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<div class="media-left response-text-left">
 													<c:forEach var="i" begin="1"
 														end="${comment.c_level.length()-1}">
-								&nbsp;&nbsp;
-								</c:forEach>
+													&nbsp;&nbsp;
+													</c:forEach>
 												</div>
 											</c:if>
 											<li class="recomment" value="${comment.commentNum}">Reply</li>
@@ -304,8 +312,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<hr class=hr>
 									</c:forEach>
 								</c:if>
-
-								<div class="media response-info">
+								<c:choose>
+									<c:when  test="${empty sessionScope.loginId}">
+										<div class="media response-info">
+											<h5>로그인을 해야 후기를 작성할 수 있습니다.</h5>
+										</div>
+									</c:when>
+									<c:otherwise>
+												<div class="media response-info">
 									<div class="media-left response-text-left">
 										<h5>
 											<a href="#">${sessionScope.loginId}</a>
@@ -313,7 +327,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div class="media-body response-text-right">
 										<form action="comment" method="post">
-											<input type="hidden" name="writer"
+											<input type="hidden" name="writer" class="loginId"
 												value="${sessionScope.loginId}"> <input
 												type="hidden" name="title" value="${singleProduct.title}">
 											<input type="hidden" name="task" value="write">
@@ -326,6 +340,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</form>
 									</div>
 								</div>
+									</c:otherwise>
+								</c:choose>
+					
 							</div>
 						</div>
 					</div>
