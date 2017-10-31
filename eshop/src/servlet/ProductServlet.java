@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ProductDao;
 import service.CommentService;
 import service.ProductService;
 import vo.Comment;
@@ -20,7 +19,6 @@ import vo.ProductPage;
 @WebServlet("/product")
 public class ProductServlet extends HttpServlet{
 	private ProductService service = ProductService.getInstance();
-	private ProductDao dao = ProductDao.getInstance();
 	private CommentService serviceComment = CommentService.getInstance();
 	
 	@Override

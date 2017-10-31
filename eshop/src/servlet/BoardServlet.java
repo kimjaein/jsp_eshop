@@ -33,7 +33,6 @@ public class BoardServlet extends HttpServlet{
         if(task.equals("writeForm")) {
         	HttpSession session=request.getSession();
         	String loginId =(String)session.getAttribute("loginId");
-        	loginId="wodls";
         	if(loginId==null ||loginId.isEmpty()) {
         		path="account.jsp";
         	}else {
