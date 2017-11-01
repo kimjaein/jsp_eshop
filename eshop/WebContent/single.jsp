@@ -124,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				data : {"id" : id, "size" : size, "color" : color, "title" : title, "quantity" : quantity},
 				success : function(plusComplete) {
 					console.log('구매 화면으로');
-					location.href="/eshop/test?task=buy&id="+id;
+					location.href="${pageContext.request.contextPath}/test?task=buy&id="+id;
 				},
 				error : function() {
 					alert("ajax 요청이 전달되지 못함.")
