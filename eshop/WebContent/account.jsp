@@ -104,8 +104,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span>비밀번호<label>*</label></span> 
 								<input type="password" id="pw" name="pw" placeholder="비밀번호를 입력하세요.">
 							</div>
-
-							<a class="forgot" href="#">비밀번호를 잊으셨나요?</a> 
 							<input type="submit" value="로그인">
 						</form>
 					</div>
