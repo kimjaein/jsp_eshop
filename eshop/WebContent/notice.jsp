@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</tr>
 				<tr>
 					<c:if test="${sessionScope.loginId=='admin'}">
-						<a href="<%=request.getContextPath()%>/board?task=writeForm" class="acount-btn" id="write">글쓰기</a>
+						<a href="<%=request.getContextPath()%>/board?task=writeForm&type=notice" class="acount-btn" id="write">글쓰기</a>
 					</c:if>
 				</tr>
              </tbody>

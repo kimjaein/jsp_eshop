@@ -33,7 +33,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<table class="table table-bordered ">
 					<thead>
 						<br>
-						<h1 id="h1.-bootstrap-heading">QnA</h1>
+						<h1 id="h1.-bootstrap-heading">
+						<c:if test="${requestScope.type eq 'notice'}">
+							Notice
+						</c:if>
+						<c:if test="${requestScope.type eq 'qna'}">
+							QnA
+						</c:if>
+						</h1>
 						<br>
 
 					</thead>
@@ -41,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<tbody>
 							<input type="hidden" name="writer" value="${sessionScope.loginId}" /><!-- session.loginId 받아오기 -->
 							<input type="hidden" name=task value="write" />
-							<input type="hidden" name=type value="qna" />
+							<input type="hidden" name=type value="${requestScope.type}" />
 						<tr>
 							<td>제목:</td>
 							<td><input type="text" placeholder="제목을 입력하세요. "
@@ -58,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<ol class="breadcrumb">
 									<li><input type="submit" value="등록" class="acount-btn"/></li>
 									<li><input type="reset" value="reset" class="acount-btn"/></li>
-									<li><a href="board?task=boardList&type=qna"  class="acount-btn">목록으로</a></li>
+									<li><a href="board?task=boardList&type=${requestScope.type}"  class="acount-btn">목록으로</a></li>
 								</ol>
 
 							</td>

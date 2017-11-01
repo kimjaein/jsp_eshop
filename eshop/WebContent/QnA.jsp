@@ -162,7 +162,7 @@ $(function(){
 				</tr>
 				<tr>
 					<td colspan =5>
-						<a href="<%=request.getContextPath()%>/board?task=writeForm" class="acount-btn" id="write">글쓰기</a>
+						<a href="<%=request.getContextPath()%>/board?task=writeForm&type=qna" class="acount-btn" id="write">글쓰기</a>
 					<td>
 				</tr>
              </tbody>

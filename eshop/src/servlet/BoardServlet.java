@@ -33,9 +33,13 @@ public class BoardServlet extends HttpServlet{
         if(task.equals("writeForm")) {
         	HttpSession session=request.getSession();
         	String loginId =(String)session.getAttribute("loginId");
+        	
+        	String type=request.getParameter("type");
+        	
         	if(loginId==null ||loginId.isEmpty()) {
         		path="account.jsp";
         	}else {
+        		request.setAttribute("type", type);
         		path="QnaWrite.jsp";
         	}
         }else if(task.equals("boardList")) {
@@ -111,14 +115,15 @@ public class BoardServlet extends HttpServlet{
 		
 		if(task.equals("write")) {
 			Article article = new Article();
-			article.setBoardName(request.getParameter("type"));
+			String type=request.getParameter("type");
+			article.setBoardName(type);
 			article.setTitle(request.getParameter("title"));
 			article.setWriter(request.getParameter("writer"));
 			article.setContents(request.getParameter("contents"));
 			boolean result =service.writeArticle(article);
 			
-			path="board?task=boardList&type=qna";
-			response.sendRedirect("board?task=boardList&type=qna");
+			path="board?task=boardList&type="+type;
+			response.sendRedirect(path);
 			return;
 		}else if(task.equals("reply")) {
     		Article article =new Article();
