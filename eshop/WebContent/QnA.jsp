@@ -105,9 +105,11 @@ $(function(){
 					</c:when>
 					<c:otherwise>
 					<ul id="link-top">
+						<c:set var="j" value="${articlePage.articleList.size()}"/>
 						<c:forEach var="article" items="${articlePage.articleList}">
 							<tr>
-								<td>${article.articleNum}</td>
+								<td>${j}</td>
+								<c:set var="j" value="${j-1}"/>
 								<td>
 								<a class="titlelink" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}&type=qna" >
 										<c:if test="${article.depth.length() >1}">

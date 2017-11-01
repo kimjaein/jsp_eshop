@@ -61,9 +61,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</c:when>
 					<c:otherwise>
 					<ul id="link-top">
+					<c:set var="i" value="${articlePage.articleList.size()}"/>
 						<c:forEach var="article" items="${articlePage.articleList}">
 							<tr>
-								<td>${article.articleNum}</td>
+								<td>${i}</td>
+								<c:set var="i" value="${i-1}"/>
 								<td>
 								<a class="titlelink" value="${article.list}" href="${myContextPath}/board?task=read&articleNum=${article.articleNum}&type=notice" >
 										<c:if test="${article.depth.length() >1}">
