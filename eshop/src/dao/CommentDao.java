@@ -180,4 +180,24 @@ public class CommentDao {
 		}
 		return result;
 	}
+	public int deleteAllbyID(String writer) {
+			con=DBUtil.makeConnection();
+			String sql = "DELETE FROM COMMENT WHERE WRITER=?";
+			int result=0;
+			try {
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1,writer);
+				
+				result =pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				DBUtil.closeCon(con);
+				DBUtil.closePstmt(pstmt);
+			}
+			return result;
+		}
+	
 }
