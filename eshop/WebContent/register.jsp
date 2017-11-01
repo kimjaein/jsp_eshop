@@ -53,6 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </style>
 <script type="text/javascript">
 	$(function(){
+		var check=0;
 		// 아이디 중복여부 검사
 		$('#idCheck').click(function(){
 			var id = $('#id').val();
@@ -69,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					
 					if(idCheck == null || idCheck == 'null'){
 						alert('사용할수 있는 아이디입니다.')
-						document.form.submit.disabled = false;
+						check=1;
 					}
 					
 					else{
@@ -115,6 +116,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			else if($('#email').val()== null || $('#email').val()==''){
 				alert('이메일을 입력하세요.');
 				$('#email').focus();
+				return false;
+			}else if(check == 0){
+				alert("중복체크 해주세요");
 				return false;
 			}
 			document.form.submit();
@@ -184,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <li class="text-info">이메일:</li>
 							 <li><input type="text" id="email" name="email" placeholder="메일 주소를 입력하세요."></li>
 						 </ul>						
-						 <input type="submit" name="submit" value="지금 가입하기" disabled="disabled">
+						 <input type="submit" name="submit" value="지금 가입하기">
 <!-- 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p>  -->
 					 </form>
 				 </div>
