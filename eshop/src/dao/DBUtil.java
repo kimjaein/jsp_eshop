@@ -18,7 +18,7 @@ public class DBUtil {
         } catch (ClassNotFoundException e) {
             System.out.println("드라이버 로딩오류");
             e.printStackTrace();
-        }
+        }	
     }
      
     public static Connection makeConnection() {
